@@ -81,8 +81,6 @@ namespace InforPlan
                         command.Parameters.Add(param);
                     }
                     dr = command.ExecuteReader();
-                    //MessageBox.Show("Nivel BDC" + dr.HasRows.ToString()); Teste para saber quantas linhas possui o datareader
-                    return dr;
                 }
             }
             catch (Exception ex)
@@ -90,17 +88,13 @@ namespace InforPlan
                 erro = ex;
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-            //fecharConexao(); Sqldatareader é um objeto volátil que só mantém seus dados enquanto a conexão estiver aberta, portanto a conexão só poderá ser fechado quando os dados forem descarregados
-            }
 
             if (erro != null)
             {
                 throw erro;
             }
 
-            return command.ExecuteReader();
+            return dr;
         }
 
         //HELPERS

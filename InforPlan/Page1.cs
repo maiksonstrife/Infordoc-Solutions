@@ -96,6 +96,27 @@ namespace InforPlan
                 PlanilhaDAO.Insert(_planilha);                      //Insere o objeto  no banco
                 ListBox1.Items.Add(_planilha.Data + _planilha.Filial + _planilha.Ano + _planilha.Caixa + _planilha.Protocolo); //preenche ListBox
             }
-        }  
+        }
+
+        private void txtArquivo_TextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void InserirPlanilhaImage_DragDrop(object sender, DragEventArgs e)
+        {
+
+            InserirPlanilhaImage.ShowActiveImage = true;
+        }
+
+        private void InserirPlanilhaImage_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
     }
 }

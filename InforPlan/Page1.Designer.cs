@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtArquivo = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.ListBox1 = new System.Windows.Forms.ListBox();
             this.txtTempo = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -41,6 +40,8 @@
             this.btnSelecionaPlanilha = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.txtArquivo = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.InserirPlanilhaImage = new Bunifu.UI.WinForms.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,49 +64,6 @@
             this.openFileDialog1.FileName = "Nome Arquivo";
             this.openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // txtArquivo
-            // 
-            this.txtArquivo.AcceptsReturn = true;
-            this.txtArquivo.AcceptsTab = true;
-            this.txtArquivo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtArquivo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtArquivo.BackColor = System.Drawing.Color.Transparent;
-            this.txtArquivo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtArquivo.BackgroundImage")));
-            this.txtArquivo.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            this.txtArquivo.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.txtArquivo.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
-            this.txtArquivo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.txtArquivo.BorderRadius = 1;
-            this.txtArquivo.BorderThickness = 2;
-            this.txtArquivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtArquivo.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtArquivo.DefaultText = "";
-            this.txtArquivo.FillColor = System.Drawing.Color.White;
-            this.txtArquivo.HideSelection = true;
-            this.txtArquivo.IconLeft = null;
-            this.txtArquivo.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.txtArquivo.IconPadding = 10;
-            this.txtArquivo.IconRight = null;
-            this.txtArquivo.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txtArquivo.Location = new System.Drawing.Point(3, 145);
-            this.txtArquivo.MaxLength = 32767;
-            this.txtArquivo.MinimumSize = new System.Drawing.Size(100, 35);
-            this.txtArquivo.Modified = false;
-            this.txtArquivo.Name = "txtArquivo";
-            this.txtArquivo.PasswordChar = '\0';
-            this.txtArquivo.ReadOnly = false;
-            this.txtArquivo.SelectedText = "";
-            this.txtArquivo.SelectionLength = 0;
-            this.txtArquivo.SelectionStart = 0;
-            this.txtArquivo.ShortcutsEnabled = true;
-            this.txtArquivo.Size = new System.Drawing.Size(654, 126);
-            this.txtArquivo.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txtArquivo.TabIndex = 4;
-            this.txtArquivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtArquivo.TextMarginLeft = 5;
-            this.txtArquivo.TextPlaceholder = "";
-            this.txtArquivo.UseSystemPasswordChar = false;
             // 
             // ListBox1
             // 
@@ -206,7 +164,7 @@
             this.btnSelecionaPlanilha.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.btnSelecionaPlanilha.IdleForecolor = System.Drawing.Color.Honeydew;
             this.btnSelecionaPlanilha.IdleLineColor = System.Drawing.Color.Transparent;
-            this.btnSelecionaPlanilha.Location = new System.Drawing.Point(5, 96);
+            this.btnSelecionaPlanilha.Location = new System.Drawing.Point(8, 279);
             this.btnSelecionaPlanilha.Margin = new System.Windows.Forms.Padding(5);
             this.btnSelecionaPlanilha.Name = "btnSelecionaPlanilha";
             this.btnSelecionaPlanilha.Size = new System.Drawing.Size(235, 41);
@@ -236,11 +194,92 @@
             this.bunifuDragControl1.TargetControl = null;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // txtArquivo
+            // 
+            this.txtArquivo.AcceptsReturn = true;
+            this.txtArquivo.AcceptsTab = true;
+            this.txtArquivo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtArquivo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtArquivo.BackColor = System.Drawing.Color.Transparent;
+            this.txtArquivo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtArquivo.BackgroundImage")));
+            this.txtArquivo.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.txtArquivo.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txtArquivo.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.txtArquivo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.txtArquivo.BorderRadius = 1;
+            this.txtArquivo.BorderThickness = 2;
+            this.txtArquivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtArquivo.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArquivo.DefaultText = "";
+            this.txtArquivo.FillColor = System.Drawing.Color.White;
+            this.txtArquivo.HideSelection = true;
+            this.txtArquivo.IconLeft = null;
+            this.txtArquivo.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.txtArquivo.IconPadding = 10;
+            this.txtArquivo.IconRight = null;
+            this.txtArquivo.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.txtArquivo.Location = new System.Drawing.Point(646, 84);
+            this.txtArquivo.MaxLength = 32767;
+            this.txtArquivo.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txtArquivo.Modified = false;
+            this.txtArquivo.Name = "txtArquivo";
+            this.txtArquivo.PasswordChar = '\0';
+            this.txtArquivo.ReadOnly = false;
+            this.txtArquivo.SelectedText = "";
+            this.txtArquivo.SelectionLength = 0;
+            this.txtArquivo.SelectionStart = 0;
+            this.txtArquivo.ShortcutsEnabled = true;
+            this.txtArquivo.Size = new System.Drawing.Size(118, 80);
+            this.txtArquivo.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txtArquivo.TabIndex = 4;
+            this.txtArquivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtArquivo.TextMarginLeft = 5;
+            this.txtArquivo.TextPlaceholder = "";
+            this.txtArquivo.UseSystemPasswordChar = false;
+            this.txtArquivo.TextChange += new System.EventHandler(this.txtArquivo_TextChange);
+            // 
+            // InserirPlanilhaImage
+            // 
+            this.InserirPlanilhaImage.ActiveImage = ((System.Drawing.Image)(resources.GetObject("InserirPlanilhaImage.ActiveImage")));
+            this.InserirPlanilhaImage.AllowAnimations = true;
+            this.InserirPlanilhaImage.AllowDrop = true;
+            this.InserirPlanilhaImage.AllowZooming = true;
+            this.InserirPlanilhaImage.BackColor = System.Drawing.Color.Transparent;
+            this.InserirPlanilhaImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InserirPlanilhaImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("InserirPlanilhaImage.ErrorImage")));
+            this.InserirPlanilhaImage.FadeWhenInactive = false;
+            this.InserirPlanilhaImage.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.InserirPlanilhaImage.Image = ((System.Drawing.Image)(resources.GetObject("InserirPlanilhaImage.Image")));
+            this.InserirPlanilhaImage.ImageActive = ((System.Drawing.Image)(resources.GetObject("InserirPlanilhaImage.ImageActive")));
+            this.InserirPlanilhaImage.ImageLocation = null;
+            this.InserirPlanilhaImage.ImageMargin = 40;
+            this.InserirPlanilhaImage.ImageSize = new System.Drawing.Size(164, 129);
+            this.InserirPlanilhaImage.ImageZoomSize = new System.Drawing.Size(204, 169);
+            this.InserirPlanilhaImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("InserirPlanilhaImage.InitialImage")));
+            this.InserirPlanilhaImage.Location = new System.Drawing.Point(8, 84);
+            this.InserirPlanilhaImage.Name = "InserirPlanilhaImage";
+            this.InserirPlanilhaImage.Rotation = 0;
+            this.InserirPlanilhaImage.ShowActiveImage = false;
+            this.InserirPlanilhaImage.ShowCursorChanges = true;
+            this.InserirPlanilhaImage.ShowImageBorders = true;
+            this.InserirPlanilhaImage.ShowSizeMarkers = true;
+            this.InserirPlanilhaImage.Size = new System.Drawing.Size(204, 169);
+            this.InserirPlanilhaImage.TabIndex = 12;
+            this.InserirPlanilhaImage.ToolTipText = "";
+            this.InserirPlanilhaImage.WaitOnLoad = true;
+            this.InserirPlanilhaImage.Zoom = 40;
+            this.InserirPlanilhaImage.ZoomSpeed = 10;
+            this.InserirPlanilhaImage.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.InserirPlanilhaImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.InserirPlanilhaImage_DragDrop);
+            this.InserirPlanilhaImage.DragEnter += new System.Windows.Forms.DragEventHandler(this.InserirPlanilhaImage_DragEnter);
+            // 
             // Page1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.InserirPlanilhaImage);
             this.Controls.Add(this.bunifuPictureBox1);
             this.Controls.Add(this.btnSelecionaPlanilha);
             this.Controls.Add(this.btnImportarPlanilha);
@@ -260,7 +299,6 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtArquivo;
         private System.Windows.Forms.ListBox ListBox1;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtTempo;
         private System.Windows.Forms.Timer timer1;
@@ -270,5 +308,7 @@
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
         public System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtArquivo;
+        private Bunifu.UI.WinForms.BunifuImageButton InserirPlanilhaImage;
     }
 }
