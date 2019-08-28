@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace InforPlan
 {
     public partial class Page1 : UserControl
     {
         //variaveis globais (acessadas por mais de um metodo)
-        String[] planilhaConteudo;
-        Planilha _planilha = new Planilha(); 
+        String[] pdfPathFiles;
+        String[] xmlPathFiles;
+        String pdfPath;
+        String xmlPath;
+        String result = null;
+        String result2 = null;
 
         public Page1()
         {
@@ -59,43 +64,43 @@ namespace InforPlan
 
         }
 
-        //BOTAO SELECIONAR PLANILHA
+        //BOTAO SELECIONAR PDF
         private void bunifuThinButton21_Click_1(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK) //Se abrir caixa dialogo foi  OK
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                planilhaConteudo = File.ReadAllLines(openFileDialog1.FileName); //preenche array por linhas txt
-                txtArquivo.Text = String.Join("\n", planilhaConteudo); //apresentar linhas carregadas
+                pdfPath = dialog.FileName;
+                pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+
+
+                foreach (string arq in pdfPathFiles)
+                {
+                    listBox2.Items.Add(arq);
+                }
             }
 
-
-            ListBox1.Items.Clear();
+            listBox3.Items.Clear();
         }
 
-        //BOTAO IMPORTAR PLANILA
+        //BOTAO SELECIONAR XML
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            if (txtArquivo != null)
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-               // goto continua;
+                xmlPath = dialog.FileName;
+                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray(); ;
+                foreach (string arq in xmlPathFiles)
+                {
+                    ListBox1.Items.Add(arq);
+                }
             }
-            else
-            {
-                MessageBox.Show("Selecione o Arquivo");
-                return;
-            }
-            //continua:
-            foreach (string line in planilhaConteudo) //foreach => laço que percorre linhas do array, Cada linha = novo objeto planilha
-            {
-                string[] parametros = line.Split(new string[] { ";" }, StringSplitOptions.None); //separa linha por ; e salva cada parametro em array
-                _planilha.Data = parametros[0].ToString();
-                _planilha.Filial = parametros[1].ToString();
-                _planilha.Ano = parametros[2].ToString();           //preenche membros do objeto com cada unidade de array
-                _planilha.Caixa = parametros[3].ToString();
-                _planilha.Protocolo = parametros[4].ToString();
-                PlanilhaDAO.Insert(_planilha);                      //Insere o objeto  no banco
-                ListBox1.Items.Add(_planilha.Data + _planilha.Filial + _planilha.Ano + _planilha.Caixa + _planilha.Protocolo); //preenche ListBox
-            }
+            listBox3.Items.Clear();
         }
 
         private void txtArquivo_TextChange(object sender, EventArgs e)
@@ -107,16 +112,83 @@ namespace InforPlan
         {
            
         }
-
+         
         private void InserirPlanilhaImage_DragDrop(object sender, DragEventArgs e)
         {
 
-            InserirPlanilhaImage.ShowActiveImage = true;
         }
 
         private void InserirPlanilhaImage_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
+        }
+
+        private void bunifuThinButton21_Click_2(object sender, EventArgs e)
+        {
+            int counter = 0;
+
+            // if campo pdf for igual a nulo => tratamento de erro alerta.atencao "escolher caminho pdf"
+            if (pdfPathFiles == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
+                return;
+            }
+            // if campo xml for igual a nulo => tratamento de erro alerta.atencao "escolher caminho xml"
+            if (xmlPathFiles == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
+                return;
+            }
+
+            foreach (string arq in pdfPathFiles) 
+            {
+
+                foreach (string arq2 in xmlPathFiles)
+                {
+                    //Remove caracteres depois de espaço do pdf =>arq
+                    if (arq.Contains(' '))
+                    {
+                        int index = arq.IndexOf(' '); // index = pega indice a partir da ocorrencia do caractere
+                        result = arq.Substring(0, index); //inicio da cadeia, fim da cadeia
+                    }
+
+                    //Remove caracteres antes da chave => 'NFe' =>arq2
+                    if (arq2.Contains("NFe"))
+                    {
+                        result2 = arq2.Remove(0, 3);
+                    }
+
+                    //Se nome pdf for igual xml copia para pasta pdf
+                    if (!string.IsNullOrEmpty(result) && result.Equals(result2)) //!string converte pra boolean 
+                    {
+                        string origem = xmlPath + "\\" + arq2 + ".xml";
+                        string destino = pdfPath + "\\" + arq2 + ".xml";
+                        File.Move(origem, destino);
+                        listBox3.Items.Add(result + ".pdf");
+                        listBox3.Items.Add(arq2);
+
+                        //Renomeia PDF original
+                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", result + ".pdf");
+                        //Limpa verificação
+                        result = null;
+                        result2 = null;
+                        counter += 1;
+                    }
+
+                }
+                
+                ListBox1.Items.Clear();
+                listBox2.Items.Clear();
+            }
+            // N xmls importados
+            new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
+            pdfPathFiles = null;
+            xmlPathFiles = null;
+        }
+
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
