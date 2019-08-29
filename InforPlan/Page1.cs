@@ -38,10 +38,9 @@ namespace InforPlan
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
+                listBoxPDF.Items.Clear();
                 pdfPath = dialog.FileName;
                 pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
-
-
                 foreach (string arq in pdfPathFiles)
                 {
                     listBoxPDF.Items.Add(arq);
@@ -58,8 +57,9 @@ namespace InforPlan
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
+                listBoxXML.Items.Clear();
                 xmlPath = dialog.FileName;
-                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray(); ;
+                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray(); 
                 foreach (string arq in xmlPathFiles)
                 {
                     listBoxXML.Items.Add(arq);
@@ -94,6 +94,8 @@ namespace InforPlan
             //verifica resposta
             if (verificacao == "sim")
             {
+                btnPararVerificacao.Enabled = true;
+                btnPararVerificacao.Update();
                 timer1.Start();
             }
 
@@ -110,9 +112,9 @@ namespace InforPlan
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            btnPararVerificacao.Enabled = true;
-            btnPararVerificacao.Update();
+
             ComparaArquivos();
+            new alerta("Timer funcionando", alerta.AlertType.atencao).Show();
         }
 
         private void btnPararVerificacao_Click(object sender, EventArgs e)
@@ -121,8 +123,15 @@ namespace InforPlan
             new alerta("Verificação Automática desabilitada", alerta.AlertType.info).Show();
         }
 
+        public  void montarPasta()
+        {
+            pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+            xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+        }
+
         private void ComparaArquivos()
         {
+            montarPasta();
             foreach (string arq in pdfPathFiles)
             {
 
@@ -150,13 +159,19 @@ namespace InforPlan
                         listBoxImportado.Items.Add(result + ".pdf");
                         listBoxImportado.Items.Add(arq2 + ".xml");
 
-                        //Renomeia PDF original
+                        //Renomeia PDF original //Nao consegue encontrar - já renomeado
                         Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
                         counter += 1;
                         new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
+                        listBoxPDF.Items.Clear();
+                        listBoxXML.Items.Clear();
+                        result = null;
+                        result2 = null;
+                        break;
                     }
                 }
+
             }
         }
 

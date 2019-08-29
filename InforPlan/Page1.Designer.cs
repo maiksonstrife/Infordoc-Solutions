@@ -33,7 +33,7 @@ namespace InforPlan
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ListBox1 = new System.Windows.Forms.ListBox();
@@ -77,6 +77,7 @@ namespace InforPlan
             // 
             // timer1
             // 
+            this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnImportarPlanilha
@@ -193,13 +194,13 @@ namespace InforPlan
             this.isPressedButton.IdleIconRightImage = null;
             this.isPressedButton.Location = new System.Drawing.Point(0, 0);
             this.isPressedButton.Name = "isPressedButton";
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.BorderRadius = 1;
-            stateProperties4.BorderThickness = 1;
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.IconLeftImage = null;
-            stateProperties4.IconRightImage = null;
-            this.isPressedButton.onHoverState = stateProperties4;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.BorderRadius = 1;
+            stateProperties7.BorderThickness = 1;
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.IconLeftImage = null;
+            stateProperties7.IconRightImage = null;
+            this.isPressedButton.onHoverState = stateProperties7;
             this.isPressedButton.Size = new System.Drawing.Size(210, 45);
             this.isPressedButton.TabIndex = 0;
             this.isPressedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,25 +301,25 @@ namespace InforPlan
             // listBoxPDF
             // 
             this.listBoxPDF.FormattingEnabled = true;
-            this.listBoxPDF.Location = new System.Drawing.Point(14, 117);
+            this.listBoxPDF.Location = new System.Drawing.Point(14, 143);
             this.listBoxPDF.Name = "listBoxPDF";
-            this.listBoxPDF.Size = new System.Drawing.Size(219, 277);
+            this.listBoxPDF.Size = new System.Drawing.Size(219, 251);
             this.listBoxPDF.TabIndex = 3;
             // 
             // listBoxXML
             // 
             this.listBoxXML.FormattingEnabled = true;
-            this.listBoxXML.Location = new System.Drawing.Point(332, 117);
+            this.listBoxXML.Location = new System.Drawing.Point(332, 143);
             this.listBoxXML.Name = "listBoxXML";
-            this.listBoxXML.Size = new System.Drawing.Size(219, 277);
+            this.listBoxXML.Size = new System.Drawing.Size(219, 251);
             this.listBoxXML.TabIndex = 4;
             // 
             // listBoxImportado
             // 
             this.listBoxImportado.FormattingEnabled = true;
-            this.listBoxImportado.Location = new System.Drawing.Point(650, 117);
+            this.listBoxImportado.Location = new System.Drawing.Point(650, 143);
             this.listBoxImportado.Name = "listBoxImportado";
-            this.listBoxImportado.Size = new System.Drawing.Size(219, 277);
+            this.listBoxImportado.Size = new System.Drawing.Size(219, 251);
             this.listBoxImportado.TabIndex = 5;
             // 
             // btnPararVerificacao
