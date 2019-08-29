@@ -22,50 +22,16 @@ namespace InforPlan
         String xmlPath;
         String result = null;
         String result2 = null;
+        String verificacao = null;
+        bool isPressed = false;
+        int counter = 0;
 
         public Page1()
         {
             InitializeComponent();
         }
 
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Page1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
-        {
-          
-            
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void btnImportar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ImportarPlanilha_Dados()
-        {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        //BOTAO SELECIONAR PDF
-        private void bunifuThinButton21_Click_1(object sender, EventArgs e)
+        private void btnPastaPDF_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\Users";
@@ -78,15 +44,14 @@ namespace InforPlan
 
                 foreach (string arq in pdfPathFiles)
                 {
-                    listBox2.Items.Add(arq);
+                    listBoxPDF.Items.Add(arq);
                 }
             }
 
-            listBox3.Items.Clear();
+            listBoxImportado.Items.Clear();
         }
 
-        //BOTAO SELECIONAR XML
-        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        private void btnPastaXML_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\Users";
@@ -97,50 +62,68 @@ namespace InforPlan
                 xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray(); ;
                 foreach (string arq in xmlPathFiles)
                 {
-                    ListBox1.Items.Add(arq);
+                    listBoxXML.Items.Add(arq);
                 }
             }
-            listBox3.Items.Clear();
+            listBoxImportado.Items.Clear();
         }
 
-        private void txtArquivo_TextChange(object sender, EventArgs e)
+        private void btnImportar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-           
-        }
-         
-        private void InserirPlanilhaImage_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void InserirPlanilhaImage_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.All;
-        }
-
-        private void bunifuThinButton21_Click_2(object sender, EventArgs e)
-        {
-            int counter = 0;
-
-            // if campo pdf for igual a nulo => tratamento de erro alerta.atencao "escolher caminho pdf"
+            #region //verifica campo PDF
             if (pdfPathFiles == null)
             {
                 new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
                 return;
             }
-            // if campo xml for igual a nulo => tratamento de erro alerta.atencao "escolher caminho xml"
+            //Verifica Campo XML
             if (xmlPathFiles == null)
             {
                 new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
                 return;
             }
+            #endregion  
 
-            foreach (string arq in pdfPathFiles) 
+            //Popup Timer
+            using (Alerta1 _verificacao = new Alerta1())
+            {
+                _verificacao.ShowDialog();
+                verificacao = _verificacao.resposta;
+            }
+
+            //verifica resposta
+            if (verificacao == "sim")
+            {
+                timer1.Start();
+            }
+
+            if (verificacao == "nao")
+            {
+                ComparaArquivos();
+                // N xmls importados
+                pdfPathFiles = null;
+                xmlPathFiles = null;
+                counter = 0;
+            }
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            btnPararVerificacao.Enabled = true;
+            btnPararVerificacao.Update();
+            ComparaArquivos();
+        }
+
+        private void btnPararVerificacao_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            new alerta("Verificação Automática desabilitada", alerta.AlertType.info).Show();
+        }
+
+        private void ComparaArquivos()
+        {
+            foreach (string arq in pdfPathFiles)
             {
 
                 foreach (string arq2 in xmlPathFiles)
@@ -164,31 +147,18 @@ namespace InforPlan
                         string origem = xmlPath + "\\" + arq2 + ".xml";
                         string destino = pdfPath + "\\" + arq2 + ".xml";
                         File.Move(origem, destino);
-                        listBox3.Items.Add(result + ".pdf");
-                        listBox3.Items.Add(arq2);
+                        listBoxImportado.Items.Add(result + ".pdf");
+                        listBoxImportado.Items.Add(arq2 + ".xml");
 
                         //Renomeia PDF original
-                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", result + ".pdf");
+                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
-                        result = null;
-                        result2 = null;
                         counter += 1;
+                        new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
                     }
-
                 }
-                
-                ListBox1.Items.Clear();
-                listBox2.Items.Clear();
             }
-            // N xmls importados
-            new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
-            pdfPathFiles = null;
-            xmlPathFiles = null;
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

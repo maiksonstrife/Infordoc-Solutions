@@ -15,8 +15,6 @@ namespace InforPlan
         public Form1()
         {
             InitializeComponent();
-            //bunifuFormFadeTransition1.ShowAsyc(this);
-            
         }
 
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)

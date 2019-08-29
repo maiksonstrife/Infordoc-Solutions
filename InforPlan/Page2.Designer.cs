@@ -332,6 +332,7 @@ namespace InforPlan
             this.bunifuLabel1.TabIndex = 17;
             this.bunifuLabel1.Text = "FILIAL";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel2
             // 
@@ -345,6 +346,7 @@ namespace InforPlan
             this.bunifuLabel2.TabIndex = 18;
             this.bunifuLabel2.Text = "CAIXA";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel3
             // 
@@ -358,6 +360,7 @@ namespace InforPlan
             this.bunifuLabel3.TabIndex = 19;
             this.bunifuLabel3.Text = "CTE";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // saveFileDialog1
             // 
