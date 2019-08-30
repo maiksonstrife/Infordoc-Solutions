@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace InforPlan
 {
+    #region //Readme
+    // chamar classe => new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
+    #endregion
+
     public partial class alerta : Form
     {
         public alerta(string _message, AlertType type)

@@ -23,7 +23,6 @@ namespace InforPlan
         String result = null;
         String result2 = null;
         String verificacao = null;
-        bool isPressed = false;
         int counter = 0;
 
         public Page1()
@@ -70,7 +69,7 @@ namespace InforPlan
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            #region //verifica campo PDF
+            #region //verifica se caminho foi selecionado
             if (pdfPathFiles == null)
             {
                 new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
@@ -116,6 +115,12 @@ namespace InforPlan
                 ComparaArquivos();
                 new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
                 counter = 0;
+                pdfPath = null;
+                xmlPath = null;
+                pdfPathFiles = null;
+                xmlPathFiles = null;
+                listBoxPDF.Items.Clear();
+                listBoxXML.Items.Clear();
             }
         }
 
@@ -143,6 +148,12 @@ namespace InforPlan
             listBoxPDF.Visible = true;
             listBoxXML.Visible = true;
             #endregion
+            pdfPath = null;
+            xmlPath = null;
+            pdfPathFiles = null;
+            xmlPathFiles = null;
+            listBoxPDF.Items.Clear();
+            listBoxXML.Items.Clear();
         }
 
         public  void montarPasta()
@@ -195,14 +206,12 @@ namespace InforPlan
                         Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
                         counter += 1;
-                        listBoxPDF.Items.Clear();
-                        listBoxXML.Items.Clear();
                         break;
-                        
                     }
                 }
 
-            }
+            } 
+
         }
 
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)

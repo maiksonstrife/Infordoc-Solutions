@@ -12,6 +12,15 @@ namespace InforPlan
 {
     public partial class Alerta1 : Form
     {
+        #region //Readme
+        /*Chama classe =>             using (Alerta1 _verificacao = new Alerta1())
+            {
+                _verificacao.ShowDialog();
+                verificacao = _verificacao.resposta;
+            }
+        */
+        #endregion
+
         public String resposta;
 
         public Alerta1()

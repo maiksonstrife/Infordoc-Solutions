@@ -41,7 +41,6 @@
             this.topBar = new System.Windows.Forms.Panel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.homePage2 = new InforPlan.homePage();
             this.page12 = new InforPlan.Page1();
@@ -270,7 +269,6 @@
             // 
             this.topBar.Controls.Add(this.bunifuSeparator1);
             this.topBar.Controls.Add(this.bunifuCustomLabel1);
-            this.topBar.Controls.Add(this.bunifuCustomLabel2);
             this.topBar.Controls.Add(this.minimizeButton);
             this.topBar.Controls.Add(this.closeButton);
             this.topBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -304,17 +302,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(200, 49);
             this.bunifuCustomLabel1.TabIndex = 1;
             this.bunifuCustomLabel1.Text = "XML finder";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(209, 31);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(103, 13);
-            this.bunifuCustomLabel2.TabIndex = 2;
-            this.bunifuCustomLabel2.Text = "design by maikson";
-            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
             // 
             // panel2
             // 
@@ -437,7 +424,6 @@
         private Page4 page41;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuFlatButton homeButton;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private homePage homePage1;
