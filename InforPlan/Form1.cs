@@ -34,15 +34,6 @@ namespace InforPlan
             page21.BringToFront();
         }
 
-        private void bunifuFlatButton3_Click(object sender, EventArgs e)
-        {
-            page31.BringToFront();
-        }
-
-        private void bunifuFlatButton4_Click(object sender, EventArgs e)
-        {
-            page41.BringToFront();
-        }
 
         private void bunifuCards2_Paint(object sender, PaintEventArgs e)
         {
