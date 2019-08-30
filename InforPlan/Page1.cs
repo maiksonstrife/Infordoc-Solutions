@@ -96,15 +96,25 @@ namespace InforPlan
             {
                 btnPararVerificacao.Enabled = true;
                 btnPararVerificacao.Update();
+
+                #region //desativa botões
+                btnPastaPDF.Enabled = false;
+                btnPastaPDF.Visible = false;
+                btnPastaXML.Enabled = false;
+                btnPastaXML.Visible = false;
+                btnImportar.Enabled = false;
+                btnImportar.Visible = false;
+                listBoxPDF.Visible = false;
+                listBoxXML.Visible = false;
+                #endregion
+
                 timer1.Start();
             }
 
             if (verificacao == "nao")
             {
                 ComparaArquivos();
-                // N xmls importados
-                pdfPathFiles = null;
-                xmlPathFiles = null;
+                new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
                 counter = 0;
             }
         }
@@ -114,13 +124,25 @@ namespace InforPlan
         {
 
             ComparaArquivos();
-            new alerta("Timer funcionando", alerta.AlertType.atencao).Show();
+            new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
         }
 
         private void btnPararVerificacao_Click(object sender, EventArgs e)
         {
             timer1.Stop();
             new alerta("Verificação Automática desabilitada", alerta.AlertType.info).Show();
+            btnPararVerificacao.Enabled = false;
+            counter = 0;
+            #region //ativa botões
+            btnPastaPDF.Enabled = true;
+            btnPastaPDF.Visible = true;
+            btnPastaXML.Enabled = true;
+            btnPastaXML.Visible = true;
+            btnImportar.Enabled = true;
+            btnImportar.Visible = true;
+            listBoxPDF.Visible = true;
+            listBoxXML.Visible = true;
+            #endregion
         }
 
         public  void montarPasta()
@@ -131,6 +153,8 @@ namespace InforPlan
 
         private void ComparaArquivos()
         {
+            result = null;
+            result2 = null;
             montarPasta();
             foreach (string arq in pdfPathFiles)
             {
@@ -143,11 +167,19 @@ namespace InforPlan
                         int index = arq.IndexOf(' '); // index = pega indice a partir da ocorrencia do caractere
                         result = arq.Substring(0, index); //inicio da cadeia, fim da cadeia
                     }
+                    else
+                    {
+                        result = arq;
+                    }
 
                     //Remove caracteres antes da chave => 'NFe' =>arq2
                     if (arq2.Contains("NFe"))
                     {
                         result2 = arq2.Remove(0, 3);
+                    }
+                    else
+                    {
+                        result2 = arq2;
                     }
 
                     //Se nome pdf for igual xml copia para pasta pdf
@@ -163,17 +195,24 @@ namespace InforPlan
                         Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
                         counter += 1;
-                        new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
                         listBoxPDF.Items.Clear();
                         listBoxXML.Items.Clear();
-                        result = null;
-                        result2 = null;
                         break;
+                        
                     }
                 }
 
             }
         }
 
+        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace InforPlan
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ListBox1 = new System.Windows.Forms.ListBox();
@@ -57,6 +57,9 @@ namespace InforPlan
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +75,7 @@ namespace InforPlan
             // 
             this.ListBox1.Location = new System.Drawing.Point(0, 0);
             this.ListBox1.Name = "ListBox1";
-            this.ListBox1.Size = new System.Drawing.Size(120, 96);
+            this.ListBox1.Size = new System.Drawing.Size(120, 95);
             this.ListBox1.TabIndex = 0;
             // 
             // timer1
@@ -88,6 +91,7 @@ namespace InforPlan
             this.btnImportarPlanilha.ActiveForecolor = System.Drawing.Color.White;
             this.btnImportarPlanilha.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btnImportarPlanilha.BackColor = System.Drawing.Color.White;
+            this.btnImportarPlanilha.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImportarPlanilha.BackgroundImage")));
             this.btnImportarPlanilha.ButtonText = "ThinButton";
             this.btnImportarPlanilha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImportarPlanilha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,6 +116,7 @@ namespace InforPlan
             this.btnSelecionaPlanilha.ActiveForecolor = System.Drawing.Color.White;
             this.btnSelecionaPlanilha.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btnSelecionaPlanilha.BackColor = System.Drawing.Color.White;
+            this.btnSelecionaPlanilha.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelecionaPlanilha.BackgroundImage")));
             this.btnSelecionaPlanilha.ButtonText = "ThinButton";
             this.btnSelecionaPlanilha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelecionaPlanilha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,7 +144,7 @@ namespace InforPlan
             // 
             this.listBox2.Location = new System.Drawing.Point(0, 0);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 96);
+            this.listBox2.Size = new System.Drawing.Size(120, 95);
             this.listBox2.TabIndex = 0;
             // 
             // bunifuThinButton21
@@ -150,6 +155,7 @@ namespace InforPlan
             this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
             this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
             this.bunifuThinButton21.ButtonText = "ThinButton";
             this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,7 +176,7 @@ namespace InforPlan
             // 
             this.listBox3.Location = new System.Drawing.Point(0, 0);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(120, 96);
+            this.listBox3.Size = new System.Drawing.Size(120, 95);
             this.listBox3.TabIndex = 0;
             // 
             // isPressedButton
@@ -194,13 +200,13 @@ namespace InforPlan
             this.isPressedButton.IdleIconRightImage = null;
             this.isPressedButton.Location = new System.Drawing.Point(0, 0);
             this.isPressedButton.Name = "isPressedButton";
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties7.BorderRadius = 1;
-            stateProperties7.BorderThickness = 1;
-            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties7.IconLeftImage = null;
-            stateProperties7.IconRightImage = null;
-            this.isPressedButton.onHoverState = stateProperties7;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties10.BorderRadius = 1;
+            stateProperties10.BorderThickness = 1;
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties10.IconLeftImage = null;
+            stateProperties10.IconRightImage = null;
+            this.isPressedButton.onHoverState = stateProperties10;
             this.isPressedButton.Size = new System.Drawing.Size(210, 45);
             this.isPressedButton.TabIndex = 0;
             this.isPressedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,9 +230,9 @@ namespace InforPlan
             // 
             this.btnPastaPDF.ActiveBorderThickness = 1;
             this.btnPastaPDF.ActiveCornerRadius = 20;
-            this.btnPastaPDF.ActiveFillColor = System.Drawing.Color.OrangeRed;
+            this.btnPastaPDF.ActiveFillColor = System.Drawing.Color.Red;
             this.btnPastaPDF.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPastaPDF.ActiveLineColor = System.Drawing.Color.OrangeRed;
+            this.btnPastaPDF.ActiveLineColor = System.Drawing.Color.Red;
             this.btnPastaPDF.BackColor = System.Drawing.SystemColors.Control;
             this.btnPastaPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaPDF.BackgroundImage")));
             this.btnPastaPDF.ButtonText = "Selecionar Pasta PDF";
@@ -235,9 +241,9 @@ namespace InforPlan
             this.btnPastaPDF.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnPastaPDF.IdleBorderThickness = 1;
             this.btnPastaPDF.IdleCornerRadius = 20;
-            this.btnPastaPDF.IdleFillColor = System.Drawing.Color.Red;
+            this.btnPastaPDF.IdleFillColor = System.Drawing.Color.Crimson;
             this.btnPastaPDF.IdleForecolor = System.Drawing.Color.White;
-            this.btnPastaPDF.IdleLineColor = System.Drawing.Color.Red;
+            this.btnPastaPDF.IdleLineColor = System.Drawing.Color.Crimson;
             this.btnPastaPDF.Location = new System.Drawing.Point(14, 58);
             this.btnPastaPDF.Margin = new System.Windows.Forms.Padding(5);
             this.btnPastaPDF.Name = "btnPastaPDF";
@@ -250,9 +256,9 @@ namespace InforPlan
             // 
             this.btnPastaXML.ActiveBorderThickness = 1;
             this.btnPastaXML.ActiveCornerRadius = 20;
-            this.btnPastaXML.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnPastaXML.ActiveFillColor = System.Drawing.Color.MediumSeaGreen;
             this.btnPastaXML.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPastaXML.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnPastaXML.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
             this.btnPastaXML.BackColor = System.Drawing.SystemColors.Control;
             this.btnPastaXML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaXML.BackgroundImage")));
             this.btnPastaXML.ButtonText = "Selecionar Pasta XML";
@@ -276,9 +282,9 @@ namespace InforPlan
             // 
             this.btnImportar.ActiveBorderThickness = 1;
             this.btnImportar.ActiveCornerRadius = 20;
-            this.btnImportar.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnImportar.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
             this.btnImportar.ActiveForecolor = System.Drawing.Color.White;
-            this.btnImportar.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnImportar.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
             this.btnImportar.BackColor = System.Drawing.SystemColors.Control;
             this.btnImportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.BackgroundImage")));
             this.btnImportar.ButtonText = "IMPORTAR";
@@ -345,7 +351,7 @@ namespace InforPlan
             this.btnPararVerificacao.IconVisible = true;
             this.btnPararVerificacao.IconZoom = 90D;
             this.btnPararVerificacao.IsTab = false;
-            this.btnPararVerificacao.Location = new System.Drawing.Point(617, 486);
+            this.btnPararVerificacao.Location = new System.Drawing.Point(615, 480);
             this.btnPararVerificacao.Name = "btnPararVerificacao";
             this.btnPararVerificacao.Normalcolor = System.Drawing.Color.Crimson;
             this.btnPararVerificacao.OnHovercolor = System.Drawing.Color.Crimson;
@@ -372,14 +378,53 @@ namespace InforPlan
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(612, 444);
+            this.label2.Location = new System.Drawing.Point(612, 451);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(257, 26);
             this.label2.TabIndex = 8;
             this.label2.Text = "Parar Verificação Automática";
             // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 0);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(148, 28);
+            this.bunifuCustomLabel2.TabIndex = 9;
+            this.bunifuCustomLabel2.Text = "Encontrar XML";
+            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(41, 247);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(132, 28);
+            this.bunifuCustomLabel3.TabIndex = 10;
+            this.bunifuCustomLabel3.Text = "Verificando...";
+            this.bunifuCustomLabel3.Click += new System.EventHandler(this.bunifuCustomLabel3_Click);
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(375, 247);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(132, 28);
+            this.bunifuCustomLabel4.TabIndex = 11;
+            this.bunifuCustomLabel4.Text = "Verificando...";
+            // 
             // Page1
             // 
+            this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnPararVerificacao);
@@ -389,6 +434,8 @@ namespace InforPlan
             this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnPastaXML);
             this.Controls.Add(this.btnPastaPDF);
+            this.Controls.Add(this.bunifuCustomLabel3);
+            this.Controls.Add(this.bunifuCustomLabel4);
             this.Name = "Page1";
             this.Size = new System.Drawing.Size(888, 535);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -423,5 +470,8 @@ namespace InforPlan
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
     }
 }
