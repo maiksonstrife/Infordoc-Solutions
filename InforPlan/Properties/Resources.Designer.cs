@@ -59,15 +59,5 @@ namespace InforPlan.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
-        /// </summary>
-        internal static System.Drawing.Icon Icon1 {
-            get {
-                object obj = ResourceManager.GetObject("Icon1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }

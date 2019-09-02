@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,7 +71,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon1.ico</ApplicationIcon>
+    <ApplicationIcon>Icon12.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="alerta.cs">
@@ -275,10 +275,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\Icon12.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon1.ico" />
+    <Content Include="Icon12.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
