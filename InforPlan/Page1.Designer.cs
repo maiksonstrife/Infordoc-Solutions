@@ -60,6 +60,11 @@ namespace InforPlan
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtPdfPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtXmlPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtAtivado = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -422,8 +427,117 @@ namespace InforPlan
             this.bunifuCustomLabel4.TabIndex = 11;
             this.bunifuCustomLabel4.Text = "Verificando...";
             // 
+            // txtPdfPadrao
+            // 
+            this.txtPdfPadrao.AutoSize = true;
+            this.txtPdfPadrao.BackColor = System.Drawing.Color.Transparent;
+            this.txtPdfPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.txtPdfPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPdfPadrao.Location = new System.Drawing.Point(9, 86);
+            this.txtPdfPadrao.Name = "txtPdfPadrao";
+            this.txtPdfPadrao.Size = new System.Drawing.Size(207, 28);
+            this.txtPdfPadrao.TabIndex = 12;
+            this.txtPdfPadrao.Text = "Diretório PDF padrão";
+            this.txtPdfPadrao.Visible = false;
+            // 
+            // txtXmlPadrao
+            // 
+            this.txtXmlPadrao.AutoSize = true;
+            this.txtXmlPadrao.BackColor = System.Drawing.Color.Transparent;
+            this.txtXmlPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.txtXmlPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtXmlPadrao.Location = new System.Drawing.Point(327, 86);
+            this.txtXmlPadrao.Name = "txtXmlPadrao";
+            this.txtXmlPadrao.Size = new System.Drawing.Size(211, 28);
+            this.txtXmlPadrao.TabIndex = 13;
+            this.txtXmlPadrao.Text = "Diretório XML padrão";
+            this.txtXmlPadrao.Visible = false;
+            // 
+            // bunifuCheckBox1
+            // 
+            this.bunifuCheckBox1.AllowBindingControlAnimation = true;
+            this.bunifuCheckBox1.AllowBindingControlColorChanges = false;
+            this.bunifuCheckBox1.AllowBindingControlLocation = true;
+            this.bunifuCheckBox1.AllowCheckBoxAnimation = false;
+            this.bunifuCheckBox1.AllowCheckmarkAnimation = true;
+            this.bunifuCheckBox1.AllowOnHoverStates = true;
+            this.bunifuCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCheckBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCheckBox1.BackgroundImage")));
+            this.bunifuCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bunifuCheckBox1.BindingControl = null;
+            this.bunifuCheckBox1.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.bunifuCheckBox1.Checked = true;
+            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
+            this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuCheckBox1.CustomCheckmarkImage = null;
+            this.bunifuCheckBox1.Location = new System.Drawing.Point(11, 455);
+            this.bunifuCheckBox1.MinimumSize = new System.Drawing.Size(17, 17);
+            this.bunifuCheckBox1.Name = "bunifuCheckBox1";
+            this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.bunifuCheckBox1.OnCheck.BorderRadius = 2;
+            this.bunifuCheckBox1.OnCheck.BorderThickness = 2;
+            this.bunifuCheckBox1.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.bunifuCheckBox1.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.bunifuCheckBox1.OnCheck.CheckmarkThickness = 2;
+            this.bunifuCheckBox1.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.bunifuCheckBox1.OnDisable.BorderRadius = 2;
+            this.bunifuCheckBox1.OnDisable.BorderThickness = 2;
+            this.bunifuCheckBox1.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.bunifuCheckBox1.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.bunifuCheckBox1.OnDisable.CheckmarkThickness = 2;
+            this.bunifuCheckBox1.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.bunifuCheckBox1.OnHoverChecked.BorderRadius = 2;
+            this.bunifuCheckBox1.OnHoverChecked.BorderThickness = 2;
+            this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.bunifuCheckBox1.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.bunifuCheckBox1.OnHoverChecked.CheckmarkThickness = 2;
+            this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.bunifuCheckBox1.OnHoverUnchecked.BorderRadius = 2;
+            this.bunifuCheckBox1.OnHoverUnchecked.BorderThickness = 2;
+            this.bunifuCheckBox1.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.bunifuCheckBox1.OnUncheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.bunifuCheckBox1.OnUncheck.BorderRadius = 2;
+            this.bunifuCheckBox1.OnUncheck.BorderThickness = 2;
+            this.bunifuCheckBox1.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.bunifuCheckBox1.Size = new System.Drawing.Size(24, 24);
+            this.bunifuCheckBox1.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.bunifuCheckBox1.TabIndex = 14;
+            this.bunifuCheckBox1.ThreeState = false;
+            this.bunifuCheckBox1.ToolTipText = null;
+            this.bunifuCheckBox1.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.bunifuCheckBox1_CheckedChanged);
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(41, 451);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(164, 28);
+            this.bunifuCustomLabel5.TabIndex = 15;
+            this.bunifuCustomLabel5.Text = "Diretório Padrão";
+            // 
+            // txtAtivado
+            // 
+            this.txtAtivado.AutoSize = true;
+            this.txtAtivado.BackColor = System.Drawing.Color.Transparent;
+            this.txtAtivado.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.txtAtivado.ForeColor = System.Drawing.Color.DimGray;
+            this.txtAtivado.Location = new System.Drawing.Point(72, 480);
+            this.txtAtivado.Name = "txtAtivado";
+            this.txtAtivado.Size = new System.Drawing.Size(101, 28);
+            this.txtAtivado.TabIndex = 16;
+            this.txtAtivado.Text = "ATIVADO";
+            // 
             // Page1
             // 
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.txtAtivado);
+            this.Controls.Add(this.bunifuCustomLabel5);
+            this.Controls.Add(this.bunifuCheckBox1);
+            this.Controls.Add(this.txtXmlPadrao);
+            this.Controls.Add(this.txtPdfPadrao);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
@@ -438,6 +552,7 @@ namespace InforPlan
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Name = "Page1";
             this.Size = new System.Drawing.Size(888, 535);
+            this.Load += new System.EventHandler(this.Page1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -473,5 +588,10 @@ namespace InforPlan
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
+        private Bunifu.Framework.UI.BunifuCustomLabel txtPdfPadrao;
+        private Bunifu.Framework.UI.BunifuCustomLabel txtXmlPadrao;
+        private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
+        private Bunifu.Framework.UI.BunifuCustomLabel txtAtivado;
     }
 }

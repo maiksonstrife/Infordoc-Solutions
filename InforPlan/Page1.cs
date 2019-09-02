@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using InforPlan.Properties;
 
 namespace InforPlan
 {
@@ -105,6 +106,7 @@ namespace InforPlan
                 btnImportar.Visible = false;
                 listBoxPDF.Visible = false;
                 listBoxXML.Visible = false;
+                bunifuCheckBox1.Visible = false;
                 #endregion
 
                 timer1.Start();
@@ -147,6 +149,7 @@ namespace InforPlan
             btnImportar.Visible = true;
             listBoxPDF.Visible = true;
             listBoxXML.Visible = true;
+            bunifuCheckBox1.Visible = true;
             #endregion
             pdfPath = null;
             xmlPath = null;
@@ -154,6 +157,7 @@ namespace InforPlan
             xmlPathFiles = null;
             listBoxPDF.Items.Clear();
             listBoxXML.Items.Clear();
+            bunifuCheckBox1.Checked = false;
         }
 
         public  void montarPasta()
@@ -223,5 +227,65 @@ namespace InforPlan
         {
 
         }
+
+        private void Page1_Load(object sender, EventArgs e)
+        {
+            bunifuCheckBox1.Checked = Convert.ToBoolean(Settings.Default["isStandardChecked"]);
+        }
+
+        private void bunifuCheckBox1_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (bunifuCheckBox1.Checked)
+            {
+                
+                //Checa se o caminho padrão foi definido
+                if (Settings.Default.standardPdfPath == "" || Settings.Default.standardXmlPath == "" || Settings.Default.standardPdfPath == null || Settings.Default.standardXmlPath == null)
+                {
+                    new alerta("Caminho padrão VAZIO", alerta.AlertType.info).Show();
+                    return;
+                }
+
+                txtAtivado.Text = "ATIVADO";
+
+                //Função do botão PDF usando padrão
+                btnPastaPDF.Visible = false;
+                pdfPath = Settings.Default["standardPdfPath"].ToString();
+                pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+                foreach (string arq in pdfPathFiles)
+                {
+                    listBoxPDF.Items.Add(arq);
+                }
+
+                //Função do botão XML usando padrão
+                btnPastaXML.Visible = false;
+                xmlPath = Settings.Default["standardXmlPath"].ToString();
+                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+                foreach (string arq in xmlPathFiles)
+                {
+                    listBoxXML.Items.Add(arq);
+                }
+
+                //Ativa aviso que a função do botão está em padrão
+                txtPdfPadrao.Visible = true;
+                txtXmlPadrao.Visible = true;
+            }
+            else
+            {
+                txtAtivado.Text = "DESATIVADO";
+                //retorna tudo ao padrão
+                btnPastaPDF.Visible = true;
+                btnPastaXML.Visible = true;
+                pdfPath = null;
+                xmlPath = null;
+                pdfPathFiles = null;
+                xmlPathFiles = null;
+                listBoxPDF.Items.Clear();
+                listBoxXML.Items.Clear();
+                txtPdfPadrao.Visible = false;
+                txtXmlPadrao.Visible = false;
+            }
+
+        }
+
     }
 }

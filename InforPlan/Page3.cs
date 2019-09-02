@@ -17,9 +17,13 @@ namespace InforPlan
         public Page3()
         {
             InitializeComponent();
-            isStandardDirectory.Checked = Convert.ToBoolean(Settings.Default["isStandardChecked"]);
-            TextBoxPDF.Text = Settings.Default["standardPdfPath"].ToString();
-            TextBoxXML.Text = Settings.Default["standardXmlPath"].ToString();
+
+            if (Settings.Default.standardPdfPath != "" || Settings.Default.standardXmlPath != "" && Settings.Default.standardPdfPath != null || Settings.Default.standardXmlPath != null)
+            {
+                isStandardDirectory.Checked = Convert.ToBoolean(Settings.Default["isStandardChecked"]);
+                TextBoxPDF.Text = Settings.Default["standardPdfPath"].ToString();
+                TextBoxXML.Text = Settings.Default["standardXmlPath"].ToString();
+            }
         }
 
         private void Page3_Load(object sender, EventArgs e)
@@ -48,6 +52,13 @@ namespace InforPlan
             btnPastaPadraoXML.Visible = isStandardDirectory.Checked;
             TextBoxPDF.Visible = isStandardDirectory.Checked;
             TextBoxXML.Visible = isStandardDirectory.Checked;
+
+            if (isStandardDirectory.Checked == false)
+            {
+                Settings.Default["standardPdfPath"] = null;
+                Settings.Default["standardXmlPath"] = null;
+                Settings.Default["isStandardChecked"] = false;
+            }
         }
 
         private void btnPastaPadraoPDF_Click(object sender, EventArgs e)
@@ -80,6 +91,7 @@ namespace InforPlan
         private void btnSalvarStandard_Click(object sender, EventArgs e)
         {
             Settings.Default.Save();
+            new alerta("Configuração SALVA", alerta.AlertType.atencao).Show();
         }
     }
 }
