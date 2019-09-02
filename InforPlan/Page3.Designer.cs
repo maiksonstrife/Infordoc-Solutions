@@ -38,6 +38,7 @@
             this.TextBoxXML = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnSalvarStandard = new Bunifu.Framework.UI.BunifuThinButton2();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -131,7 +132,7 @@
             this.TextBoxPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxPDF.BackgroundImage")));
             this.TextBoxPDF.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
             this.TextBoxPDF.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.TextBoxPDF.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.TextBoxPDF.BorderColorHover = System.Drawing.Color.Crimson;
             this.TextBoxPDF.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.TextBoxPDF.BorderRadius = 1;
             this.TextBoxPDF.BorderThickness = 2;
@@ -191,6 +192,7 @@
             this.btnPastaPadraoPDF.TabIndex = 11;
             this.btnPastaPadraoPDF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPastaPadraoPDF.Visible = false;
+            this.btnPastaPadraoPDF.Click += new System.EventHandler(this.btnPastaPadraoPDF_Click);
             // 
             // btnPastaPadraoXML
             // 
@@ -217,6 +219,7 @@
             this.btnPastaPadraoXML.TabIndex = 12;
             this.btnPastaPadraoXML.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPastaPadraoXML.Visible = false;
+            this.btnPastaPadraoXML.Click += new System.EventHandler(this.btnPastaPadraoXML_Click);
             // 
             // TextBoxXML
             // 
@@ -228,7 +231,7 @@
             this.TextBoxXML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxXML.BackgroundImage")));
             this.TextBoxXML.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
             this.TextBoxXML.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.TextBoxXML.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.TextBoxXML.BorderColorHover = System.Drawing.Color.MediumSeaGreen;
             this.TextBoxXML.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.TextBoxXML.BorderRadius = 1;
             this.TextBoxXML.BorderThickness = 2;
@@ -286,10 +289,37 @@
             this.bunifuCustomLabel3.TabIndex = 15;
             this.bunifuCustomLabel3.Text = "Desativado";
             // 
+            // btnSalvarStandard
+            // 
+            this.btnSalvarStandard.ActiveBorderThickness = 1;
+            this.btnSalvarStandard.ActiveCornerRadius = 1;
+            this.btnSalvarStandard.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSalvarStandard.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSalvarStandard.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSalvarStandard.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSalvarStandard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalvarStandard.BackgroundImage")));
+            this.btnSalvarStandard.ButtonText = "SALVAR";
+            this.btnSalvarStandard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvarStandard.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarStandard.ForeColor = System.Drawing.Color.White;
+            this.btnSalvarStandard.IdleBorderThickness = 1;
+            this.btnSalvarStandard.IdleCornerRadius = 1;
+            this.btnSalvarStandard.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.btnSalvarStandard.IdleForecolor = System.Drawing.Color.White;
+            this.btnSalvarStandard.IdleLineColor = System.Drawing.Color.DodgerBlue;
+            this.btnSalvarStandard.Location = new System.Drawing.Point(324, 317);
+            this.btnSalvarStandard.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalvarStandard.Name = "btnSalvarStandard";
+            this.btnSalvarStandard.Size = new System.Drawing.Size(219, 41);
+            this.btnSalvarStandard.TabIndex = 16;
+            this.btnSalvarStandard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalvarStandard.Click += new System.EventHandler(this.btnSalvarStandard_Click);
+            // 
             // Page3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSalvarStandard);
             this.Controls.Add(this.TextBoxXML);
             this.Controls.Add(this.btnPastaPadraoXML);
             this.Controls.Add(this.btnPastaPadraoPDF);
@@ -309,13 +339,14 @@
 
         #endregion
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.UI.WinForms.BunifuCheckBox isStandardDirectory;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox TextBoxPDF;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoPDF;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoXML;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox TextBoxXML;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        public Bunifu.UI.WinForms.BunifuCheckBox isStandardDirectory;
+        public Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoPDF;
+        public Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoXML;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnSalvarStandard;
     }
 }
