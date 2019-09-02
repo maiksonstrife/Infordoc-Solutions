@@ -34,7 +34,7 @@ namespace InforPlan
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            page31.BringToFront();
+            
         }
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
@@ -71,6 +71,11 @@ namespace InforPlan
         private void homePage1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
+        {
+            page31.BringToFront();
         }
     }
 }

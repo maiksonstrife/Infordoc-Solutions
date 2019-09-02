@@ -21,5 +21,28 @@ namespace InforPlan
         {
 
         }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTextBox1_TextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isStandardDirectory_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            btnPastaPadraoPDF.Visible = isStandardDirectory.Checked;
+            btnPastaPadraoXML.Visible = isStandardDirectory.Checked;
+            TextBoxPDF.Visible = isStandardDirectory.Checked;
+            TextBoxXML.Visible = isStandardDirectory.Checked;
+        }
     }
 }
