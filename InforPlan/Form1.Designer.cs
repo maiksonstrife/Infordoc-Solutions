@@ -329,6 +329,8 @@
             // 
             // page12
             // 
+            this.page12.AllowDrop = true;
+            this.page12.AutoSize = true;
             this.page12.Location = new System.Drawing.Point(0, -16);
             this.page12.Name = "page12";
             this.page12.Size = new System.Drawing.Size(888, 551);
