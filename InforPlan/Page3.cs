@@ -18,7 +18,7 @@ namespace InforPlan
         {
             InitializeComponent();
 
-            if (Settings.Default.standardPdfPath != "" || Settings.Default.standardXmlPath != "" && Settings.Default.standardPdfPath != null || Settings.Default.standardXmlPath != null)
+            if (Settings.Default.standardPdfPath != "" && Settings.Default.standardXmlPath != "" && Settings.Default.standardPdfPath != null & Settings.Default.standardXmlPath != null)
             {
                 isStandardDirectory.Checked = Convert.ToBoolean(Settings.Default["isStandardChecked"]);
                 TextBoxPDF.Text = Settings.Default["standardPdfPath"].ToString();
@@ -53,12 +53,6 @@ namespace InforPlan
             TextBoxPDF.Visible = isStandardDirectory.Checked;
             TextBoxXML.Visible = isStandardDirectory.Checked;
 
-            if (isStandardDirectory.Checked == false)
-            {
-                Settings.Default["standardPdfPath"] = null;
-                Settings.Default["standardXmlPath"] = null;
-                Settings.Default["isStandardChecked"] = false;
-            }
         }
 
         private void btnPastaPadraoPDF_Click(object sender, EventArgs e)
@@ -92,6 +86,13 @@ namespace InforPlan
         {
             Settings.Default.Save();
             new alerta("Configuração SALVA", alerta.AlertType.atencao).Show();
+            if (isStandardDirectory.Checked == false)
+            {
+                Settings.Default["standardPdfPath"] = null;
+                Settings.Default["standardXmlPath"] = null;
+                Settings.Default["isStandardChecked"] = false;
+                new alerta("Configuração APAGADA", alerta.AlertType.erro).Show();
+            }
         }
     }
 }

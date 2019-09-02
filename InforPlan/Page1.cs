@@ -242,6 +242,7 @@ namespace InforPlan
                 if (Settings.Default.standardPdfPath == "" || Settings.Default.standardXmlPath == "" || Settings.Default.standardPdfPath == null || Settings.Default.standardXmlPath == null)
                 {
                     new alerta("Caminho padrão VAZIO", alerta.AlertType.info).Show();
+                    bunifuCheckBox1.Checked = false;
                     return;
                 }
 
