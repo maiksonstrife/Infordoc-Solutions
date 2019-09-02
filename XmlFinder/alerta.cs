@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InforPlan
+namespace XmlFinder
 {
     #region //Readme
     // chamar classe => new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();

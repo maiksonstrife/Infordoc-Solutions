@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace InforPlan
+namespace XmlFinder
 {
     public partial class homePage : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace InforPlan
+﻿namespace XmlFinder
 {
     partial class Form1
     {
@@ -43,13 +43,13 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.homePage2 = new InforPlan.homePage();
-            this.page12 = new InforPlan.Page1();
-            this.homePage1 = new InforPlan.homePage();
-            this.page41 = new InforPlan.Page4();
-            this.page31 = new InforPlan.Page3();
-            this.page21 = new InforPlan.Page2();
-            this.page11 = new InforPlan.Page1();
+            this.homePage2 = new XmlFinder.homePage();
+            this.page12 = new XmlFinder.Page1();
+            this.homePage1 = new XmlFinder.homePage();
+            this.page41 = new XmlFinder.Page4();
+            this.page31 = new XmlFinder.Page3();
+            this.page21 = new XmlFinder.Page2();
+            this.page11 = new XmlFinder.Page1();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();

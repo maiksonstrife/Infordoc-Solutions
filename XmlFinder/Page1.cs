@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using InforPlan.Properties;
+using XmlFinder.Properties;
 
-namespace InforPlan
+namespace XmlFinder
 {
     public partial class Page1 : UserControl
     {

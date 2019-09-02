@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace InforPlan
+namespace XmlFinder
 {
     partial class Page1
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InforPlan
+namespace XmlFinder
 {
     partial class Page2
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InforPlan
+namespace XmlFinder
 {
     public partial class Page4 : UserControl
     {

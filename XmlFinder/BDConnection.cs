@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
 
-namespace InforPlan
+namespace XmlFinder
 {
     public class BDConnection
     {

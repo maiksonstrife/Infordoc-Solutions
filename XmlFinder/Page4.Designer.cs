@@ -1,4 +1,4 @@
-﻿namespace InforPlan
+﻿namespace XmlFinder
 {
     partial class Page4
     {

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InforPlan.Properties;
+using XmlFinder.Properties;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace InforPlan
+namespace XmlFinder
 {
     public partial class Page3 : UserControl
     {
