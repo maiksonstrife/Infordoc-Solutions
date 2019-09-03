@@ -109,7 +109,7 @@ namespace XmlFinder
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 Settings.Default["standardOutputPath"] = dialog.FileName;
-                TextBoxSaida.Text = Settings.Default["standardXmlPath"].ToString();
+                TextBoxSaida.Text = Settings.Default["standardOutputPath"].ToString();
                 new alerta("Clique em SALVAR para completar", alerta.AlertType.atencao).Show();
             }
         }

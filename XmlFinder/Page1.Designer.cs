@@ -524,6 +524,7 @@ namespace XmlFinder
             // 
             this.txtAtivado.AutoSize = true;
             this.txtAtivado.BackColor = System.Drawing.Color.Transparent;
+            this.txtAtivado.Enabled = false;
             this.txtAtivado.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
             this.txtAtivado.ForeColor = System.Drawing.Color.DimGray;
             this.txtAtivado.Location = new System.Drawing.Point(72, 480);

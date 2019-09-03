@@ -30,6 +30,7 @@ namespace XmlFinder
         public Page1()
         {
             InitializeComponent();
+            txtAtivado.Text = "DESATIVADO";
         }
 
         private void btnPastaPDF_Click(object sender, EventArgs e)
