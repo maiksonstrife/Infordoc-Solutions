@@ -220,15 +220,44 @@ namespace XmlFinder
                         string destinoPdf = outputPath + "\\" + arq + ".pdf";
 
                         //Movendo XML
-                        File.Move(origemXml, destinoXml);
+                        if (File.Exists(destinoXml))
+                        {
+                            File.Delete(destinoXml);
+                            File.Move(origemXml, destinoXml);
+                        }
+                        else
+                        {
+                            File.Move(origemXml, destinoXml);
+                        }
+
                         //Movendo PDF
-                        File.Move(origemPdf, destinoPdf);
+                        if (File.Exists(destinoPdf))
+                        {
+                            File.Delete(destinoPdf);
+                            File.Move(origemPdf, destinoPdf);
+                        }
+                        else
+                        {
+                            File.Move(origemPdf, destinoPdf);
+                        }
+
+                        //Verifica se já existe nome igual ao renomear
+                        string pdfRenomeado = "NFe" + result + ".pdf";
+
+                        if (File.Exists(outputPath + "\\" + pdfRenomeado))
+                        {
+                            File.Delete(outputPath + "\\" + pdfRenomeado);
+                            Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(outputPath + "\\" + arq + ".pdf", pdfRenomeado);
+                        }
+                        else
+                        {
+                            Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(outputPath + "\\" + arq + ".pdf", pdfRenomeado);
+                        }
+                        
                         //Adicionando a lista
                         listBoxImportado.Items.Add(result + ".pdf");
                         listBoxImportado.Items.Add(arq2 + ".xml");
 
-                        //Renomeia PDF original
-                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(outputPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
                         counter += 1;
                         break;
@@ -251,7 +280,7 @@ namespace XmlFinder
 
         private void Page1_Load(object sender, EventArgs e)
         {
-            bunifuCheckBox1.Checked = Convert.ToBoolean(Settings.Default["isStandardChecked"]);
+
         }
 
         private void bunifuCheckBox1_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
@@ -293,7 +322,7 @@ namespace XmlFinder
 
                 //Função do botão SAIDA usando padrão
                 btnSelecionarSaida.Visible = false;
-                outputPath = Settings.Default["standardXmlPath"].ToString();
+                outputPath = Settings.Default["standardOutputPath"].ToString();
 
                 //Ativa aviso que a função do botão está em padrão
                 txtPdfPadrao.Visible = true;

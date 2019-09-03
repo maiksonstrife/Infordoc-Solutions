@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
+using System.Net;
+using System.IO;
 
 namespace XmlFinder
 {
@@ -140,5 +142,22 @@ namespace XmlFinder
             return conn;
         }
 
+        //SEND FILES TO FTP
+        public void UploadFile(FileInfo file, string ftpUrl)
+        {
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(ftpUrl + "/" + file.Name);
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new NetworkCredential("username", "pass");
+            request.UsePassive = true;
+            request.UseBinary = true;
+            request.KeepAlive = false;
+            FileStream stream = File.OpenRead("D:\\folderUpload\\1test.txt");
+            byte[] buffer = new byte[stream.Length];
+            stream.Read(buffer, 0, buffer.Length);
+            stream.Close();
+            Stream reqStream = request.GetRequestStream();
+            reqStream.Write(buffer, 0, buffer.Length);
+            reqStream.Close();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,14 @@ namespace XmlFinder
         public Form1()
         {
             InitializeComponent();
-        }
 
+            /*DirectoryInfo directory = new DirectoryInfo(@"C:\Users\Maikson\Desktop\projeto xml-finder\xml");
+            foreach (var file in directory.GetFiles(*))
+            {
+                FtpConnection ftpConnection = new FtpConnection();
+                ftpConnection.UploadFile(file, "ftp.box.com");
+            } */
+        }
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
         {
 
