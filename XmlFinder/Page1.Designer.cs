@@ -65,6 +65,8 @@ namespace XmlFinder
             this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtAtivado = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnSelecionarSaida = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txtSaidaPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -286,7 +288,7 @@ namespace XmlFinder
             // btnImportar
             // 
             this.btnImportar.ActiveBorderThickness = 1;
-            this.btnImportar.ActiveCornerRadius = 20;
+            this.btnImportar.ActiveCornerRadius = 1;
             this.btnImportar.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
             this.btnImportar.ActiveForecolor = System.Drawing.Color.White;
             this.btnImportar.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
@@ -297,11 +299,11 @@ namespace XmlFinder
             this.btnImportar.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportar.ForeColor = System.Drawing.Color.White;
             this.btnImportar.IdleBorderThickness = 1;
-            this.btnImportar.IdleCornerRadius = 20;
+            this.btnImportar.IdleCornerRadius = 1;
             this.btnImportar.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.btnImportar.IdleForecolor = System.Drawing.Color.White;
             this.btnImportar.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnImportar.Location = new System.Drawing.Point(650, 58);
+            this.btnImportar.Location = new System.Drawing.Point(650, 392);
             this.btnImportar.Margin = new System.Windows.Forms.Padding(5);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(219, 41);
@@ -466,8 +468,8 @@ namespace XmlFinder
             this.bunifuCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bunifuCheckBox1.BindingControl = null;
             this.bunifuCheckBox1.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.bunifuCheckBox1.Checked = true;
-            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
+            this.bunifuCheckBox1.Checked = false;
+            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
             this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuCheckBox1.CustomCheckmarkImage = null;
             this.bunifuCheckBox1.Location = new System.Drawing.Point(11, 455);
@@ -530,9 +532,50 @@ namespace XmlFinder
             this.txtAtivado.TabIndex = 16;
             this.txtAtivado.Text = "ATIVADO";
             // 
+            // btnSelecionarSaida
+            // 
+            this.btnSelecionarSaida.ActiveBorderThickness = 1;
+            this.btnSelecionarSaida.ActiveCornerRadius = 20;
+            this.btnSelecionarSaida.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSelecionarSaida.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSelecionarSaida.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSelecionarSaida.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSelecionarSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelecionarSaida.BackgroundImage")));
+            this.btnSelecionarSaida.ButtonText = "Selecionar Pasta Saída";
+            this.btnSelecionarSaida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelecionarSaida.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarSaida.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionarSaida.IdleBorderThickness = 1;
+            this.btnSelecionarSaida.IdleCornerRadius = 20;
+            this.btnSelecionarSaida.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.btnSelecionarSaida.IdleForecolor = System.Drawing.Color.White;
+            this.btnSelecionarSaida.IdleLineColor = System.Drawing.Color.DodgerBlue;
+            this.btnSelecionarSaida.Location = new System.Drawing.Point(648, 58);
+            this.btnSelecionarSaida.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSelecionarSaida.Name = "btnSelecionarSaida";
+            this.btnSelecionarSaida.Size = new System.Drawing.Size(219, 41);
+            this.btnSelecionarSaida.TabIndex = 17;
+            this.btnSelecionarSaida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSelecionarSaida.Click += new System.EventHandler(this.btnSelecionarSaida_Click);
+            // 
+            // txtSaidaPadrao
+            // 
+            this.txtSaidaPadrao.AutoSize = true;
+            this.txtSaidaPadrao.BackColor = System.Drawing.Color.Transparent;
+            this.txtSaidaPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
+            this.txtSaidaPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSaidaPadrao.Location = new System.Drawing.Point(645, 86);
+            this.txtSaidaPadrao.Name = "txtSaidaPadrao";
+            this.txtSaidaPadrao.Size = new System.Drawing.Size(220, 28);
+            this.txtSaidaPadrao.TabIndex = 18;
+            this.txtSaidaPadrao.Text = "Diretório Saida padrão";
+            this.txtSaidaPadrao.Visible = false;
+            // 
             // Page1
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.txtSaidaPadrao);
+            this.Controls.Add(this.btnSelecionarSaida);
             this.Controls.Add(this.txtAtivado);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.bunifuCheckBox1);
@@ -593,5 +636,7 @@ namespace XmlFinder
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuCustomLabel txtAtivado;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnSelecionarSaida;
+        private Bunifu.Framework.UI.BunifuCustomLabel txtSaidaPadrao;
     }
 }

@@ -58,5 +58,17 @@ namespace XmlFinder.Properties {
                 this["isStandardChecked"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string standardOutputPath {
+            get {
+                return ((string)(this["standardOutputPath"]));
+            }
+            set {
+                this["standardOutputPath"] = value;
+            }
+        }
     }
 }

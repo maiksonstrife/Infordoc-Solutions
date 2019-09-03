@@ -21,6 +21,7 @@ namespace XmlFinder
         String[] xmlPathFiles;
         String pdfPath;
         String xmlPath;
+        String outputPath;
         String result = null;
         String result2 = null;
         String verificacao = null;
@@ -71,15 +72,22 @@ namespace XmlFinder
         private void btnImportar_Click(object sender, EventArgs e)
         {
             #region //verifica se caminho foi selecionado
+            //Verifica PDF
             if (pdfPathFiles == null)
             {
                 new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
                 return;
             }
-            //Verifica Campo XML
+            //Verifica XML
             if (xmlPathFiles == null)
             {
                 new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
+                return;
+            }
+            //Verifica Saída
+            if (outputPath == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA Saída", alerta.AlertType.atencao).Show();
                 return;
             }
             #endregion  
@@ -102,6 +110,8 @@ namespace XmlFinder
                 btnPastaPDF.Visible = false;
                 btnPastaXML.Enabled = false;
                 btnPastaXML.Visible = false;
+                btnSelecionarSaida.Enabled = false;
+                btnSelecionarSaida.Visible = false;
                 btnImportar.Enabled = false;
                 btnImportar.Visible = false;
                 listBoxPDF.Visible = false;
@@ -147,6 +157,8 @@ namespace XmlFinder
             btnPastaXML.Visible = true;
             btnImportar.Enabled = true;
             btnImportar.Visible = true;
+            btnSelecionarSaida.Enabled = true;
+            btnSelecionarSaida.Visible = true;
             listBoxPDF.Visible = true;
             listBoxXML.Visible = true;
             bunifuCheckBox1.Visible = true;
@@ -200,14 +212,23 @@ namespace XmlFinder
                     //Se nome pdf for igual xml copia para pasta pdf
                     if (!string.IsNullOrEmpty(result) && result.Equals(result2)) //!string converte pra boolean 
                     {
-                        string origem = xmlPath + "\\" + arq2 + ".xml";
-                        string destino = pdfPath + "\\" + arq2 + ".xml";
-                        File.Move(origem, destino);
+                        //Caminhos Original e pasta de Saída
+                        string origemXml = xmlPath + "\\" + arq2 + ".xml";
+                        string destinoXml = outputPath + "\\" + arq2 + ".xml";
+
+                        string origemPdf = pdfPath + "\\" + arq + ".pdf";
+                        string destinoPdf = outputPath + "\\" + arq + ".pdf";
+
+                        //Movendo XML
+                        File.Move(origemXml, destinoXml);
+                        //Movendo PDF
+                        File.Move(origemPdf, destinoPdf);
+                        //Adicionando a lista
                         listBoxImportado.Items.Add(result + ".pdf");
                         listBoxImportado.Items.Add(arq2 + ".xml");
 
-                        //Renomeia PDF original //Nao consegue encontrar - já renomeado
-                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(pdfPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
+                        //Renomeia PDF original
+                        Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(outputPath + "\\" + arq + ".pdf", "NFe" + result + ".pdf");
                         //Limpa verificação
                         counter += 1;
                         break;
@@ -238,12 +259,16 @@ namespace XmlFinder
             if (bunifuCheckBox1.Checked)
             {
                 
-                //Checa se o caminho padrão foi definido
-                if (Settings.Default.standardPdfPath == "" || Settings.Default.standardXmlPath == "" || Settings.Default.standardPdfPath == null || Settings.Default.standardXmlPath == null)
+                //Se algum for igual a VAZIO faça
+                if (Settings.Default.standardPdfPath == "" || Settings.Default.standardXmlPath == "" || Settings.Default.standardOutputPath == "")
                 {
                     new alerta("Caminho padrão VAZIO", alerta.AlertType.info).Show();
                     bunifuCheckBox1.Checked = false;
                     return;
+                }
+                else
+                {
+
                 }
 
                 txtAtivado.Text = "ATIVADO";
@@ -266,9 +291,14 @@ namespace XmlFinder
                     listBoxXML.Items.Add(arq);
                 }
 
+                //Função do botão SAIDA usando padrão
+                btnSelecionarSaida.Visible = false;
+                outputPath = Settings.Default["standardXmlPath"].ToString();
+
                 //Ativa aviso que a função do botão está em padrão
                 txtPdfPadrao.Visible = true;
                 txtXmlPadrao.Visible = true;
+                txtSaidaPadrao.Visible = true;
             }
             else
             {
@@ -276,6 +306,7 @@ namespace XmlFinder
                 //retorna tudo ao padrão
                 btnPastaPDF.Visible = true;
                 btnPastaXML.Visible = true;
+                btnSelecionarSaida.Visible = true;
                 pdfPath = null;
                 xmlPath = null;
                 pdfPathFiles = null;
@@ -284,9 +315,22 @@ namespace XmlFinder
                 listBoxXML.Items.Clear();
                 txtPdfPadrao.Visible = false;
                 txtXmlPadrao.Visible = false;
+                txtSaidaPadrao.Visible = false;
+            } 
+
+        } 
+
+        private void btnSelecionarSaida_Click(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                outputPath = dialog.FileName;
             }
 
+            listBoxImportado.Items.Clear();
         }
-
     }
 }

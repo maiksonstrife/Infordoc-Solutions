@@ -39,6 +39,8 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnSalvarStandard = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnPastaPadraoSaida = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.TextBoxSaida = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -71,7 +73,7 @@
             this.isStandardDirectory.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
             this.isStandardDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.isStandardDirectory.CustomCheckmarkImage = null;
-            this.isStandardDirectory.Location = new System.Drawing.Point(5, 116);
+            this.isStandardDirectory.Location = new System.Drawing.Point(5, 70);
             this.isStandardDirectory.MinimumSize = new System.Drawing.Size(17, 17);
             this.isStandardDirectory.Name = "isStandardDirectory";
             this.isStandardDirectory.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
@@ -112,7 +114,7 @@
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.CursorType = null;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(32, 115);
+            this.bunifuLabel1.Location = new System.Drawing.Point(29, 69);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(164, 22);
@@ -307,7 +309,7 @@
             this.btnSalvarStandard.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.btnSalvarStandard.IdleForecolor = System.Drawing.Color.White;
             this.btnSalvarStandard.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnSalvarStandard.Location = new System.Drawing.Point(324, 317);
+            this.btnSalvarStandard.Location = new System.Drawing.Point(324, 385);
             this.btnSalvarStandard.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalvarStandard.Name = "btnSalvarStandard";
             this.btnSalvarStandard.Size = new System.Drawing.Size(219, 41);
@@ -315,10 +317,83 @@
             this.btnSalvarStandard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSalvarStandard.Click += new System.EventHandler(this.btnSalvarStandard_Click);
             // 
+            // btnPastaPadraoSaida
+            // 
+            this.btnPastaPadraoSaida.ActiveBorderThickness = 1;
+            this.btnPastaPadraoSaida.ActiveCornerRadius = 1;
+            this.btnPastaPadraoSaida.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPastaPadraoSaida.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPastaPadraoSaida.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPastaPadraoSaida.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPastaPadraoSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaPadraoSaida.BackgroundImage")));
+            this.btnPastaPadraoSaida.ButtonText = "Selecionar Pasta Saída";
+            this.btnPastaPadraoSaida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPastaPadraoSaida.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPastaPadraoSaida.ForeColor = System.Drawing.Color.White;
+            this.btnPastaPadraoSaida.IdleBorderThickness = 1;
+            this.btnPastaPadraoSaida.IdleCornerRadius = 1;
+            this.btnPastaPadraoSaida.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.btnPastaPadraoSaida.IdleForecolor = System.Drawing.Color.White;
+            this.btnPastaPadraoSaida.IdleLineColor = System.Drawing.Color.DodgerBlue;
+            this.btnPastaPadraoSaida.Location = new System.Drawing.Point(5, 298);
+            this.btnPastaPadraoSaida.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPastaPadraoSaida.Name = "btnPastaPadraoSaida";
+            this.btnPastaPadraoSaida.Size = new System.Drawing.Size(176, 35);
+            this.btnPastaPadraoSaida.TabIndex = 17;
+            this.btnPastaPadraoSaida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPastaPadraoSaida.Visible = false;
+            this.btnPastaPadraoSaida.Click += new System.EventHandler(this.btnPastaPadraoSaida_Click);
+            // 
+            // TextBoxSaida
+            // 
+            this.TextBoxSaida.AcceptsReturn = false;
+            this.TextBoxSaida.AcceptsTab = false;
+            this.TextBoxSaida.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.TextBoxSaida.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.TextBoxSaida.BackColor = System.Drawing.Color.Transparent;
+            this.TextBoxSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxSaida.BackgroundImage")));
+            this.TextBoxSaida.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.TextBoxSaida.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.TextBoxSaida.BorderColorHover = System.Drawing.Color.MediumSeaGreen;
+            this.TextBoxSaida.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.TextBoxSaida.BorderRadius = 1;
+            this.TextBoxSaida.BorderThickness = 2;
+            this.TextBoxSaida.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.TextBoxSaida.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSaida.DefaultText = "";
+            this.TextBoxSaida.FillColor = System.Drawing.Color.White;
+            this.TextBoxSaida.HideSelection = true;
+            this.TextBoxSaida.IconLeft = null;
+            this.TextBoxSaida.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.TextBoxSaida.IconPadding = 10;
+            this.TextBoxSaida.IconRight = null;
+            this.TextBoxSaida.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.TextBoxSaida.Location = new System.Drawing.Point(189, 298);
+            this.TextBoxSaida.MaxLength = 32767;
+            this.TextBoxSaida.MinimumSize = new System.Drawing.Size(100, 35);
+            this.TextBoxSaida.Modified = false;
+            this.TextBoxSaida.Name = "TextBoxSaida";
+            this.TextBoxSaida.PasswordChar = '\0';
+            this.TextBoxSaida.ReadOnly = true;
+            this.TextBoxSaida.SelectedText = "";
+            this.TextBoxSaida.SelectionLength = 0;
+            this.TextBoxSaida.SelectionStart = 0;
+            this.TextBoxSaida.ShortcutsEnabled = true;
+            this.TextBoxSaida.Size = new System.Drawing.Size(629, 35);
+            this.TextBoxSaida.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.TextBoxSaida.TabIndex = 18;
+            this.TextBoxSaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TextBoxSaida.TextMarginLeft = 5;
+            this.TextBoxSaida.TextPlaceholder = "";
+            this.TextBoxSaida.UseSystemPasswordChar = false;
+            this.TextBoxSaida.Visible = false;
+            // 
             // Page3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TextBoxSaida);
+            this.Controls.Add(this.btnPastaPadraoSaida);
             this.Controls.Add(this.btnSalvarStandard);
             this.Controls.Add(this.TextBoxXML);
             this.Controls.Add(this.btnPastaPadraoXML);
@@ -348,5 +423,7 @@
         public Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoPDF;
         public Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoXML;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSalvarStandard;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaPadraoSaida;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox TextBoxSaida;
     }
 }

@@ -177,4 +177,24 @@
         I3CN47E1G7Cf2SBiNoiYDSJmg8SYf04Lk1o+RTTMAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnPastaPadraoSaida.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAALAAAAAjCAYAAAA0RYCzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACZSURBVHhe7dKhEYNAAABBKklrtIRNE6kj5bxCxHyG1xTA
+        zaxYdfa2McaEKgOTZmDSDEyagUkzMGlr4Pf3nK9jQsr17Rr4LkKBgUkzMGkGJs3ApBmYNAOTZmDSDEya
+        gUkzMGkGJs3ApBmYNAOTZmDSDEyagUkzMGkGJs3ApBmYtDXw/vndRniy69s1MFQZmDQDk2Zg0gxM2Jh/
+        CLsFCK8No5oAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TextBoxSaida.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAnUAAAAjCAYAAADyv/yXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEfSURBVHhe7dixCcMwFEVRj5YRMkJa201G8Ahaxrulc6xY
+        EEwgtfU4B27z0QAPDQAABJnn+ba3SJIkqY/Gcby3KXfYj3XQvfY2SZIk9dNp2O2Huva2Usq2rqskSZIu
+        Xt1tbdgtbdJ9R119AADA9dXdZtQBAHTOqAMACGDUAQAEMOoAAAIYdQAAAYw6AIAARh0AQACjDgAggFEH
+        ABDAqAMACGDUAQAEMOoAAAIYdQAAAYw6AIAARh0AQACjDgAggFEHABDAqAMACGDUAQAEMOoAAAIYdQAA
+        AYw6AIAARh0AQACjDgAggFEHABDAqAMACPB31JVSPg8kSZJ07epu+xl10zQ92lGSJEl99WyT7tCGXf2x
+        kyRJUh+dBx0AAD0bhjdnNlTPvyOFVwAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
