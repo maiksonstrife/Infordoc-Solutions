@@ -33,8 +33,8 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page4));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page4));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -58,6 +58,8 @@
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSelecionarPasta = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtCaminhoLocal = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,10 +254,11 @@
             this.listarPastasBox.ItemForeColor = System.Drawing.Color.Purple;
             this.listarPastasBox.ItemHeight = 26;
             this.listarPastasBox.ItemHighLightColor = System.Drawing.Color.Thistle;
-            this.listarPastasBox.Location = new System.Drawing.Point(8, 313);
+            this.listarPastasBox.Location = new System.Drawing.Point(12, 313);
             this.listarPastasBox.Name = "listarPastasBox";
-            this.listarPastasBox.Size = new System.Drawing.Size(289, 32);
+            this.listarPastasBox.Size = new System.Drawing.Size(409, 32);
             this.listarPastasBox.TabIndex = 19;
+            this.listarPastasBox.Text = null;
             this.listarPastasBox.SelectedIndexChanged += new System.EventHandler(this.listarPastasBox_SelectedIndexChanged);
             // 
             // label4
@@ -287,7 +290,7 @@
             this.btnEnviarFtp.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnEnviarFtp.IdleIconLeftImage = null;
             this.btnEnviarFtp.IdleIconRightImage = null;
-            this.btnEnviarFtp.Location = new System.Drawing.Point(552, 289);
+            this.btnEnviarFtp.Location = new System.Drawing.Point(460, 333);
             this.btnEnviarFtp.Name = "btnEnviarFtp";
             stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties4.BorderRadius = 1;
@@ -320,7 +323,7 @@
             this.btnMonitorar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnMonitorar.IdleIconLeftImage = null;
             this.btnMonitorar.IdleIconRightImage = null;
-            this.btnMonitorar.Location = new System.Drawing.Point(552, 360);
+            this.btnMonitorar.Location = new System.Drawing.Point(460, 395);
             this.btnMonitorar.Name = "btnMonitorar";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties3.BorderRadius = 1;
@@ -390,7 +393,7 @@
             this.btnSalvarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnSalvarPasta.IdleIconLeftImage = null;
             this.btnSalvarPasta.IdleIconRightImage = null;
-            this.btnSalvarPasta.Location = new System.Drawing.Point(12, 475);
+            this.btnSalvarPasta.Location = new System.Drawing.Point(26, 486);
             this.btnSalvarPasta.Name = "btnSalvarPasta";
             stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties2.BorderRadius = 1;
@@ -402,6 +405,7 @@
             this.btnSalvarPasta.Size = new System.Drawing.Size(375, 34);
             this.btnSalvarPasta.TabIndex = 26;
             this.btnSalvarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalvarPasta.Click += new System.EventHandler(this.btnSalvarPasta_Click);
             // 
             // label5
             // 
@@ -462,7 +466,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 373);
+            this.label6.Location = new System.Drawing.Point(8, 360);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 31;
@@ -487,7 +491,7 @@
             this.btnSelecionarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnSelecionarPasta.IdleIconLeftImage = null;
             this.btnSelecionarPasta.IdleIconRightImage = null;
-            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 397);
+            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 385);
             this.btnSelecionarPasta.Name = "btnSelecionarPasta";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties1.BorderRadius = 1;
@@ -496,15 +500,64 @@
             stateProperties1.IconLeftImage = null;
             stateProperties1.IconRightImage = null;
             this.btnSelecionarPasta.onHoverState = stateProperties1;
-            this.btnSelecionarPasta.Size = new System.Drawing.Size(285, 27);
+            this.btnSelecionarPasta.Size = new System.Drawing.Size(409, 27);
             this.btnSelecionarPasta.TabIndex = 32;
             this.btnSelecionarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSelecionarPasta.Click += new System.EventHandler(this.btnSelecionarPasta_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtCaminhoLocal
+            // 
+            this.txtCaminhoLocal.AcceptsReturn = false;
+            this.txtCaminhoLocal.AcceptsTab = false;
+            this.txtCaminhoLocal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCaminhoLocal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCaminhoLocal.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCaminhoLocal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtCaminhoLocal.BackgroundImage")));
+            this.txtCaminhoLocal.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.txtCaminhoLocal.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txtCaminhoLocal.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.txtCaminhoLocal.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.txtCaminhoLocal.BorderRadius = 1;
+            this.txtCaminhoLocal.BorderThickness = 2;
+            this.txtCaminhoLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCaminhoLocal.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaminhoLocal.DefaultText = "";
+            this.txtCaminhoLocal.FillColor = System.Drawing.SystemColors.Control;
+            this.txtCaminhoLocal.HideSelection = true;
+            this.txtCaminhoLocal.IconLeft = null;
+            this.txtCaminhoLocal.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.txtCaminhoLocal.IconPadding = 10;
+            this.txtCaminhoLocal.IconRight = null;
+            this.txtCaminhoLocal.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.txtCaminhoLocal.Location = new System.Drawing.Point(12, 416);
+            this.txtCaminhoLocal.MaxLength = 32767;
+            this.txtCaminhoLocal.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txtCaminhoLocal.Modified = false;
+            this.txtCaminhoLocal.Name = "txtCaminhoLocal";
+            this.txtCaminhoLocal.PasswordChar = '\0';
+            this.txtCaminhoLocal.ReadOnly = true;
+            this.txtCaminhoLocal.SelectedText = "";
+            this.txtCaminhoLocal.SelectionLength = 0;
+            this.txtCaminhoLocal.SelectionStart = 0;
+            this.txtCaminhoLocal.ShortcutsEnabled = true;
+            this.txtCaminhoLocal.Size = new System.Drawing.Size(409, 35);
+            this.txtCaminhoLocal.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.txtCaminhoLocal.TabIndex = 35;
+            this.txtCaminhoLocal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtCaminhoLocal.TextMarginLeft = 5;
+            this.txtCaminhoLocal.TextPlaceholder = "";
+            this.txtCaminhoLocal.UseSystemPasswordChar = false;
             // 
             // Page4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtCaminhoLocal);
             this.Controls.Add(this.btnSelecionarPasta);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -560,5 +613,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSelecionarPasta;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtCaminhoLocal;
     }
 }

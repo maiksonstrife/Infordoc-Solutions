@@ -9,17 +9,29 @@ using System.Threading.Tasks;
 namespace XmlFinder
 {
     class FtpConnection
-    { 
-        public void UploadFile(string diretorioLocal, FileInfo file, string ftpUrl, string username, string password)
-        {
+    {
+        #region  //Readme
+        //Formatação esperada
 
-            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(ftpUrl + "/" + file.Name);
+        //pastaLocal    "C:\\PathToUpload"
+        //pastaNuvem    "001-Chamados"
+        //file          {eula.1028.txt}
+        //url           "ftp.box.com"
+        //username      "contato@infordoc.com.br"
+        //password      "55745922"
+
+        #endregion
+
+        public void UploadFile(string pastaLocal, string pastaNuvem, FileInfo file, string url, string username, string password)
+        {
+            string FtpAddress = "ftp://" + url + "/" + pastaNuvem;
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(FtpAddress + "/" + file.Name);
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.Credentials = new NetworkCredential(username, password);
             request.UsePassive = true;
             request.UseBinary = true;
-            request.KeepAlive = true;                       //Criar string Diretorio e direito + filename
-            FileStream stream = File.OpenRead(diretorioLocal + "\\" + file.Name); //como é: "D:\\folderUpload\\1test.txt"  como retornou: //eula.1028.txt
+            request.KeepAlive = true; 
+            FileStream stream = File.OpenRead(pastaLocal + "\\" + file.Name);
             byte[] buffer = new byte[stream.Length];
             stream.Read(buffer, 0, buffer.Length);
             stream.Close();
@@ -28,11 +40,11 @@ namespace XmlFinder
             reqStream.Close();
         }
 
-        public List<string> ListFiles(string FtpAddress, string listUsername, string ListPassword)
+        public List<string> ListFiles(string url, string listUsername, string ListPassword)
         {
             try
             {
-                FtpAddress = "ftp://" + FtpAddress + "/";
+                string FtpAddress = "ftp://" + url + "/";
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FtpAddress);
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
                 request.Credentials = new NetworkCredential(listUsername, ListPassword);
@@ -52,14 +64,14 @@ namespace XmlFinder
             }
         }
 
-        public bool testFtpConnection (string FtpAddress, string listUsername, string ListPassword)
+        public bool testFtpConnection (string url, string username, string password)
         {
             try
             {
-                FtpAddress = "ftp://" + FtpAddress + "/";
+                string FtpAddress = "ftp://" + url + "/";
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FtpAddress);
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
-                request.Credentials = new NetworkCredential(listUsername, ListPassword);
+                request.Credentials = new NetworkCredential(username, password);
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 response.Close();
                 return true;

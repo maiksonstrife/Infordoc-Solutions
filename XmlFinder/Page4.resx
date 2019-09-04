@@ -121,13 +121,21 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtCaminhoLocal.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAZkAAAAjCAYAAABGg3dpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVHhe7cOxCQAwDAOwntrZfiKn94kuAQl0AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAzZLctqOqf3ce4ZzN
+        VRGbVQAAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnSelecionarPasta.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAR0AAAAbCAYAAABBRFvSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVHhe7dSxFUBQAMDAPxMLWYNlbMF4PL2SVFdclT5j
-        2s5l3s4L4G/Pb8ZbAPiL6QAp0wFSpgOkTAdImQ6QMh0gZTpAynSAlOkAKdMBUqYDpEwHSJkOkDIdIGU6
-        QMp0gJTpACnTAVKmA6RMB0iZDpAyHSBlOkDKdIDUmNdjfwsAn1uP/QZeaL/zUJ+GDwAAAABJRU5ErkJg
-        gg==
+        iVBORw0KGgoAAAANSUhEUgAAAZkAAAAbCAYAAACuqvKpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVHhe7dWxFUBQAMDAPxMLWYNlbMF4PL2OdFdclQEy
+        pu1c5u28AOBPz1/GWwCAP5gMABmTASBjMgBkTAaAjMkAkDEZADImA0DGZADImAwAGZMBIGMyAGRMBoCM
+        yQCQMRkAMiYDQMZkAMiYDAAZkwEgYzIAZEwGgIzJAJAxGQAyJgNAxmQAyIx5Pfa3AACfrMd+A1Mg+IDF
+        zXeUAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -186,4 +194,7 @@
         MHuAgLHu1/kXAJjEfp0vQRgoR5ZbQOUAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>141, 17</value>
+  </metadata>
 </root>

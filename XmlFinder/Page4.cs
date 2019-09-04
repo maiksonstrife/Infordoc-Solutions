@@ -14,12 +14,11 @@ namespace XmlFinder
 {
     public partial class Page4 : UserControl
     {
-        //contato@infordoc.com.br
-        //55745922
-        string arquivo, url, usuario, senha;
+
+        string url, usuario, senha;
         string pastaWEB;
         string pastaLocal;
-        bool testeFtp;
+        bool testeFtp = false;
          
         public Page4()
         {
@@ -29,17 +28,20 @@ namespace XmlFinder
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             url =  txtEnderecoServidorFTP.Text;
-            usuario = txtUsuario.Text; senha = txtSenha.Text;
+            usuario = txtUsuario.Text;
+            senha = txtSenha.Text;
+
             FtpConnection ftpConnection = new FtpConnection();
             testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
             if (testeFtp == true)
             {
-                //salvar no settings
                 listarPastasBox.DataSource = ftpConnection.ListFiles(url, usuario, senha);
+                new alerta("Usuario SALVO!", alerta.AlertType.sucesso).Show();
+                testeFtp = false;
             }
             else
             {
-                new alerta("Erro de REDE", alerta.AlertType.info).Show();
+                new alerta("Erro de REDE", alerta.AlertType.erro).Show();
                 listarPastasBox.DataSource = null;
                 listarPastasBox.Items.Clear();
             }
@@ -59,13 +61,26 @@ namespace XmlFinder
         private void btnEnviarFtp_Click(object sender, EventArgs e)
         {
             FtpConnection ftpConnection = new FtpConnection();          
-            string FtpAddress = "ftp://" + url + "/" + pastaWEB; 
-            DirectoryInfo directory = new DirectoryInfo (pastaLocal); //DirectoryInfo directory = new DirectoryInfo (@"C:\PathToUpload");
+            DirectoryInfo directory = new DirectoryInfo (pastaLocal);
 
-            foreach (var file in directory.GetFiles())
+            testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
+            if (testeFtp == true)
             {
-                ftpConnection.UploadFile(pastaLocal, file, FtpAddress, usuario, senha); 
+                foreach (var file in directory.GetFiles())
+                {
+                    ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
+                }
+                new alerta("Usuario SALVO!", alerta.AlertType.sucesso).Show();
+                testeFtp = false;
             }
+            else
+            {
+                new alerta("Erro de REDE", alerta.AlertType.info).Show();
+                listarPastasBox.DataSource = null;
+                listarPastasBox.Items.Clear();
+            }
+
+            
         }
 
         private void btnSelecionarPasta_Click(object sender, EventArgs e)
@@ -76,11 +91,17 @@ namespace XmlFinder
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 pastaLocal = dialog.FileName;
+                txtCaminhoLocal.Text = pastaLocal;
             }
         }
         private void bunifuSeparator1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalvarPasta_Click(object sender, EventArgs e)
+        {
+            new alerta("Pasta Local SALVO!", alerta.AlertType.sucesso).Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
