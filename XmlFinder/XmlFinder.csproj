@@ -85,7 +85,7 @@
     <Compile Include="Alerta1.Designer.cs">
       <DependentUpon>Alerta1.cs</DependentUpon>
     </Compile>
-    <Compile Include="BDConnection.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Ferramentas.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

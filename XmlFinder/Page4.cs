@@ -70,7 +70,7 @@ namespace XmlFinder
                 {
                     ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
                 }
-                new alerta("Usuario SALVO!", alerta.AlertType.sucesso).Show();
+                new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
                 testeFtp = false;
             }
             else
@@ -113,6 +113,21 @@ namespace XmlFinder
         {
 
             
+        }
+
+        public enum Hidetype
+        {
+            esconder, mostrar,
+        }
+
+        public void esconderPasso1(Hidetype type)
+        {
+            switch (type)
+            {
+                case Hidetype.esconder:
+                    //dar Hide
+                    break;
+            }
         }
     }
 }

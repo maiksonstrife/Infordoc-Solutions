@@ -11,7 +11,7 @@ using System.IO;
 
 namespace XmlFinder
 {
-    public class BDConnection
+    public class DBConnection
     {
         #region objetos sql
         //README: BDConnection.Membro, não usar em escopo global
@@ -131,7 +131,7 @@ namespace XmlFinder
 
         public static SqlConnection testeConexao()
         {
-            if (BDConnection.conn == null)
+            if (DBConnection.conn == null)
             {
                 MessageBox.Show("Não foi possível obter a conexão. Veja o log de erros.");
             }
@@ -142,22 +142,5 @@ namespace XmlFinder
             return conn;
         }
 
-        //SEND FILES TO FTP
-        public void UploadFile(FileInfo file, string ftpUrl)
-        {
-            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(ftpUrl + "/" + file.Name);
-            request.Method = WebRequestMethods.Ftp.UploadFile;
-            request.Credentials = new NetworkCredential("username", "pass");
-            request.UsePassive = true;
-            request.UseBinary = true;
-            request.KeepAlive = false;
-            FileStream stream = File.OpenRead("D:\\folderUpload\\1test.txt");
-            byte[] buffer = new byte[stream.Length];
-            stream.Read(buffer, 0, buffer.Length);
-            stream.Close();
-            Stream reqStream = request.GetRequestStream();
-            reqStream.Write(buffer, 0, buffer.Length);
-            reqStream.Close();
-        }
     }
 }

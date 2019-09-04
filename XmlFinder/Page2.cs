@@ -84,7 +84,7 @@ namespace XmlFinder
             dataT.Load(PlanilhaDAO.readPlanilha(data1, data2)); //carrega dataread
             dgPlanilha.DataSource = dataT; //joga DataTable(backend) no Datagrid(UI)
             dgPlanilha.Columns[0].Visible = false; dgPlanilha.Columns[6].Visible = false; //Escondendo colunas
-            BDConnection.fecharConexao(); //Posso fechar a conexão, o dataread foi descarreado
+            DBConnection.fecharConexao(); //Posso fechar a conexão, o dataread foi descarreado
             //MessageBox.Show(dataT.Rows.Count.ToString()); Teste verificar dataTable
             #endregion
         }
