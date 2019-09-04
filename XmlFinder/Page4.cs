@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace XmlFinder
 {
@@ -15,7 +17,8 @@ namespace XmlFinder
         //contato@infordoc.com.br
         //55745922
         string arquivo, url, usuario, senha;
-        string pastaSelecionada;
+        string pastaWEB;
+        string pastaLocal;
         bool testeFtp;
          
         public Page4()
@@ -50,14 +53,31 @@ namespace XmlFinder
 
         private void listarPastasBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            pastaSelecionada = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
+            pastaWEB = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
         }
 
         private void btnEnviarFtp_Click(object sender, EventArgs e)
         {
+            FtpConnection ftpConnection = new FtpConnection();          
+            string FtpAddress = "ftp://" + url + "/" + pastaWEB; 
+            DirectoryInfo directory = new DirectoryInfo (pastaLocal); //DirectoryInfo directory = new DirectoryInfo (@"C:\PathToUpload");
 
+            foreach (var file in directory.GetFiles())
+            {
+                ftpConnection.UploadFile(pastaLocal, file, FtpAddress, usuario, senha); 
+            }
         }
 
+        private void btnSelecionarPasta_Click(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                pastaLocal = dialog.FileName;
+            }
+        }
         private void bunifuSeparator1_Load(object sender, EventArgs e)
         {
 

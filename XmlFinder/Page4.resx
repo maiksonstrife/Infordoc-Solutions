@@ -121,6 +121,15 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSelecionarPasta.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAR0AAAAbCAYAAABBRFvSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVHhe7dSxFUBQAMDAPxMLWYNlbMF4PL2SVFdclT5j
+        2s5l3s4L4G/Pb8ZbAPiL6QAp0wFSpgOkTAdImQ6QMh0gZTpAynSAlOkAKdMBUqYDpEwHSJkOkDIdIGU6
+        QMp0gJTpACnTAVKmA6RMB0iZDpAyHSBlOkDKdIDUmNdjfwsAn1uP/QZeaL/zUJ+GDwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAYAAADHl1ErAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

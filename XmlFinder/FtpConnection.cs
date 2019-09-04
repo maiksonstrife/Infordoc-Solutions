@@ -10,15 +10,16 @@ namespace XmlFinder
 {
     class FtpConnection
     { 
-        public void UploadFile(FileInfo file, string ftpUrl, string username, string password)
+        public void UploadFile(string diretorioLocal, FileInfo file, string ftpUrl, string username, string password)
         {
+
             FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(ftpUrl + "/" + file.Name);
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.Credentials = new NetworkCredential(username, password);
             request.UsePassive = true;
             request.UseBinary = true;
-            request.KeepAlive = true;
-            FileStream stream = File.OpenRead(ftpUrl);
+            request.KeepAlive = true;                       //Criar string Diretorio e direito + filename
+            FileStream stream = File.OpenRead(diretorioLocal + "\\" + file.Name); //como é: "D:\\folderUpload\\1test.txt"  como retornou: //eula.1028.txt
             byte[] buffer = new byte[stream.Length];
             stream.Read(buffer, 0, buffer.Length);
             stream.Close();

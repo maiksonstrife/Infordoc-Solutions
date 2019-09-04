@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page4));
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -55,6 +56,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnSelecionarPasta = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,13 +217,13 @@
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.Location = new System.Drawing.Point(505, 154);
             this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.BorderRadius = 1;
-            stateProperties4.BorderThickness = 1;
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.IconLeftImage = null;
-            stateProperties4.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties4;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties5.BorderRadius = 1;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.bunifuButton1.onHoverState = stateProperties5;
             this.bunifuButton1.Size = new System.Drawing.Size(379, 34);
             this.bunifuButton1.TabIndex = 17;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,9 +252,9 @@
             this.listarPastasBox.ItemForeColor = System.Drawing.Color.Purple;
             this.listarPastasBox.ItemHeight = 26;
             this.listarPastasBox.ItemHighLightColor = System.Drawing.Color.Thistle;
-            this.listarPastasBox.Location = new System.Drawing.Point(8, 326);
+            this.listarPastasBox.Location = new System.Drawing.Point(8, 313);
             this.listarPastasBox.Name = "listarPastasBox";
-            this.listarPastasBox.Size = new System.Drawing.Size(217, 32);
+            this.listarPastasBox.Size = new System.Drawing.Size(289, 32);
             this.listarPastasBox.TabIndex = 19;
             this.listarPastasBox.SelectedIndexChanged += new System.EventHandler(this.listarPastasBox_SelectedIndexChanged);
             // 
@@ -259,7 +262,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 302);
+            this.label4.Location = new System.Drawing.Point(8, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 21);
             this.label4.TabIndex = 20;
@@ -286,13 +289,13 @@
             this.btnEnviarFtp.IdleIconRightImage = null;
             this.btnEnviarFtp.Location = new System.Drawing.Point(552, 289);
             this.btnEnviarFtp.Name = "btnEnviarFtp";
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.BorderRadius = 1;
-            stateProperties3.BorderThickness = 1;
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.IconLeftImage = null;
-            stateProperties3.IconRightImage = null;
-            this.btnEnviarFtp.onHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = null;
+            this.btnEnviarFtp.onHoverState = stateProperties4;
             this.btnEnviarFtp.Size = new System.Drawing.Size(217, 34);
             this.btnEnviarFtp.TabIndex = 22;
             this.btnEnviarFtp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,13 +322,13 @@
             this.btnMonitorar.IdleIconRightImage = null;
             this.btnMonitorar.Location = new System.Drawing.Point(552, 360);
             this.btnMonitorar.Name = "btnMonitorar";
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties2.BorderRadius = 1;
-            stateProperties2.BorderThickness = 1;
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties2.IconLeftImage = null;
-            stateProperties2.IconRightImage = null;
-            this.btnMonitorar.onHoverState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.BorderRadius = 1;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconRightImage = null;
+            this.btnMonitorar.onHoverState = stateProperties3;
             this.btnMonitorar.Size = new System.Drawing.Size(217, 34);
             this.btnMonitorar.TabIndex = 23;
             this.btnMonitorar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,15 +390,15 @@
             this.btnSalvarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnSalvarPasta.IdleIconLeftImage = null;
             this.btnSalvarPasta.IdleIconRightImage = null;
-            this.btnSalvarPasta.Location = new System.Drawing.Point(12, 409);
+            this.btnSalvarPasta.Location = new System.Drawing.Point(12, 475);
             this.btnSalvarPasta.Name = "btnSalvarPasta";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.BorderRadius = 1;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.btnSalvarPasta.onHoverState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.BorderRadius = 1;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.IconLeftImage = null;
+            stateProperties2.IconRightImage = null;
+            this.btnSalvarPasta.onHoverState = stateProperties2;
             this.btnSalvarPasta.Size = new System.Drawing.Size(375, 34);
             this.btnSalvarPasta.TabIndex = 26;
             this.btnSalvarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -455,10 +458,55 @@
             this.btnPararVerificacao.Textcolor = System.Drawing.Color.White;
             this.btnPararVerificacao.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 373);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Pasta Local";
+            // 
+            // btnSelecionarPasta
+            // 
+            this.btnSelecionarPasta.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelecionarPasta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelecionarPasta.BackgroundImage")));
+            this.btnSelecionarPasta.ButtonText = "Selecionar Pasta";
+            this.btnSelecionarPasta.ButtonTextMarginLeft = 0;
+            this.btnSelecionarPasta.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnSelecionarPasta.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnSelecionarPasta.DisabledForecolor = System.Drawing.Color.White;
+            this.btnSelecionarPasta.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionarPasta.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSelecionarPasta.IconPadding = 10;
+            this.btnSelecionarPasta.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSelecionarPasta.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSelecionarPasta.IdleBorderRadius = 1;
+            this.btnSelecionarPasta.IdleBorderThickness = 0;
+            this.btnSelecionarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSelecionarPasta.IdleIconLeftImage = null;
+            this.btnSelecionarPasta.IdleIconRightImage = null;
+            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 397);
+            this.btnSelecionarPasta.Name = "btnSelecionarPasta";
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = null;
+            this.btnSelecionarPasta.onHoverState = stateProperties1;
+            this.btnSelecionarPasta.Size = new System.Drawing.Size(285, 27);
+            this.btnSelecionarPasta.TabIndex = 32;
+            this.btnSelecionarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSelecionarPasta.Click += new System.EventHandler(this.btnSelecionarPasta_Click);
+            // 
             // Page4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSelecionarPasta);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnPararVerificacao);
@@ -510,5 +558,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSelecionarPasta;
+        private System.Windows.Forms.Label label6;
     }
 }
