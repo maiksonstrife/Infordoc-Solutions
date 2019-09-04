@@ -43,14 +43,15 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.homePage2 = new XmlFinder.homePage();
-            this.page12 = new XmlFinder.Page1();
             this.homePage1 = new XmlFinder.homePage();
+            this.page12 = new XmlFinder.Page1();
             this.page41 = new XmlFinder.Page4();
             this.page31 = new XmlFinder.Page3();
             this.page21 = new XmlFinder.Page2();
             this.page11 = new XmlFinder.Page1();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topBar.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             this.sideBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sideBar.BackgroundImage")));
             this.sideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sideBar.Controls.Add(this.bunifuFlatButton4);
             this.sideBar.Controls.Add(this.bunifuFlatButton3);
             this.sideBar.Controls.Add(this.homeButton);
             this.sideBar.Controls.Add(this.pictureBox1);
@@ -187,7 +189,7 @@
             this.bunifuFlatButton2.IconVisible = true;
             this.bunifuFlatButton2.IconZoom = 90D;
             this.bunifuFlatButton2.IsTab = true;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(0, 289);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(0, 511);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(160)))), ((int)(((byte)(177)))));
@@ -345,8 +347,8 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.homePage2);
-            this.panel2.Controls.Add(this.page12);
             this.panel2.Controls.Add(this.homePage1);
+            this.panel2.Controls.Add(this.page12);
             this.panel2.Controls.Add(this.page41);
             this.panel2.Controls.Add(this.page31);
             this.panel2.Controls.Add(this.page21);
@@ -356,6 +358,49 @@
             this.panel2.Size = new System.Drawing.Size(888, 535);
             this.panel2.TabIndex = 9;
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.topBar;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // bunifuFlatButton4
+            // 
+            this.bunifuFlatButton4.Active = false;
+            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(54)))), ((int)(((byte)(153)))));
+            this.bunifuFlatButton4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton4.BorderRadius = 0;
+            this.bunifuFlatButton4.ButtonText = "Enviar para WEB";
+            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
+            this.bunifuFlatButton4.Iconimage_right = null;
+            this.bunifuFlatButton4.Iconimage_right_Selected = null;
+            this.bunifuFlatButton4.Iconimage_Selected = null;
+            this.bunifuFlatButton4.IconMarginLeft = 0;
+            this.bunifuFlatButton4.IconMarginRight = 0;
+            this.bunifuFlatButton4.IconRightVisible = true;
+            this.bunifuFlatButton4.IconRightZoom = 0D;
+            this.bunifuFlatButton4.IconVisible = true;
+            this.bunifuFlatButton4.IconZoom = 90D;
+            this.bunifuFlatButton4.IsTab = true;
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(0, 288);
+            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
+            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(160)))), ((int)(((byte)(177)))));
+            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.selected = false;
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(251, 48);
+            this.bunifuFlatButton4.TabIndex = 7;
+            this.bunifuFlatButton4.Text = "Enviar para WEB";
+            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click_1);
+            // 
             // homePage2
             // 
             this.homePage2.AutoSize = true;
@@ -364,16 +409,6 @@
             this.homePage2.Name = "homePage2";
             this.homePage2.Size = new System.Drawing.Size(888, 535);
             this.homePage2.TabIndex = 6;
-            // 
-            // page12
-            // 
-            this.page12.AllowDrop = true;
-            this.page12.AutoSize = true;
-            this.page12.BackColor = System.Drawing.SystemColors.Control;
-            this.page12.Location = new System.Drawing.Point(0, -16);
-            this.page12.Name = "page12";
-            this.page12.Size = new System.Drawing.Size(888, 551);
-            this.page12.TabIndex = 5;
             // 
             // homePage1
             // 
@@ -387,13 +422,25 @@
             this.homePage1.TabIndex = 4;
             this.homePage1.Load += new System.EventHandler(this.homePage1_Load);
             // 
+            // page12
+            // 
+            this.page12.AllowDrop = true;
+            this.page12.AutoSize = true;
+            this.page12.BackColor = System.Drawing.SystemColors.Control;
+            this.page12.Location = new System.Drawing.Point(0, 0);
+            this.page12.Name = "page12";
+            this.page12.Size = new System.Drawing.Size(888, 551);
+            this.page12.TabIndex = 5;
+            // 
             // page41
             // 
+            this.page41.BackColor = System.Drawing.SystemColors.Control;
             this.page41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.page41.Location = new System.Drawing.Point(0, 0);
             this.page41.Name = "page41";
             this.page41.Size = new System.Drawing.Size(888, 535);
             this.page41.TabIndex = 3;
+            this.page41.Load += new System.EventHandler(this.page41_Load);
             // 
             // page31
             // 
@@ -421,13 +468,6 @@
             this.page11.Name = "page11";
             this.page11.Size = new System.Drawing.Size(888, 535);
             this.page11.TabIndex = 0;
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.topBar;
-            this.bunifuDragControl1.Vertical = true;
             // 
             // Form1
             // 
@@ -473,6 +513,7 @@
         private homePage homePage2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
     }
 }
 

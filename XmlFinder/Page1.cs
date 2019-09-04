@@ -346,6 +346,8 @@ namespace XmlFinder
                 txtPdfPadrao.Visible = false;
                 txtXmlPadrao.Visible = false;
                 txtSaidaPadrao.Visible = false;
+
+            
             } 
 
         } 
@@ -361,6 +363,11 @@ namespace XmlFinder
             }
 
             listBoxImportado.Items.Clear();
+        }
+
+        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

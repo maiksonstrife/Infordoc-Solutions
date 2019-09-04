@@ -84,5 +84,15 @@ namespace XmlFinder
         {
             page31.BringToFront();
         }
+
+        private void bunifuFlatButton4_Click_1(object sender, EventArgs e)
+        {
+            page41.BringToFront();
+        }
+
+        private void page41_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

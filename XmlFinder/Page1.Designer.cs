@@ -519,6 +519,7 @@ namespace XmlFinder
             this.bunifuCustomLabel5.Size = new System.Drawing.Size(164, 28);
             this.bunifuCustomLabel5.TabIndex = 15;
             this.bunifuCustomLabel5.Text = "Diretório Padrão";
+            this.bunifuCustomLabel5.Click += new System.EventHandler(this.bunifuCustomLabel5_Click);
             // 
             // txtAtivado
             // 

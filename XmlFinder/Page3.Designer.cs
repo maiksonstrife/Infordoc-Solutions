@@ -354,7 +354,7 @@
             this.TextBoxSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxSaida.BackgroundImage")));
             this.TextBoxSaida.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
             this.TextBoxSaida.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.TextBoxSaida.BorderColorHover = System.Drawing.Color.MediumSeaGreen;
+            this.TextBoxSaida.BorderColorHover = System.Drawing.Color.DodgerBlue;
             this.TextBoxSaida.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.TextBoxSaida.BorderRadius = 1;
             this.TextBoxSaida.BorderThickness = 2;
