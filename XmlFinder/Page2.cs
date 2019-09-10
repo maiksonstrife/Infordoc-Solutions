@@ -81,9 +81,14 @@ namespace XmlFinder
             #endregion
             #region EXIBE DATAGRID
             dataT.Rows.Clear();  //limpo o objeto
-            dataT.Load(PlanilhaDAO.readPlanilha(data1, data2)); //carrega dataread
+            dataT.Load(DocumentosDAO.Read(data1, data2)); //carrega dataread
             dgPlanilha.DataSource = dataT; //joga DataTable(backend) no Datagrid(UI)
-            dgPlanilha.Columns[0].Visible = false; dgPlanilha.Columns[6].Visible = false; //Escondendo colunas
+            #region //esconder colunas]
+            dgPlanilha.Columns[0].Visible = false; dgPlanilha.Columns[1].Visible = false; dgPlanilha.Columns[2].Visible = false;
+            dgPlanilha.Columns[3].Visible = false; dgPlanilha.Columns[4].Visible = false; dgPlanilha.Columns[5].Visible = false;
+            dgPlanilha.Columns[6].Visible = false;
+            #endregion
+
             DBConnection.fecharConexao(); //Posso fechar a conexão, o dataread foi descarreado
             //MessageBox.Show(dataT.Rows.Count.ToString()); Teste verificar dataTable
             #endregion
@@ -118,6 +123,11 @@ namespace XmlFinder
             }
         }
 
+        private void dgPlanilha_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string value = dgPlanilha.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
+            System.Diagnostics.Process.Start(value);
+        }
     }
 }
 

@@ -49,19 +49,15 @@ namespace XmlFinder
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPastaPDF = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnPastaXML = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnImportar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.listBoxPDF = new System.Windows.Forms.ListBox();
-            this.listBoxXML = new System.Windows.Forms.ListBox();
             this.listBoxImportado = new System.Windows.Forms.ListBox();
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtPdfPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtXmlPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtAtivado = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -259,32 +255,6 @@ namespace XmlFinder
             this.btnPastaPDF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPastaPDF.Click += new System.EventHandler(this.btnPastaPDF_Click);
             // 
-            // btnPastaXML
-            // 
-            this.btnPastaXML.ActiveBorderThickness = 1;
-            this.btnPastaXML.ActiveCornerRadius = 20;
-            this.btnPastaXML.ActiveFillColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnPastaXML.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPastaXML.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnPastaXML.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPastaXML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaXML.BackgroundImage")));
-            this.btnPastaXML.ButtonText = "Selecionar Pasta XML";
-            this.btnPastaXML.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPastaXML.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPastaXML.ForeColor = System.Drawing.Color.White;
-            this.btnPastaXML.IdleBorderThickness = 1;
-            this.btnPastaXML.IdleCornerRadius = 20;
-            this.btnPastaXML.IdleFillColor = System.Drawing.Color.SeaGreen;
-            this.btnPastaXML.IdleForecolor = System.Drawing.Color.White;
-            this.btnPastaXML.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPastaXML.Location = new System.Drawing.Point(332, 58);
-            this.btnPastaXML.Margin = new System.Windows.Forms.Padding(5);
-            this.btnPastaXML.Name = "btnPastaXML";
-            this.btnPastaXML.Size = new System.Drawing.Size(219, 41);
-            this.btnPastaXML.TabIndex = 1;
-            this.btnPastaXML.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPastaXML.Click += new System.EventHandler(this.btnPastaXML_Click);
-            // 
             // btnImportar
             // 
             this.btnImportar.ActiveBorderThickness = 1;
@@ -318,14 +288,6 @@ namespace XmlFinder
             this.listBoxPDF.Name = "listBoxPDF";
             this.listBoxPDF.Size = new System.Drawing.Size(219, 277);
             this.listBoxPDF.TabIndex = 3;
-            // 
-            // listBoxXML
-            // 
-            this.listBoxXML.FormattingEnabled = true;
-            this.listBoxXML.Location = new System.Drawing.Point(332, 117);
-            this.listBoxXML.Name = "listBoxXML";
-            this.listBoxXML.Size = new System.Drawing.Size(219, 277);
-            this.listBoxXML.TabIndex = 4;
             // 
             // listBoxImportado
             // 
@@ -417,18 +379,6 @@ namespace XmlFinder
             this.bunifuCustomLabel3.Text = "Verificando...";
             this.bunifuCustomLabel3.Click += new System.EventHandler(this.bunifuCustomLabel3_Click);
             // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(375, 247);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(132, 28);
-            this.bunifuCustomLabel4.TabIndex = 11;
-            this.bunifuCustomLabel4.Text = "Verificando...";
-            // 
             // txtPdfPadrao
             // 
             this.txtPdfPadrao.AutoSize = true;
@@ -441,19 +391,6 @@ namespace XmlFinder
             this.txtPdfPadrao.TabIndex = 12;
             this.txtPdfPadrao.Text = "Diretório PDF padrão";
             this.txtPdfPadrao.Visible = false;
-            // 
-            // txtXmlPadrao
-            // 
-            this.txtXmlPadrao.AutoSize = true;
-            this.txtXmlPadrao.BackColor = System.Drawing.Color.Transparent;
-            this.txtXmlPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.txtXmlPadrao.ForeColor = System.Drawing.Color.DimGray;
-            this.txtXmlPadrao.Location = new System.Drawing.Point(327, 86);
-            this.txtXmlPadrao.Name = "txtXmlPadrao";
-            this.txtXmlPadrao.Size = new System.Drawing.Size(211, 28);
-            this.txtXmlPadrao.TabIndex = 13;
-            this.txtXmlPadrao.Text = "Diretório XML padrão";
-            this.txtXmlPadrao.Visible = false;
             // 
             // bunifuCheckBox1
             // 
@@ -581,20 +518,16 @@ namespace XmlFinder
             this.Controls.Add(this.txtAtivado);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.bunifuCheckBox1);
-            this.Controls.Add(this.txtXmlPadrao);
             this.Controls.Add(this.txtPdfPadrao);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnPararVerificacao);
             this.Controls.Add(this.listBoxImportado);
-            this.Controls.Add(this.listBoxXML);
             this.Controls.Add(this.listBoxPDF);
             this.Controls.Add(this.btnImportar);
-            this.Controls.Add(this.btnPastaXML);
             this.Controls.Add(this.btnPastaPDF);
             this.Controls.Add(this.bunifuCustomLabel3);
-            this.Controls.Add(this.bunifuCustomLabel4);
             this.Name = "Page1";
             this.Size = new System.Drawing.Size(888, 535);
             this.Load += new System.EventHandler(this.Page1_Load);
@@ -622,19 +555,15 @@ namespace XmlFinder
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnPastaPDF;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaXML;
         private Bunifu.Framework.UI.BunifuThinButton2 btnImportar;
         private System.Windows.Forms.ListBox listBoxPDF;
-        private System.Windows.Forms.ListBox listBoxXML;
         private System.Windows.Forms.ListBox listBoxImportado;
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuCustomLabel txtPdfPadrao;
-        private Bunifu.Framework.UI.BunifuCustomLabel txtXmlPadrao;
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuCustomLabel txtAtivado;

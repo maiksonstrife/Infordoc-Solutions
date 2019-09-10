@@ -86,6 +86,8 @@
       <DependentUpon>Alerta1.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="Documentos.cs" />
+    <Compile Include="DocumentosDAO.cs" />
     <Compile Include="Ferramentas.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -124,6 +126,12 @@
     <Compile Include="Page4.Designer.cs">
       <DependentUpon>Page4.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageMonitorar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageMonitorar.Designer.cs">
+      <DependentUpon>PageMonitorar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Planilha.cs" />
     <Compile Include="PlanilhaDAO.cs" />
     <Compile Include="Program.cs" />
@@ -151,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Page4.resx">
       <DependentUpon>Page4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageMonitorar.resx">
+      <DependentUpon>PageMonitorar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -131,6 +131,7 @@ namespace XmlFinder
             this.dgPlanilha.Size = new System.Drawing.Size(882, 393);
             this.dgPlanilha.TabIndex = 6;
             this.dgPlanilha.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Navy;
+            this.dgPlanilha.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPlanilha_CellContentClick);
             // 
             // dataInicio
             // 

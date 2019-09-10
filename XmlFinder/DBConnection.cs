@@ -20,7 +20,7 @@ namespace XmlFinder
         #endregion
 
         //Variaveis globais
-        public static string connString = @"Data Source=169.57.134.120;Initial Catalog=DBTeste;User Id=sa;Password=ZXbnlz4N;Trusted_Connection=false;";
+        public static string connString = @"Data Source=srv2.infordoc.com;Initial Catalog=FolderDoc;User Id=sa;Password=ZXbnlz4N;Trusted_Connection=false;";
         public static SqlConnection conn = null; //Objeto que faz ponte entre c# e sql, possui comandos basicos como UPDATE, INSERT e DELETE
         public static SqlCommand command = null; //objeto que segura comando sql
         public static SqlDataAdapter adapter = new SqlDataAdapter(); //objeto que faz UPDATE (*trocado por using)
