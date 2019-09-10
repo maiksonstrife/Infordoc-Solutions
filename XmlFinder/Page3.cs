@@ -86,7 +86,7 @@ namespace XmlFinder
 
         private void btnSalvarStandard_Click(object sender, EventArgs e)
         {
-            new alerta("Configuração SALVA", alerta.AlertType.atencao).Show();
+            new alerta("Configuração PADRÃO SALVA", alerta.AlertType.atencao).Show();
             if (isStandardDirectory.Checked == false)
             {
                 Settings.Default["standardPdfPath"] = "";
@@ -111,6 +111,41 @@ namespace XmlFinder
                 Settings.Default["standardOutputPath"] = dialog.FileName;
                 TextBoxSaida.Text = Settings.Default["standardOutputPath"].ToString();
                 new alerta("Clique em SALVAR para completar", alerta.AlertType.atencao).Show();
+            }
+        }
+
+        private void bunifuTextBox1_TextChange_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvarRede_Click(object sender, EventArgs e)
+        {
+            Settings.Default["EnderecoServidorFTP"] = txtEnderecoServidorFTP.Text;
+            Settings.Default["Usuario"] = txtUsuario.Text;
+            Settings.Default["Senha"] = txtSenha.Text;
+            Settings.Default.Save();
+            new alerta("USUÁRIO SALVO", alerta.AlertType.atencao).Show();
+        }
+
+        private void btnTesteFtp_Click(object sender, EventArgs e)
+        {
+            FtpConnection ftpConnection = new FtpConnection();
+            bool testeFtp = false;
+
+            string url = Settings.Default["EnderecoServidorFTP"].ToString();
+            string usuario = Settings.Default["Usuario"].ToString();
+            string senha = Settings.Default["Senha"].ToString();
+
+            testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
+            if (testeFtp == true)
+            {
+                new alerta("CONECTADO!", alerta.AlertType.sucesso).Show();
+                testeFtp = false;
+            }
+            else
+            {
+                new alerta("Erro de REDE", alerta.AlertType.erro).Show();
             }
         }
     }

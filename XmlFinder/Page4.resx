@@ -121,6 +121,16 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bunifuProgressBar1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAWcAAAAXCAYAAADX7Y74AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD8SURBVHhe7d0xToRAFIBhjmFps4OxMlnQ1tLS6KCWlh7B
+        cm/lkfQGWqkMEDdZqWdf8b3kCyG8+s+EAhpjjDHB57wfTtrt/XXbDzsA6kl9vmmvHk+XHO9n0w8Xqcvv
+        49IPAEfQ5c/x+rxkeT4xj2H++LcIQF1d/iqH5SnO6fLhdnUJgOpSP7xOcR5vyjuP1SUAqtuJM0A84gwQ
+        kDgDBCTOAAGJM0BA4gwQkDgDBCTOAAGJM0BA4gwQkDgDBCTOAAGJM0BAf3F+OXgAwPHMcU7bu7OVhwDU
+        9V2u5ZdVU5zLlI87HywBUFuX35Ys72f6weD8/hmAyjZdfppr3DS/Az5iiOCTsG0AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="txtCaminhoLocal.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZkAAAAjCAYAAABGg3dpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -131,11 +141,10 @@
   </data>
   <data name="btnSelecionarPasta.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAZkAAAAbCAYAAACuqvKpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVHhe7dWxFUBQAMDAPxMLWYNlbMF4PL2OdFdclQEy
-        pu1c5u28AOBPz1/GWwCAP5gMABmTASBjMgBkTAaAjMkAkDEZADImA0DGZADImAwAGZMBIGMyAGRMBoCM
-        yQCQMRkAMiYDQMZkAMiYDAAZkwEgYzIAZEwGgIzJAJAxGQAyJgNAxmQAyIx5Pfa3AACfrMd+A1Mg+IDF
-        zXeUAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAALYAAAAbCAYAAADRcnU0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVHhe7dIxEYAwAMDAagJD2AAzuCjy4NgxQO6Hn7Jm
+        LMe1rcd1Q8X79PgK8HfGJsnYJBmbJGOTZGySjE2SsUkyNknGJsnYJBmbJGOTZGySjE2SsUkyNknGJsnY
+        JBmbJGOTZGySjE2SsUkyNklj3ef5FeC39nk+fRjQ9qxnvaQAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -158,15 +167,6 @@
         cRzHcRzHcRzH+R/0er8AjPW2IwZOBPQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnSalvarPasta.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAXcAAAAiCAYAAACk9JkOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVHhe7dQxEYAwAMDAagJD2AAzuCjy4NgxQO6Hn7Jn
-        LMe1rcd1A9Dwfn18BQD+zdwBgswdIMjcAYLMHSDI3AGCzB0gyNwBgswdIMjcAYLMHSDI3AGCzB0gyNwB
-        gswdIMjcAYLMHSDI3AGCzB0gyNwBgswdIMjcAYLMHSDI3AGCzB0gyNwBgswdIMjcAYLMHSDI3AGCzB0g
-        yNwBgsa6z/MrAPBT+zwfGefjkTBTJNwAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnMonitorar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANkAAAAiCAYAAADS63ysAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -187,14 +187,17 @@
   </data>
   <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAXsAAAAiCAYAAAC+yHmAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVHhe7dQxEYAwAMDAagJD2AAzuAB5cOwoaH74KXvG
-        ctzbetwPAHP6Pj/+AgBzMXuAALMHCDB7gACzBwgwe4AAswcIMHuAALMHCDB7gACzBwgwe4AAswcIMHuA
-        ALMHCDB7gACzBwgwe4AAswcIMHuAALMHCDB7gACzBwgwe4AAswcIMHuAALMHCDB7gACzBwgwe4AAswcI
-        MHuAgLHu1/kXAJjEfp0vQRgoR5ZbQOUAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAAVoAAAAiCAYAAAAeVxFuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACkSURBVHhe7dQhEYBAAADBzwSFqAFlaAHxYPDIP7di1fkb
+        y3Fv63E/AMz3PXb8BQDmMVqAmNECxIwWIGa0ADGjBYgZLUDMaAFiRgsQM1qAmNECxIwWIGa0ADGjBYgZ
+        LUDMaAFiRgsQM1qAmNECxIwWIGa0ADGjBYgZLUDMaAFiRgsQM1qAmNECxIwWIGa0ADGjBYgZLUDMaAFi
+        Y92v8y8AMMF+nS8mYLG8jVIHEAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>141, 17</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>296, 17</value>
   </metadata>
 </root>

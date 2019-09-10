@@ -197,4 +197,21 @@
         kyRJUh+dBx0AAD0bhjdnNlTPvyOFVwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnSalvarRede.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAQYAAAAiCAYAAAC9f3eoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVHhe7dQxEYAwAMDAagJD2AAzuCjy4JiDA374KXvG
+        clzbelw3wOt9wvgKwL8ZAxDGAIQxAGEMQBgDEMYAhDEAYQxAGAMQxgCEMQBhDEAYAxDGAIQxAGEMQBgD
+        EMYAhDEAYQxAGAMQxgCEMQBhDEAYAxDGAIQxAGEMQBgDEMYAhDEAMdZ9nl8B+Kl9ng+hww++/MNDEwAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnTesteFtp.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFgAAAAiCAYAAADbLB6TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVGhD7dBBDYNAAABBlCCiNVQboAIH5wLkQS61wP7m
+        Mcm+d/ns1++7Xzfvm2+XGetxE5hvDQ4ZHDM4ZnDM4JjBMYNjBscMjhkcMzhmcMzgmMExg2MGxwyOGRwz
+        OGZwzOCYwTGDYwbHDI4ZHDM4ZnDM4JjBMYNj/8HbOWYQ2M7xAOW09Y8huUHjAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

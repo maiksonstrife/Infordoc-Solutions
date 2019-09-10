@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace XmlFinder
 {
@@ -58,8 +59,9 @@ namespace XmlFinder
 
                 return names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             }
-            catch (WebException)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -76,9 +78,9 @@ namespace XmlFinder
                 response.Close();
                 return true;
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }

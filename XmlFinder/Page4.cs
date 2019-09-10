@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using XmlFinder.Properties;
 
 namespace XmlFinder
 {
@@ -27,16 +28,16 @@ namespace XmlFinder
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            url =  txtEnderecoServidorFTP.Text;
-            usuario = txtUsuario.Text;
-            senha = txtSenha.Text;
+            url = Settings.Default["EnderecoServidorFTP"].ToString();
+            usuario = Settings.Default["Usuario"].ToString();
+            senha = Settings.Default["Senha"].ToString();
 
             FtpConnection ftpConnection = new FtpConnection();
             testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
             if (testeFtp == true)
             {
                 listarPastasBox.DataSource = ftpConnection.ListFiles(url, usuario, senha);
-                new alerta("Usuario SALVO!", alerta.AlertType.sucesso).Show();
+                new alerta("CONECTADO!", alerta.AlertType.sucesso).Show();
                 testeFtp = false;
             }
             else
@@ -60,33 +61,24 @@ namespace XmlFinder
 
         private void btnEnviarFtp_Click(object sender, EventArgs e)
         {
-            FtpConnection ftpConnection = new FtpConnection();          
-            DirectoryInfo directory = new DirectoryInfo (pastaLocal);
-
-            testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
-            if (testeFtp == true)
+            bool isError = false;
+            isError = tratamentoErros();
+            if (isError == true)
             {
-                foreach (var file in directory.GetFiles())
-                {
-                    ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
-                }
-                new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
-                testeFtp = false;
+                enviarFtp();
             }
             else
             {
-                new alerta("Erro de REDE", alerta.AlertType.info).Show();
-                listarPastasBox.DataSource = null;
-                listarPastasBox.Items.Clear();
+                return;
             }
-
-            
+            enviarFtp();
         }
 
         private void btnSelecionarPasta_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\Users";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            dialog.InitialDirectory = path + "\\FTP";
             dialog.IsFolderPicker = true;
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
@@ -115,19 +107,130 @@ namespace XmlFinder
             
         }
 
-        public enum Hidetype
+        private void btnMonitorar_Click(object sender, EventArgs e)
         {
-            esconder, mostrar,
+            bool isError = false;
+            isError = tratamentoErros();
+            if (isError == true)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                return;
+            }
+
+            btnPararVerificacao.Enabled = true;
+            btnPararVerificacao.Update();
+
+
+            #region //Desativar botões
+            bunifuButton1.Visible = false;
+            listarPastasBox.Visible = false;
+            btnSelecionarPasta.Visible = false;
+            btnEnviarFtp.Visible = false;
+            btnMonitorar.Visible = false;
+            #endregion
         }
 
-        public void esconderPasso1(Hidetype type)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            switch (type)
+            bool isError = false;
+            isError = tratamentoErros();
+            if (isError == true)
             {
-                case Hidetype.esconder:
-                    //dar Hide
-                    break;
+                enviarFtp();
             }
+            else
+            {
+                return;
+            }
+            
         }
+
+        private void btnPararVerificacao_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            new alerta("Verificação Automática desabilitada", alerta.AlertType.info).Show();
+            btnPararVerificacao.Enabled = false;
+            btnPararVerificacao.Update();
+
+
+            #region //Ativar botões
+            bunifuButton1.Visible = true;
+            listarPastasBox.Visible = true;
+            btnSelecionarPasta.Visible = true;
+            btnEnviarFtp.Visible = true;
+            btnMonitorar.Visible = true;
+            #endregion
+        }
+
+        private void txtUsuario_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public bool tratamentoErros()
+        {
+
+            if (String.IsNullOrEmpty(pastaLocal))
+            {
+                new alerta("Selecionar PASTA LOCAL", alerta.AlertType.atencao).Show();
+                return false;
+            }
+            if (String.IsNullOrEmpty(pastaWEB))
+            {
+                new alerta("selecionar PASTA WEB", alerta.AlertType.atencao).Show();
+                return false;
+            }
+            if (String.IsNullOrEmpty(usuario))
+            {
+                new alerta("USUARIO VAZIO configurações", alerta.AlertType.atencao).Show();
+                return false;
+            }
+            if (String.IsNullOrEmpty(senha))
+            {
+                new alerta("SENHA VAZIA configurações", alerta.AlertType.atencao).Show();
+                return false;
+            }
+
+            return true;
+        }
+
+        public void enviarFtp()
+        {
+            bool isError = false;
+            isError = tratamentoErros();
+            if (isError == true)
+            {
+                FtpConnection ftpConnection = new FtpConnection();
+                DirectoryInfo directory = new DirectoryInfo(pastaLocal);
+
+                testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
+                if (testeFtp == true)
+                {
+                    foreach (var file in directory.GetFiles())
+                    {
+                        ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
+                    }
+                    new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
+                    testeFtp = false;
+
+                }
+                else
+                {
+                    new alerta("Erro de REDE", alerta.AlertType.info).Show();
+                    listarPastasBox.DataSource = null;
+                    listarPastasBox.Items.Clear();
+                }
+            }
+            else
+            {
+                return;
+            }
+
+
+        }
+
     }
 }
