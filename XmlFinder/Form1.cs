@@ -22,6 +22,7 @@ namespace XmlFinder
             {
                 FtpConnection ftpConnection = new FtpConnection();
                 ftpConnection.UploadFile(file, "ftp.box.com", "contato);
+                inforweb
             } */
         }
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
