@@ -86,7 +86,9 @@ namespace XmlFinder
             #region //esconder colunas]
             dgPlanilha.Columns[0].Visible = false; dgPlanilha.Columns[1].Visible = false; dgPlanilha.Columns[2].Visible = false;
             dgPlanilha.Columns[3].Visible = false; dgPlanilha.Columns[4].Visible = false; dgPlanilha.Columns[5].Visible = false;
-            dgPlanilha.Columns[6].Visible = false;
+            dgPlanilha.Columns[6].Visible = false; dgPlanilha.Columns[9].Visible = false; dgPlanilha.Columns[10].Visible = false;
+            dgPlanilha.Columns[11].Visible = false; dgPlanilha.Columns[12].Visible = false; dgPlanilha.Columns[13].Visible = false;
+            dgPlanilha.Columns[14].Visible = false;
             #endregion
 
             DBConnection.fecharConexao(); //Posso fechar a conexão, o dataread foi descarreado
@@ -126,7 +128,15 @@ namespace XmlFinder
         private void dgPlanilha_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string value = dgPlanilha.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
-            System.Diagnostics.Process.Start(value);
+            try
+            {
+                System.Diagnostics.Process.Start(value);
+            }
+            catch
+            {
+               
+            }
+            
         }
     }
 }
