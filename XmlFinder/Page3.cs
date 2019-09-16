@@ -148,5 +148,10 @@ namespace XmlFinder
                 new alerta("Erro de REDE", alerta.AlertType.erro).Show();
             }
         }
+
+        private void txtUsuario_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

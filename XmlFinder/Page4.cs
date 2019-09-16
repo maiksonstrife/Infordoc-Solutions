@@ -32,6 +32,23 @@ namespace XmlFinder
             usuario = Settings.Default["Usuario"].ToString();
             senha = Settings.Default["Senha"].ToString();
 
+            if (String.IsNullOrEmpty(url))
+            {
+                new alerta("Preencher ENDEREÇO em Conifgurações", alerta.AlertType.atencao).Show();
+                return;
+            }
+            if (String.IsNullOrEmpty(usuario))
+            {
+                new alerta("Preencher USUARIO em Conifgurações", alerta.AlertType.atencao).Show();
+                return;
+            }
+            if (String.IsNullOrEmpty(senha))
+            {
+                new alerta("Preencher SENHA em Conifgurações", alerta.AlertType.atencao).Show();
+                return;
+            }
+
+
             FtpConnection ftpConnection = new FtpConnection();
             testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
             if (testeFtp == true)
@@ -71,7 +88,6 @@ namespace XmlFinder
             {
                 return;
             }
-            enviarFtp();
         }
 
         private void btnSelecionarPasta_Click(object sender, EventArgs e)
@@ -130,6 +146,8 @@ namespace XmlFinder
             btnSelecionarPasta.Visible = false;
             btnEnviarFtp.Visible = false;
             btnMonitorar.Visible = false;
+            label4.Visible = false;
+            label6.Visible = false;
             #endregion
         }
 
@@ -162,10 +180,28 @@ namespace XmlFinder
             btnSelecionarPasta.Visible = true;
             btnEnviarFtp.Visible = true;
             btnMonitorar.Visible = true;
+            label4.Visible = true;
+            label6.Visible = true;
             #endregion
         }
 
         private void txtUsuario_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Threading in Background
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
         }
@@ -209,9 +245,18 @@ namespace XmlFinder
                 testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
                 if (testeFtp == true)
                 {
+                    //bagroundworkerProgresschanged
+                    int i = 0;
+                    int range = directory.GetFiles().Length;
+                    bunifuProgressBar1.Value = 0;
+                    bunifuProgressBar1.MaximumValue = range;
+                    bunifuProgressBar1.AnimationStep = 1;
+                    //backgroundworkerDO
                     foreach (var file in directory.GetFiles())
                     {
+                        i++;
                         ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
+                        bunifuProgressBar1.Value = i;
                     }
                     new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
                     testeFtp = false;
@@ -228,9 +273,6 @@ namespace XmlFinder
             {
                 return;
             }
-
-
         }
-
     }
 }

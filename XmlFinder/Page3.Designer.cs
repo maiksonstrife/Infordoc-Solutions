@@ -545,6 +545,7 @@
             this.txtUsuario.TabIndex = 21;
             this.txtUsuario.Text = "contato@infordoc.com.br";
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUsuario.OnValueChanged += new System.EventHandler(this.txtUsuario_OnValueChanged);
             // 
             // btnTesteFtp
             // 
