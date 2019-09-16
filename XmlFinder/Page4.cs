@@ -20,10 +20,12 @@ namespace XmlFinder
         string pastaWEB;
         string pastaLocal;
         bool testeFtp = false;
+       
          
         public Page4()
         {
             InitializeComponent();
+            timer1.Enabled = false;
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
@@ -129,6 +131,7 @@ namespace XmlFinder
             isError = tratamentoErros();
             if (isError == true)
             {
+                timer1.Enabled = true;
                 timer1.Start();
             }
             else
@@ -138,17 +141,7 @@ namespace XmlFinder
 
             btnPararVerificacao.Enabled = true;
             btnPararVerificacao.Update();
-
-
-            #region //Desativar botões
-            bunifuButton1.Visible = false;
-            listarPastasBox.Visible = false;
-            btnSelecionarPasta.Visible = false;
-            btnEnviarFtp.Visible = false;
-            btnMonitorar.Visible = false;
-            label4.Visible = false;
-            label6.Visible = false;
-            #endregion
+            botoesControle(false);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -172,17 +165,9 @@ namespace XmlFinder
             new alerta("Verificação Automática desabilitada", alerta.AlertType.info).Show();
             btnPararVerificacao.Enabled = false;
             btnPararVerificacao.Update();
-
-
-            #region //Ativar botões
-            bunifuButton1.Visible = true;
-            listarPastasBox.Visible = true;
-            btnSelecionarPasta.Visible = true;
-            btnEnviarFtp.Visible = true;
-            btnMonitorar.Visible = true;
-            label4.Visible = true;
-            label6.Visible = true;
-            #endregion
+            backgroundWorker1.CancelAsync();
+            botoesControle(true);
+            timer1.Enabled = false;
         }
 
         private void txtUsuario_OnValueChanged(object sender, EventArgs e)
@@ -193,17 +178,55 @@ namespace XmlFinder
         //Threading in Background
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            bool isError = false;
+            isError = tratamentoErros();
+            if (isError == true)
+            {
+                FtpConnection ftpConnection = new FtpConnection();
+                DirectoryInfo directory = new DirectoryInfo(pastaLocal);
 
+                testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
+                if (testeFtp == true)
+                {
+
+                    //backgroundworkerDO
+                    int i = 0;
+                    foreach (var file in directory.GetFiles())
+                    {
+                        
+                        ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
+                        i++;
+                        backgroundWorker1.ReportProgress(i);
+                    }
+                    testeFtp = false;
+
+                }
+                else
+                {
+                    new alerta("Erro de REDE", alerta.AlertType.info).Show();
+                    listarPastasBox.DataSource = null;
+                    listarPastasBox.Items.Clear();
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            bunifuProgressBar1.Value = e.ProgressPercentage;
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            bunifuProgressBar1.Value = 0;
+            new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
+            if (timer1.Enabled == false)
+            {
+                botoesControle(true);
+            }
         }
 
         public bool tratamentoErros()
@@ -235,44 +258,24 @@ namespace XmlFinder
 
         public void enviarFtp()
         {
-            bool isError = false;
-            isError = tratamentoErros();
-            if (isError == true)
-            {
-                FtpConnection ftpConnection = new FtpConnection();
-                DirectoryInfo directory = new DirectoryInfo(pastaLocal);
+            DirectoryInfo directory = new DirectoryInfo(pastaLocal);
+            int range = directory.GetFiles().Length;
+            bunifuProgressBar1.Value = 0;
+            bunifuProgressBar1.MaximumValue = range;
+            bunifuProgressBar1.AnimationStep = 1;
+            botoesControle(false);
+            backgroundWorker1.RunWorkerAsync();
+        }
 
-                testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
-                if (testeFtp == true)
-                {
-                    //bagroundworkerProgresschanged
-                    int i = 0;
-                    int range = directory.GetFiles().Length;
-                    bunifuProgressBar1.Value = 0;
-                    bunifuProgressBar1.MaximumValue = range;
-                    bunifuProgressBar1.AnimationStep = 1;
-                    //backgroundworkerDO
-                    foreach (var file in directory.GetFiles())
-                    {
-                        i++;
-                        ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
-                        bunifuProgressBar1.Value = i;
-                    }
-                    new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
-                    testeFtp = false;
-
-                }
-                else
-                {
-                    new alerta("Erro de REDE", alerta.AlertType.info).Show();
-                    listarPastasBox.DataSource = null;
-                    listarPastasBox.Items.Clear();
-                }
-            }
-            else
-            {
-                return;
-            }
+        public void botoesControle(bool botao)
+        {
+            bunifuButton1.Visible = botao;
+            listarPastasBox.Visible = botao;
+            btnSelecionarPasta.Visible = botao;
+            btnEnviarFtp.Visible = botao;
+            btnMonitorar.Visible = botao;
+            label4.Visible = botao;
+            label6.Visible = botao;
         }
     }
 }
