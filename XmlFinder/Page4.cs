@@ -188,8 +188,6 @@ namespace XmlFinder
                 testeFtp = ftpConnection.testFtpConnection(url, usuario, senha);
                 if (testeFtp == true)
                 {
-
-                    //backgroundworkerDO
                     int i = 0;
                     foreach (var file in directory.GetFiles())
                     {
@@ -222,7 +220,10 @@ namespace XmlFinder
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             bunifuProgressBar1.Value = 0;
+            bunifuProgressBar1.Refresh();
+            bunifuProgressBar1.Update();
             new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
+            //Se não for monitoramento, retornar os botoes ao finalizar
             if (timer1.Enabled == false)
             {
                 botoesControle(true);
@@ -260,9 +261,8 @@ namespace XmlFinder
         {
             DirectoryInfo directory = new DirectoryInfo(pastaLocal);
             int range = directory.GetFiles().Length;
-            bunifuProgressBar1.Value = 0;
             bunifuProgressBar1.MaximumValue = range;
-            bunifuProgressBar1.AnimationStep = 1;
+            bunifuProgressBar1.AnimationStep = 4;
             botoesControle(false);
             backgroundWorker1.RunWorkerAsync();
         }
