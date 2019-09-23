@@ -44,14 +44,13 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.homePage2 = new XmlFinder.homePage();
             this.homePage1 = new XmlFinder.homePage();
             this.page12 = new XmlFinder.Page1();
             this.page41 = new XmlFinder.Page4();
             this.page31 = new XmlFinder.Page3();
             this.page21 = new XmlFinder.Page2();
             this.page11 = new XmlFinder.Page1();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topBar.SuspendLayout();
@@ -382,7 +381,6 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.homePage2);
             this.panel2.Controls.Add(this.homePage1);
             this.panel2.Controls.Add(this.page12);
             this.panel2.Controls.Add(this.page41);
@@ -393,22 +391,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(888, 535);
             this.panel2.TabIndex = 9;
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.topBar;
-            this.bunifuDragControl1.Vertical = true;
-            // 
-            // homePage2
-            // 
-            this.homePage2.AutoSize = true;
-            this.homePage2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.homePage2.Location = new System.Drawing.Point(0, -12);
-            this.homePage2.Name = "homePage2";
-            this.homePage2.Size = new System.Drawing.Size(888, 535);
-            this.homePage2.TabIndex = 6;
             // 
             // homePage1
             // 
@@ -469,6 +451,13 @@
             this.page11.Size = new System.Drawing.Size(888, 535);
             this.page11.TabIndex = 0;
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.topBar;
+            this.bunifuDragControl1.Vertical = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,7 +499,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private homePage homePage1;
         private Page1 page12;
-        private homePage homePage2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;

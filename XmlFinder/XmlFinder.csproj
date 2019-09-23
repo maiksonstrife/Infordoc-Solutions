@@ -61,7 +61,7 @@
     <ManifestKeyFile>InforPlan_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -85,6 +85,7 @@
     <Compile Include="Alerta1.Designer.cs">
       <DependentUpon>Alerta1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppSetting.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Ferramentas.cs" />
     <Compile Include="Form1.cs">
@@ -100,6 +101,7 @@
     <Compile Include="homePage.Designer.cs">
       <DependentUpon>homePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImgUtility.cs" />
     <Compile Include="Page1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +136,7 @@
     <Compile Include="PlanilhaDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toast.cs" />
     <EmbeddedResource Include="alerta.resx">
       <DependentUpon>alerta.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +191,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AutoClosingMessageBox, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoClosingMessageBox.1.0.0.2\lib\net40\AutoClosingMessageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="BarcodeImaging, Version=1.0.4393.28598, Culture=neutral, PublicKeyToken=82bacb0497aa5fed, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeImaging.1.0.0\lib\net20\BarcodeImaging.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Core">
       <HintPath>..\..\..\..\Google Drive\Pessoal\C# E estudos\Bunifu\Bunifu UI WinForms 1.9\Bunifu.Core.dll</HintPath>
     </Reference>
@@ -273,12 +282,21 @@
     <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Windows.Data">
+      <HintPath>..\..\..\..\..\..\Windows\System32\WinMetadata\Windows.Data.winmd</HintPath>
+    </Reference>
+    <Reference Include="Windows.UI">
+      <HintPath>..\..\..\..\..\..\Windows\System32\WinMetadata\Windows.UI.winmd</HintPath>
+    </Reference>
     <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.4\lib\net461\zxing.dll</HintPath>
     </Reference>

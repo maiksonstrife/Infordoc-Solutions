@@ -81,6 +81,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_scan_result = new System.Windows.Forms.TextBox();
+            this.lab_current = new System.Windows.Forms.Label();
+            this.lab_tot_prog = new System.Windows.Forms.Label();
+            this.lab_sub_prog = new System.Windows.Forms.Label();
+            this.link_url = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_current)).BeginInit();
@@ -735,10 +739,57 @@
             this.txt_scan_result.TabIndex = 52;
             this.txt_scan_result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // lab_current
+            // 
+            this.lab_current.AutoSize = true;
+            this.lab_current.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lab_current.Location = new System.Drawing.Point(479, 55);
+            this.lab_current.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_current.Name = "lab_current";
+            this.lab_current.Size = new System.Drawing.Size(0, 13);
+            this.lab_current.TabIndex = 53;
+            // 
+            // lab_tot_prog
+            // 
+            this.lab_tot_prog.AutoSize = true;
+            this.lab_tot_prog.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lab_tot_prog.Location = new System.Drawing.Point(427, 482);
+            this.lab_tot_prog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_tot_prog.Name = "lab_tot_prog";
+            this.lab_tot_prog.Size = new System.Drawing.Size(0, 13);
+            this.lab_tot_prog.TabIndex = 54;
+            // 
+            // lab_sub_prog
+            // 
+            this.lab_sub_prog.AutoSize = true;
+            this.lab_sub_prog.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lab_sub_prog.Location = new System.Drawing.Point(444, 261);
+            this.lab_sub_prog.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_sub_prog.Name = "lab_sub_prog";
+            this.lab_sub_prog.Size = new System.Drawing.Size(0, 13);
+            this.lab_sub_prog.TabIndex = 55;
+            // 
+            // link_url
+            // 
+            this.link_url.AutoSize = true;
+            this.link_url.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_url.LinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link_url.Location = new System.Drawing.Point(681, 49);
+            this.link_url.Name = "link_url";
+            this.link_url.Size = new System.Drawing.Size(207, 21);
+            this.link_url.TabIndex = 56;
+            this.link_url.TabStop = true;
+            this.link_url.Text = "http://www.infordoc.com.br/";
+            this.link_url.Visible = false;
+            // 
             // PagePdfReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.link_url);
+            this.Controls.Add(this.lab_sub_prog);
+            this.Controls.Add(this.lab_tot_prog);
+            this.Controls.Add(this.lab_current);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_scan_result);
             this.Controls.Add(this.prog_tot);
@@ -777,6 +828,7 @@
             this.Controls.Add(this.txt_in_folder);
             this.Name = "PagePdfReader";
             this.Size = new System.Drawing.Size(888, 535);
+            this.Load += new System.EventHandler(this.PagePdfReader_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
@@ -841,5 +893,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_scan_result;
+        private System.Windows.Forms.Label lab_current;
+        private System.Windows.Forms.Label lab_tot_prog;
+        private System.Windows.Forms.Label lab_sub_prog;
+        private System.Windows.Forms.LinkLabel link_url;
     }
 }

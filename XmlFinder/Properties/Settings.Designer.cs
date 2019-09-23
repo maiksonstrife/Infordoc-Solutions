@@ -106,5 +106,53 @@ namespace XmlFinder.Properties {
                 this["Senha"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Posicoes {
+            get {
+                return ((string)(this["Posicoes"]));
+            }
+            set {
+                this["Posicoes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SisRecortar {
+            get {
+                return ((bool)(this["SisRecortar"]));
+            }
+            set {
+                this["SisRecortar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SisRenomear {
+            get {
+                return ((bool)(this["SisRenomear"]));
+            }
+            set {
+                this["SisRenomear"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SisSitema {
+            get {
+                return ((bool)(this["SisSitema"]));
+            }
+            set {
+                this["SisSitema"] = value;
+            }
+        }
     }
 }
