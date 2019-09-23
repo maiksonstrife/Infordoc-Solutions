@@ -121,6 +121,16 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkboxLocalPadrao.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVEhLvZUhDsIwGEYrkUiOwQ0QtASJxJG1CCQSuWvQ
+        Co6C5BgcAYkcXVOCeDPwLbzkT5fX5P11M39jt7hMvI2H4FKrTmPjMfdmNV3i0+DiI19240187l2clwX1
+        5V2w6Z7PwVd9M96lWz67xqZTWVAv+s1tESLoQYigByGCHoQIehAi6EGIoAchgh6ECHoQIuhBiKAHIYIe
+        hAh6ECLoQYigByGCHoQIehAi6L2Fd/Fav6Wpnc+C/t9ZxajjV+dNWdATlmmd5eCLfhnvzltjjHkBTBLF
+        mtXdErcAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="bunifuProgressBar1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWcAAAAXCAYAAADX7Y74AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

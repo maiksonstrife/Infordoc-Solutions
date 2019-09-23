@@ -55,6 +55,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuProgressBar1 = new Bunifu.UI.Winforms.BunifuProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.percentBar = new System.Windows.Forms.Label();
+            this.checkboxLocalPadrao = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +116,7 @@
             this.listarPastasBox.ItemForeColor = System.Drawing.Color.Purple;
             this.listarPastasBox.ItemHeight = 26;
             this.listarPastasBox.ItemHighLightColor = System.Drawing.Color.Thistle;
-            this.listarPastasBox.Location = new System.Drawing.Point(12, 322);
+            this.listarPastasBox.Location = new System.Drawing.Point(12, 268);
             this.listarPastasBox.Name = "listarPastasBox";
             this.listarPastasBox.Size = new System.Drawing.Size(409, 32);
             this.listarPastasBox.TabIndex = 19;
@@ -124,7 +127,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 289);
+            this.label4.Location = new System.Drawing.Point(8, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(303, 21);
             this.label4.TabIndex = 20;
@@ -149,7 +152,7 @@
             this.btnEnviarFtp.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnEnviarFtp.IdleIconLeftImage = null;
             this.btnEnviarFtp.IdleIconRightImage = null;
-            this.btnEnviarFtp.Location = new System.Drawing.Point(557, 276);
+            this.btnEnviarFtp.Location = new System.Drawing.Point(557, 244);
             this.btnEnviarFtp.Name = "btnEnviarFtp";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties3.BorderRadius = 1;
@@ -182,7 +185,7 @@
             this.btnMonitorar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnMonitorar.IdleIconLeftImage = null;
             this.btnMonitorar.IdleIconRightImage = null;
-            this.btnMonitorar.Location = new System.Drawing.Point(557, 338);
+            this.btnMonitorar.Location = new System.Drawing.Point(557, 302);
             this.btnMonitorar.Name = "btnMonitorar";
             stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties2.BorderRadius = 1;
@@ -202,7 +205,7 @@
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 187);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 161);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(261, 50);
             this.bunifuCustomLabel2.TabIndex = 21;
@@ -228,7 +231,7 @@
             this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(451, 187);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(451, 161);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(178, 50);
             this.bunifuCustomLabel3.TabIndex = 25;
@@ -294,7 +297,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 404);
+            this.label6.Location = new System.Drawing.Point(8, 373);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(381, 21);
             this.label6.TabIndex = 31;
@@ -319,7 +322,7 @@
             this.btnSelecionarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnSelecionarPasta.IdleIconLeftImage = null;
             this.btnSelecionarPasta.IdleIconRightImage = null;
-            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 428);
+            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 413);
             this.btnSelecionarPasta.Name = "btnSelecionarPasta";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
             stateProperties1.BorderRadius = 1;
@@ -362,7 +365,7 @@
             this.txtCaminhoLocal.IconPadding = 10;
             this.txtCaminhoLocal.IconRight = null;
             this.txtCaminhoLocal.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txtCaminhoLocal.Location = new System.Drawing.Point(12, 472);
+            this.txtCaminhoLocal.Location = new System.Drawing.Point(12, 446);
             this.txtCaminhoLocal.MaxLength = 32767;
             this.txtCaminhoLocal.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtCaminhoLocal.Modified = false;
@@ -427,7 +430,7 @@
             this.bunifuProgressBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.bunifuProgressBar1.BorderRadius = 4;
             this.bunifuProgressBar1.BorderThickness = 2;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(485, 402);
+            this.bunifuProgressBar1.Location = new System.Drawing.Point(492, 403);
             this.bunifuProgressBar1.MaximumValue = 100;
             this.bunifuProgressBar1.MinimumValue = 0;
             this.bunifuProgressBar1.Name = "bunifuProgressBar1";
@@ -437,6 +440,7 @@
             this.bunifuProgressBar1.Size = new System.Drawing.Size(359, 23);
             this.bunifuProgressBar1.TabIndex = 36;
             this.bunifuProgressBar1.Value = 0;
+            this.bunifuProgressBar1.onValueChange += new System.EventHandler(this.bunifuProgressBar1_onValueChange);
             // 
             // backgroundWorker1
             // 
@@ -446,10 +450,86 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // percentBar
+            // 
+            this.percentBar.AutoSize = true;
+            this.percentBar.BackColor = System.Drawing.Color.Transparent;
+            this.percentBar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentBar.Location = new System.Drawing.Point(665, 387);
+            this.percentBar.Name = "percentBar";
+            this.percentBar.Size = new System.Drawing.Size(0, 13);
+            this.percentBar.TabIndex = 37;
+            // 
+            // checkboxLocalPadrao
+            // 
+            this.checkboxLocalPadrao.AllowBindingControlAnimation = true;
+            this.checkboxLocalPadrao.AllowBindingControlColorChanges = false;
+            this.checkboxLocalPadrao.AllowBindingControlLocation = true;
+            this.checkboxLocalPadrao.AllowCheckBoxAnimation = false;
+            this.checkboxLocalPadrao.AllowCheckmarkAnimation = true;
+            this.checkboxLocalPadrao.AllowOnHoverStates = true;
+            this.checkboxLocalPadrao.BackColor = System.Drawing.Color.Transparent;
+            this.checkboxLocalPadrao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkboxLocalPadrao.BackgroundImage")));
+            this.checkboxLocalPadrao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.checkboxLocalPadrao.BindingControl = null;
+            this.checkboxLocalPadrao.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.checkboxLocalPadrao.Checked = false;
+            this.checkboxLocalPadrao.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
+            this.checkboxLocalPadrao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkboxLocalPadrao.CustomCheckmarkImage = null;
+            this.checkboxLocalPadrao.Location = new System.Drawing.Point(201, 413);
+            this.checkboxLocalPadrao.MinimumSize = new System.Drawing.Size(17, 17);
+            this.checkboxLocalPadrao.Name = "checkboxLocalPadrao";
+            this.checkboxLocalPadrao.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.checkboxLocalPadrao.OnCheck.BorderRadius = 2;
+            this.checkboxLocalPadrao.OnCheck.BorderThickness = 2;
+            this.checkboxLocalPadrao.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.checkboxLocalPadrao.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.checkboxLocalPadrao.OnCheck.CheckmarkThickness = 2;
+            this.checkboxLocalPadrao.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.checkboxLocalPadrao.OnDisable.BorderRadius = 2;
+            this.checkboxLocalPadrao.OnDisable.BorderThickness = 2;
+            this.checkboxLocalPadrao.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.checkboxLocalPadrao.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.checkboxLocalPadrao.OnDisable.CheckmarkThickness = 2;
+            this.checkboxLocalPadrao.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.checkboxLocalPadrao.OnHoverChecked.BorderRadius = 2;
+            this.checkboxLocalPadrao.OnHoverChecked.BorderThickness = 2;
+            this.checkboxLocalPadrao.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.checkboxLocalPadrao.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.checkboxLocalPadrao.OnHoverChecked.CheckmarkThickness = 2;
+            this.checkboxLocalPadrao.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.checkboxLocalPadrao.OnHoverUnchecked.BorderRadius = 2;
+            this.checkboxLocalPadrao.OnHoverUnchecked.BorderThickness = 2;
+            this.checkboxLocalPadrao.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.checkboxLocalPadrao.OnUncheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.checkboxLocalPadrao.OnUncheck.BorderRadius = 2;
+            this.checkboxLocalPadrao.OnUncheck.BorderThickness = 2;
+            this.checkboxLocalPadrao.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.checkboxLocalPadrao.Size = new System.Drawing.Size(24, 24);
+            this.checkboxLocalPadrao.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.checkboxLocalPadrao.TabIndex = 38;
+            this.checkboxLocalPadrao.ThreeState = false;
+            this.checkboxLocalPadrao.ToolTipText = null;
+            this.checkboxLocalPadrao.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.checkboxLocalPadrao_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(231, 416);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 21);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Saída Padrão";
+            // 
             // Page4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkboxLocalPadrao);
+            this.Controls.Add(this.percentBar);
             this.Controls.Add(this.bunifuProgressBar1);
             this.Controls.Add(this.txtCaminhoLocal);
             this.Controls.Add(this.btnSelecionarPasta);
@@ -498,5 +578,8 @@
         private System.Windows.Forms.Timer timer1;
         private Bunifu.UI.Winforms.BunifuProgressBar bunifuProgressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label percentBar;
+        private Bunifu.UI.WinForms.BunifuCheckBox checkboxLocalPadrao;
+        private System.Windows.Forms.Label label1;
     }
 }

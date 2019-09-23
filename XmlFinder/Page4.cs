@@ -215,6 +215,8 @@ namespace XmlFinder
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             bunifuProgressBar1.Value = e.ProgressPercentage;
+            double dProgress = 100.0 * bunifuProgressBar1.Value / bunifuProgressBar1.MaximumValue;
+            percentBar.Text = dProgress + "%";
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -223,6 +225,7 @@ namespace XmlFinder
             bunifuProgressBar1.Refresh();
             bunifuProgressBar1.Update();
             new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
+            percentBar.Text = "";
             //Se não for monitoramento, retornar os botoes ao finalizar
             if (timer1.Enabled == false)
             {
@@ -257,12 +260,37 @@ namespace XmlFinder
             return true;
         }
 
+        private void checkboxLocalPadrao_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            string testevazio = Settings.Default["standardOutputPath"].ToString();
+
+            if (checkboxLocalPadrao.Checked == true){
+                if (testevazio == "")
+                {
+                    new alerta("Caminho SAIDA PADRAO Vazio", alerta.AlertType.atencao).Show();
+                    checkboxLocalPadrao.Checked = false;
+                    return;
+                }
+                else
+                {
+                    pastaLocal = Settings.Default["standardOutputPath"].ToString();
+                    txtCaminhoLocal.Text = pastaLocal;
+                }
+            }
+            
+
+        }
+
+        private void bunifuProgressBar1_onValueChange(object sender, EventArgs e)
+        {
+
+        }
+
         public void enviarFtp()
         {
             DirectoryInfo directory = new DirectoryInfo(pastaLocal);
             int range = directory.GetFiles().Length;
             bunifuProgressBar1.MaximumValue = range;
-            bunifuProgressBar1.AnimationStep = 4;
             botoesControle(false);
             backgroundWorker1.RunWorkerAsync();
         }
@@ -274,8 +302,10 @@ namespace XmlFinder
             btnSelecionarPasta.Visible = botao;
             btnEnviarFtp.Visible = botao;
             btnMonitorar.Visible = botao;
+            label1.Visible = botao;
             label4.Visible = botao;
             label6.Visible = botao;
+            checkboxLocalPadrao.Visible = botao;
         }
     }
 }
