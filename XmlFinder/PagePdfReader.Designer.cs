@@ -105,6 +105,7 @@
             this.btn_go_done.TabIndex = 34;
             this.btn_go_done.Text = "IR";
             this.btn_go_done.UseVisualStyleBackColor = false;
+            this.btn_go_done.Click += new System.EventHandler(this.btn_go_done_Click_2);
             // 
             // btn_sel_done
             // 
@@ -120,6 +121,7 @@
             this.btn_sel_done.TabIndex = 32;
             this.btn_sel_done.Text = "ABRIR";
             this.btn_sel_done.UseVisualStyleBackColor = false;
+            this.btn_sel_done.Click += new System.EventHandler(this.btn_sel_done_Click_2);
             // 
             // label8
             // 
@@ -159,6 +161,7 @@
             this.btn_go_marked.TabIndex = 29;
             this.btn_go_marked.Text = "IR";
             this.btn_go_marked.UseVisualStyleBackColor = false;
+            this.btn_go_marked.Click += new System.EventHandler(this.btn_go_marked_Click_1);
             // 
             // btn_go_out
             // 
@@ -175,6 +178,7 @@
             this.btn_go_out.TabIndex = 30;
             this.btn_go_out.Text = "IR";
             this.btn_go_out.UseVisualStyleBackColor = false;
+            this.btn_go_out.Click += new System.EventHandler(this.btn_go_out_Click_1);
             // 
             // btn_sel_marked
             // 
@@ -191,6 +195,7 @@
             this.btn_sel_marked.TabIndex = 27;
             this.btn_sel_marked.Text = "ABRIR";
             this.btn_sel_marked.UseVisualStyleBackColor = false;
+            this.btn_sel_marked.Click += new System.EventHandler(this.btn_sel_marked_Click_1);
             // 
             // btn_sel_out
             // 
@@ -207,6 +212,7 @@
             this.btn_sel_out.TabIndex = 28;
             this.btn_sel_out.Text = "ABRIR";
             this.btn_sel_out.UseVisualStyleBackColor = false;
+            this.btn_sel_out.Click += new System.EventHandler(this.btn_sel_out_Click_1);
             // 
             // btn_go_in
             // 
@@ -223,6 +229,7 @@
             this.btn_go_in.TabIndex = 24;
             this.btn_go_in.Text = "IR";
             this.btn_go_in.UseVisualStyleBackColor = false;
+            this.btn_go_in.Click += new System.EventHandler(this.btn_go_in_Click_1);
             // 
             // btn_sel_in
             // 
@@ -374,6 +381,7 @@
             this.btniniciar2.Text = "INICIAR";
             this.btniniciar2.UseVisualStyleBackColor = false;
             this.btniniciar2.Visible = false;
+            this.btniniciar2.Click += new System.EventHandler(this.btniniciar2_Click);
             // 
             // txtTamCod
             // 
@@ -517,6 +525,7 @@
             this.btn_start.TabIndex = 7;
             this.btn_start.Text = "INICIAR";
             this.btn_start.UseVisualStyleBackColor = false;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click_1);
             // 
             // groupBox1
             // 

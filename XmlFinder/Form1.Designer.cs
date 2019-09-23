@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.sideBar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.homeButton = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -44,13 +45,15 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.pagePdfReader1 = new XmlFinder.PagePdfReader();
+            this.pagePdfReader2 = new XmlFinder.PagePdfReader();
             this.homePage1 = new XmlFinder.homePage();
             this.page12 = new XmlFinder.Page1();
             this.page41 = new XmlFinder.Page4();
             this.page31 = new XmlFinder.Page3();
             this.page21 = new XmlFinder.Page2();
             this.page11 = new XmlFinder.Page1();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topBar.SuspendLayout();
@@ -66,6 +69,8 @@
             // 
             this.sideBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sideBar.BackgroundImage")));
             this.sideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sideBar.Controls.Add(this.bunifuFlatButton5);
+            this.sideBar.Controls.Add(this.pagePdfReader1);
             this.sideBar.Controls.Add(this.bunifuFlatButton4);
             this.sideBar.Controls.Add(this.bunifuFlatButton3);
             this.sideBar.Controls.Add(this.homeButton);
@@ -82,6 +87,42 @@
             this.sideBar.Quality = 10;
             this.sideBar.Size = new System.Drawing.Size(202, 603);
             this.sideBar.TabIndex = 0;
+            // 
+            // bunifuFlatButton5
+            // 
+            this.bunifuFlatButton5.Active = false;
+            this.bunifuFlatButton5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(54)))), ((int)(((byte)(153)))));
+            this.bunifuFlatButton5.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton5.BorderRadius = 0;
+            this.bunifuFlatButton5.ButtonText = "Leitor Barcode";
+            this.bunifuFlatButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton5.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton5.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton5.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton5.Iconimage")));
+            this.bunifuFlatButton5.Iconimage_right = null;
+            this.bunifuFlatButton5.Iconimage_right_Selected = null;
+            this.bunifuFlatButton5.Iconimage_Selected = null;
+            this.bunifuFlatButton5.IconMarginLeft = 0;
+            this.bunifuFlatButton5.IconMarginRight = 0;
+            this.bunifuFlatButton5.IconRightVisible = true;
+            this.bunifuFlatButton5.IconRightZoom = 0D;
+            this.bunifuFlatButton5.IconVisible = true;
+            this.bunifuFlatButton5.IconZoom = 90D;
+            this.bunifuFlatButton5.IsTab = true;
+            this.bunifuFlatButton5.Location = new System.Drawing.Point(0, 326);
+            this.bunifuFlatButton5.Name = "bunifuFlatButton5";
+            this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(160)))), ((int)(((byte)(177)))));
+            this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton5.selected = false;
+            this.bunifuFlatButton5.Size = new System.Drawing.Size(251, 48);
+            this.bunifuFlatButton5.TabIndex = 9;
+            this.bunifuFlatButton5.Text = "Leitor Barcode";
+            this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton5.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton5.Click += new System.EventHandler(this.bunifuFlatButton5_Click);
             // 
             // bunifuFlatButton4
             // 
@@ -381,6 +422,7 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.pagePdfReader2);
             this.panel2.Controls.Add(this.homePage1);
             this.panel2.Controls.Add(this.page12);
             this.panel2.Controls.Add(this.page41);
@@ -391,6 +433,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(888, 535);
             this.panel2.TabIndex = 9;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.topBar;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // pagePdfReader1
+            // 
+            this.pagePdfReader1.Location = new System.Drawing.Point(214, 378);
+            this.pagePdfReader1.Name = "pagePdfReader1";
+            this.pagePdfReader1.Size = new System.Drawing.Size(728, 535);
+            this.pagePdfReader1.TabIndex = 8;
+            // 
+            // pagePdfReader2
+            // 
+            this.pagePdfReader2.Location = new System.Drawing.Point(0, -16);
+            this.pagePdfReader2.Name = "pagePdfReader2";
+            this.pagePdfReader2.Size = new System.Drawing.Size(1381, 1002);
+            this.pagePdfReader2.TabIndex = 6;
+            this.pagePdfReader2.Load += new System.EventHandler(this.pagePdfReader2_Load);
             // 
             // homePage1
             // 
@@ -451,13 +515,6 @@
             this.page11.Size = new System.Drawing.Size(888, 535);
             this.page11.TabIndex = 0;
             // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.topBar;
-            this.bunifuDragControl1.Vertical = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +559,9 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
+        private PagePdfReader pagePdfReader1;
+        private PagePdfReader pagePdfReader2;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
     }
 }
 

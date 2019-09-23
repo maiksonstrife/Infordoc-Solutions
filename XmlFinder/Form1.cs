@@ -16,13 +16,7 @@ namespace XmlFinder
         public Form1()
         {
             InitializeComponent();
-
-            /*DirectoryInfo directory = new DirectoryInfo(@"C:\Users\Maikson\Desktop\projeto xml-finder\xml");
-            foreach (var file in directory.GetFiles(*))
-            {
-                FtpConnection ftpConnection = new FtpConnection();
-                ftpConnection.UploadFile(file, "ftp.box.com", "contato);
-            } */
+            homePage1.BringToFront();
         }
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
         {
@@ -91,6 +85,16 @@ namespace XmlFinder
         }
 
         private void page41_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            pagePdfReader2.BringToFront();
+        }
+
+        private void pagePdfReader2_Load(object sender, EventArgs e)
         {
 
         }

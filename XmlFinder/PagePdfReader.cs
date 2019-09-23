@@ -43,7 +43,39 @@ namespace XmlFinder
 
         private void btn_sel_in_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                FolderBrowserDialog dlg = new FolderBrowserDialog()
+                {
+                    //SelectedPath = Directory.GetCurrentDirectory()
+                    //SelectedPath = Directory.GetCurrentDirectory(@"C:")
+                };
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txt_in_folder.Text = dlg.SelectedPath;
+                    txt_out_folder.Text = txt_in_folder.Text + "\\Saida";
+
+                    if (Properties.Settings.Default.SisRecortar == true)
+                    {
+                        //  carregaRecortar();
+                        txt_marked_folder.Text = txt_in_folder.Text + "\\Marcada";
+
+                    }
+                    else
+                    {
+                        // carregaRenomear(); // carregaSistema3();
+                        txt_marked_folder.Text = txt_in_folder.Text + "\\Nao_Detectado";
+                        txt_done_folder.Text = txt_in_folder.Text + "\\Erro";
+                    }
+
+                    Update_list();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro 02: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void PagePdfReader_Load(object sender, EventArgs e)
@@ -68,8 +100,8 @@ namespace XmlFinder
 
             txtparamento.Text = Properties.Settings.Default.Posicoes;
 
-            label11.Text = "Versão: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            using (Form1 frmNovo = new Form1())
+            //label11.Text = "Versão: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            /*using (Form1 frmNovo = new Form1())
             {
                 frmNovo.ShowDialog();
             }
@@ -85,7 +117,8 @@ namespace XmlFinder
             else if (Properties.Settings.Default.SisSitema == true)
             {
                 carregaSistema3();
-            }
+            }*/
+            
             // Carrega Configuração
         }
 
@@ -328,44 +361,6 @@ namespace XmlFinder
 
         }
 
-        private void Btn_sel_in_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    //SelectedPath = Directory.GetCurrentDirectory()
-                    //SelectedPath = Directory.GetCurrentDirectory(@"C:")
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_in_folder.Text = dlg.SelectedPath;
-                    txt_out_folder.Text = txt_in_folder.Text + "\\Saida";
-
-                    if (Properties.Settings.Default.SisRecortar == true)
-                    {
-                        //  carregaRecortar();
-                        txt_marked_folder.Text = txt_in_folder.Text + "\\Marcada";
-
-                    }
-                    else
-                    {
-                        // carregaRenomear(); // carregaSistema3();
-                        txt_marked_folder.Text = txt_in_folder.Text + "\\Nao_Detectado";
-                        txt_done_folder.Text = txt_in_folder.Text + "\\Erro";
-                    }
-
-                    Update_list();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 02: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
         private void Update_list()
         {
             try
@@ -400,52 +395,6 @@ namespace XmlFinder
             }
         }
 
-        private void Btn_sel_out_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    //  SelectedPath = Directory.GetCurrentDirectory(),
-                    ShowNewFolderButton = true
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_out_folder.Text = dlg.SelectedPath;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 01: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void Btn_go_in_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txt_in_folder.Text);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                MessageBox.Show(ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Btn_go_out_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txt_out_folder.Text);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                MessageBox.Show(ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         public static Image FromFile(string path)
         {
@@ -453,24 +402,6 @@ namespace XmlFinder
             var ms = new MemoryStream(bytes);
             var img = Image.FromStream(ms);
             return img;
-        }
-        private void Btn_start_Click(object sender, EventArgs e)
-        {
-
-            if (Properties.Settings.Default.SisRecortar == true)
-            {
-                Process();
-
-            }
-            else if (Properties.Settings.Default.SisRenomear == true)
-            {
-                Process2();
-            }
-            else if (Properties.Settings.Default.SisSitema == true)
-            {
-                Process3();
-            }
-
         }
 
         void Process()
@@ -987,38 +918,7 @@ namespace XmlFinder
             //btn_start.BackColor = from.Enabled == false ? Color.FromArgb(100, 100, 100): Color.FromArgb(80, 80, 80);
         }
 
-        private void Btn_sel_done_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    SelectedPath = Directory.GetCurrentDirectory(),
-                    ShowNewFolderButton = true
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_done_folder.Text = dlg.SelectedPath;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 06 " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-        }
-
-        private void Btn_go_done_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txt_done_folder.Text);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-        }
 
         public void Show_info(string text)
         {
@@ -1061,38 +961,6 @@ namespace XmlFinder
             }
         }
 
-        private void Btn_sel_marked_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    //SelectedPath = Directory.GetCurrentDirectory(),
-                    ShowNewFolderButton = true
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_marked_folder.Text = dlg.SelectedPath;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 07: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void Btn_go_marked_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txt_marked_folder.Text);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-        }
 
         private bool Check_mark(Bitmap bmp)
         {
@@ -1181,39 +1049,6 @@ namespace XmlFinder
             catch (Exception ex)
             {
                 MessageBox.Show("Erro 15: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btn_sel_done_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    //  SelectedPath = Directory.GetCurrentDirectory(),
-                    ShowNewFolderButton = true
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_marked_folder.Text = dlg.SelectedPath;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 07: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btn_go_done_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start(txt_done_folder.Text);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                MessageBox.Show(ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -2165,5 +2000,137 @@ namespace XmlFinder
 
         }
 
+        private void btn_sel_out_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog dlg = new FolderBrowserDialog()
+                {
+                    //  SelectedPath = Directory.GetCurrentDirectory(),
+                    ShowNewFolderButton = true
+                };
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txt_out_folder.Text = dlg.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro 01: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_sel_marked_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog dlg = new FolderBrowserDialog()
+                {
+                    //SelectedPath = Directory.GetCurrentDirectory(),
+                    ShowNewFolderButton = true
+                };
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txt_marked_folder.Text = dlg.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro 07: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_sel_done_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog dlg = new FolderBrowserDialog()
+                {
+                    SelectedPath = Directory.GetCurrentDirectory(),
+                    ShowNewFolderButton = true
+                };
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txt_done_folder.Text = dlg.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro 06 " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_start_Click_1(object sender, EventArgs e)
+        {
+
+            if (Properties.Settings.Default.SisRecortar == true)
+            {
+                Process();
+
+            }
+            else if (Properties.Settings.Default.SisRenomear == true)
+            {
+                Process2();
+            }
+            else if (Properties.Settings.Default.SisSitema == true)
+            {
+                Process3();
+            }
+        }
+
+        private void btniniciar2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_go_in_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txt_in_folder.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_go_out_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txt_out_folder.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_go_marked_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txt_marked_folder.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void btn_go_done_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txt_done_folder.Text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }
