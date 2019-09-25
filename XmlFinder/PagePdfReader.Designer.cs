@@ -85,6 +85,8 @@
             this.lab_tot_prog = new System.Windows.Forms.Label();
             this.lab_sub_prog = new System.Windows.Forms.Label();
             this.link_url = new System.Windows.Forms.LinkLabel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_current)).BeginInit();
@@ -791,6 +793,14 @@
             this.link_url.Text = "http://www.infordoc.com.br/";
             this.link_url.Visible = false;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
             // PagePdfReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -906,5 +916,7 @@
         private System.Windows.Forms.Label lab_tot_prog;
         private System.Windows.Forms.Label lab_sub_prog;
         private System.Windows.Forms.LinkLabel link_url;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }

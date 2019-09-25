@@ -15,114 +15,143 @@ using ZXing.Common;
 using ImageMagick;
 using ScanPDF;
 using PCKLIB;
+using System.ComponentModel;
 
 namespace XmlFinder
 {
+    /*Readme: Essa Page usa as Referencias Nuget : PdfSharp, Zxing, Magic.net, ScanPDF, BarcodeImaging, Ghostscript.NET
+     * Usa referencias Windows em C:\Windows\System32\WinMetadata\Windows.UI.winmd: Windows.UI, Windows.Data
+     * Usa Referencias .NET em C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationCore.dll: Presentation.Core, System.Data, System.Drawing, System.Web, entre outros.
+     * Essa Page também utiliza as classes de auxílio: AppSetting.cs, ImgUtility.cs e Toast.cs 
+     * 
+
+
+
+    /*TODO 0: Criar um método para trabalhar com a leitura do Barcode antes de nomear arquivo, 
+     * mantendo assim o código original imaculado.
+    
+    //TODO 1 Abaixo:
+    ////NOTA: Magick é uma livraria de mais de 170.000 linhas que lê, rotaciona, edita, salva e converte mais de 100 tipos de imagens
+    // Por padrão ImageMagick necessita da referencia GhostScript e da aplicação Ghostscript instalada no computador
+    // Remover a instalação do ghostscript:
+    /* Usar programa que cria instalador personalizado que me permita jogar os arquivos  gsdll32.dll/gsdl64.dll e gswin32c.exe/gswin64c.exe em pasta padrão
+     * 
+     * Tutorial da documentação ImageMatick:
+     * If you don't want to install Ghostscript on your machine you can copy gsdll32.dll/gsdl64.dll and gswin32c.exe/gswin64c.exe 
+     * to your server and tell Magick.NET where the file is located with the code below.
+     * MagickNET.SetGhostscriptDirectory(@"C:\MyProgram\Ghostscript");
+     */
+
+    //TODO 2: Usar background worker para processamento
+
+
+
     public partial class PagePdfReader : UserControl
-    {
+   {
+        //Usar BackgroundWorker para cada Process() para não travar o programa e poder fazer Multitask
 
         public bool debug = true;
-        //public PCKLIB.LicenseAlert ALERT = new PCKLIB.LicenseAlert(2);
+       //public PCKLIB.LicenseAlert ALERT = new PCKLIB.LicenseAlert(2);
 
-        const int m_length = 6;
+       const int m_length = 6;
 
-        List<string> m_input_files = new List<string>();
-        string m_code;
-        BarcodeFormat m_found_format;
-        bool m_found;
-        Timer m_timer = new Timer();
-        UserSetting m_setting;
+       List<string> m_input_files = new List<string>();
+       string m_code;
+       BarcodeFormat m_found_format;
+       bool m_found;
+       Timer m_timer = new Timer();
+       UserSetting m_setting;
 
-        private NotifyIcon m_trayIcon;
-        private ContextMenu m_trayMenu;
+       private NotifyIcon m_trayIcon;
+       private ContextMenu m_trayMenu;
 
-        public PagePdfReader()
-        {
-            InitializeComponent();
+       public PagePdfReader()
+       {
+           InitializeComponent();
         }
 
-        private void btn_sel_in_Click(object sender, EventArgs e)
-        {
-            try
-            {
+       private void btn_sel_in_Click(object sender, EventArgs e)
+       {
+           try
+           {
 
-                FolderBrowserDialog dlg = new FolderBrowserDialog()
-                {
-                    //SelectedPath = Directory.GetCurrentDirectory()
-                    //SelectedPath = Directory.GetCurrentDirectory(@"C:")
-                };
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    txt_in_folder.Text = dlg.SelectedPath;
-                    txt_out_folder.Text = txt_in_folder.Text + "\\Saida";
+               FolderBrowserDialog dlg = new FolderBrowserDialog()
+               {
+                   //SelectedPath = Directory.GetCurrentDirectory()
+                   //SelectedPath = Directory.GetCurrentDirectory(@"C:")
+               };
+               if (dlg.ShowDialog() == DialogResult.OK)
+               {
+                   txt_in_folder.Text = dlg.SelectedPath;
+                   txt_out_folder.Text = txt_in_folder.Text + "\\Saida";
 
-                    if (Properties.Settings.Default.SisRecortar == true)
-                    {
-                        //  carregaRecortar();
-                        txt_marked_folder.Text = txt_in_folder.Text + "\\Marcada";
+                   if (Properties.Settings.Default.SisRecortar == true)
+                   {
+                       //  carregaRecortar();
+                       txt_marked_folder.Text = txt_in_folder.Text + "\\Marcada";
 
-                    }
-                    else
-                    {
-                        // carregaRenomear(); // carregaSistema3();
-                        txt_marked_folder.Text = txt_in_folder.Text + "\\Nao_Detectado";
-                        txt_done_folder.Text = txt_in_folder.Text + "\\Erro";
-                    }
+                   }
+                   else
+                   {
+                       // carregaRenomear(); // carregaSistema3();
+                       txt_marked_folder.Text = txt_in_folder.Text + "\\Nao_Detectado";
+                       txt_done_folder.Text = txt_in_folder.Text + "\\Erro";
+                   }
 
-                    Update_list();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro 02: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+                   Update_list();
+               }
+           }
+           catch (Exception ex)
+           {
+               MessageBox.Show("Erro 02: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           }
+       }
 
-        private void PagePdfReader_Load(object sender, EventArgs e)
-        {
-            //if (String.Equals(Properties.Settings.Default.Data, ""))
-            //    {
-            //    MessageBox.Show("String vazia");
-            //}
-            //if (Properties.Settings.Default.Data == "" || Properties.Settings.Default.Data == null)
-            //{
-            //    Properties.Settings.Default.Data = DateTime.Now.AddDays(7).ToString("dd/mm/yyyy");
-            //    Properties.Settings.Default.Save();
-            //    // MessageBox.Show(Properties.Settings.Default.Data.ToString("dd/mm/yyyy"));
-            //}
-            //else
-            //{
-            //    //if (Properties.Settings.Default.Data  DateTime.Now.ToString("dd/mm/yyyy")
-            //    //{
-            //    //    Close();
-            //    //}
-            //}
+       private void PagePdfReader_Load(object sender, EventArgs e)
+       {
+           //if (String.Equals(Properties.Settings.Default.Data, ""))
+           //    {
+           //    MessageBox.Show("String vazia");
+           //}
+           //if (Properties.Settings.Default.Data == "" || Properties.Settings.Default.Data == null)
+           //{
+           //    Properties.Settings.Default.Data = DateTime.Now.AddDays(7).ToString("dd/mm/yyyy");
+           //    Properties.Settings.Default.Save();
+           //    // MessageBox.Show(Properties.Settings.Default.Data.ToString("dd/mm/yyyy"));
+           //}
+           //else
+           //{
+           //    //if (Properties.Settings.Default.Data  DateTime.Now.ToString("dd/mm/yyyy")
+           //    //{
+           //    //    Close();
+           //    //}
+           //}
 
-            txtparamento.Text = Properties.Settings.Default.Posicoes;
+           txtparamento.Text = Properties.Settings.Default.Posicoes;
 
-            //label11.Text = "Versão: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            /*using (Form1 frmNovo = new Form1())
-            {
-                frmNovo.ShowDialog();
-            }
-            if (Properties.Settings.Default.SisRecortar == true)
-            {
-                carregaRecortar();
+           //label11.Text = "Versão: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+           /*using (Form1 frmNovo = new Form1())
+           {
+               frmNovo.ShowDialog();
+           }
+           if (Properties.Settings.Default.SisRecortar == true)
+           {
+               carregaRecortar();
 
-            }
-            else if (Properties.Settings.Default.SisRenomear == true)
-            {
-                carregaRenomear();
-            }
-            else if (Properties.Settings.Default.SisSitema == true)
-            {
-                carregaSistema3();
-            }*/
-            
-            // Carrega Configuração
-        }
+           }
+           else if (Properties.Settings.Default.SisRenomear == true)
+           {
+               carregaRenomear();
+           }
+           else if (Properties.Settings.Default.SisSitema == true)
+           {
+               carregaSistema3();
+           }*/
 
-        void carregaRenomear()
+    // Carrega Configuração
+}
+
+void carregaRenomear()
         {
             // label7.Enabled = false;
             // txt_marked_folder.Enabled = false;
@@ -326,13 +355,12 @@ namespace XmlFinder
                 {
                     //carregaRecortar();
                     MessageBox.Show("A pasta de entrada será digitalizada automaticamente.", "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Process();
-
+                    backgroundWorker1.RunWorkerAsync(); //roda Process() no background
                 }
                 else if (Properties.Settings.Default.SisRenomear == true)
                 {
                     //  carregaRenomear();
-                    Process2();
+                    backgroundWorker2.RunWorkerAsync();
                     ContaArquivo();
                 }
                 else if (Properties.Settings.Default.SisSitema == true)
@@ -367,25 +395,37 @@ namespace XmlFinder
             {
                 // Enumerar arquivos PDF
                 m_input_files = Directory.GetFiles(txt_in_folder.Text, "*.pdf").ToList();
-                lis_files.Items.Clear();
-                pic_current.Image = null;
+                BeginInvoke((MethodInvoker)delegate
+                {
+                    lis_files.Items.Clear();
+                    pic_current.Image = null;
 
-                txt_scan_result.Text = "";
-                prog_tot.Value = 0; prog_sub.Value = 0;
-                lab_tot_prog.Text = ""; lab_sub_prog.Text = "";
+                    txt_scan_result.Text = "";
+                    prog_tot.Value = 0; prog_sub.Value = 0;
+                    lab_tot_prog.Text = ""; lab_sub_prog.Text = "";
+                });
+
                 foreach (string fname_full in m_input_files)
                 {
                     string fname = fname_full.Substring(fname_full.LastIndexOf('\\') + 1);
                     PdfDocument pdf = PdfReader.Open(fname_full, PdfDocumentOpenMode.Modify);
-                    lis_files.Items.Add(String.Format("{0}   ({1} pages)", fname, pdf.PageCount));
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        lis_files.Items.Add(String.Format("{0}   ({1} pages)", fname, pdf.PageCount));
+                    });
+
                     pdf.Close();
                 }
 
                 // Ultima atualização
                 //lab_update_time.Text = DateTime.Now.ToString(@"MM\/dd\/yyyy hh\:mm tt");
                 //lab_update_time.ForeColor = Color.Black;
-                lab_update_time.Text = DateTime.Now.ToShortDateString();
-                lab_update_time.Visible = true;
+                BeginInvoke((MethodInvoker)delegate
+                {
+                    lab_update_time.Text = DateTime.Now.ToShortDateString();
+                    lab_update_time.Visible = true;
+                });
+
             }
             catch (Exception ex)
             {
@@ -712,9 +752,13 @@ namespace XmlFinder
             //{
             //carregaRecortar();
             //Process();
-            btn_start.Enabled = true;
-            btn_start.Text = "INICIAR";
-            btn_start.ForeColor = Color.Cyan;
+            BeginInvoke((MethodInvoker)delegate
+            {
+                btn_start.Enabled = true;
+                btn_start.Text = "INICIAR";
+                btn_start.ForeColor = Color.Cyan;
+            });
+
             Update_list();
             m_timer.Start();
 
@@ -1056,7 +1100,7 @@ namespace XmlFinder
         {
             try
             {
-                Process2();
+                backgroundWorker2.RunWorkerAsync();
             }
             catch (Exception ex)
             {
@@ -1100,9 +1144,13 @@ namespace XmlFinder
                 return;
             }
 
-            btn_start.Enabled = false;
-            btn_start.ForeColor = Color.Red;
-            btn_start.Text = "Processando....";
+            BeginInvoke((MethodInvoker)delegate
+            {
+                btn_start.Enabled = false;
+                btn_start.ForeColor = Color.Red;
+                btn_start.Text = "Processando....";
+            });
+
 
             m_timer.Stop();
 
@@ -1123,9 +1171,16 @@ namespace XmlFinder
                 }
 
                 // A Lista não pode ser atualizada durante o processo
-                prog_tot.Maximum = m_input_files.Count;
-                prog_tot.Value = 0;
+                //MAIK NOTA: Barra de progresso
+                BeginInvoke((MethodInvoker)delegate
+                {
+                    prog_tot.Maximum = m_input_files.Count;
+                    prog_tot.Value = 0;
+                });
+
                 int done_cnt = 0;
+
+                //MAIK NOTA: m_input_files são os arquivos encontrados na pasta entrada
                 while (m_input_files.Count > 0)
                 {
                     fname_full = m_input_files[0];
@@ -1133,6 +1188,7 @@ namespace XmlFinder
 
                     PdfDocument pdf = PdfReader.Open(fname_full, PdfDocumentOpenMode.Import);
 
+                    
                     MagickReadSettings settings = new MagickReadSettings()
                     {
                         Density = new Density(300, 300)  //Originall
@@ -1142,10 +1198,13 @@ namespace XmlFinder
                     images.Read(fname_full, settings);
 
                     int page_count = pdf.PageCount;
-                    prog_sub.Maximum = page_count;
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        prog_sub.Maximum = page_count;
+                    });
 
                     PdfPage first = pdf.Pages[0];
-                    txt_doc_height.Text = first.Height.Centimeter.ToString();
+
                     doc_height = (float)first.Height.Centimeter;
                     if (doc_height <= float.Epsilon)
                     {
@@ -1162,17 +1221,24 @@ namespace XmlFinder
                     for (int idx = 0; idx < 1; idx++) // Lendo a primeira pagina 
                     {
                         PdfPage page = pdf.Pages[idx];
+                        BeginInvoke((MethodInvoker)delegate
+                        {
+                            lab_nomeArq.Visible = true;
+                            lab_nomeArq.ForeColor = Color.Black;
+                            lab_nomeArq.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
+                        });
 
-                        lab_nomeArq.Visible = true;
-                        lab_nomeArq.ForeColor = Color.Black;
-                        lab_nomeArq.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
                         // lab_current.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
                         //var pdfToImg = new NReco.PdfRenderer.PdfToImageConverter(); // This library is not free! 
                         //pdfToImg.GenerateImage(fname_full, idx+1, ImageFormat.Jpeg, "temp.jpg");
                         images[idx].Write("temp.jpg");
 
                         Bitmap page_img = new Bitmap(FromFile("temp.jpg"));
-                        pic_current.BackgroundImage = page_img;
+                        BeginInvoke((MethodInvoker)delegate
+                        {
+                            pic_current.BackgroundImage = page_img;
+                        });
+                        
 
                         Wait_for(40);
                         if (rad_reg_count.Checked)
@@ -1253,12 +1319,16 @@ namespace XmlFinder
 
                                 // MessageBox.Show(m_code);
                                 // string phrase = "The quick brown    fox     jumps over the lazy dog.";
+                                
+                                //MAIK NOTA: Separando posições por "," (QR MAXIPASS as posições são separadas por ","
                                 string[] words = m_code.Split(',');
 
                                 Dictionary<string, string> dict = new Dictionary<string, string>();
 
                                 //dict.Add(words[0].Substring(2,1).Replace(":","").Replace("{",""),words[0].Substring(6).Replace(":","").Replace("'",""));
                                 //dict.Add(words[1], words[1]);
+
+                                //MAIK NOTA: Pra cada posição separada por "," limpar caracteres especiais
                                 for (int i = 0; i < words.Length; i++)
                                 //  foreach (var word in words)
                                 {
@@ -1267,7 +1337,7 @@ namespace XmlFinder
                                     //MessageBox.Show($"<{word}>");
                                     string[] dados = words[i].Split(':');
 
-                                    if (dados[0].Contains("17"))
+                                    if (dados[0].Contains("17")) //exigencia MAXIPASS (LUCCA&LUCCA) *Numero aparece duas vezes, pular a primeira.
                                     {
 
                                         pulaNumero = false;
@@ -1325,6 +1395,7 @@ namespace XmlFinder
                                 //dict.Add(words[10], words[10]);
                                 //dict.Add(words[11], words[11]);
 
+                                //MAIK NOTA: USA OS CAMPOS SEPARADOS POR "," E GRAVA SUA POSIÇÃO NO CAMPO CHAVE INSERIDO PELO USUARIO
                                 string[] posicao = txtparamento.Text.Split(';');
 
                                 int tamanho = posicao.Length;
@@ -1365,23 +1436,26 @@ namespace XmlFinder
                                 //  m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "") + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToLowerInvariant() + "_" + words[(Convert.ToInt32(posicao[2]))].Substring(6).Replace("\"", "");
                                 //  m_code = words[3].Substring(6).Replace("\"", "") + "_" + words[4].Substring(6).Replace("\"", "").ToLowerInvariant() + "_" + words[5].Substring(6).Replace("\"", ""); Original
 
-                                txt_scan_result.Text = m_code.Replace("/", "").ToUpperInvariant();
+                                //MAIK NOTE: LIMPA O RESULTADO DE CARACTERES ESPECIAIS
+                                string sendtodecode = txt_scan_result.Text;
+                                sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
+                                sendtodecode = sendtodecode.Replace("{", "");
+                                sendtodecode = sendtodecode.Replace("}", "");
+                                sendtodecode = sendtodecode.Replace(":", "");
 
-                                txt_scan_result.Text = txt_scan_result.Text.Replace("{", "");
-                                txt_scan_result.Text = txt_scan_result.Text.Replace("}", "");
-                                txt_scan_result.Text = txt_scan_result.Text.Replace(":", "");
-                                //Teste copiar
-                                string fileName = fname;//txt_scan_result.Text + ".pdf";
-                                string textEncode = System.Web.HttpUtility.UrlEncode(txt_scan_result.Text, Encoding.GetEncoding("iso-8859-7"));
+
+                                //MAIK NOTE: M_CODE passa por um processo "iso"(?) e volta como txtDecode(?)
+                                string textEncode = System.Web.HttpUtility.UrlEncode(sendtodecode, Encoding.GetEncoding("iso-8859-7"));
                                 string textDecode = System.Web.HttpUtility.UrlDecode(textEncode);
-                                // string novoNome = txt_scan_result.Text + ".pdf";
+
+                                //MAIK NOTE: Renomeia e move arquivo
+                                string fileName = fname;//NOME ORIGINAL, txt_scan_result.Text + ".pdf";
                                 string novoNome = textDecode + ".pdf";
                                 string sourcePath = txt_in_folder.Text;
                                 string targetPath = txt_out_folder.Text;
 
                                 string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
                                 string destFile = System.IO.Path.Combine(targetPath, novoNome);
-
                                 System.IO.File.Copy(sourceFile, destFile, true);
 
                                 //Fim 
@@ -1393,7 +1467,11 @@ namespace XmlFinder
                                 try
                                 {
                                     String date = (DateTime.Now.ToString("yyyy-MM-dd:HH:mm:ss"));
-                                    txt_scan_result.Text = "Nenhum QR Code detectado";
+                                    BeginInvoke((MethodInvoker)delegate
+                                    {
+                                        txt_scan_result.Text = "Nenhum QR Code detectado";
+                                    });
+
                                     //Wait_for(40);
                                     string novoNome = "Nao_Detectado_" + date.Replace(":", "_") + ".pdf";
                                     string sourcePath = txt_in_folder.Text;
@@ -1438,17 +1516,24 @@ namespace XmlFinder
                             }//Acaba aqui !!
 
                         }
-                        prog_sub.Value = idx + 1;
-                        lab_sub_prog.Text = String.Format("{0} / {1}", idx + 1, page_count);
+                        BeginInvoke((MethodInvoker)delegate
+                        {
+                            prog_sub.Value = idx + 1;
+                            lab_sub_prog.Text = String.Format("{0} / {1}", idx + 1, page_count);
+                        });
+
                     }
 
                     if (out_pdf != null && last_code != "" && out_pdf.PageCount > 0)
                     {
                         //  out_pdf.Save(out_fname);
                     }
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        prog_tot.Value = ++done_cnt;
+                        lab_tot_prog.Text = String.Format("{0} / {1}", done_cnt, m_input_files.Count);
+                    });
 
-                    prog_tot.Value = ++done_cnt;
-                    lab_tot_prog.Text = String.Format("{0} / {1}", done_cnt, m_input_files.Count);
 
                     pdf.Close();
 
@@ -1819,6 +1904,7 @@ namespace XmlFinder
                                 try
                                 {
                                     String date = (DateTime.Now.ToString("yyyy-MM-dd:HH:mm:ss"));
+
                                     txt_scan_result.Text = "Nenhum QR Code detectado";
                                     //Wait_for(40);
                                     string novoNome = "Nao_Detectado_" + date.Replace(":", "_") + ".pdf";
@@ -2065,12 +2151,11 @@ namespace XmlFinder
 
             if (Properties.Settings.Default.SisRecortar == true)
             {
-                Process();
-
+                backgroundWorker1.RunWorkerAsync();
             }
             else if (Properties.Settings.Default.SisRenomear == true)
             {
-                Process2();
+                backgroundWorker2.RunWorkerAsync();
             }
             else if (Properties.Settings.Default.SisSitema == true)
             {
@@ -2131,6 +2216,16 @@ namespace XmlFinder
             {
                 Debug.WriteLine(ex.Message);
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Process();
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Process2();
         }
     }
 }
