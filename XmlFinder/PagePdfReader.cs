@@ -16,6 +16,8 @@ using ImageMagick;
 using ScanPDF;
 using PCKLIB;
 using System.ComponentModel;
+using System.Threading;
+using Timer = System.Windows.Forms.Timer;
 
 namespace XmlFinder
 {
@@ -24,8 +26,6 @@ namespace XmlFinder
      * Usa Referencias .NET em C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationCore.dll: Presentation.Core, System.Data, System.Drawing, System.Web, entre outros.
      * Essa Page também utiliza as classes de auxílio: AppSetting.cs, ImgUtility.cs e Toast.cs 
      * 
-
-
 
     /*TODO 0: Criar um método para trabalhar com a leitura do Barcode antes de nomear arquivo, 
      * mantendo assim o código original imaculado.
@@ -41,10 +41,6 @@ namespace XmlFinder
      * to your server and tell Magick.NET where the file is located with the code below.
      * MagickNET.SetGhostscriptDirectory(@"C:\MyProgram\Ghostscript");
      */
-
-    //TODO 2: Usar background worker para processamento
-
-
 
     public partial class PagePdfReader : UserControl
    {
@@ -736,7 +732,7 @@ void carregaRenomear()
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.StackTrace.ToString());
                 Debug.WriteLine(String.Format("ERROR: {0} -> {1}", lab_current.Text, out_fname));
-                MessageBox.Show("Processamento interrompido por causa do erro : " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Processamento interrompido por causa do erro O: : " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //show_info("Processing stopped because of error: " + ex.Message);
             }
             finally
@@ -1172,11 +1168,9 @@ void carregaRenomear()
 
                 // A Lista não pode ser atualizada durante o processo
                 //MAIK NOTA: Barra de progresso
-                BeginInvoke((MethodInvoker)delegate
-                {
-                    prog_tot.Maximum = m_input_files.Count;
-                    prog_tot.Value = 0;
-                });
+
+                Invoke(new Action(() => setProg_tot(m_input_files.Count, 0)));
+                
 
                 int done_cnt = 0;
 
@@ -1198,10 +1192,9 @@ void carregaRenomear()
                     images.Read(fname_full, settings);
 
                     int page_count = pdf.PageCount;
-                    BeginInvoke((MethodInvoker)delegate
-                    {
-                        prog_sub.Maximum = page_count;
-                    });
+
+                    Invoke(new Action(() => setProg_SubMaximum(page_count)));
+                    
 
                     PdfPage first = pdf.Pages[0];
 
@@ -1213,7 +1206,6 @@ void carregaRenomear()
                         continue;
                     }
                     // first.Size = 26.9;
-
                     string last_code = "";
                     BarcodeFormat last_format = BarcodeFormat.UPC_E;
                     PdfDocument out_pdf = null;
@@ -1238,8 +1230,7 @@ void carregaRenomear()
                         {
                             pic_current.BackgroundImage = page_img;
                         });
-                        
-
+                        Thread.Sleep(200);
                         Wait_for(40);
                         if (rad_reg_count.Checked)
                         {
@@ -1311,7 +1302,6 @@ void carregaRenomear()
                             g.DrawRectangle(pen, 0, _y, pic_current.Width - 5, _h);// Original
                                                                                    // g.DrawRectangle(pen, 0, _y + 5, pic_current.Width + 10, _h + 5);
                                                                                    //Fim
-
                             m_found = false;
                             if (TryReadCode(region_img, 0) == true)
                             {
@@ -1377,6 +1367,7 @@ void carregaRenomear()
                                     //dict.Add(Convert.ToInt32(dados[0].Replace("{", "").Replace("\"","").Replace("}","").Replace("/","").Replace("-","").Replace(".","").TrimStart('"').TrimEnd('"')), dados[1].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".","").TrimStart('"').TrimEnd('"')) ;
                                     // MessageBox.Show(dict[i]);
                                     dados = null;
+
                                 }
 
                                 //m_code = dict[12];
@@ -1516,24 +1507,18 @@ void carregaRenomear()
                             }//Acaba aqui !!
 
                         }
-                        BeginInvoke((MethodInvoker)delegate
-                        {
-                            prog_sub.Value = idx + 1;
-                            lab_sub_prog.Text = String.Format("{0} / {1}", idx + 1, page_count);
-                        });
 
+                        //erro aqui
+                        Invoke(new Action(() => setProg_Sub(prog_sub.Value = idx + 1, String.Format("{0} / {1}", idx + 1, page_count))));
                     }
 
                     if (out_pdf != null && last_code != "" && out_pdf.PageCount > 0)
                     {
                         //  out_pdf.Save(out_fname);
                     }
-                    BeginInvoke((MethodInvoker)delegate
-                    {
-                        prog_tot.Value = ++done_cnt;
-                        lab_tot_prog.Text = String.Format("{0} / {1}", done_cnt, m_input_files.Count);
-                    });
+                    //e vai dar erro aqui
 
+                    Invoke(new Action(() => setProg_tot(++done_cnt, String.Format("{0} / {1}", done_cnt, m_input_files.Count))));
 
                     pdf.Close();
 
@@ -1557,7 +1542,7 @@ void carregaRenomear()
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.StackTrace.ToString());
                 Debug.WriteLine(String.Format("ERROR: {0} -> {1}", lab_current.Text, out_fname));
-                MessageBox.Show("Processamento interrompido por causa do erro : " + ex.Message, "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Processamento interrompido por causa do erro ^^: " + ex.Message, "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //show_info("Processing stopped because of error: " + ex.Message);
                 string tar_fname = fname;
                 while (File.Exists(Path.Combine(txt_done_folder.Text, tar_fname)))
@@ -1984,7 +1969,7 @@ void carregaRenomear()
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.StackTrace.ToString());
                 Debug.WriteLine(String.Format("ERROR: {0} -> {1}", lab_current.Text, out_fname));
-                MessageBox.Show("Processamento interrompido por causa do erro : " + ex.Message, "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Processamento interrompido por causa do erro : ?" + ex.Message, "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //show_info("Processing stopped because of error: " + ex.Message);
                 string tar_fname = fname;
                 while (File.Exists(Path.Combine(txt_done_folder.Text, tar_fname)))
@@ -2227,5 +2212,30 @@ void carregaRenomear()
         {
             Process2();
         }
+
+        //Métodos att barra de progresso
+        void setProg_Sub(int value, string text)
+        {
+            prog_sub.Value = value;
+            lab_sub_prog.Text = text;
+        }
+
+        void setProg_SubMaximum(int value)
+        {
+            prog_sub.Maximum = value;
+        }
+
+        void setProg_tot(int maximum, int minimum)
+        {
+            prog_tot.Maximum = maximum;
+            prog_tot.Value = minimum;
+        }
+
+        void setProg_tot(int value, string text)
+        {
+            prog_tot.Value = value;
+            lab_tot_prog.Text = text;
+        }
+
     }
 }
