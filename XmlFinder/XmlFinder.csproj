@@ -132,6 +132,7 @@
     <Compile Include="PagePdfReader.Designer.cs">
       <DependentUpon>PagePdfReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="PdfUtility.cs" />
     <Compile Include="Planilha.cs" />
     <Compile Include="PlanilhaDAO.cs" />
     <Compile Include="Program.cs" />

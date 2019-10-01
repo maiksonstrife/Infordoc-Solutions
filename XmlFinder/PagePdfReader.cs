@@ -49,7 +49,7 @@ namespace XmlFinder
         public bool debug = true;
        //public PCKLIB.LicenseAlert ALERT = new PCKLIB.LicenseAlert(2);
 
-       const int m_length = 6;
+       //const int m_length = 6;
 
        List<string> m_input_files = new List<string>();
        string m_code;
@@ -1150,9 +1150,11 @@ void carregaRenomear()
 
             m_timer.Stop();
 
-            string out_dir = "";
+            //string out_dir = "";
 
+            Thread.Sleep(200);
             Wait_for(40);
+
             try
             {
                 float doc_height = float.Parse(txt_doc_height.Text);
@@ -1205,11 +1207,7 @@ void carregaRenomear()
                         pdf.Close();
                         continue;
                     }
-                    // first.Size = 26.9;
-                    string last_code = "";
-                    BarcodeFormat last_format = BarcodeFormat.UPC_E;
-                    PdfDocument out_pdf = null;
-                    //for (int idx = 0; idx < page_count; idx++) //Original lendo pagina por pagina
+
                     for (int idx = 0; idx < 1; idx++) // Lendo a primeira pagina 
                     {
                         PdfPage page = pdf.Pages[idx];
@@ -1272,51 +1270,23 @@ void carregaRenomear()
                             Graphics g;
 
                             Bitmap region_img = new Bitmap(cropRect.Width, cropRect.Height);
-                            //Original
+
                             using (g = Graphics.FromImage(region_img))
                             {
                                 g.DrawImage(page_img, new Rectangle(0, 0, region_img.Width, region_img.Height), cropRect, GraphicsUnit.Pixel);
                             }
-                            //Final
+
                             bool marked = Check_mark(region_img);
 
-                            // Desenha um triangulo no PicCurrent
-                            g = pic_current.CreateGraphics();
-                            Pen pen;
-                            if (marked == false)
-                            {
-                                //pen = new Pen(System.Drawing.Color.Red);
-                                pen = new Pen(System.Drawing.Color.Cyan);
-                                out_dir = txt_out_folder.Text; //Joga na pasta de saida
-                            }
-                            else
-                            {
-                                //pen = new Pen(System.Drawing.Color.Blue);
-                                pen = new Pen(System.Drawing.Color.DarkSalmon);
-                                out_dir = txt_marked_folder.Text; // Joga na pasta Marcada
-                            }
-
-                            //Inicio
-                            int _y = (int)((reg_id * region_height + header_height) / doc_height * pic_current.Height);
-                            int _h = (int)(region_height / doc_height * pic_current.Height);
-                            g.DrawRectangle(pen, 0, _y, pic_current.Width - 5, _h);// Original
-                                                                                   // g.DrawRectangle(pen, 0, _y + 5, pic_current.Width + 10, _h + 5);
-                                                                                   //Fim
                             m_found = false;
                             if (TryReadCode(region_img, 0) == true)
                             {
                                 Boolean pulaNumero = true;
-
-                                // MessageBox.Show(m_code);
-                                // string phrase = "The quick brown    fox     jumps over the lazy dog.";
                                 
-                                //MAIK NOTA: Separando posições por "," (QR MAXIPASS as posições são separadas por ","
+                                //MAIK NOTA: Separando posições por "," (QR MAXIPASS as posições são separadas por ",")
                                 string[] words = m_code.Split(',');
 
                                 Dictionary<string, string> dict = new Dictionary<string, string>();
-
-                                //dict.Add(words[0].Substring(2,1).Replace(":","").Replace("{",""),words[0].Substring(6).Replace(":","").Replace("'",""));
-                                //dict.Add(words[1], words[1]);
 
                                 //MAIK NOTA: Pra cada posição separada por "," limpar caracteres especiais
                                 for (int i = 0; i < words.Length; i++)
@@ -1360,72 +1330,47 @@ void carregaRenomear()
                                         }
 
 
-                                        // dict.Add(Convert.ToInt32(dados[0].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"')), dados[1].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"'));
+                                        
 
                                     }
-                                    //  MessageBox.Show("1" + dados[0] + "dados: " + dados[1]);
-                                    //dict.Add(Convert.ToInt32(dados[0].Replace("{", "").Replace("\"","").Replace("}","").Replace("/","").Replace("-","").Replace(".","").TrimStart('"').TrimEnd('"')), dados[1].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".","").TrimStart('"').TrimEnd('"')) ;
-                                    // MessageBox.Show(dict[i]);
+                                    
                                     dados = null;
 
                                 }
 
-                                //m_code = dict[12];
-                                //foreach (var item in dict)
-                                //{
-                                //    MessageBox.Show("Chave: " + item.Key + " - Valor: " + item.Value);
-                                //}
-                                //dict.Add(words[2], words[2]);
-                                //dict.Add(words[3], words[3]);
-                                //dict.Add(words[4], words[4]);
-                                //dict.Add(words[5], words[5]);
-                                //dict.Add(words[6], words[6]);
-                                //dict.Add(words[7], words[7]);
-                                //dict.Add(words[8], words[8]);
-                                //dict.Add(words[9], words[9]);
-                                //dict.Add(words[10], words[10]);
-                                //dict.Add(words[11], words[11]);
+                                
 
                                 //MAIK NOTA: USA OS CAMPOS SEPARADOS POR "," E GRAVA SUA POSIÇÃO NO CAMPO CHAVE INSERIDO PELO USUARIO
                                 string[] posicao = txtparamento.Text.Split(';');
 
                                 int tamanho = posicao.Length;
 
-                                //foreach (var word in words)
-                                //{
-                                //    // System.Console.WriteLine($"<{word}>");
-                                //    MessageBox.Show($"<{word}>");
-                                //}
-
+                               
                                 if (tamanho == 1)
                                 {
-                                    //m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "").ToUpperInvariant();
+                                    
                                     m_code = dict[(posicao[0])];
 
                                 }
                                 else if (tamanho == 2)
                                 {
-                                    //  m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToUpperInvariant();
+                                    
                                     m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])];
                                 }
                                 else if (tamanho == 3)
                                 {
-                                    // m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[2]))].Substring(6).Replace("\"", "").ToUpperInvariant();
+                                    
                                     m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])];
                                 }
                                 else if (tamanho == 4)
                                 {
-                                    // m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[2]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[3]))].Substring(6).Replace("\"", "").ToUpperInvariant();
                                     m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])] + "_" + dict[(posicao[3])];
                                 }
                                 else if (tamanho == 5)
                                 {
-                                    // m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[2]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[3]))].Substring(6).Replace("\"", "").ToUpperInvariant() + "_" + words[(Convert.ToInt32(posicao[4]))].Substring(6).Replace("\"", "").ToUpperInvariant();
                                     m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])] + "_" + dict[(posicao[3])] + "_" + dict[(posicao[4])];
                                 }
 
-                                //  m_code = words[(Convert.ToInt32(posicao[0]))].Substring(6).Replace("\"", "") + "_" + words[(Convert.ToInt32(posicao[1]))].Substring(6).Replace("\"", "").ToLowerInvariant() + "_" + words[(Convert.ToInt32(posicao[2]))].Substring(6).Replace("\"", "");
-                                //  m_code = words[3].Substring(6).Replace("\"", "") + "_" + words[4].Substring(6).Replace("\"", "").ToLowerInvariant() + "_" + words[5].Substring(6).Replace("\"", ""); Original
 
                                 //MAIK NOTE: LIMPA O RESULTADO DE CARACTERES ESPECIAIS
                                 string sendtodecode = txt_scan_result.Text;
@@ -1449,9 +1394,9 @@ void carregaRenomear()
                                 string destFile = System.IO.Path.Combine(targetPath, novoNome);
                                 System.IO.File.Copy(sourceFile, destFile, true);
 
-                                //Fim 
+                                 
                                 Wait_for(40);
-
+                                Thread.Sleep(1000);
                             }
                             else
                             {
@@ -1480,43 +1425,14 @@ void carregaRenomear()
                                     MessageBox.Show("Erro 22", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
 
-                                //show_info("Nenhum arquivo será processado....");
-                                //  return;
-
-                                ////  last_code = Interaction.InputBox("Informe o codigo", "InfoCutter", "*", 150, 150);
-                                //if (out_pdf != null && last_code != "" && out_pdf.PageCount > 0)
-                                //{
-                                //    out_pdf.Save(out_fname);
-                                //    out_pdf.Close();
-                                //}
-                                //last_code = "";
-                                //finally {
-                                //  Finalize_process();
-                                // }
-                                //out_pdf = new PdfDocument()
-                                //{
-                                //    Version = pdf.Version
-                                //};
-                                //out_pdf.Info.Title = String.Format("Page {0} of {1}", idx + 1, pdf.Info.Title);
-                                //out_pdf.Info.Creator = pdf.Info.Creator;
-                                //out_fname = String.Format("{0}\\Desconhecido_{1}_{2}_{3}.pdf", out_dir, fname, idx, reg_id);
-                                //Add_new_page(region_img, out_pdf);
-                                ////region_img.Save(out_fname + ".bmp");
-                                //out_pdf.Save(out_fname);
-                                //out_pdf.Close();
-                            }//Acaba aqui !!
+                                
+                            }
 
                         }
 
-                        //erro aqui
+                        
                         Invoke(new Action(() => setProg_Sub(prog_sub.Value = idx + 1, String.Format("{0} / {1}", idx + 1, page_count))));
                     }
-
-                    if (out_pdf != null && last_code != "" && out_pdf.PageCount > 0)
-                    {
-                        //  out_pdf.Save(out_fname);
-                    }
-                    //e vai dar erro aqui
 
                     Invoke(new Action(() => setProg_tot(++done_cnt, String.Format("{0} / {1}", done_cnt, m_input_files.Count))));
 

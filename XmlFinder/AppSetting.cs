@@ -7,6 +7,7 @@ using System.Web.Script.Serialization;
 
 namespace ScanPDF
 {
+    //Essa classe é uma constante, ela instancia um objeto quando chamada automaticamente
     public class AppSettings<T> where T : new()
     {
         private const string DEFAULT_FILENAME = "settings.ini";
@@ -47,8 +48,12 @@ namespace ScanPDF
         }
     }
 
+    //Essa classe é instancia a partir de ouras classes
+    //Ela recebe AppSettings para propriedades de Save() e Load()
+    //Como parametro genérico ela envia ela mesma, pois são esses atributos que desejo salvar
     public class UserSetting : AppSettings<UserSetting>
     {
+        public float doc_height = 29.7f;
         public float header_height = 1.5f;
         public float footer_height = 2.5f;
         public float region_height = 4.1f;
@@ -56,5 +61,10 @@ namespace ScanPDF
         public int check_interval = 1;
         public int search_depth = 2;
         public int tam_cod = 7;
+        public int reg_count = 7; //quantidade de corte
+        public float reg_height = 4.1f; //tamanho do corte
+
+        public char delimiter = ';';
+        public string positions = "1;2;3";
     }
 }

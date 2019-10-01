@@ -236,7 +236,7 @@ namespace XmlFinder
             // btnPastaPDF
             // 
             this.btnPastaPDF.ActiveBorderThickness = 1;
-            this.btnPastaPDF.ActiveCornerRadius = 20;
+            this.btnPastaPDF.ActiveCornerRadius = 1;
             this.btnPastaPDF.ActiveFillColor = System.Drawing.Color.Red;
             this.btnPastaPDF.ActiveForecolor = System.Drawing.Color.White;
             this.btnPastaPDF.ActiveLineColor = System.Drawing.Color.Red;
@@ -247,11 +247,11 @@ namespace XmlFinder
             this.btnPastaPDF.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastaPDF.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnPastaPDF.IdleBorderThickness = 1;
-            this.btnPastaPDF.IdleCornerRadius = 20;
+            this.btnPastaPDF.IdleCornerRadius = 1;
             this.btnPastaPDF.IdleFillColor = System.Drawing.Color.Crimson;
             this.btnPastaPDF.IdleForecolor = System.Drawing.Color.White;
             this.btnPastaPDF.IdleLineColor = System.Drawing.Color.Crimson;
-            this.btnPastaPDF.Location = new System.Drawing.Point(14, 58);
+            this.btnPastaPDF.Location = new System.Drawing.Point(14, 68);
             this.btnPastaPDF.Margin = new System.Windows.Forms.Padding(5);
             this.btnPastaPDF.Name = "btnPastaPDF";
             this.btnPastaPDF.Size = new System.Drawing.Size(219, 41);
@@ -262,7 +262,7 @@ namespace XmlFinder
             // btnPastaXML
             // 
             this.btnPastaXML.ActiveBorderThickness = 1;
-            this.btnPastaXML.ActiveCornerRadius = 20;
+            this.btnPastaXML.ActiveCornerRadius = 1;
             this.btnPastaXML.ActiveFillColor = System.Drawing.Color.MediumSeaGreen;
             this.btnPastaXML.ActiveForecolor = System.Drawing.Color.White;
             this.btnPastaXML.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
@@ -273,11 +273,11 @@ namespace XmlFinder
             this.btnPastaXML.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastaXML.ForeColor = System.Drawing.Color.White;
             this.btnPastaXML.IdleBorderThickness = 1;
-            this.btnPastaXML.IdleCornerRadius = 20;
+            this.btnPastaXML.IdleCornerRadius = 1;
             this.btnPastaXML.IdleFillColor = System.Drawing.Color.SeaGreen;
             this.btnPastaXML.IdleForecolor = System.Drawing.Color.White;
             this.btnPastaXML.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPastaXML.Location = new System.Drawing.Point(332, 58);
+            this.btnPastaXML.Location = new System.Drawing.Point(332, 68);
             this.btnPastaXML.Margin = new System.Windows.Forms.Padding(5);
             this.btnPastaXML.Name = "btnPastaXML";
             this.btnPastaXML.Size = new System.Drawing.Size(219, 41);
@@ -537,7 +537,7 @@ namespace XmlFinder
             // btnSelecionarSaida
             // 
             this.btnSelecionarSaida.ActiveBorderThickness = 1;
-            this.btnSelecionarSaida.ActiveCornerRadius = 20;
+            this.btnSelecionarSaida.ActiveCornerRadius = 1;
             this.btnSelecionarSaida.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
             this.btnSelecionarSaida.ActiveForecolor = System.Drawing.Color.White;
             this.btnSelecionarSaida.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
@@ -548,11 +548,11 @@ namespace XmlFinder
             this.btnSelecionarSaida.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionarSaida.ForeColor = System.Drawing.Color.White;
             this.btnSelecionarSaida.IdleBorderThickness = 1;
-            this.btnSelecionarSaida.IdleCornerRadius = 20;
+            this.btnSelecionarSaida.IdleCornerRadius = 1;
             this.btnSelecionarSaida.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.btnSelecionarSaida.IdleForecolor = System.Drawing.Color.White;
             this.btnSelecionarSaida.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelecionarSaida.Location = new System.Drawing.Point(648, 58);
+            this.btnSelecionarSaida.Location = new System.Drawing.Point(648, 68);
             this.btnSelecionarSaida.Margin = new System.Windows.Forms.Padding(5);
             this.btnSelecionarSaida.Name = "btnSelecionarSaida";
             this.btnSelecionarSaida.Size = new System.Drawing.Size(219, 41);
