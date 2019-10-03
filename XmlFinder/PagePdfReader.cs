@@ -533,7 +533,7 @@ void carregaRenomear()
                     string last_code = "";
                     BarcodeFormat last_format = BarcodeFormat.UPC_E;
                     PdfDocument out_pdf = null;
-                    for (int idx = 0; idx < page_count; idx++)
+                    for (int idx = 0; idx < page_count; idx++) //rotina para ler cada pagina do pdf a procura de barcode
                     {
                         PdfPage page = pdf.Pages[idx];
 
@@ -1159,14 +1159,9 @@ void carregaRenomear()
             {
                 float doc_height = float.Parse(txt_doc_height.Text);
                 float region_height = float.Parse(txt_region_height.Text);
-                float header_height = 0f;//float.Parse(txt_header_height.Text);
-                float footer_height = 0f;//float.Parse(txt_footer_height.Text);
+                float header_height = 0f;
+                float footer_height = 0f;
                 int reg_cnt = 1;//int.Parse(txt_region_count.Text);
-
-                if (region_height == 0)
-                {
-                    region_height = doc_height - header_height - footer_height;
-                }
 
                 // A Lista não pode ser atualizada durante o processo
                 //MAIK NOTA: Barra de progresso
@@ -1232,7 +1227,7 @@ void carregaRenomear()
                         Wait_for(40);
                         if (rad_reg_count.Checked)
                         {
-                            if (reg_cnt <= 0)
+                            if (reg_cnt <= 0) //recortes menores ou igual a zero
                             {
                                 //Show_info("Insira um numero maior que zero.");
                                 MessageBox.Show("Insira um numero maior que zero.", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1245,7 +1240,7 @@ void carregaRenomear()
                         }
                         if (rad_reg_height.Checked)
                         {
-                            if (region_height <= float.Epsilon)
+                            if (region_height <= float.Epsilon)  //entendi nada
                             {
                                 MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //show_info("Region height is invalid.");
@@ -1254,29 +1249,29 @@ void carregaRenomear()
                             reg_cnt = (int)(doc_height / region_height);
                         }
 
-                        if (reg_cnt <= 0 || region_height <= 0)
+                        if (reg_cnt <= 0 || region_height <= 0) //se o recorte ou altura doc for menor que 0
                         {
                             MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //show_info("Region height is invalid.");
                             continue;
                         }
 
-                        for (int reg_id = 0; reg_id < reg_cnt; reg_id++)
+                        for (int reg_id = 0; reg_id < reg_cnt; reg_id++) // faz a leitura por cada recorte
                         {
                             int y = (int)((reg_id * region_height + header_height) / doc_height * page_img.Height);
                             int h = (int)(region_height / doc_height * page_img.Height);
+
+                            //Essa sessão faz um recorte retangular do tamanho da zona a ser analizada
                             Rectangle cropRect = new Rectangle(0, y, page_img.Width, h);
-
                             Graphics g;
-
-                            Bitmap region_img = new Bitmap(cropRect.Width, cropRect.Height);
+                            Bitmap region_img = new Bitmap(cropRect.Width, cropRect.Height); //Aqui é retornado a imagem recortada
 
                             using (g = Graphics.FromImage(region_img))
                             {
                                 g.DrawImage(page_img, new Rectangle(0, 0, region_img.Width, region_img.Height), cropRect, GraphicsUnit.Pixel);
                             }
 
-                            bool marked = Check_mark(region_img);
+                            bool marked = Check_mark(region_img); //Aqui analisa se o recorte foi bem sucedido
 
                             m_found = false;
                             if (TryReadCode(region_img, 0) == true)

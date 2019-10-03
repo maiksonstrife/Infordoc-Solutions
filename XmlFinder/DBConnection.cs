@@ -13,11 +13,9 @@ namespace XmlFinder
 {
     public class DBConnection
     {
-        #region objetos sql
-        //README: BDConnection.Membro, não usar em escopo global
-        //todos objetos SQL precisam de uma conexão aberta "public static SqlConnection obterConexao()", quando fechada eles perdem a referencia pórtanto ficam vazios.
-        //no caso do ReadDatabase, ele devolve um sql, esse sql devera ser usado e só depois fechado, caso fechado dentro do metodo ele ficara vazio antes de retornar a quem chamou.
-        #endregion
+        /*Classes publicas com método estaticos podem ser acessados de qualquer outra classe sem precisar instanciar um objeto
+         * Para acessar use DBConnection.NomedoMetodo
+         */ 
 
         //Variaveis globais
         public static string connString = @"Data Source=169.57.134.120;Initial Catalog=DBTeste;User Id=sa;Password=ZXbnlz4N;Trusted_Connection=false;";

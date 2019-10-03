@@ -29,7 +29,9 @@ namespace XmlFinder
         public static SqlDataReader  readPlanilha (string data1, string data2)
         {
             string _sqlcommand = "Select * from tbDadosPlan where Data between @Data1 and @Data2 order by Data";
-            SqlDataReader dr = DBConnection.ReadDatabase(_sqlcommand, new SqlParameter("@Data1", data1), new SqlParameter("@Data2", data2));
+
+            SqlDataReader dr = DBConnection.ReadDatabase(_sqlcommand, new SqlParameter("@Data1", data1), 
+                                                                      new SqlParameter("@Data2", data2));
             return dr;
         }
     }

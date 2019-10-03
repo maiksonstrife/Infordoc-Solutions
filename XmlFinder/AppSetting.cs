@@ -56,14 +56,14 @@ namespace ScanPDF
         public float doc_height = 29.7f;
         public float header_height = 1.5f;
         public float footer_height = 2.5f;
-        public float region_height = 4.1f;
+
         public int region_count = 6;
         public int check_interval = 1;
         public int search_depth = 2;
         public int tam_cod = 7;
         public int reg_count = 7; //quantidade de corte
         public float reg_height = 4.1f; //tamanho do corte
-
+        public float region_height = 4.1f; //tamanho do corte (de novo ?)
         public char delimiter = ';';
         public string positions = "1;2;3";
     }

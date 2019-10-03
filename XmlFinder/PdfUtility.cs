@@ -29,9 +29,9 @@ namespace XmlFinder
         string marked_folder;
         string in_folder;
 
+        private System.Threading.ManualResetEvent _completedEvent;
 
         public bool debug = true;
-
         public List<string> m_input_files = new List<string>();
         string m_code;
         BarcodeFormat m_found_format;
@@ -41,11 +41,11 @@ namespace XmlFinder
         UserSetting m_setting;
 
         private BackgroundWorker backgroundRenomear;
-
-
+        //quando background worker finalizar devolver m_code
+        public string barcode = "";
 
         //chamadas -> classes para serem chamadas por outras classes
-        public void onloadCarregaRenomear (bool monitorar)
+        public string onloadCarregaRenomear (bool monitorar)
         {
             this.monitorar = monitorar;
             Load_AppSettings();
@@ -55,9 +55,9 @@ namespace XmlFinder
 
             this.backgroundRenomear = new BackgroundWorker();
             this.backgroundRenomear.DoWork += new DoWorkEventHandler(backgroundRenomear_DoWork);
-            this.backgroundRenomear.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundRenomear_RunWorkerCompleted);
-
-            
+            //this.backgroundRenomear.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundRenomear_RunWorkerCompleted);
+            this.backgroundRenomear.WorkerSupportsCancellation = true;
+            _completedEvent = new System.Threading.ManualResetEvent(false);
 
             if (this.monitorar == true)
             {
@@ -68,12 +68,18 @@ namespace XmlFinder
                 UpdateList();
                 backgroundRenomear.RunWorkerAsync();
             }
+
+            //Espere nessa linha até que a Thread background worker termine
+            _completedEvent.WaitOne(); //Esse método faz com que o programa pause aqui e espere até que o background worker termine
+            backgroundRenomear.CancelAsync();
+            return m_code;
         }
 
         //Threading
         private void backgroundRenomear_DoWork(object sender, DoWorkEventArgs e)
         {
             processoRenomear();
+            _completedEvent.Set();
         }
         //timers
         private void M_timerRenomear_Tick(object sender, EventArgs e)
@@ -85,14 +91,12 @@ namespace XmlFinder
             }
         }
 
-        //Para parar o monitorar alterar a variavel publica monitorar, esse argumento roda após o backgroundRenomear
+        /*Para parar o monitorar alterar a variavel publica monitorar, esse argumento roda após o backgroundRenomear
         private void backgroundRenomear_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (this.monitorar == false)
-            {
-                backgroundRenomear.CancelAsync();
-            }
-        }
+            m_code = (string)e.Result;
+            _completedEvent.Set();
+        }*/
 
         //processos
         void processoRenomear()
@@ -108,104 +112,55 @@ namespace XmlFinder
             Thread.Sleep(200); // Faz a thread aguardar processos
             Wait_for(40); //Helper: Faz com que o windows descarregue processos em fila
 
-            float doc_height = m_setting.doc_height;
+            float doc_height; 
             float region_height = m_setting.region_height;
-            float header_height = m_setting.header_height;
-            float footer_height = m_setting.footer_height;
-            int reg_cnt = 1;
-
-            if (region_height == 0)
-            {
-                region_height = doc_height - header_height - footer_height;
-            }
 
             while (m_input_files.Count > 0)
             {
                 fname_full = m_input_files[0];
                 fname = fname_full.Substring(fname_full.LastIndexOf('\\') + 1);
 
-                PdfDocument pdf = PdfReader.Open(fname_full, PdfDocumentOpenMode.Import);
-
-
+                //Configura MagickRead (leitura, conversão e gravação de imagens)
                 MagickReadSettings settings = new MagickReadSettings()
                 {
                     Density = new Density(300, 300)
-
                 };
                 MagickImageCollection images = new MagickImageCollection();
                 images.Read(fname_full, settings);
 
-                int page_count = pdf.PageCount;
+                //Configura pdf Sharp
+                PdfDocument pdf = PdfReader.Open(fname_full, PdfDocumentOpenMode.Import);
+                PdfPage first = pdf.Pages[0]; //pega a primeira pagina do pdf
 
-                PdfPage first = pdf.Pages[0];
+                doc_height = (float)first.Height.Centimeter; //define a primeira pagina do pdf como tamanho do documento
 
-                doc_height = (float)first.Height.Centimeter;
-                if (doc_height <= float.Epsilon)
+                if (doc_height <= float.Epsilon) //Float.Epsilon retorna o menor numero possivel de um float
                 {
                     Console.WriteLine(String.Format("File {0} is not valid.", fname_full));
                     pdf.Close();
                     continue;
                 }
 
-                for (int idx = 0; idx < 1; idx++) // Lendo paginas pdf multiplas paginas
-                {
-                    PdfPage page = pdf.Pages[idx];
+                int barcodePage = 0; //Tecnico vai definir em qual pagina esta o barcode
+                int page_count = pdf.PageCount; 
 
-                    images[idx].Write("temp.jpg");
+                    PdfPage page = pdf.Pages[barcodePage];
+
+                    images[barcodePage].Write("temp.jpg");      //salva pagina como temp.jpg e jogar para analize
 
                     Bitmap page_img = new Bitmap(FromFile("temp.jpg"));
                     Thread.Sleep(200);
                     Wait_for(40);
 
-                    if (m_setting.reg_count <= 0)
-                    {
-                        if (reg_cnt <= 0)
-                        {
-                            MessageBox.Show("Insira um numero maior que zero.", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            continue;
-                        }
-                        else
-                        {
-                            region_height = (doc_height - header_height - footer_height) / reg_cnt;
-                        }
-                    }
-
-                    if (region_height <= float.Epsilon)
+                    if (doc_height <= float.Epsilon) //Se certifica de que cada pagina está em conformidade com tamanho minimo
                     {
                             MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
                     }
-                    else
-                    {
-                        reg_cnt = (int)(doc_height / region_height);
-                    }
                         
-
-                    if (reg_cnt <= 0 || region_height <= 0)
-                    {
-                        MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        continue;
-                    }
-
-                    for (int reg_id = 0; reg_id < reg_cnt; reg_id++)
-                    {
-                        int y = (int)((reg_id * region_height + header_height) / doc_height * page_img.Height);
-                        int h = (int)(region_height / doc_height * page_img.Height);
-                        Rectangle cropRect = new Rectangle(0, y, page_img.Width, h);
-
-                        Graphics g;
-
-                        Bitmap region_img = new Bitmap(cropRect.Width, cropRect.Height);
-
-                        using (g = Graphics.FromImage(region_img))
-                        {
-                            g.DrawImage(page_img, new Rectangle(0, 0, region_img.Width, region_img.Height), cropRect, GraphicsUnit.Pixel);
-                        }
-
-                        bool marked = Check_mark(region_img);
-
+                        
                         m_found = false;
-                        if (TryReadCode(region_img, 0) == true)
+                        if (TryReadCode(page_img, 0) == true) //Se retornou true é que m_found (barcode) foi copulado
                         {
                             Boolean pulaNumero = true;
 
@@ -333,7 +288,7 @@ namespace XmlFinder
 
                                 System.IO.File.Copy(sourceFile, destFile, true);
 
-                                //  MessageBox.Show("Nenhum Codigo detectado", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                m_found = false;
 
                             }
                             catch
@@ -341,18 +296,7 @@ namespace XmlFinder
                                 MessageBox.Show("Erro 22", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                    }
-                }
                 pdf.Close();
-
-                // Move o arquivo processado para a pasta concluido
-                //string tar_fname = fname;
-                //while (File.Exists(Path.Combine(txt_done_folder.Text, tar_fname)))
-                //{
-                //    tar_fname = "_" + tar_fname;
-                //}
-                //File.Move(fname_full, Path.Combine(txt_done_folder.Text, tar_fname));
-
                 string lixo = in_folder + "\\" + fname;
                 File.Delete(lixo);
                 m_input_files.RemoveAt(0);
@@ -364,7 +308,7 @@ namespace XmlFinder
         //Helpers : Métodos de auxílio para as classes de processos
         void criarDiretorios()
         {
-             pathRaiz = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + "InfordocSolutions";
+             pathRaiz = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + @"\InfordocSolutions";
              out_folder = pathRaiz + @"\Saida";
              done_folder = pathRaiz + @"\detectado";
              marked_folder = pathRaiz + @"\Erros";
@@ -431,8 +375,7 @@ namespace XmlFinder
 
             if (Properties.Settings.Default.SisRecortar == true)
             {
-                //  if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE))
-                //if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE || res.Text.Length == int.Parse(txtTamCod.Text))) //Original 21/06
+                
                 {
                     m_found = true;
                     m_code = res.Text;
@@ -444,7 +387,7 @@ namespace XmlFinder
             else if (Properties.Settings.Default.SisRenomear == true)
             {
                 if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE))
-                // if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE || res.Text.Length == int.Parse(txtTamCod.Text))) //Original 21/06
+                
                 {
                     m_found = true;
                     m_code = res.Text;
@@ -455,7 +398,7 @@ namespace XmlFinder
             else if (Properties.Settings.Default.SisSitema == true)
             {
                 if (res != null || (res.BarcodeFormat == BarcodeFormat.QR_CODE))
-                // if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE || res.Text.Length == int.Parse(txtTamCod.Text))) //Original 21/06
+                
                 {
                     m_found = true;
                     m_code = res.Text;
@@ -473,7 +416,7 @@ namespace XmlFinder
             int i;
             for (i = 0; i < barcodes.Count; i++)
                 if (barcodes[i].ToString().Length > 6)
-                    //  if (barcodes[i].ToString().Length == int.Parse(txtTamCod.Text)) //Original 
+                   
                     break;
             if (i < barcodes.Count)
                 if (i < barcodes.Count)
@@ -481,7 +424,6 @@ namespace XmlFinder
                     {
                         m_found = true;
                         m_code = barcodes[i].ToString();
-                        //m_found_format = BarcodeFormat.CODE_128; // Original
                         m_found_format = BarcodeFormat.CODE_128;
                         return true;
                     }
@@ -501,7 +443,6 @@ namespace XmlFinder
 
         private string Check_filename_valid(string input)
         {
-            //string illegal = "\"M\"\\a/ry/ h**ad:>> a\\/:*?\"| li*tt|le|| la\"mb.?";
             string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
             Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
             string output = r.Replace(input, "");
@@ -644,7 +585,6 @@ namespace XmlFinder
             }
         }
 
-        
 
     }
 }

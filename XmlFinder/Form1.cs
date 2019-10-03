@@ -98,5 +98,15 @@ namespace XmlFinder
         {
 
         }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+            pageBarcodeReader1.BringToFront();
+        }
+
+        private void pageBarcodeReader1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
