@@ -132,6 +132,12 @@
     <Compile Include="PageBarcodeReader.Designer.cs">
       <DependentUpon>PageBarcodeReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageConfigSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageConfigSelect.Designer.cs">
+      <DependentUpon>PageConfigSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="PagePdfReader.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PageBarcodeReader.resx">
       <DependentUpon>PageBarcodeReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageConfigSelect.resx">
+      <DependentUpon>PageConfigSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PagePdfReader.resx">
       <DependentUpon>PagePdfReader.cs</DependentUpon>

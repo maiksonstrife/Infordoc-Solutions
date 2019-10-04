@@ -40,7 +40,6 @@ namespace XmlFinder
         Timer m_timerRenomear = new Timer();
         UserSetting m_setting;
 
-        private BackgroundWorker backgroundRenomear;
         //quando background worker finalizar devolver m_code
         public string barcode = "";
 
@@ -53,10 +52,7 @@ namespace XmlFinder
             m_timerRenomear.Tick += M_timerRenomear_Tick;
             criarDiretorios();
 
-            this.backgroundRenomear = new BackgroundWorker();
-            this.backgroundRenomear.DoWork += new DoWorkEventHandler(backgroundRenomear_DoWork);
-            //this.backgroundRenomear.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundRenomear_RunWorkerCompleted);
-            this.backgroundRenomear.WorkerSupportsCancellation = true;
+            
             _completedEvent = new System.Threading.ManualResetEvent(false);
 
             if (this.monitorar == true)
@@ -66,37 +62,23 @@ namespace XmlFinder
             else
             {
                 UpdateList();
-                backgroundRenomear.RunWorkerAsync();
+                
             }
-
-            //Espere nessa linha até que a Thread background worker termine
-            _completedEvent.WaitOne(); //Esse método faz com que o programa pause aqui e espere até que o background worker termine
-            backgroundRenomear.CancelAsync();
+            
             return m_code;
         }
 
-        //Threading
-        private void backgroundRenomear_DoWork(object sender, DoWorkEventArgs e)
-        {
-            processoRenomear();
-            _completedEvent.Set();
-        }
+
         //timers
         private void M_timerRenomear_Tick(object sender, EventArgs e)
         {
             UpdateList();
             if (m_input_files.Count > 0)
             {
-                backgroundRenomear.RunWorkerAsync();
+                processoRenomear();
             }
         }
 
-        /*Para parar o monitorar alterar a variavel publica monitorar, esse argumento roda após o backgroundRenomear
-        private void backgroundRenomear_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            m_code = (string)e.Result;
-            _completedEvent.Set();
-        }*/
 
         //processos
         void processoRenomear()
@@ -311,7 +293,7 @@ namespace XmlFinder
              pathRaiz = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + @"\InfordocSolutions";
              out_folder = pathRaiz + @"\Saida";
              done_folder = pathRaiz + @"\detectado";
-             marked_folder = pathRaiz + @"\Erros";
+             marked_folder = pathRaiz + @"\Recorte_Invalido";
              in_folder = pathRaiz + @"\Entrada";
 
             try

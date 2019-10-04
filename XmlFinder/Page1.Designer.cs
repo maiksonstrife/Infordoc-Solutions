@@ -552,10 +552,10 @@ namespace XmlFinder
             this.btnSelecionarSaida.IdleFillColor = System.Drawing.Color.DodgerBlue;
             this.btnSelecionarSaida.IdleForecolor = System.Drawing.Color.White;
             this.btnSelecionarSaida.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelecionarSaida.Location = new System.Drawing.Point(648, 68);
+            this.btnSelecionarSaida.Location = new System.Drawing.Point(650, 68);
             this.btnSelecionarSaida.Margin = new System.Windows.Forms.Padding(5);
             this.btnSelecionarSaida.Name = "btnSelecionarSaida";
-            this.btnSelecionarSaida.Size = new System.Drawing.Size(219, 41);
+            this.btnSelecionarSaida.Size = new System.Drawing.Size(217, 41);
             this.btnSelecionarSaida.TabIndex = 17;
             this.btnSelecionarSaida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSelecionarSaida.Click += new System.EventHandler(this.btnSelecionarSaida_Click);

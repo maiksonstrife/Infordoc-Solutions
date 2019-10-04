@@ -76,7 +76,8 @@ namespace XmlFinder
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
-            page31.BringToFront();
+            pageConfigSelect1.BringToFront();
+            //page31.BringToFront(); pagina de configurar pagina padrao do XML
         }
 
         private void bunifuFlatButton4_Click_1(object sender, EventArgs e)
@@ -107,6 +108,11 @@ namespace XmlFinder
         private void pageBarcodeReader1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuImageButton1_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

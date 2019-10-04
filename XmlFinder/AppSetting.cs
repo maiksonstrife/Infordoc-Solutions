@@ -53,10 +53,10 @@ namespace ScanPDF
     //Como parametro genérico ela envia ela mesma, pois são esses atributos que desejo salvar
     public class UserSetting : AppSettings<UserSetting>
     {
+        //Page Settings
         public float doc_height = 29.7f;
         public float header_height = 1.5f;
         public float footer_height = 2.5f;
-
         public int region_count = 6;
         public int check_interval = 1;
         public int search_depth = 2;
@@ -64,7 +64,20 @@ namespace ScanPDF
         public int reg_count = 7; //quantidade de corte
         public float reg_height = 4.1f; //tamanho do corte
         public float region_height = 4.1f; //tamanho do corte (de novo ?)
+
+        //Barcode Settings
         public char delimiter = ';';
         public string positions = "1;2;3";
+
+        //XML Settings
+
+
+        //FTP Settings
+
+
+        //Plan Settings
+
+
+
     }
 }
