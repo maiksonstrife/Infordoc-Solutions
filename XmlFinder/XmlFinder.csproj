@@ -86,6 +86,12 @@
       <DependentUpon>Alerta1.cs</DependentUpon>
     </Compile>
     <Compile Include="AppSetting.cs" />
+    <Compile Include="ConfigIniInforScanner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConfigIniInforScanner.Designer.cs">
+      <DependentUpon>ConfigIniInforScanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="Ferramentas.cs" />
     <Compile Include="Form1.cs">
@@ -101,6 +107,7 @@
     <Compile Include="homePage.Designer.cs">
       <DependentUpon>homePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImgRecorte.cs" />
     <Compile Include="ImgUtility.cs" />
     <Compile Include="Page1.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alerta1.resx">
       <DependentUpon>Alerta1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigIniInforScanner.resx">
+      <DependentUpon>ConfigIniInforScanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -73,6 +73,7 @@
             this.Controls.Add(this.CarregaOnloadRenomear);
             this.Name = "PageBarcodeReader";
             this.Size = new System.Drawing.Size(888, 535);
+            this.Load += new System.EventHandler(this.PageBarcodeReader_Load);
             this.ResumeLayout(false);
 
         }

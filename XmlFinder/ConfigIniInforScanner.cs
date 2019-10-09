@@ -10,17 +10,21 @@ using System.Windows.Forms;
 
 namespace XmlFinder
 {
-    public partial class PageConfigSelect : UserControl
+    public partial class ConfigIniInforScanner : UserControl
     {
-        public PageConfigSelect()
+        public ConfigIniInforScanner()
         {
             InitializeComponent();
         }
 
-        private void ButtonConfigIniInforScanner_Click(object sender, EventArgs e)
+        private void label18_Click(object sender, EventArgs e)
         {
 
-            panel2.BringToFront();
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

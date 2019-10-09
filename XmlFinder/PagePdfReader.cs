@@ -473,9 +473,9 @@ void carregaRenomear()
                 return;
             }
 
-            btn_start.Enabled = false;
-            btn_start.ForeColor = Color.Red;
-            btn_start.Text = "Processando...";
+            //btn_start.Enabled = false;
+            //btn_start.ForeColor = Color.Red;
+            //btn_start.Text = "Processando...";
 
             m_timer.Stop();
 
@@ -496,8 +496,8 @@ void carregaRenomear()
                 }
 
                 // A Lista não pode ser atualizada durante o processo
-                prog_tot.Maximum = m_input_files.Count;
-                prog_tot.Value = 0;
+                //prog_tot.Maximum = m_input_files.Count;
+                //prog_tot.Value = 0;
                 int done_cnt = 0;
                 while (m_input_files.Count > 0)
                 {
@@ -517,10 +517,10 @@ void carregaRenomear()
                     images.Read(fname_full, settings);
 
                     int page_count = pdf.PageCount;
-                    prog_sub.Maximum = page_count;
+                    //prog_sub.Maximum = page_count;
 
                     PdfPage first = pdf.Pages[0];
-                    txt_doc_height.Text = first.Height.Centimeter.ToString();
+                    //txt_doc_height.Text = first.Height.Centimeter.ToString();
                     doc_height = (float)first.Height.Centimeter;
                     if (doc_height <= float.Epsilon)
                     {
@@ -533,20 +533,47 @@ void carregaRenomear()
                     string last_code = "";
                     BarcodeFormat last_format = BarcodeFormat.UPC_E;
                     PdfDocument out_pdf = null;
+
                     for (int idx = 0; idx < page_count; idx++) //rotina para ler cada pagina do pdf a procura de barcode
                     {
                         PdfPage page = pdf.Pages[idx];
 
-                        lab_nomeArq.Visible = true;
-                        lab_nomeArq.ForeColor = Color.Black;
-                        lab_nomeArq.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
+                        //lab_nomeArq.Visible = true;
+                        //lab_nomeArq.ForeColor = Color.Black;
+                        //lab_nomeArq.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
                         // lab_current.Text = String.Format("{0}  ({1}p)", fname, idx + 1);
                         //var pdfToImg = new NReco.PdfRenderer.PdfToImageConverter(); // This library is not free! 
                         //pdfToImg.GenerateImage(fname_full, idx+1, ImageFormat.Jpeg, "temp.jpg");
-                        images[idx].Write("temp.jpg");
+                        images[idx].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
 
-                        Bitmap page_img = new Bitmap(FromFile("temp.jpg"));
-                        pic_current.BackgroundImage = page_img;
+                        Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo
+                        Bitmap watermark_img = new Bitmap(FromFile("C:\\Users\\Maikson\\Pictures\\WaterMark_Example.jpg"));
+
+                        //MagickImage Le a imagem que vai receber marca d'agua
+                        using (MagickImage image = new MagickImage(page_img))
+                        {
+                            // Lê a marca dágua que será inserida na imagem
+                            using (MagickImage watermark = new MagickImage(watermark_img))
+                            {
+                                // Desenhando a marca no canto inferior direito (no futuro colocar pro usuario escolher)
+                                image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+
+                                // OU desenhe em um lugar com x/y
+                                //image.Composite(watermark, 200, 50, CompositeOperator.Over);
+
+                                // Transparencia
+                                watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+
+
+                            }
+
+                            // Salvando o resultado na pasta temporaria
+                            image.Write("temp.jpg");
+                        }
+                        //salvo a imagem com marca d'agua em uma variavel para ser usada futuramente
+                        page_img = new Bitmap(FromFile("temp.jpg"));
+
+                        //pic_current.BackgroundImage = page_img;
 
                         Wait_for(40);
                         if (rad_reg_count.Checked)
@@ -621,6 +648,9 @@ void carregaRenomear()
                                                                                    //Fim
 
                             m_found = false;
+
+
+
                             if (TryReadCode(region_img, 0) == true)
                             {
 
@@ -634,7 +664,7 @@ void carregaRenomear()
                                 //}
 
                                 //  m_code = words[3].Substring(6).Replace("\"","")+ "_" + words[4].Substring(6).Replace("\"","").ToLowerInvariant()+"_" + words[5].Substring(6).Replace("\"","");
-                                txt_scan_result.Text = m_code;
+                                //txt_scan_result.Text = m_code;
                                 Wait_for(40);
                                 if (m_code != last_code)
                                 {
@@ -2047,11 +2077,11 @@ void carregaRenomear()
 
             if (Properties.Settings.Default.SisRecortar == true)
             {
-                backgroundWorker1.RunWorkerAsync();
+                Process();
             }
             else if (Properties.Settings.Default.SisRenomear == true)
             {
-                backgroundWorker2.RunWorkerAsync();
+                Process2();
             }
             else if (Properties.Settings.Default.SisSitema == true)
             {
@@ -2148,5 +2178,9 @@ void carregaRenomear()
             lab_tot_prog.Text = text;
         }
 
+        private void txtTamCod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -394,6 +394,7 @@
             this.txtTamCod.TabIndex = 11;
             this.txtTamCod.Text = "7";
             this.txtTamCod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTamCod.TextChanged += new System.EventHandler(this.txtTamCod_TextChanged);
             // 
             // label12
             // 

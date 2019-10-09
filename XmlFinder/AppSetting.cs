@@ -53,6 +53,19 @@ namespace ScanPDF
     //Como parametro genérico ela envia ela mesma, pois são esses atributos que desejo salvar
     public class UserSetting : AppSettings<UserSetting>
     {
+        //Virtual Scanner Settings
+
+        //Cutter Settings  (v -> vertical, x1-3-7 -> n. de cortes, doc2-3-8 -> resultado)
+        public bool isVertical = false;
+        public bool vx1doc2 = false;
+        public bool vx3doc4 = false;
+        public bool vx7doc8 = false;
+
+        public bool isHorizontal = false;
+        public bool hx1doc2 = false;
+        public bool hx3doc4 = false;
+        public bool hx7doc8 = false;
+
         //Page Settings
         public float doc_height = 29.7f;
         public float header_height = 1.5f;
@@ -65,9 +78,54 @@ namespace ScanPDF
         public float reg_height = 4.1f; //tamanho do corte
         public float region_height = 4.1f; //tamanho do corte (de novo ?)
 
+
+        
         //Barcode Settings
         public char delimiter = ';';
         public string positions = "1;2;3";
+
+        //Parametros Barcode
+        //para retornar text que poderá ser atribuido a algum indice
+        public int QuantidadeParametros = 0;
+
+        public int parametro1i = 1;
+        public int parametro1e = 2;
+
+        public int parametro2i;
+        public int parametro2e;
+
+        public int parametro3i;
+        public int parametro3e;
+
+        public int parametro4i;
+        public int parametro4e;
+
+        public int parametro5i;
+        public int parametro5e;
+
+        public int parametro6i;
+        public int parametro6e;
+
+        public int parametro7i;
+        public int parametro7e;
+
+        public int parametro8i;
+        public int parametro8e;
+
+        public int parametro9i;
+        public int parametro9e;
+
+        public int parametro10i;
+        public int parametro10e;
+
+        //Indice Settings
+        int QuantidadeIndices;
+        string indice1 = "";
+        string indice2 = "";
+        string indice3 = "";
+        string indice4 = "";
+        string indice5 = "";
+
 
         //XML Settings
 

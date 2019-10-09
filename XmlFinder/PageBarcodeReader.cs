@@ -15,6 +15,7 @@ namespace XmlFinder
         private BackgroundWorker backgroundRenomear;
         string barcode;
         bool monitorar = false;
+
         PdfUtility pdfRenomear = new PdfUtility();
 
         public PageBarcodeReader()
@@ -41,11 +42,19 @@ namespace XmlFinder
         private void backgroundRenomear_DoWork(object sender, DoWorkEventArgs e)
         {
             barcode = pdfRenomear.onloadCarregaRenomear(monitorar);
+            e.Result = barcode;
         }
 
 
         private void backgroundRenomear_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            barcode = (string)e.Result;
+
+            if (String.IsNullOrEmpty(barcode))
+            {
+                MessageBox.Show("Não foi encontrado barcode;");
+                return;
+            }
 
             //teste
             int[,] array = new int[1, 2];
@@ -53,9 +62,14 @@ namespace XmlFinder
             array[0, 1] = 5;
             //Na pratica a pessoa ativara a quantidade de parametros e os valores do parametro atraves da UI configuracao Barcode
             //if tamanho igual = 1(){  int[,] array = new int[1,2] com valor [0,0] = a,b e [0,1} = c,d;
-
-            barcode = (string)e.Result;
+            
             barcode = StringFormater.DelimitarString(barcode, ";", array); //funciona supimpa!!!
+        }
+
+        private void PageBarcodeReader_Load(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

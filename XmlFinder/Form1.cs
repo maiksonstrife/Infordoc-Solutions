@@ -107,7 +107,7 @@ namespace XmlFinder
 
         private void pageBarcodeReader1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void bunifuImageButton1_Click_1(object sender, EventArgs e)

@@ -18,18 +18,20 @@ using PCKLIB;
 using System.ComponentModel;
 using System.Threading;
 using Timer = System.Windows.Forms.Timer;
+using System.Drawing.Imaging;
 
 namespace XmlFinder
 {
     public class PdfUtility
     {
+        string fname_full = "", fname = "", out_fname = "";
         string pathRaiz;
+        string pathVirtualScanner;
+        string pathCutter;
         string out_folder;
         string done_folder;
         string marked_folder;
         string in_folder;
-
-        private System.Threading.ManualResetEvent _completedEvent;
 
         public bool debug = true;
         public List<string> m_input_files = new List<string>();
@@ -39,6 +41,8 @@ namespace XmlFinder
         public bool monitorar;
         Timer m_timerRenomear = new Timer();
         UserSetting m_setting;
+
+        int barcodePage = 0; //Tecnico vai definir em qual pagina esta o barcode
 
         //quando background worker finalizar devolver m_code
         public string barcode = "";
@@ -52,9 +56,12 @@ namespace XmlFinder
             m_timerRenomear.Tick += M_timerRenomear_Tick;
             criarDiretorios();
 
-            
-            _completedEvent = new System.Threading.ManualResetEvent(false);
+            //m_setting.parametro5i = 5 ;
+            //m_setting.Save();
 
+
+            processoRecortar();
+          
             if (this.monitorar == true)
             {
                 m_timerRenomear.Start();
@@ -62,7 +69,7 @@ namespace XmlFinder
             else
             {
                 UpdateList();
-                
+                processoRenomear();
             }
             
             return m_code;
@@ -79,11 +86,76 @@ namespace XmlFinder
             }
         }
 
+        void processoRecortar()
+        {
+            String[] pdfRecortarhFiles;
+            string saidaFilename;
+
+            pdfRecortarhFiles = Directory.GetFiles(pathCutter);
+
+            foreach (string pdffile in pdfRecortarhFiles)
+            {
+                //abre pdf na pasta
+                PdfDocument pdf = PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
+
+                //economizar tempo-processamento, separei em duas rotinas, com ou sem loop baseado na quantidade de paginas, se for igual a 1 -> sem loop
+                if( pdf.PageCount == 1)
+                {
+                    //Configura magick reader
+                    MagickReadSettings settings = new MagickReadSettings()
+                    {
+                        Density = new Density(300, 300)
+                    };
+                    //Usa magick Reader para converter para jpg na pasta temp
+                    MagickImageCollection images = new MagickImageCollection();
+                    images.Read(pdffile, settings);
+                    images.Write("temp.jpg");
+
+                    //Usar uma copia da imagem temp para evitar erros
+                    Bitmap originalImage = new Bitmap(FromFile("temp.jpg")); //Essa amostra será usada para separar recortes e deverá persistir até o final do processo de recorte
+                    images.Dispose(); //libero o MagickReader da memória
+
+                    #region //DIPOSE
+                    /*
+                     * Dispose é uma classe do tipo Interface (IDispose) que recebe diversos objetos e possui uma rotina indeferente para estes objetos para que os
+                     * objetos sejam gerenciados de forma otimizada para que liberem memória, normalmente, este método está incluso em classes que usam Handlers, isso é, 
+                     * tranca arquivo ou um código para lidar com futuras necessidades, quando não é mais necessário esta classe, usar Dipose();
+                    */
+                    #endregion
+
+                    //if (m_setting.)
+                    ImgRecorte.PDFVertical2doc(originalImage, pdffile, in_folder);
+                    
+                }
+
+
+
+                /*using (MemoryStream memory = new MemoryStream())
+                {
+                    using (FileStream fs = new FileStream(out_folder + "@\test.jpg", FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        firstHalf.Save(memory, ImageFormat.Jpeg);
+                        byte[] bytes = memory.ToArray();
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                }*/
+
+
+            }
+        }
+
+        //Método para recortar bmp (usado em recorte)
+        private static Image cropImageR(Image img, Rectangle cropArea)
+        {
+            Bitmap bmpImage = new Bitmap(img);
+            Bitmap bmpCrop = bmpImage.Clone(cropArea, bmpImage.PixelFormat);
+            return (Image)(bmpCrop);
+        }
 
         //processos
         void processoRenomear()
         {
-            string fname_full = "", fname = "", out_fname = "";
+            
 
             if (m_input_files.Count == 0)
             {
@@ -123,17 +195,21 @@ namespace XmlFinder
                     continue;
                 }
 
-                int barcodePage = 0; //Tecnico vai definir em qual pagina esta o barcode
+               
                 int page_count = pdf.PageCount; 
 
                     PdfPage page = pdf.Pages[barcodePage];
-
+                    
                     images[barcodePage].Write("temp.jpg");      //salva pagina como temp.jpg e jogar para analize
 
-                    Bitmap page_img = new Bitmap(FromFile("temp.jpg"));
-                    Thread.Sleep(200);
-                    Wait_for(40);
 
+                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); 
+                
+
+
+                Thread.Sleep(200);
+                    Wait_for(40);
+                    
                     if (doc_height <= float.Epsilon) //Se certifica de que cada pagina está em conformidade com tamanho minimo
                     {
                             MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -246,9 +322,10 @@ namespace XmlFinder
                             string sourcePath = in_folder;
                             string targetPath = out_folder;
 
-                            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                            string destFile = System.IO.Path.Combine(targetPath, novoNome);
-                            System.IO.File.Copy(sourceFile, destFile, true);
+                            InserirMarcadagua();
+                            //string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+                            //string destFile = System.IO.Path.Combine(targetPath, novoNome);
+                            //System.IO.File.Copy(sourceFile, destFile, true);
 
 
                             Wait_for(40);
@@ -291,10 +368,12 @@ namespace XmlFinder
         void criarDiretorios()
         {
              pathRaiz = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + @"\InfordocSolutions";
-             out_folder = pathRaiz + @"\Saida";
-             done_folder = pathRaiz + @"\detectado";
-             marked_folder = pathRaiz + @"\Recorte_Invalido";
-             in_folder = pathRaiz + @"\Entrada";
+             pathVirtualScanner = pathRaiz + @"\Virtual Scanner";
+             pathCutter = pathVirtualScanner + @"\Recortar";
+             out_folder = pathVirtualScanner + @"\Saida";
+             done_folder = pathVirtualScanner + @"\detectado";
+             marked_folder = pathVirtualScanner + @"\Recorte_Invalido";
+             in_folder = pathVirtualScanner + @"\Entrada";
 
             try
             {
@@ -302,6 +381,17 @@ namespace XmlFinder
                 {
                     Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "InfordocSolutions"));
                 }
+
+                if (Directory.Exists(pathVirtualScanner) == false)
+                {
+                    Directory.CreateDirectory(pathVirtualScanner);
+                }
+
+                if (Directory.Exists(pathCutter) == false)
+                {
+                    Directory.CreateDirectory(pathCutter);
+                }
+
                 if (Directory.Exists(out_folder) == false)
                 {
                     Directory.CreateDirectory(out_folder);
@@ -477,6 +567,7 @@ namespace XmlFinder
             return target;
         }
 
+        //???
         private bool Check_mark(Bitmap bmp)
         {
             try
@@ -567,6 +658,89 @@ namespace XmlFinder
             }
         }
 
+        public void InserirMarcadagua()
+        {
+            string fname_full = m_input_files[0];
+            PdfDocument pdf = PdfReader.Open(fname_full, PdfDocumentOpenMode.Import);
+            int page_count = pdf.PageCount;
+            PdfPage first = pdf.Pages[0];
+            PdfDocument out_pdf = null;
+            MagickImageCollection images = new MagickImageCollection();
+            MagickReadSettings settings = new MagickReadSettings()
+            {
+                Density = new Density(300, 300)  //Originall
+                                                 //  Density = new Density(50)
+                                                 //settings.Density = new PointD(300);
+                                                 // Density = new Density(260,260)
+            };
+            images.Read(fname_full, settings);
+
+
+                //INSERINDO MARCA DAGUA
+                images[barcodePage].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
+                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo
+                Bitmap watermark_img = new Bitmap(FromFile("C:\\Users\\Maikson\\Pictures\\WaterMark_Example.jpg"));
+
+                //MagickImage Le a imagem que vai receber marca d'agua
+                using (MagickImage image = new MagickImage(page_img))
+                {
+                    // Lê a marca dágua que será inserida na imagem
+                    using (MagickImage watermark = new MagickImage(watermark_img))
+                    {
+                        // Desenhando a marca no canto inferior direito (no futuro colocar pro usuario escolher)
+                        image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+
+                        // OU desenhe em um lugar com x/y
+                        //image.Composite(watermark, 200, 50, CompositeOperator.Over);
+
+                        // Transparencia
+                        watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+                    }
+
+                    // Salvando o resultado na pasta temporaria
+                    image.Write("temp.jpg");
+                }
+                //salvo a imagem com marca d'agua em uma variavel para ser usada futuramente
+                page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
+                Wait_for(40);
+
+                //out_pdf.Save(out_fname);
+                //out_pdf.Close();
+
+                out_pdf = new PdfDocument()
+                {
+                    Version = pdf.Version
+                };
+
+            out_pdf.Info.Title = String.Format("Page {0} of {1}", barcode, pdf.Info.Title);
+            out_pdf.Info.Creator = pdf.Info.Creator;
+            out_fname = String.Format("{0}\\{1}_{2}.pdf", out_folder, fname, barcode);
+            Add_new_page(page_img, out_pdf);
+            //region_img.Save(out_fname + ".bmp");
+            out_pdf.Save(out_fname);
+            out_pdf.Close();
+        }
+
+        private void Add_new_page(Bitmap region_img, PdfDocument out_pdf)
+        {
+            // Adiciona a pagina e salva ela
+            MemoryStream strm = new MemoryStream();
+            region_img.Save(strm, System.Drawing.Imaging.ImageFormat.Png);
+            PdfPage new_page = out_pdf.AddPage();
+            using (XImage img = XImage.FromStream(strm))
+            {
+                // Calcula nova altura para manter a proporção da imagem
+                var width = region_img.Width;
+                var height = (int)(((double)width / (double)img.PixelWidth) * img.PixelHeight);
+
+                // Alterar o tamanho da pagina PDF para corresponder à imagem
+                new_page.Width = width;
+                new_page.Height = height;
+
+                XGraphics gfx = XGraphics.FromPdfPage(new_page);
+                gfx.DrawImage(img, 0, 0, width, height);
+            }
+        }
 
     }
 }
