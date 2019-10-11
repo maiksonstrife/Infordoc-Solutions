@@ -24,6 +24,8 @@ namespace XmlFinder
 {
     public class PdfUtility
     {
+
+        
         string fname_full = "", fname = "", out_fname = "";
         string pathRaiz;
         string pathVirtualScanner;
@@ -124,7 +126,7 @@ namespace XmlFinder
                     #endregion
 
                     //if (m_setting.)
-                    ImgRecorte.PDFVertical2doc(originalImage, pdffile, in_folder);
+                    ImgRecorte.PDFVertical(originalImage, pdffile, in_folder, 4);
                     
                 }
 
