@@ -30,20 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pageConfigSelect1 = new XmlFinder.PageConfigSelect();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pageBarcodeReader1 = new XmlFinder.PageBarcodeReader();
-            this.pagePdfReader2 = new XmlFinder.PagePdfReader();
-            this.homePage1 = new XmlFinder.homePage();
-            this.page12 = new XmlFinder.Page1();
-            this.page41 = new XmlFinder.Page4();
-            this.page31 = new XmlFinder.Page3();
-            this.page21 = new XmlFinder.Page2();
-            this.page11 = new XmlFinder.Page1();
             this.sideBar = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pagePdfReader1 = new XmlFinder.PagePdfReader();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.homeButton = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -58,32 +48,30 @@
             this.closeButton = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.pagePdfReader1 = new XmlFinder.PagePdfReader();
+            this.pageConfigSelect1 = new XmlFinder.PageConfigSelect();
+            this.pageBarcodeReader1 = new XmlFinder.PageBarcodeReader();
             this.configIniInforScanner1 = new XmlFinder.ConfigIniInforScanner();
+            this.pagePdfReader2 = new XmlFinder.PagePdfReader();
+            this.homePage1 = new XmlFinder.homePage();
+            this.page12 = new XmlFinder.Page1();
+            this.page41 = new XmlFinder.Page4();
+            this.page31 = new XmlFinder.Page3();
+            this.page21 = new XmlFinder.Page2();
+            this.page11 = new XmlFinder.Page1();
             this.panel2.SuspendLayout();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pageConfigSelect1
-            // 
-            this.pageConfigSelect1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pageConfigSelect1.AutoSize = true;
-            this.pageConfigSelect1.BackColor = System.Drawing.Color.Indigo;
-            this.pageConfigSelect1.Location = new System.Drawing.Point(0, 3);
-            this.pageConfigSelect1.Name = "pageConfigSelect1";
-            this.pageConfigSelect1.Size = new System.Drawing.Size(888, 560);
-            this.pageConfigSelect1.TabIndex = 8;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.configIniInforScanner1);
             this.panel2.Controls.Add(this.pageConfigSelect1);
+            this.panel2.Controls.Add(this.configIniInforScanner1);
             this.panel2.Controls.Add(this.pageBarcodeReader1);
             this.panel2.Controls.Add(this.pagePdfReader2);
             this.panel2.Controls.Add(this.homePage1);
@@ -96,89 +84,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(888, 563);
             this.panel2.TabIndex = 9;
-            // 
-            // pageBarcodeReader1
-            // 
-            this.pageBarcodeReader1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pageBarcodeReader1.Location = new System.Drawing.Point(0, 0);
-            this.pageBarcodeReader1.Name = "pageBarcodeReader1";
-            this.pageBarcodeReader1.Size = new System.Drawing.Size(888, 538);
-            this.pageBarcodeReader1.TabIndex = 7;
-            this.pageBarcodeReader1.Load += new System.EventHandler(this.pageBarcodeReader1_Load);
-            // 
-            // pagePdfReader2
-            // 
-            this.pagePdfReader2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pagePdfReader2.Location = new System.Drawing.Point(0, -16);
-            this.pagePdfReader2.Name = "pagePdfReader2";
-            this.pagePdfReader2.Size = new System.Drawing.Size(1381, 1005);
-            this.pagePdfReader2.TabIndex = 6;
-            this.pagePdfReader2.Load += new System.EventHandler(this.pagePdfReader2_Load);
-            // 
-            // homePage1
-            // 
-            this.homePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.homePage1.AutoScroll = true;
-            this.homePage1.AutoSize = true;
-            this.homePage1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.homePage1.Location = new System.Drawing.Point(0, 0);
-            this.homePage1.Name = "homePage1";
-            this.homePage1.Size = new System.Drawing.Size(888, 535);
-            this.homePage1.TabIndex = 4;
-            this.homePage1.Load += new System.EventHandler(this.homePage1_Load);
-            // 
-            // page12
-            // 
-            this.page12.AllowDrop = true;
-            this.page12.AutoSize = true;
-            this.page12.BackColor = System.Drawing.SystemColors.Control;
-            this.page12.Location = new System.Drawing.Point(0, 0);
-            this.page12.Name = "page12";
-            this.page12.Size = new System.Drawing.Size(888, 551);
-            this.page12.TabIndex = 5;
-            // 
-            // page41
-            // 
-            this.page41.BackColor = System.Drawing.SystemColors.Control;
-            this.page41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.page41.Location = new System.Drawing.Point(0, 0);
-            this.page41.Name = "page41";
-            this.page41.Size = new System.Drawing.Size(888, 563);
-            this.page41.TabIndex = 3;
-            this.page41.Load += new System.EventHandler(this.page41_Load);
-            // 
-            // page31
-            // 
-            this.page31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.page31.Location = new System.Drawing.Point(0, 0);
-            this.page31.Name = "page31";
-            this.page31.Size = new System.Drawing.Size(888, 563);
-            this.page31.TabIndex = 2;
-            // 
-            // page21
-            // 
-            this.page21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.page21.Location = new System.Drawing.Point(0, 0);
-            this.page21.Name = "page21";
-            this.page21.Size = new System.Drawing.Size(888, 563);
-            this.page21.TabIndex = 1;
-            // 
-            // page11
-            // 
-            this.page11.AllowDrop = true;
-            this.page11.AutoSize = true;
-            this.page11.BackColor = System.Drawing.SystemColors.Control;
-            this.page11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.page11.Location = new System.Drawing.Point(0, 0);
-            this.page11.Name = "page11";
-            this.page11.Size = new System.Drawing.Size(888, 563);
-            this.page11.TabIndex = 0;
             // 
             // sideBar
             // 
@@ -275,13 +180,6 @@
             this.bunifuFlatButton5.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton5.Click += new System.EventHandler(this.bunifuFlatButton5_Click);
-            // 
-            // pagePdfReader1
-            // 
-            this.pagePdfReader1.Location = new System.Drawing.Point(214, 378);
-            this.pagePdfReader1.Name = "pagePdfReader1";
-            this.pagePdfReader1.Size = new System.Drawing.Size(728, 535);
-            this.pagePdfReader1.TabIndex = 8;
             // 
             // bunifuFlatButton4
             // 
@@ -615,12 +513,114 @@
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this;
             // 
+            // pagePdfReader1
+            // 
+            this.pagePdfReader1.Location = new System.Drawing.Point(214, 378);
+            this.pagePdfReader1.Name = "pagePdfReader1";
+            this.pagePdfReader1.Size = new System.Drawing.Size(728, 535);
+            this.pagePdfReader1.TabIndex = 8;
+            // 
+            // pageConfigSelect1
+            // 
+            this.pageConfigSelect1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageConfigSelect1.AutoSize = true;
+            this.pageConfigSelect1.BackColor = System.Drawing.Color.Indigo;
+            this.pageConfigSelect1.Location = new System.Drawing.Point(0, 0);
+            this.pageConfigSelect1.Name = "pageConfigSelect1";
+            this.pageConfigSelect1.Size = new System.Drawing.Size(891, 563);
+            this.pageConfigSelect1.TabIndex = 8;
+            // 
+            // pageBarcodeReader1
+            // 
+            this.pageBarcodeReader1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageBarcodeReader1.Location = new System.Drawing.Point(0, 0);
+            this.pageBarcodeReader1.Name = "pageBarcodeReader1";
+            this.pageBarcodeReader1.Size = new System.Drawing.Size(888, 563);
+            this.pageBarcodeReader1.TabIndex = 7;
+            this.pageBarcodeReader1.Load += new System.EventHandler(this.pageBarcodeReader1_Load);
+            // 
             // configIniInforScanner1
             // 
-            this.configIniInforScanner1.Location = new System.Drawing.Point(-3, 3);
+            this.configIniInforScanner1.Location = new System.Drawing.Point(0, 0);
             this.configIniInforScanner1.Name = "configIniInforScanner1";
-            this.configIniInforScanner1.Size = new System.Drawing.Size(888, 560);
-            this.configIniInforScanner1.TabIndex = 9;
+            this.configIniInforScanner1.Size = new System.Drawing.Size(888, 563);
+            this.configIniInforScanner1.TabIndex = 30;
+            // 
+            // pagePdfReader2
+            // 
+            this.pagePdfReader2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pagePdfReader2.Location = new System.Drawing.Point(0, -16);
+            this.pagePdfReader2.Name = "pagePdfReader2";
+            this.pagePdfReader2.Size = new System.Drawing.Size(888, 563);
+            this.pagePdfReader2.TabIndex = 6;
+            this.pagePdfReader2.Load += new System.EventHandler(this.pagePdfReader2_Load);
+            // 
+            // homePage1
+            // 
+            this.homePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.homePage1.AutoScroll = true;
+            this.homePage1.AutoSize = true;
+            this.homePage1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homePage1.Location = new System.Drawing.Point(0, 0);
+            this.homePage1.Name = "homePage1";
+            this.homePage1.Size = new System.Drawing.Size(888, 563);
+            this.homePage1.TabIndex = 4;
+            this.homePage1.Load += new System.EventHandler(this.homePage1_Load);
+            // 
+            // page12
+            // 
+            this.page12.AllowDrop = true;
+            this.page12.AutoSize = true;
+            this.page12.BackColor = System.Drawing.SystemColors.Control;
+            this.page12.Location = new System.Drawing.Point(0, 0);
+            this.page12.Name = "page12";
+            this.page12.Size = new System.Drawing.Size(888, 563);
+            this.page12.TabIndex = 5;
+            // 
+            // page41
+            // 
+            this.page41.BackColor = System.Drawing.SystemColors.Control;
+            this.page41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.page41.Location = new System.Drawing.Point(0, 0);
+            this.page41.Name = "page41";
+            this.page41.Size = new System.Drawing.Size(888, 563);
+            this.page41.TabIndex = 3;
+            this.page41.Load += new System.EventHandler(this.page41_Load);
+            // 
+            // page31
+            // 
+            this.page31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.page31.Location = new System.Drawing.Point(0, 0);
+            this.page31.Name = "page31";
+            this.page31.Size = new System.Drawing.Size(888, 563);
+            this.page31.TabIndex = 2;
+            // 
+            // page21
+            // 
+            this.page21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.page21.Location = new System.Drawing.Point(0, 0);
+            this.page21.Name = "page21";
+            this.page21.Size = new System.Drawing.Size(888, 563);
+            this.page21.TabIndex = 1;
+            // 
+            // page11
+            // 
+            this.page11.AllowDrop = true;
+            this.page11.AutoSize = true;
+            this.page11.BackColor = System.Drawing.SystemColors.Control;
+            this.page11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.page11.Location = new System.Drawing.Point(0, 0);
+            this.page11.Name = "page11";
+            this.page11.Size = new System.Drawing.Size(888, 563);
+            this.page11.TabIndex = 0;
             // 
             // Form1
             // 
@@ -644,8 +644,6 @@
         }
 
         #endregion
-
-        private PageConfigSelect pageConfigSelect1;
         private PageBarcodeReader pageBarcodeReader1;
         private PagePdfReader pagePdfReader2;
         private homePage homePage1;
@@ -672,8 +670,9 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
-        public ConfigIniInforScanner configIniInforScanner1;
         public System.Windows.Forms.Panel panel2;
+        public PageConfigSelect pageConfigSelect1;
+        public ConfigIniInforScanner configIniInforScanner1;
     }
 }
 

@@ -222,7 +222,8 @@ namespace XmlFinder
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             bunifuProgressBar1.Value = 0;
-            bunifuProgressBar1.Refresh();
+
+
             bunifuProgressBar1.Update();
             new alerta("Arquivos Salvos", alerta.AlertType.sucesso).Show();
             percentBar.Text = "";

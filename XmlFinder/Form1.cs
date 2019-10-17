@@ -13,6 +13,8 @@ namespace XmlFinder
 {
     public partial class Form1 : Form
     {
+
+
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace XmlFinder
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             page21.BringToFront();
+            
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
@@ -113,6 +116,16 @@ namespace XmlFinder
         private void bunifuImageButton1_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+        }
+
+        public  void SetFront(bool value)
+        {
+            if (value == true)
+            {
+               
+                configIniInforScanner1.BringToFront();
+            }
+            
         }
     }
 }

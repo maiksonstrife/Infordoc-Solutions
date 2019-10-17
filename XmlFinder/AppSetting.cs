@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
+using System.Windows.Forms;
 
 namespace ScanPDF
 {
@@ -53,18 +54,25 @@ namespace ScanPDF
     //Como parametro genérico ela envia ela mesma, pois são esses atributos que desejo salvar
     public class UserSetting : AppSettings<UserSetting>
     {
-        //Virtual Scanner Settings
+
+        #region //VIRTUAL SCANNER
+
+        //Entrada e saída User
+        public string entradaPath;
+        public string saidaPath;
+
+        //Verificadores de funções a serem utilizadas
+        public bool isCutter = false;
+        public bool isBarcodeReader = false;
+        public bool isWaterMark = false;
+        public bool isSignature = false;
+        public bool isProProcessing = false;
+        public bool isPreProcessing = false;
 
         //Cutter Settings  (v -> vertical, x1-3-7 -> n. de cortes, doc2-3-8 -> resultado)
         public bool isVertical = false;
-        public bool vx1doc2 = false;
-        public bool vx3doc4 = false;
-        public bool vx7doc8 = false;
-
         public bool isHorizontal = false;
-        public bool hx1doc2 = false;
-        public bool hx3doc4 = false;
-        public bool hx7doc8 = false;
+        public int numeroCortes = 0;
 
         //Page Settings
         public float doc_height = 29.7f;
@@ -119,13 +127,30 @@ namespace ScanPDF
         public int parametro10e;
 
         //Indice Settings
-        int QuantidadeIndices;
-        string indice1 = "";
-        string indice2 = "";
-        string indice3 = "";
-        string indice4 = "";
-        string indice5 = "";
+        public int QuantidadeIndices;
+        public string indice1 = "";
+        public string indice2 = "";
+        public string indice3 = "";
+        public string indice4 = "";
+        public string indice5 = "";
 
+        //Signature Settings
+        public string autor = "";
+        public string titulo = "";
+        public string assunto = "";
+        public string palavrasChave = "";
+        public string criador = "";
+        public string produtor = "";
+
+        public string pathCertificate = "";
+        public string passwordCertificate = "";
+
+        public string razao = "";
+        public string contato = "";
+        public string Endereco = "";
+        public bool signVisivel = false;
+
+        #endregion
 
         //XML Settings
 
@@ -137,5 +162,78 @@ namespace ScanPDF
 
 
 
+    }
+
+    public class VirtualScannerDiretorios
+    {
+        //nivel programa -> Para funcionalidades internas das aplicações
+        public string pathRaizInterno = @"C:\\INFORVirtualScanner";
+        public string pathPreProcessing = @"C:\\INFORVirtualScanner\\PreProcessamento";
+        public string pathCutter = @"C:\\INFORVirtualScanner\\PreProcessamento\\Cutter";
+        public string pathProcessing = @"C:\\INFORVirtualScanner\\Processamento";
+        public string pathPostProcessing = @"C:\\INFORVirtualScanner\\pos-processamento";
+        public string pathWaterMark = @"C:\\INFORVirtualScanner\\pos-processamento\\WaterMark";
+        public string pathSignature = @"C:\\INFORVirtualScanner\\pos-processamento\\\Signature";
+        public string pathIndexar = @"C:\\INFORVirtualScanner\\Indexacao";
+
+        public static void criarDiretorios()
+        {
+
+            try
+            {
+                VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
+
+                //Criando Diretorios Internos
+                if (Directory.Exists(virtualScannerDiretorios.pathRaizInterno) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathRaizInterno);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathPreProcessing) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathPreProcessing);
+
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathCutter) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathCutter);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathProcessing) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathProcessing);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathPostProcessing) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathPostProcessing);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathWaterMark) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathWaterMark);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathSignature) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathSignature);
+                }
+
+                if (Directory.Exists(virtualScannerDiretorios.pathIndexar) == false)
+                {
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathIndexar);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "erro ao criar diretorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
+        }
     }
 }

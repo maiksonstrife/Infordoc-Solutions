@@ -12,15 +12,25 @@ namespace XmlFinder
 {
     public partial class PageConfigSelect : UserControl
     {
+
         public PageConfigSelect()
         {
             InitializeComponent();
+            
         }
 
         private void ButtonConfigIniInforScanner_Click(object sender, EventArgs e)
         {
+            //tudo errado mais facil abrir um popup!!!
+            using (VirtualScannerConfigIniForm virtualScannerConfigIni = new VirtualScannerConfigIniForm())
+            {
+                virtualScannerConfigIni.ShowDialog();
+            }
+        }
 
-            panel2.BringToFront();
+        private void PageConfigSelect_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
