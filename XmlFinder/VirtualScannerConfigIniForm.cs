@@ -108,13 +108,35 @@ namespace XmlFinder
             isCutter.Value = m_setting.isCutter;
             bunifuRadioButton2.Checked = m_setting.isVertical;
             bunifuRadioButton1.Checked = m_setting.isHorizontal;
-
+            //BOTAO SIGNATURE
             if (m_setting.isSignature == true)
             {
                 IsSignatureSwitch.Value = true;
             }
-
-            if(m_setting.signVisivel == true)
+            else
+            {
+                IsSignatureSwitch.Value = false;
+            }
+            //BOTAO WATERMARK
+            if (m_setting.isWaterMark == true)
+            {
+                isWaterMark.Value = true;
+            }
+            else
+            {
+                isWaterMark.Value = false;
+            }
+            //BOTAO Barcode
+            if (m_setting.isBarcodeReader == true)
+            {
+                isBarcodeReader.Value = true;
+            }
+            else
+            {
+                isBarcodeReader.Value = false;
+            }
+            //BOTAO ASSINATURA VISIVEL
+            if (m_setting.signVisivel == true)
             {
                 assinaturaVisivelChkBox.Checked = true;
             }
@@ -219,6 +241,38 @@ namespace XmlFinder
             if (bunifuRadioButton1.Checked == true)
             {
                 m_setting.isHorizontal = true;
+            }
+        }
+
+        private void isWaterMark_OnValuechange(object sender, EventArgs e)
+        {
+
+            if (isWaterMark.Value == false)
+            {
+                m_setting.isWaterMark = false;
+                m_setting.isProProcessing = false;
+            }
+
+            if (isWaterMark.Value == true)
+            {
+                m_setting.isWaterMark = true;
+                m_setting.isProProcessing = true;
+            }
+
+        }
+
+        private void isBarcodeReader_OnValuechange(object sender, EventArgs e)
+        {
+            if (isBarcodeReader.Value == false)
+            {
+                m_setting.isBarcodeReader = false;
+                m_setting.isProcessing = false;
+            }
+
+            if (isBarcodeReader.Value == true)
+            {
+                m_setting.isBarcodeReader = true;
+                m_setting.isProcessing = true;
             }
         }
     }

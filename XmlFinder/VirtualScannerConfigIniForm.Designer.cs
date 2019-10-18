@@ -287,6 +287,7 @@
             toggleState3.BorderThicknessInner = 1;
             this.isBarcodeReader.ToggleStateOn = toggleState3;
             this.isBarcodeReader.Value = false;
+            this.isBarcodeReader.OnValuechange += new System.EventHandler(this.isBarcodeReader_OnValuechange);
             // 
             // textBox9
             // 
@@ -1383,6 +1384,7 @@
             toggleState12.BorderThicknessInner = 1;
             this.isWaterMark.ToggleStateOn = toggleState12;
             this.isWaterMark.Value = false;
+            this.isWaterMark.OnValuechange += new System.EventHandler(this.isWaterMark_OnValuechange);
             // 
             // label1
             // 

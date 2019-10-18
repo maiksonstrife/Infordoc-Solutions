@@ -53,35 +53,10 @@ namespace XmlFinder
         public string barcode = "";
 
         //chamadas -> classes para serem chamadas por outras classes
-        public string onloadCarregaRenomear (bool monitorar)
+        public void onloadCarregaRenomear (bool monitorar)
         {
-            string pathPreProcessing = pathRaizInterno + @"\PreProcessamento";
-            string pathProcessing = pathRaizInterno + @"\Processamento";
-            string pathPostProcessing = pathRaizInterno + @"\pos-processamento";
 
-            this.monitorar = monitorar;
-            Load_AppSettings();
-            m_timerRenomear.Interval = 50 * 1000;
-            m_timerRenomear.Tick += M_timerRenomear_Tick;
-            criarDiretorios();
 
-            //m_setting.parametro5i = 5 ;
-            //m_setting.Save();
-
-            processoAssinar();
-            processoRecortar();
-          
-            if (this.monitorar == true)
-            {
-                m_timerRenomear.Start();
-            }
-            else
-            {
-                UpdateList();
-                processoRenomear();
-            }
-            
-            return m_code;
         }
 
 
@@ -128,25 +103,14 @@ namespace XmlFinder
                 MyMD.Creator = userSetting.criador;
                 MyMD.Producer = userSetting.produtor;
 
-                //salvar o nome original
-                string nomeOriginal = file;
-                //Criar novo nome
-                string nomearquivo = Path.GetFileNameWithoutExtension(file) + "[U].pdf";
-                string novoNome = Path.GetDirectoryName(file) + "\\" + nomearquivo;
-                //renomear o pdf original com [u] no final
-                File.Copy(nomeOriginal, novoNome);
-
-                File.Delete(nomeOriginal);
                 //pegar o novo nome
+                string saida = virtualScannerDiretorios.pathCutterCompleted + "\\" + Path.GetFileName(file);
 
-
-                string fileName = Path.GetFileNameWithoutExtension(file) + "[SIGNED].pdf";
-                string fileOutput = Path.GetDirectoryName(file) + "\\" + fileName;
-                PDFSigner pdfs = new PDFSigner(novoNome, nomeOriginal, myCert, MyMD);
+                PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
                 pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
 
                 MessageBox.Show("Assinado :DDD");
-                File.Delete(novoNome);
+                File.Delete(file);
             }
             
         }
@@ -202,99 +166,133 @@ namespace XmlFinder
 
                     if (userSettingR.isHorizontal == true)
                     {
-                        ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathProcessing, userSettingR.numeroCortes);
+                        ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
                     }
 
                     if (userSettingR.isHorizontal == false)
                     {
-                        ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathProcessing, userSettingR.numeroCortes);
+                        ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
                     }
 
                 }
-
-
-
-                /*using (MemoryStream memory = new MemoryStream())
-                {
-                    using (FileStream fs = new FileStream(out_folder + "@\test.jpg", FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        firstHalf.Save(memory, ImageFormat.Jpeg);
-                        byte[] bytes = memory.ToArray();
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
-                }*/
-
 
             }
         }
 
         //trabalhar nesta classe amanha
-        public  void processoInserirMarcadagua()
+        public static void processoInserirMarcadagua()
         {
-
-            string fname_full = m_input_files[0];
-            PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(fname_full, PdfDocumentOpenMode.Import);
-            int page_count = pdf.PageCount;
-            PdfSharp.Pdf.PdfPage first = pdf.Pages[0];
-            PdfSharp.Pdf.PdfDocument out_pdf = null;
-
-            MagickImageCollection images = new MagickImageCollection();
-            MagickReadSettings settings = new MagickReadSettings()
+            UserSetting userSettingM = new UserSetting();
+            try
             {
-                Density = new Density(300, 300)  
-            };
-            images.Read(fname_full, settings);
-
-
-            //INSERINDO MARCA DAGUA
-            images[1].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
-            Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo
-            Bitmap watermark_img = new Bitmap(FromFile("C:\\Users\\Maikson\\Pictures\\WaterMark_Example.jpg"));
-
-            //MagickImage Le a imagem que vai receber marca d'agua
-            using (MagickImage image = new MagickImage(page_img))
-            {
-                // Lê a marca dágua que será inserida na imagem
-                using (MagickImage watermark = new MagickImage(watermark_img))
-                {
-                    // Desenhando a marca no canto inferior direito (no futuro colocar pro usuario escolher)
-                    image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
-
-                    // OU desenhe em um lugar com x/y
-                    //image.Composite(watermark, 200, 50, CompositeOperator.Over);
-
-                    // Transparencia
-                    watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
-                }
-
-                // Salvando o resultado na pasta temporaria
-                image.Write("temp.jpg");
+                userSettingM = UserSetting.Load();
+                if (userSettingM == null)
+                    userSettingM = new UserSetting();
             }
-            //salvo a imagem com marca d'agua em uma variavel para ser usada futuramente
-            page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
-            Wait_for(40);
-
-            //out_pdf.Save(out_fname);
-            //out_pdf.Close();
-
-            out_pdf = new PdfSharp.Pdf.PdfDocument()
+            catch (Exception ex)
             {
-                Version = pdf.Version
-            };
+                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            out_pdf.Info.Title = String.Format("Page {0} of {1}", barcode, pdf.Info.Title);
-            out_pdf.Info.Creator = pdf.Info.Creator;
-            out_fname = String.Format("{0}\\{1}_{2}.pdf", out_folder, fname, barcode);
-            Add_new_page(page_img, out_pdf);
-            //region_img.Save(out_fname + ".bmp");
-            out_pdf.Save(out_fname);
-            out_pdf.Close();
+            String[] pdfMarcarFiles;
+            VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
+            pdfMarcarFiles = Directory.GetFiles(virtualScannerDiretorios.pathWaterMark);
+
+            foreach (string pdffile in pdfMarcarFiles)
+            {
+                PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
+                int page_count = pdf.PageCount;
+                PdfSharp.Pdf.PdfPage first = pdf.Pages[0];
+                PdfSharp.Pdf.PdfDocument out_pdf = null;
+
+                MagickImageCollection images = new MagickImageCollection();
+                MagickReadSettings settings = new MagickReadSettings()
+                {
+                    Density = new Density(300, 300)
+                };
+                images.Read(pdffile, settings);
+
+
+                //INSERINDO MARCA DAGUA
+                images[1].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
+                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo
+                Bitmap watermark_img = new Bitmap(FromFile("C:\\Users\\Maikson\\Pictures\\WaterMark_Example.jpg"));
+
+                //MagickImage Le a imagem que vai receber marca d'agua
+                using (MagickImage image = new MagickImage(page_img))
+                {
+                    // Lê a marca dágua que será inserida na imagem
+                    using (MagickImage watermark = new MagickImage(watermark_img))
+                    {
+                        // Desenhando a marca no canto inferior direito (no futuro colocar pro usuario escolher)
+                        image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+
+                        // OU desenhe em um lugar com x/y
+                        //image.Composite(watermark, 200, 50, CompositeOperator.Over);
+
+                        // Transparencia
+                        watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+                    }
+
+                    // Salvando o resultado na pasta temporaria
+                    image.Write("temp.jpg");
+                }
+                //salvo a imagem com marca d'agua em uma variavel para ser usada futuramente
+                page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
+                PdfUtility pdfUtility = new PdfUtility();
+                pdfUtility.Wait_for(40);
+
+
+
+                //out_pdf.Save(out_fname);
+                //out_pdf.Close();
+
+                out_pdf = new PdfSharp.Pdf.PdfDocument()
+                {
+                    Version = pdf.Version
+                };
+
+                out_pdf.Info.Title = String.Format("Page {0} of {1}", 0, pdf.Info.Title);
+                out_pdf.Info.Creator = pdf.Info.Creator;
+
+
+                string saida = virtualScannerDiretorios.pathWaterMarkCompleted + "\\" + Path.GetFileName(pdffile);
+
+                //se signature for verdade, jogar em signature, se não, jogar em indexação
+                pdfUtility.Add_new_page(page_img, out_pdf);
+                out_pdf.Save(saida);
+                out_pdf.Close();
+
+                File.Delete(pdffile);
+            }
+
+
+            
+
         }
 
         //processos
-        void processoRenomear()
+        public void processoRenomear()
         {
-            
+            string pathPreProcessing = pathRaizInterno + @"\PreProcessamento";
+            string pathProcessing = pathRaizInterno + @"\Processamento";
+            string pathPostProcessing = pathRaizInterno + @"\pos-processamento";
+
+           
+            Load_AppSettings();
+            m_timerRenomear.Interval = 50 * 1000;
+            m_timerRenomear.Tick += M_timerRenomear_Tick;
+            criarDiretorios();
+
+
+            if (monitorar == true)
+            {
+                m_timerRenomear.Start();
+            }
+            else
+            {
+                UpdateList();
+            }
 
             if (m_input_files.Count == 0)
             {
@@ -459,12 +457,11 @@ namespace XmlFinder
                             string fileName = fname;//NOME ORIGINAL, txt_scan_result.Text + ".pdf";
                             string novoNome = textDecode + ".pdf";
                             string sourcePath = in_folder;
-                            string targetPath = out_folder;
+                            string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
 
-                            InserirMarcadagua();
-                            //string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                            //string destFile = System.IO.Path.Combine(targetPath, novoNome);
-                            //System.IO.File.Copy(sourceFile, destFile, true);
+                            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+                            string destFile = System.IO.Path.Combine(targetPath, novoNome);
+                            System.IO.File.Copy(sourceFile, destFile, true);
 
 
                             Wait_for(40);
@@ -749,7 +746,7 @@ namespace XmlFinder
             try
             {
                 // Enumerar arquivos PDF
-                m_input_files = Directory.GetFiles(in_folder, "*.pdf").ToList();
+                m_input_files = Directory.GetFiles(virtualScannerDiretorios.pathProcessing, "*.pdf").ToList();
 
                 foreach (string fname_full in m_input_files)
                 {
