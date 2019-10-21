@@ -410,7 +410,52 @@ namespace XmlFinder
 
         private void PageBarcodeReader_Load(object sender, EventArgs e)
         {
-           
+            Load_AppSettings();
+           //Carregar informações de configurações na UI
+           if (m_setting.isCutter == true)
+            {
+                txtRecortar.Text = "Sim";
+            }
+            else
+            {
+                txtRecortar.Text = "Não";
+            }
+
+            if (m_setting.isBarcodeReader == true)
+            {
+                txtBarcode.Text = "Sim";
+            }
+            else
+            {
+                txtBarcode.Text = "Não";
+            }
+
+            if (m_setting.isWaterMark == true)
+            {
+                txtMarcaDagua.Text = "Sim";
+            }
+            else
+            {
+                txtMarcaDagua.Text = "Não";
+            }
+
+            if (m_setting.isSignature == true)
+            {
+                txtAssinar.Text = "Sim";
+            }
+            else
+            {
+                txtAssinar.Text = "Não";
+            }
+
+            if (m_setting.signVisivel == true)
+            {
+                txtAssinaturaVisivel.Text = "Sim";
+            }
+            else
+            {
+                txtAssinaturaVisivel.Text = "Sim";
+            }
 
         }
 

@@ -93,7 +93,8 @@ namespace XmlFinder
         private void VirtualScannerConfigIniForm_Load(object sender, EventArgs e)
         {
             Load_AppSettings();
-
+            txtSaida.Text = m_setting.saidaPath;
+            txtEntrada.Text = m_setting.entradaPath;
             autorTextBox.Text = m_setting.autor;
             tituloTextBox.Text = m_setting.titulo;
             assuntoTextBox.Text = m_setting.assunto;
@@ -190,6 +191,7 @@ namespace XmlFinder
             }
 
             m_setting.entradaPath = tempPath;
+            txtEntrada.Text = tempPath;
         }
 
         private void pathSaidaButton_Click(object sender, EventArgs e)
@@ -203,6 +205,7 @@ namespace XmlFinder
             }
 
             m_setting.saidaPath = tempPath;
+            txtSaida.Text = tempPath;
         }
 
         
@@ -274,6 +277,11 @@ namespace XmlFinder
                 m_setting.isBarcodeReader = true;
                 m_setting.isProcessing = true;
             }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
