@@ -173,7 +173,7 @@ namespace ScanPDF
         public string pathPostProcessing = @"C:\\INFORVirtualScanner\\pos-processamento";
         public string pathPreProcessing = @"C:\\INFORVirtualScanner\\PreProcessamento";
         public string pathProcessing = @"C:\\INFORVirtualScanner\\Processamento";
-        public string pathProcessingCompleted = @"C:\\INFORVirtualScanner\\ProcessamentoCompleted";
+        public string pathProcessingCompleted = @"C:\\INFORVirtualScanner\\Processamento\\ProcessamentoCompleted";
         public string pathCutter = @"C:\\INFORVirtualScanner\\PreProcessamento\\Cutter";
         public string pathCutterCompleted = @"C:\\INFORVirtualScanner\\PreProcessamento\\CutterCompleted";
         public string pathWaterMark = @"C:\\INFORVirtualScanner\\pos-processamento\\WaterMark";
@@ -181,7 +181,7 @@ namespace ScanPDF
         public string pathSignature = @"C:\\INFORVirtualScanner\\pos-processamento\\Signature";
         public string pathSignatureCompleted = @"C:\\INFORVirtualScanner\\pos-processamento\\SignatureCompleted";
         public string pathIndexar = @"C:\\INFORVirtualScanner\\Indexacao";
-        public string pathIndexarCompleted = @"C:\\INFORVirtualScanner\\IndexacaoCompleted";
+        public string pathIndexarCompleted = @"C:\\INFORVirtualScanner\\Indexacao\\IndexacaoCompleted";
 
         public static void criarDiretorios()
         {
@@ -234,7 +234,7 @@ namespace ScanPDF
 
                 if (Directory.Exists(virtualScannerDiretorios.pathWaterMarkCompleted) == false)
                 {
-                    Directory.CreateDirectory(virtualScannerDiretorios.pathWaterMark);
+                    Directory.CreateDirectory(virtualScannerDiretorios.pathWaterMarkCompleted);
                 }
 
                 if (Directory.Exists(virtualScannerDiretorios.pathSignature) == false)

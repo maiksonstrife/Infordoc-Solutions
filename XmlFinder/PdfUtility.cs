@@ -45,7 +45,6 @@ namespace XmlFinder
         public bool monitorar;
         Timer m_timerRenomear = new Timer();
         UserSetting m_setting;
-        VirtualScannerDiretorios virtualScannerDiretorios;
 
         int barcodePage = 0; //Tecnico vai definir em qual pagina esta o barcode
 
@@ -104,7 +103,7 @@ namespace XmlFinder
                 MyMD.Producer = userSetting.produtor;
 
                 //pegar o novo nome
-                string saida = virtualScannerDiretorios.pathCutterCompleted + "\\" + Path.GetFileName(file);
+                string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file);
 
                 PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
                 pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
@@ -167,11 +166,13 @@ namespace XmlFinder
                     if (userSettingR.isHorizontal == true)
                     {
                         ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
+                        File.Delete(pdffile);
                     }
 
                     if (userSettingR.isHorizontal == false)
                     {
                         ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
+                        File.Delete(pdffile);
                     }
 
                 }
@@ -214,8 +215,8 @@ namespace XmlFinder
 
 
                 //INSERINDO MARCA DAGUA
-                images[1].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
-                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo
+                images[0].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
+                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo // MEMORIA INSUFICIENTE
                 Bitmap watermark_img = new Bitmap(FromFile("C:\\Users\\Maikson\\Pictures\\WaterMark_Example.jpg"));
 
                 //MagickImage Le a imagem que vai receber marca d'agua
@@ -262,7 +263,7 @@ namespace XmlFinder
                 pdfUtility.Add_new_page(page_img, out_pdf);
                 out_pdf.Save(saida);
                 out_pdf.Close();
-
+                page_img.Dispose();
                 File.Delete(pdffile);
             }
 
@@ -274,6 +275,7 @@ namespace XmlFinder
         //processos
         public void processoRenomear()
         {
+            VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
             string pathPreProcessing = pathRaizInterno + @"\PreProcessamento";
             string pathProcessing = pathRaizInterno + @"\Processamento";
             string pathPostProcessing = pathRaizInterno + @"\pos-processamento";
@@ -357,6 +359,7 @@ namespace XmlFinder
                         m_found = false;
                         if (TryReadCode(page_img, 0) == true) //Se retornou true é que m_found (barcode) foi copulado
                         {
+                    /*      ARTEMIS
                             Boolean pulaNumero = true;
 
                             //MAIK NOTA: Separando posições por "," (QR MAXIPASS as posições são separadas por ",")
@@ -439,7 +442,7 @@ namespace XmlFinder
                             {
                                 m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])] + "_" + dict[(posicao[3])] + "_" + dict[(posicao[4])];
                             }
-
+                            */
 
                             //MAIK NOTE: LIMPA O RESULTADO DE CARACTERES ESPECIAIS
                             string sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
@@ -453,13 +456,13 @@ namespace XmlFinder
                             string textEncode = System.Web.HttpUtility.UrlEncode(sendtodecode, Encoding.GetEncoding("iso-8859-7"));
                             string textDecode = System.Web.HttpUtility.UrlDecode(textEncode);
 
+
                             //MAIK NOTE: Renomeia e move arquivo
                             string fileName = fname;//NOME ORIGINAL, txt_scan_result.Text + ".pdf";
                             string novoNome = textDecode + ".pdf";
-                            string sourcePath = in_folder;
                             string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
 
-                            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+                            string sourceFile = System.IO.Path.Combine(virtualScannerDiretorios.pathProcessing, fileName);
                             string destFile = System.IO.Path.Combine(targetPath, novoNome);
                             System.IO.File.Copy(sourceFile, destFile, true);
 
@@ -473,11 +476,10 @@ namespace XmlFinder
                             {
                                 String date = (DateTime.Now.ToString("yyyy-MM-dd:HH:mm:ss"));
 
-
-                                //Wait_for(40);
+                                Wait_for(40);
                                 string novoNome = "Nao_Detectado_" + date.Replace(":", "_") + ".pdf";
-                                string sourcePath = in_folder;
-                                string targetPath = out_folder;
+                                string sourcePath = virtualScannerDiretorios.pathProcessing;
+                                string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
                                 string sourceFile = System.IO.Path.Combine(sourcePath, fname);
                                 string destFile = System.IO.Path.Combine(targetPath, novoNome);
 
@@ -488,11 +490,11 @@ namespace XmlFinder
                             }
                             catch
                             {
-                                MessageBox.Show("Erro 22", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Erro 22", "Leitura barcode inválida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                 pdf.Close();
-                string lixo = in_folder + "\\" + fname;
+                string lixo = virtualScannerDiretorios.pathProcessing + "\\" + fname;
                 File.Delete(lixo);
                 m_input_files.RemoveAt(0);
             }
@@ -675,7 +677,7 @@ namespace XmlFinder
             }
             else if (Properties.Settings.Default.SisRenomear == true)
             {
-                if (res != null && (res.BarcodeFormat == BarcodeFormat.QR_CODE))
+                if (res != null /*&& (res.BarcodeFormat == BarcodeFormat.QR_CODE)*/)
                 
                 {
                     m_found = true;
@@ -743,6 +745,8 @@ namespace XmlFinder
 
         public void UpdateList()
         {
+            VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
+
             try
             {
                 // Enumerar arquivos PDF

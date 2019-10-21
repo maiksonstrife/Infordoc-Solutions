@@ -14,6 +14,8 @@ namespace XmlFinder
 {
     public partial class PageBarcodeReader : UserControl
     {
+        //TUDO SUPOSTAMENTE CORRETO, PARA TESTAR TODAS FASES, FAZER A4 PRA SER RECORTADA COM BARCODES EM CADA PEDAÇO
+
         #region // Explicando a classe
         /*
          * BackgroundWork chamarão a PDFUtility pra realizar processos no background
@@ -65,25 +67,27 @@ namespace XmlFinder
             //configurando bw processamento -> Inicio
             this.bwprocessamento = new BackgroundWorker();
             this.bwprocessamento.DoWork += new DoWorkEventHandler(bwprocessamento_DoWork);
-            this.bwpreprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwpreprocessamento_RunWorkerCompleted);
+            this.bwprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwprocessamento_RunWorkerCompleted);
             this.bwprocessamento.WorkerSupportsCancellation = true;
             //bwpreprocessamento.CancelAsync();
 
             //configurando bwposprocessamento -> Inicio
             this.bwposprocessamentoWatermark = new BackgroundWorker();
             this.bwposprocessamentoWatermark.DoWork += new DoWorkEventHandler(bwposprocessamentoWatermark_DoWork);
-            this.bwpreprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoWatermark_RunWorkerCompleted);
+            this.bwposprocessamentoWatermark.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoWatermark_RunWorkerCompleted);
             this.bwposprocessamentoWatermark.WorkerSupportsCancellation = true;
             //bwpreprocessamento.CancelAsync();
 
             //configurando bwposprocessamento -> Inicio
             this.bwposprocessamentoSignature = new BackgroundWorker();
             this.bwposprocessamentoSignature.DoWork += new DoWorkEventHandler(bwposprocessamentoSignature_DoWork);
-            this.bwpreprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoSignature_RunWorkerCompleted);
+            this.bwposprocessamentoSignature.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoSignature_RunWorkerCompleted);
             this.bwposprocessamentoSignature.WorkerSupportsCancellation = true;
             //bwpreprocessamento.CancelAsync();
 
             //bora iniciar
+            PdfUtility pdfUtility = new PdfUtility();
+            // TESTES pdfUtility.processoRenomear();
             enterPoint.RunWorkerAsync();
         }
 
@@ -99,22 +103,24 @@ namespace XmlFinder
             if (m_setting.isPreProcessing == true)
             {
 
-                //iniciar bw pre processamento
-                bwpreprocessamento.RunWorkerAsync();
+                
 
                 //jogar arquivos na pasta preprocessamento
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathPreProcessing + "\\" + Filename); //mandar pra cutter path *FAZER CAMINHOS INTERNOS NO S_SETTINGS PRA ACESSO GLOBAL
+                    File.Move(file, virtualScannerDiretorios.pathCutter + "\\" + Filename); //mandar pra cutter path *FAZER CAMINHOS INTERNOS NO S_SETTINGS PRA ACESSO GLOBAL
                     File.Delete(file);
                 }
+
+                //iniciar bw pre processamento
+                bwpreprocessamento.RunWorkerAsync();
+
             }
             else  if (m_setting.isProcessing == true) //Se não for -> jogar na processamento
             {
                 
-                //iniciar bw processamento
-                bwprocessamento.RunWorkerAsync();
+               
                 
                 //jogar os arquivos na pasta processamento
                 foreach (string file in arquivosEntrada)
@@ -123,11 +129,14 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw processamento
+                bwprocessamento.RunWorkerAsync();
+
             }
             else if (m_setting.isWaterMark == true)
             {
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta WaterMark
                 foreach (string file in arquivosEntrada)
@@ -136,12 +145,15 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw watermark
+                bwposprocessamentoWatermark.RunWorkerAsync();
+
             }
 
             else if (m_setting.isSignature == true)
             {
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta Signature
                 foreach (string file in arquivosEntrada)
@@ -150,6 +162,9 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw signature
+                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             //rodar indexador aqui no final sem condições, porque será OBRIGATORIO
@@ -179,8 +194,7 @@ namespace XmlFinder
             if (m_setting.isProcessing == true) //Se não for -> jogar na processamento
             {
 
-                //iniciar bw processamento
-                bwprocessamento.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta processamento
                 foreach (string file in arquivosEntrada)
@@ -189,11 +203,13 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw processamento
+                bwprocessamento.RunWorkerAsync();
             }
             else if (m_setting.isWaterMark == true)
             {
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta WaterMark
                 foreach (string file in arquivosEntrada)
@@ -202,12 +218,14 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw watermark
+                bwposprocessamentoWatermark.RunWorkerAsync();
             }
 
             else if (m_setting.isSignature == true)
             {
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta Signature
                 foreach (string file in arquivosEntrada)
@@ -216,12 +234,14 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw signature
+                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isProcessing == false && m_setting.isWaterMark == false && m_setting.isSignature == false){
                
-                    //iniciar bwindexacao
-
+                    
                     //jogar os arquivos na pasta indexacao
                     foreach (string file in arquivosEntrada)
                     {
@@ -229,7 +249,10 @@ namespace XmlFinder
                         File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
                         File.Delete(file);
                     }
-                
+
+                //iniciar bwindexacao
+
+
             }
             #endregion
         }
@@ -255,8 +278,7 @@ namespace XmlFinder
 
             if (m_setting.isWaterMark == true)
             {
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta WaterMark
                 foreach (string file in arquivosEntrada)
@@ -265,12 +287,14 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw watermark
+                bwposprocessamentoWatermark.RunWorkerAsync();
             }
 
             else if (m_setting.isSignature == true)
             {
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta Signature
                 foreach (string file in arquivosEntrada)
@@ -279,13 +303,15 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw signature
+                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isWaterMark == false && m_setting.isSignature == false)
             {
 
-                //iniciar bwindexacao
-
+                
                 //jogar os arquivos na pasta indexacao
                 foreach (string file in arquivosEntrada)
                 {
@@ -293,6 +319,9 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
                     File.Delete(file);
                 }
+
+
+                //iniciar bwindexacao
 
             }
 
@@ -308,12 +337,11 @@ namespace XmlFinder
             Load_AppSettings();
 
             //Pegar arquivos da pasta de entrada
-            string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathProcessingCompleted);
+            string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathWaterMarkCompleted);
 
              if (m_setting.isSignature == true)
             {
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta Signature
                 foreach (string file in arquivosEntrada)
@@ -322,13 +350,15 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw signature
+                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isSignature == false)
             {
 
-                //iniciar bwindexacao
-
+                
                 //jogar os arquivos na pasta indexacao
                 foreach (string file in arquivosEntrada)
                 {
@@ -336,6 +366,9 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
                     File.Delete(file);
                 }
+
+                //iniciar bwindexacao
+
             }
         }
 
@@ -355,8 +388,7 @@ namespace XmlFinder
 
             if (m_setting.isSignature == true)
             {
-                //iniciar bw indexacao
-                //bwposprocessamentoSignature.RunWorkerAsync();
+                
 
                 //jogar os arquivos na pasta indexacao
                 foreach (string file in arquivosEntrada)
@@ -365,6 +397,9 @@ namespace XmlFinder
                     File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
+
+                //iniciar bw indexacao
+                //bwposprocessamentoSignature.RunWorkerAsync();
             }
         }
 
