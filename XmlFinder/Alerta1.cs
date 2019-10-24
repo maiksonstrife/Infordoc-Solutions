@@ -29,6 +29,37 @@ namespace XmlFinder
 
         }
 
+        public Alerta1(string _message, AlertType type)
+        {
+            InitializeComponent();
+
+            message.Text = _message;
+            switch (type)
+            {
+                case AlertType.sucesso:
+                    this.BackColor = Color.SeaGreen;
+                    break;
+                case AlertType.info:
+                    this.BackColor = Color.Gray;
+                    break;
+                case AlertType.atencao:
+                    this.BackColor = Color.FromArgb(255, 128, 0);
+                    break;
+                case AlertType.erro:
+                    this.BackColor = Color.Crimson;
+                    break;
+            }
+
+        }
+
+       
+
+        public enum AlertType
+        {
+            sucesso, info, atencao, erro,
+        }
+
+
         private void alerta_Load(object sender, EventArgs e)
         {
 

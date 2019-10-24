@@ -29,27 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page4));
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.listarPastasBox = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEnviarFtp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnMonitorar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSelecionarPasta = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtCaminhoLocal = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -58,45 +50,17 @@
             this.percentBar = new System.Windows.Forms.Label();
             this.checkboxLocalPadrao = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 5;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(3, 0);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(222, 50);
-            this.bunifuCustomLabel1.TabIndex = 8;
-            this.bunifuCustomLabel1.Text = "1 -Conexão";
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(149)))), ((int)(((byte)(237)))));
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 141);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(899, 17);
-            this.bunifuSeparator1.TabIndex = 9;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = false;
-            this.bunifuSeparator1.Load += new System.EventHandler(this.bunifuSeparator1_Load);
             // 
             // listarPastasBox
             // 
             this.listarPastasBox.BackColor = System.Drawing.SystemColors.Control;
             this.listarPastasBox.BorderRadius = 1;
+            this.listarPastasBox.Color = System.Drawing.Color.Blue;
             this.listarPastasBox.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
             this.listarPastasBox.DisabledColor = System.Drawing.Color.Gray;
             this.listarPastasBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -106,17 +70,18 @@
             this.listarPastasBox.FillDropDown = false;
             this.listarPastasBox.FillIndicator = false;
             this.listarPastasBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.listarPastasBox.ForeColor = System.Drawing.Color.Purple;
+            this.listarPastasBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listarPastasBox.ForeColor = System.Drawing.Color.Black;
             this.listarPastasBox.FormattingEnabled = true;
             this.listarPastasBox.Icon = null;
-            this.listarPastasBox.IndicatorColor = System.Drawing.Color.Purple;
+            this.listarPastasBox.IndicatorColor = System.Drawing.Color.RoyalBlue;
             this.listarPastasBox.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.listarPastasBox.ItemBackColor = System.Drawing.Color.White;
-            this.listarPastasBox.ItemBorderColor = System.Drawing.Color.White;
-            this.listarPastasBox.ItemForeColor = System.Drawing.Color.Purple;
+            this.listarPastasBox.ItemBackColor = System.Drawing.Color.MidnightBlue;
+            this.listarPastasBox.ItemBorderColor = System.Drawing.Color.RoyalBlue;
+            this.listarPastasBox.ItemForeColor = System.Drawing.Color.AliceBlue;
             this.listarPastasBox.ItemHeight = 26;
-            this.listarPastasBox.ItemHighLightColor = System.Drawing.Color.Thistle;
-            this.listarPastasBox.Location = new System.Drawing.Point(12, 268);
+            this.listarPastasBox.ItemHighLightColor = System.Drawing.Color.MediumBlue;
+            this.listarPastasBox.Location = new System.Drawing.Point(26, 185);
             this.listarPastasBox.Name = "listarPastasBox";
             this.listarPastasBox.Size = new System.Drawing.Size(409, 32);
             this.listarPastasBox.TabIndex = 19;
@@ -126,12 +91,14 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 244);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(22, 161);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(303, 21);
+            this.label4.Size = new System.Drawing.Size(107, 21);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Pasta na Web - Selecione a pasta na web";
+            this.label4.Text = "Pasta na Web";
             // 
             // btnEnviarFtp
             // 
@@ -152,15 +119,15 @@
             this.btnEnviarFtp.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnEnviarFtp.IdleIconLeftImage = null;
             this.btnEnviarFtp.IdleIconRightImage = null;
-            this.btnEnviarFtp.Location = new System.Drawing.Point(557, 244);
+            this.btnEnviarFtp.Location = new System.Drawing.Point(26, 416);
             this.btnEnviarFtp.Name = "btnEnviarFtp";
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.BorderRadius = 1;
-            stateProperties3.BorderThickness = 1;
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.IconLeftImage = null;
-            stateProperties3.IconRightImage = null;
-            this.btnEnviarFtp.onHoverState = stateProperties3;
+            stateProperties13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties13.BorderRadius = 1;
+            stateProperties13.BorderThickness = 1;
+            stateProperties13.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties13.IconLeftImage = null;
+            stateProperties13.IconRightImage = null;
+            this.btnEnviarFtp.onHoverState = stateProperties13;
             this.btnEnviarFtp.Size = new System.Drawing.Size(217, 34);
             this.btnEnviarFtp.TabIndex = 22;
             this.btnEnviarFtp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -185,76 +152,31 @@
             this.btnMonitorar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnMonitorar.IdleIconLeftImage = null;
             this.btnMonitorar.IdleIconRightImage = null;
-            this.btnMonitorar.Location = new System.Drawing.Point(557, 302);
+            this.btnMonitorar.Location = new System.Drawing.Point(26, 472);
             this.btnMonitorar.Name = "btnMonitorar";
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties2.BorderRadius = 1;
-            stateProperties2.BorderThickness = 1;
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties2.IconLeftImage = null;
-            stateProperties2.IconRightImage = null;
-            this.btnMonitorar.onHoverState = stateProperties2;
+            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties14.BorderRadius = 1;
+            stateProperties14.BorderThickness = 1;
+            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties14.IconLeftImage = null;
+            stateProperties14.IconRightImage = null;
+            this.btnMonitorar.onHoverState = stateProperties14;
             this.btnMonitorar.Size = new System.Drawing.Size(217, 34);
             this.btnMonitorar.TabIndex = 23;
             this.btnMonitorar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMonitorar.Click += new System.EventHandler(this.btnMonitorar_Click);
             // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 161);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(261, 50);
-            this.bunifuCustomLabel2.TabIndex = 21;
-            this.bunifuCustomLabel2.Text = "2 - Diretórios";
-            // 
-            // bunifuSeparator2
-            // 
-            this.bunifuSeparator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(149)))), ((int)(((byte)(237)))));
-            this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(427, 150);
-            this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(18, 385);
-            this.bunifuSeparator2.TabIndex = 24;
-            this.bunifuSeparator2.Transparency = 255;
-            this.bunifuSeparator2.Vertical = true;
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Black", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(451, 161);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(178, 50);
-            this.bunifuCustomLabel3.TabIndex = 25;
-            this.bunifuCustomLabel3.Text = "3 - Envio";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(609, 457);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(615, 510);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(257, 26);
+            this.label5.Size = new System.Drawing.Size(194, 26);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Parar Verificação Automática";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(544, 446);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 63);
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
+            this.label5.Text = "Parar Monitoramento";
             // 
             // btnPararVerificacao
             // 
@@ -279,13 +201,13 @@
             this.btnPararVerificacao.IconVisible = true;
             this.btnPararVerificacao.IconZoom = 90D;
             this.btnPararVerificacao.IsTab = false;
-            this.btnPararVerificacao.Location = new System.Drawing.Point(614, 486);
+            this.btnPararVerificacao.Location = new System.Drawing.Point(815, 513);
             this.btnPararVerificacao.Name = "btnPararVerificacao";
             this.btnPararVerificacao.Normalcolor = System.Drawing.Color.Crimson;
             this.btnPararVerificacao.OnHovercolor = System.Drawing.Color.Crimson;
             this.btnPararVerificacao.OnHoverTextColor = System.Drawing.Color.White;
             this.btnPararVerificacao.selected = false;
-            this.btnPararVerificacao.Size = new System.Drawing.Size(252, 23);
+            this.btnPararVerificacao.Size = new System.Drawing.Size(53, 23);
             this.btnPararVerificacao.TabIndex = 27;
             this.btnPararVerificacao.Text = "Parar";
             this.btnPararVerificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -296,12 +218,14 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 373);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(22, 237);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(381, 21);
+            this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Pasta Local - Selecione a pasta em seu computador";
+            this.label6.Text = "Pasta Local";
             // 
             // btnSelecionarPasta
             // 
@@ -322,24 +246,19 @@
             this.btnSelecionarPasta.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnSelecionarPasta.IdleIconLeftImage = null;
             this.btnSelecionarPasta.IdleIconRightImage = null;
-            this.btnSelecionarPasta.Location = new System.Drawing.Point(12, 413);
+            this.btnSelecionarPasta.Location = new System.Drawing.Point(26, 302);
             this.btnSelecionarPasta.Name = "btnSelecionarPasta";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.BorderRadius = 1;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.btnSelecionarPasta.onHoverState = stateProperties1;
-            this.btnSelecionarPasta.Size = new System.Drawing.Size(182, 27);
+            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties15.BorderRadius = 1;
+            stateProperties15.BorderThickness = 1;
+            stateProperties15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties15.IconLeftImage = null;
+            stateProperties15.IconRightImage = null;
+            this.btnSelecionarPasta.onHoverState = stateProperties15;
+            this.btnSelecionarPasta.Size = new System.Drawing.Size(125, 27);
             this.btnSelecionarPasta.TabIndex = 32;
             this.btnSelecionarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSelecionarPasta.Click += new System.EventHandler(this.btnSelecionarPasta_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // txtCaminhoLocal
             // 
@@ -349,6 +268,7 @@
             this.txtCaminhoLocal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCaminhoLocal.BackColor = System.Drawing.SystemColors.Control;
             this.txtCaminhoLocal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtCaminhoLocal.BackgroundImage")));
+            this.txtCaminhoLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtCaminhoLocal.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
             this.txtCaminhoLocal.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
             this.txtCaminhoLocal.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
@@ -356,16 +276,18 @@
             this.txtCaminhoLocal.BorderRadius = 1;
             this.txtCaminhoLocal.BorderThickness = 2;
             this.txtCaminhoLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtCaminhoLocal.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaminhoLocal.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtCaminhoLocal.DefaultFont = new System.Drawing.Font("Segoe UI", 9.75F);
             this.txtCaminhoLocal.DefaultText = "";
             this.txtCaminhoLocal.FillColor = System.Drawing.SystemColors.Control;
+            this.txtCaminhoLocal.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCaminhoLocal.HideSelection = true;
             this.txtCaminhoLocal.IconLeft = null;
             this.txtCaminhoLocal.IconLeftCursor = System.Windows.Forms.Cursors.Default;
             this.txtCaminhoLocal.IconPadding = 10;
             this.txtCaminhoLocal.IconRight = null;
             this.txtCaminhoLocal.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txtCaminhoLocal.Location = new System.Drawing.Point(12, 446);
+            this.txtCaminhoLocal.Location = new System.Drawing.Point(26, 261);
             this.txtCaminhoLocal.MaxLength = 32767;
             this.txtCaminhoLocal.MinimumSize = new System.Drawing.Size(100, 35);
             this.txtCaminhoLocal.Modified = false;
@@ -403,16 +325,16 @@
             this.bunifuButton1.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
-            this.bunifuButton1.Location = new System.Drawing.Point(12, 79);
+            this.bunifuButton1.Location = new System.Drawing.Point(26, 75);
             this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.BorderRadius = 1;
-            stateProperties4.BorderThickness = 1;
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.IconLeftImage = null;
-            stateProperties4.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties4;
-            this.bunifuButton1.Size = new System.Drawing.Size(346, 34);
+            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties16.BorderRadius = 1;
+            stateProperties16.BorderThickness = 1;
+            stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties16.IconLeftImage = null;
+            stateProperties16.IconRightImage = null;
+            this.bunifuButton1.onHoverState = stateProperties16;
+            this.bunifuButton1.Size = new System.Drawing.Size(189, 34);
             this.bunifuButton1.TabIndex = 17;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
@@ -430,7 +352,7 @@
             this.bunifuProgressBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.bunifuProgressBar1.BorderRadius = 4;
             this.bunifuProgressBar1.BorderThickness = 2;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(492, 403);
+            this.bunifuProgressBar1.Location = new System.Drawing.Point(26, 522);
             this.bunifuProgressBar1.MaximumValue = 100;
             this.bunifuProgressBar1.MinimumValue = 0;
             this.bunifuProgressBar1.Name = "bunifuProgressBar1";
@@ -477,7 +399,7 @@
             this.checkboxLocalPadrao.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
             this.checkboxLocalPadrao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkboxLocalPadrao.CustomCheckmarkImage = null;
-            this.checkboxLocalPadrao.Location = new System.Drawing.Point(201, 413);
+            this.checkboxLocalPadrao.Location = new System.Drawing.Point(282, 305);
             this.checkboxLocalPadrao.MinimumSize = new System.Drawing.Size(17, 17);
             this.checkboxLocalPadrao.Name = "checkboxLocalPadrao";
             this.checkboxLocalPadrao.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
@@ -516,63 +438,92 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 416);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(310, 308);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 21);
+            this.label1.Size = new System.Drawing.Size(125, 21);
             this.label1.TabIndex = 39;
-            this.label1.Text = "Saída Padrão";
+            this.label1.Text = "Caminho Padrão";
+            // 
+            // bunifuGradientPanel1
+            // 
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
+            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.label3);
+            this.bunifuGradientPanel1.Controls.Add(this.label2);
+            this.bunifuGradientPanel1.Controls.Add(this.label1);
+            this.bunifuGradientPanel1.Controls.Add(this.checkboxLocalPadrao);
+            this.bunifuGradientPanel1.Controls.Add(this.percentBar);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuProgressBar1);
+            this.bunifuGradientPanel1.Controls.Add(this.txtCaminhoLocal);
+            this.bunifuGradientPanel1.Controls.Add(this.btnSelecionarPasta);
+            this.bunifuGradientPanel1.Controls.Add(this.label6);
+            this.bunifuGradientPanel1.Controls.Add(this.label5);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPararVerificacao);
+            this.bunifuGradientPanel1.Controls.Add(this.btnMonitorar);
+            this.bunifuGradientPanel1.Controls.Add(this.btnEnviarFtp);
+            this.bunifuGradientPanel1.Controls.Add(this.label4);
+            this.bunifuGradientPanel1.Controls.Add(this.listarPastasBox);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuButton1);
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.MediumBlue;
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.DeepSkyBlue;
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.Black;
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.Black;
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
+            this.bunifuGradientPanel1.Quality = 10;
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
+            this.bunifuGradientPanel1.TabIndex = 40;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(22, 392);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 21);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Enviar arquivos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(22, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 21);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Conexão ao endereço FTP";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // Page4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkboxLocalPadrao);
-            this.Controls.Add(this.percentBar);
-            this.Controls.Add(this.bunifuProgressBar1);
-            this.Controls.Add(this.txtCaminhoLocal);
-            this.Controls.Add(this.btnSelecionarPasta);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.btnPararVerificacao);
-            this.Controls.Add(this.bunifuCustomLabel3);
-            this.Controls.Add(this.bunifuSeparator2);
-            this.Controls.Add(this.btnMonitorar);
-            this.Controls.Add(this.btnEnviarFtp);
-            this.Controls.Add(this.bunifuCustomLabel2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.listarPastasBox);
-            this.Controls.Add(this.bunifuButton1);
-            this.Controls.Add(this.bunifuSeparator1);
-            this.Controls.Add(this.bunifuCustomLabel1);
+            this.Controls.Add(this.bunifuGradientPanel1);
             this.Name = "Page4";
-            this.Size = new System.Drawing.Size(888, 535);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Size = new System.Drawing.Size(888, 563);
+            this.bunifuGradientPanel1.ResumeLayout(false);
+            this.bunifuGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.UI.WinForms.BunifuDropdown listarPastasBox;
         private System.Windows.Forms.Label label4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnEnviarFtp;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnMonitorar;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSelecionarPasta;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtCaminhoLocal;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
         private System.Windows.Forms.Timer timer1;
@@ -581,5 +532,8 @@
         private System.Windows.Forms.Label percentBar;
         private Bunifu.UI.WinForms.BunifuCheckBox checkboxLocalPadrao;
         private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

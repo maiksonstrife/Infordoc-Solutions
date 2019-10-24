@@ -283,5 +283,15 @@ namespace XmlFinder
         {
             this.Close();
         }
+
+        private void isParameterReader_OnValuechange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

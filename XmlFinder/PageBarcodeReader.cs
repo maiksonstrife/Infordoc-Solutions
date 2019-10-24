@@ -88,6 +88,27 @@ namespace XmlFinder
             //bora iniciar
             PdfUtility pdfUtility = new PdfUtility();
             // TESTES pdfUtility.processoRenomear();
+
+            //Calculando porcentagem
+            int max = 0;
+            if (m_setting.isBarcodeReader == true)
+            {
+                max += 1;
+            }
+            if (m_setting.isCutter == true)
+            {
+                max += 1;
+            }
+            if (m_setting.isWaterMark == true)
+            {
+                max += 1;
+            }
+            if (m_setting.isSignature == true)
+            {
+                max += 1;
+            }
+
+            scannerCircleProgress.Maximum = max;
             enterPoint.RunWorkerAsync();
         }
 
@@ -126,7 +147,8 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename, true);
+                    //File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
 
@@ -181,6 +203,15 @@ namespace XmlFinder
         private void bwpreprocessamento_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Load_AppSettings();
+            BeginInvoke((MethodInvoker)delegate // Esse método permite que a thread em background (backgroundworker) acesse a UI
+            {
+                scannerCircleProgress.Value += 1;
+                scannerCircleProgress.Update();
+                txtCent.Text = scannerCircleProgress.Text + "%";
+                txtCentText.Text = "Documentos Recortados";
+                txtCent.Visible = true;
+                txtCentText.Visible = true;
+            });
 
             //Pegar arquivos da pasta de entrada
             string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathCutterCompleted);
@@ -266,6 +297,12 @@ namespace XmlFinder
         private void bwprocessamento_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Load_AppSettings();
+            BeginInvoke((MethodInvoker)delegate
+            {
+                scannerCircleProgress.Value += 1;
+                txtCent.Text = scannerCircleProgress.Text + "%";
+                txtCentText.Text = "Barcodes Lidos";
+            });
 
             //Pegar arquivos da pasta de entrada
             string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathProcessingCompleted);
@@ -335,6 +372,12 @@ namespace XmlFinder
         private void bwposprocessamentoWatermark_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Load_AppSettings();
+            BeginInvoke((MethodInvoker)delegate
+            {
+                scannerCircleProgress.Value += 1;
+                txtCent.Text = scannerCircleProgress.Text + "%";
+                txtCentText.Text = "Marcas D'agua Inseridas";
+            });
 
             //Pegar arquivos da pasta de entrada
             string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathWaterMarkCompleted);
@@ -382,6 +425,12 @@ namespace XmlFinder
         private void bwposprocessamentoSignature_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Load_AppSettings();
+            BeginInvoke((MethodInvoker)delegate
+            {
+                scannerCircleProgress.Value += 1;
+                txtCent.Text = scannerCircleProgress.Text + "%";
+                txtCentText.Text = "Assinaturas Inseridas";
+            });
 
             //Pegar arquivos da pasta de entrada
             string[] arquivosEntrada = Directory.GetFiles(virtualScannerDiretorios.pathSignatureCompleted);
@@ -472,6 +521,11 @@ namespace XmlFinder
             {
                 MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void labelCentCutter_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*private void backgroundRenomear_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

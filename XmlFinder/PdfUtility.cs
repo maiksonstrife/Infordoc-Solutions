@@ -15,17 +15,9 @@ using ZXing.Common;
 using ImageMagick;
 using ScanPDF;
 using PCKLIB;
-using System.ComponentModel;
 using System.Threading;
 using Timer = System.Windows.Forms.Timer;
-using System.Drawing.Imaging;
-using org.bouncycastle.crypto;
-using org.bouncycastle.x509;
-using System.Collections;
-using org.bouncycastle.pkcs;
-using iTextSharp.text.pdf;
-using System.IO;
-using iTextSharp.text.xml.xmp;
+
 using iTextSharpSign;
 
 namespace XmlFinder
@@ -108,12 +100,12 @@ namespace XmlFinder
                 PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
                 pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
 
-                MessageBox.Show("Assinado :DDD");
+                //MessageBox.Show("Assinado :DDD");
                 File.Delete(file);
             }
             
         }
-
+        
 
         public static void processoRecortar()
         {
@@ -148,6 +140,7 @@ namespace XmlFinder
                     };
                     //Usa magick Reader para converter para jpg na pasta temp
                     MagickImageCollection images = new MagickImageCollection();
+                    images.Dispose();
                     images.Read(pdffile, settings);
                     images.Write("temp.jpg");
 
@@ -167,12 +160,16 @@ namespace XmlFinder
                     {
                         ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
                         File.Delete(pdffile);
+                        originalImage.Dispose();
+                        File.Delete("temp.jpg");
                     }
 
                     if (userSettingR.isHorizontal == false)
                     {
                         ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes);
                         File.Delete(pdffile);
+                        originalImage.Dispose();
+                        File.Delete("temp.jpg");
                     }
 
                 }
@@ -222,6 +219,7 @@ namespace XmlFinder
                 //MagickImage Le a imagem que vai receber marca d'agua
                 using (MagickImage image = new MagickImage(page_img))
                 {
+                    //APLICANDO MARCA DAGUA
                     // Lê a marca dágua que será inserida na imagem
                     using (MagickImage watermark = new MagickImage(watermark_img))
                     {
@@ -238,15 +236,12 @@ namespace XmlFinder
                     // Salvando o resultado na pasta temporaria
                     image.Write("temp.jpg");
                 }
-                //salvo a imagem com marca d'agua em uma variavel para ser usada futuramente
+
+
+                //SALVANDO COMO PDF
                 page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
                 PdfUtility pdfUtility = new PdfUtility();
                 pdfUtility.Wait_for(40);
-
-
-
-                //out_pdf.Save(out_fname);
-                //out_pdf.Close();
 
                 out_pdf = new PdfSharp.Pdf.PdfDocument()
                 {
@@ -463,6 +458,7 @@ namespace XmlFinder
                             string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
 
                             string sourceFile = System.IO.Path.Combine(virtualScannerDiretorios.pathProcessing, fileName);
+                            novoNome = StringFormater.RemoverCaracteresEspeciais(novoNome);
                             string destFile = System.IO.Path.Combine(targetPath, novoNome);
                             System.IO.File.Copy(sourceFile, destFile, true);
 

@@ -86,12 +86,6 @@
       <DependentUpon>Alerta1.cs</DependentUpon>
     </Compile>
     <Compile Include="AppSetting.cs" />
-    <Compile Include="ConfigIniInforScanner.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ConfigIniInforScanner.Designer.cs">
-      <DependentUpon>ConfigIniInforScanner.cs</DependentUpon>
-    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="Ferramentas.cs" />
     <Compile Include="Form1.cs">
@@ -109,6 +103,12 @@
     </Compile>
     <Compile Include="ImgRecorte.cs" />
     <Compile Include="ImgUtility.cs" />
+    <Compile Include="INFORFTPConfigIniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INFORFTPConfigIniForm.Designer.cs">
+      <DependentUpon>INFORFTPConfigIniForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Page1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,20 +165,26 @@
     <Compile Include="VirtualScannerConfigIniForm.Designer.cs">
       <DependentUpon>VirtualScannerConfigIniForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="XML-FinderConfigIniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XML-FinderConfigIniForm.Designer.cs">
+      <DependentUpon>XML-FinderConfigIniForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="alerta.resx">
       <DependentUpon>alerta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alerta1.resx">
       <DependentUpon>Alerta1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfigIniInforScanner.resx">
-      <DependentUpon>ConfigIniInforScanner.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="homePage.resx">
       <DependentUpon>homePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INFORFTPConfigIniForm.resx">
+      <DependentUpon>INFORFTPConfigIniForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Page1.resx">
       <DependentUpon>Page1.cs</DependentUpon>
@@ -213,6 +219,9 @@
     </Compile>
     <EmbeddedResource Include="VirtualScannerConfigIniForm.resx">
       <DependentUpon>VirtualScannerConfigIniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML-FinderConfigIniForm.resx">
+      <DependentUpon>XML-FinderConfigIniForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="InforPlan_TemporaryKey.pfx" />
     <None Include="packages.config" />

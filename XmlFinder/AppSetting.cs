@@ -155,10 +155,15 @@ namespace ScanPDF
         #endregion
 
         //XML Settings
-
+        public string pdfPath;
+        public string xmlPath;
+        public string saidaxmlPath;
 
         //FTP Settings
-
+        public string enderecoFTP;
+        public string usuarioFTP;
+        public string senhaFTP;
+        public string pastalocalFTP;
 
         //Plan Settings
 

@@ -118,14 +118,9 @@ namespace XmlFinder
             WindowState = FormWindowState.Maximized;
         }
 
-        public  void SetFront(bool value)
+        private void pageConfigSelect1_Load(object sender, EventArgs e)
         {
-            if (value == true)
-            {
-               
-                configIniInforScanner1.BringToFront();
-            }
-            
+
         }
     }
 }

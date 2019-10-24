@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageConfigSelect));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.ButtonConfigIniInforFTP = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ButtonConfigXMLFinder = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ButtonConfigIniInforPlan = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -41,6 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.appRestart = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonConfigIniInforFTP
@@ -64,16 +68,17 @@
             this.ButtonConfigIniInforFTP.IdleIconRightImage = ((System.Drawing.Image)(resources.GetObject("ButtonConfigIniInforFTP.IdleIconRightImage")));
             this.ButtonConfigIniInforFTP.Location = new System.Drawing.Point(32, 310);
             this.ButtonConfigIniInforFTP.Name = "ButtonConfigIniInforFTP";
-            stateProperties13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties13.BorderRadius = 1;
-            stateProperties13.BorderThickness = 1;
-            stateProperties13.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties13.IconLeftImage = null;
-            stateProperties13.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties13.IconRightImage")));
-            this.ButtonConfigIniInforFTP.onHoverState = stateProperties13;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties1.IconRightImage")));
+            this.ButtonConfigIniInforFTP.onHoverState = stateProperties1;
             this.ButtonConfigIniInforFTP.Size = new System.Drawing.Size(343, 71);
             this.ButtonConfigIniInforFTP.TabIndex = 0;
             this.ButtonConfigIniInforFTP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ButtonConfigIniInforFTP.Click += new System.EventHandler(this.ButtonConfigIniInforFTP_Click);
             // 
             // ButtonConfigXMLFinder
             // 
@@ -96,16 +101,17 @@
             this.ButtonConfigXMLFinder.IdleIconRightImage = ((System.Drawing.Image)(resources.GetObject("ButtonConfigXMLFinder.IdleIconRightImage")));
             this.ButtonConfigXMLFinder.Location = new System.Drawing.Point(32, 64);
             this.ButtonConfigXMLFinder.Name = "ButtonConfigXMLFinder";
-            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties14.BorderRadius = 1;
-            stateProperties14.BorderThickness = 1;
-            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties14.IconLeftImage = null;
-            stateProperties14.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties14.IconRightImage")));
-            this.ButtonConfigXMLFinder.onHoverState = stateProperties14;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.BorderRadius = 1;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.IconLeftImage = null;
+            stateProperties2.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties2.IconRightImage")));
+            this.ButtonConfigXMLFinder.onHoverState = stateProperties2;
             this.ButtonConfigXMLFinder.Size = new System.Drawing.Size(343, 71);
             this.ButtonConfigXMLFinder.TabIndex = 1;
             this.ButtonConfigXMLFinder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ButtonConfigXMLFinder.Click += new System.EventHandler(this.ButtonConfigXMLFinder_Click);
             // 
             // ButtonConfigIniInforPlan
             // 
@@ -128,13 +134,13 @@
             this.ButtonConfigIniInforPlan.IdleIconRightImage = ((System.Drawing.Image)(resources.GetObject("ButtonConfigIniInforPlan.IdleIconRightImage")));
             this.ButtonConfigIniInforPlan.Location = new System.Drawing.Point(32, 444);
             this.ButtonConfigIniInforPlan.Name = "ButtonConfigIniInforPlan";
-            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties15.BorderRadius = 1;
-            stateProperties15.BorderThickness = 1;
-            stateProperties15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties15.IconLeftImage = null;
-            stateProperties15.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties15.IconRightImage")));
-            this.ButtonConfigIniInforPlan.onHoverState = stateProperties15;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.BorderRadius = 1;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties3.IconRightImage")));
+            this.ButtonConfigIniInforPlan.onHoverState = stateProperties3;
             this.ButtonConfigIniInforPlan.Size = new System.Drawing.Size(343, 71);
             this.ButtonConfigIniInforPlan.TabIndex = 2;
             this.ButtonConfigIniInforPlan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,13 +166,13 @@
             this.ButtonConfigIniInforScanner.IdleIconRightImage = ((System.Drawing.Image)(resources.GetObject("ButtonConfigIniInforScanner.IdleIconRightImage")));
             this.ButtonConfigIniInforScanner.Location = new System.Drawing.Point(32, 183);
             this.ButtonConfigIniInforScanner.Name = "ButtonConfigIniInforScanner";
-            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties16.BorderRadius = 1;
-            stateProperties16.BorderThickness = 1;
-            stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties16.IconLeftImage = null;
-            stateProperties16.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties16.IconRightImage")));
-            this.ButtonConfigIniInforScanner.onHoverState = stateProperties16;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = ((System.Drawing.Image)(resources.GetObject("stateProperties4.IconRightImage")));
+            this.ButtonConfigIniInforScanner.onHoverState = stateProperties4;
             this.ButtonConfigIniInforScanner.Size = new System.Drawing.Size(343, 71);
             this.ButtonConfigIniInforScanner.TabIndex = 3;
             this.ButtonConfigIniInforScanner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -174,6 +180,7 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(32, 31);
@@ -184,6 +191,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(32, 411);
@@ -194,6 +202,7 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(32, 277);
@@ -204,6 +213,7 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(32, 150);
@@ -212,23 +222,73 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Infor Scanner";
             // 
+            // bunifuGradientPanel1
+            // 
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
+            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.appRestart);
+            this.bunifuGradientPanel1.Controls.Add(this.ButtonConfigIniInforFTP);
+            this.bunifuGradientPanel1.Controls.Add(this.ButtonConfigXMLFinder);
+            this.bunifuGradientPanel1.Controls.Add(this.ButtonConfigIniInforPlan);
+            this.bunifuGradientPanel1.Controls.Add(this.ButtonConfigIniInforScanner);
+            this.bunifuGradientPanel1.Controls.Add(this.label1);
+            this.bunifuGradientPanel1.Controls.Add(this.label2);
+            this.bunifuGradientPanel1.Controls.Add(this.label3);
+            this.bunifuGradientPanel1.Controls.Add(this.label4);
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.Navy;
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.DarkBlue;
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.DarkSlateGray;
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.LightSeaGreen;
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
+            this.bunifuGradientPanel1.Quality = 10;
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
+            this.bunifuGradientPanel1.TabIndex = 11;
+            // 
+            // appRestart
+            // 
+            this.appRestart.BackColor = System.Drawing.Color.Transparent;
+            this.appRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("appRestart.BackgroundImage")));
+            this.appRestart.ButtonText = "Reiniciar";
+            this.appRestart.ButtonTextMarginLeft = 0;
+            this.appRestart.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.appRestart.DisabledFillColor = System.Drawing.Color.Gray;
+            this.appRestart.DisabledForecolor = System.Drawing.Color.White;
+            this.appRestart.ForeColor = System.Drawing.Color.White;
+            this.appRestart.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.appRestart.IconPadding = 10;
+            this.appRestart.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.appRestart.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.appRestart.IdleBorderRadius = 1;
+            this.appRestart.IdleBorderThickness = 0;
+            this.appRestart.IdleFillColor = System.Drawing.Color.DarkSlateBlue;
+            this.appRestart.IdleIconLeftImage = null;
+            this.appRestart.IdleIconRightImage = null;
+            this.appRestart.Location = new System.Drawing.Point(779, 513);
+            this.appRestart.Name = "appRestart";
+            stateProperties5.BorderColor = System.Drawing.Color.Red;
+            stateProperties5.BorderRadius = 1;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.Red;
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.appRestart.onHoverState = stateProperties5;
+            this.appRestart.Size = new System.Drawing.Size(94, 29);
+            this.appRestart.TabIndex = 11;
+            this.appRestart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.appRestart.Click += new System.EventHandler(this.appRestart_Click);
+            // 
             // PageConfigSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Indigo;
-            this.Controls.Add(this.ButtonConfigIniInforFTP);
-            this.Controls.Add(this.ButtonConfigXMLFinder);
-            this.Controls.Add(this.ButtonConfigIniInforPlan);
-            this.Controls.Add(this.ButtonConfigIniInforScanner);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.bunifuGradientPanel1);
             this.Name = "PageConfigSelect";
-            this.Size = new System.Drawing.Size(888, 535);
+            this.Size = new System.Drawing.Size(894, 569);
             this.Load += new System.EventHandler(this.PageConfigSelect_Load);
+            this.bunifuGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -243,5 +303,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton appRestart;
     }
 }

@@ -33,7 +33,11 @@ namespace XmlFinder
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page1));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ListBox1 = new System.Windows.Forms.ListBox();
@@ -48,16 +52,11 @@ namespace XmlFinder
             this.isPressedButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnPastaPDF = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnPastaXML = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnImportar = new Bunifu.Framework.UI.BunifuThinButton2();
             this.listBoxPDF = new System.Windows.Forms.ListBox();
             this.listBoxXML = new System.Windows.Forms.ListBox();
             this.listBoxImportado = new System.Windows.Forms.ListBox();
             this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtPdfPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -65,10 +64,14 @@ namespace XmlFinder
             this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtAtivado = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnSelecionarSaida = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtSaidaPadrao = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.btnImportar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnPastaPDF = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnPastaXML = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnSelecionarSaida = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -207,13 +210,13 @@ namespace XmlFinder
             this.isPressedButton.IdleIconRightImage = null;
             this.isPressedButton.Location = new System.Drawing.Point(0, 0);
             this.isPressedButton.Name = "isPressedButton";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.BorderRadius = 1;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.isPressedButton.onHoverState = stateProperties1;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.BorderRadius = 1;
+            stateProperties6.BorderThickness = 1;
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.IconLeftImage = null;
+            stateProperties6.IconRightImage = null;
+            this.isPressedButton.onHoverState = stateProperties6;
             this.isPressedButton.Size = new System.Drawing.Size(210, 45);
             this.isPressedButton.TabIndex = 0;
             this.isPressedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,106 +236,40 @@ namespace XmlFinder
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnPastaPDF
-            // 
-            this.btnPastaPDF.ActiveBorderThickness = 1;
-            this.btnPastaPDF.ActiveCornerRadius = 1;
-            this.btnPastaPDF.ActiveFillColor = System.Drawing.Color.Red;
-            this.btnPastaPDF.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPastaPDF.ActiveLineColor = System.Drawing.Color.Red;
-            this.btnPastaPDF.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPastaPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaPDF.BackgroundImage")));
-            this.btnPastaPDF.ButtonText = "Selecionar Pasta PDF";
-            this.btnPastaPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPastaPDF.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPastaPDF.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPastaPDF.IdleBorderThickness = 1;
-            this.btnPastaPDF.IdleCornerRadius = 1;
-            this.btnPastaPDF.IdleFillColor = System.Drawing.Color.Crimson;
-            this.btnPastaPDF.IdleForecolor = System.Drawing.Color.White;
-            this.btnPastaPDF.IdleLineColor = System.Drawing.Color.Crimson;
-            this.btnPastaPDF.Location = new System.Drawing.Point(14, 68);
-            this.btnPastaPDF.Margin = new System.Windows.Forms.Padding(5);
-            this.btnPastaPDF.Name = "btnPastaPDF";
-            this.btnPastaPDF.Size = new System.Drawing.Size(219, 41);
-            this.btnPastaPDF.TabIndex = 0;
-            this.btnPastaPDF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPastaPDF.Click += new System.EventHandler(this.btnPastaPDF_Click);
-            // 
-            // btnPastaXML
-            // 
-            this.btnPastaXML.ActiveBorderThickness = 1;
-            this.btnPastaXML.ActiveCornerRadius = 1;
-            this.btnPastaXML.ActiveFillColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnPastaXML.ActiveForecolor = System.Drawing.Color.White;
-            this.btnPastaXML.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnPastaXML.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPastaXML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaXML.BackgroundImage")));
-            this.btnPastaXML.ButtonText = "Selecionar Pasta XML";
-            this.btnPastaXML.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPastaXML.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPastaXML.ForeColor = System.Drawing.Color.White;
-            this.btnPastaXML.IdleBorderThickness = 1;
-            this.btnPastaXML.IdleCornerRadius = 1;
-            this.btnPastaXML.IdleFillColor = System.Drawing.Color.SeaGreen;
-            this.btnPastaXML.IdleForecolor = System.Drawing.Color.White;
-            this.btnPastaXML.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPastaXML.Location = new System.Drawing.Point(332, 68);
-            this.btnPastaXML.Margin = new System.Windows.Forms.Padding(5);
-            this.btnPastaXML.Name = "btnPastaXML";
-            this.btnPastaXML.Size = new System.Drawing.Size(219, 41);
-            this.btnPastaXML.TabIndex = 1;
-            this.btnPastaXML.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPastaXML.Click += new System.EventHandler(this.btnPastaXML_Click);
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.ActiveBorderThickness = 1;
-            this.btnImportar.ActiveCornerRadius = 1;
-            this.btnImportar.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnImportar.ActiveForecolor = System.Drawing.Color.White;
-            this.btnImportar.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnImportar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnImportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.BackgroundImage")));
-            this.btnImportar.ButtonText = "IMPORTAR";
-            this.btnImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImportar.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.ForeColor = System.Drawing.Color.White;
-            this.btnImportar.IdleBorderThickness = 1;
-            this.btnImportar.IdleCornerRadius = 1;
-            this.btnImportar.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.btnImportar.IdleForecolor = System.Drawing.Color.White;
-            this.btnImportar.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnImportar.Location = new System.Drawing.Point(650, 392);
-            this.btnImportar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(219, 41);
-            this.btnImportar.TabIndex = 2;
-            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
-            // 
             // listBoxPDF
             // 
+            this.listBoxPDF.BackColor = System.Drawing.Color.MidnightBlue;
+            this.listBoxPDF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPDF.ForeColor = System.Drawing.Color.White;
             this.listBoxPDF.FormattingEnabled = true;
-            this.listBoxPDF.Location = new System.Drawing.Point(14, 117);
+            this.listBoxPDF.ItemHeight = 17;
+            this.listBoxPDF.Location = new System.Drawing.Point(11, 117);
             this.listBoxPDF.Name = "listBoxPDF";
-            this.listBoxPDF.Size = new System.Drawing.Size(219, 277);
+            this.listBoxPDF.Size = new System.Drawing.Size(219, 276);
             this.listBoxPDF.TabIndex = 3;
             // 
             // listBoxXML
             // 
+            this.listBoxXML.BackColor = System.Drawing.Color.MidnightBlue;
+            this.listBoxXML.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.listBoxXML.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.listBoxXML.FormattingEnabled = true;
+            this.listBoxXML.ItemHeight = 17;
             this.listBoxXML.Location = new System.Drawing.Point(332, 117);
             this.listBoxXML.Name = "listBoxXML";
-            this.listBoxXML.Size = new System.Drawing.Size(219, 277);
+            this.listBoxXML.Size = new System.Drawing.Size(219, 276);
             this.listBoxXML.TabIndex = 4;
             // 
             // listBoxImportado
             // 
+            this.listBoxImportado.BackColor = System.Drawing.Color.MidnightBlue;
+            this.listBoxImportado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.listBoxImportado.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.listBoxImportado.FormattingEnabled = true;
+            this.listBoxImportado.ItemHeight = 17;
             this.listBoxImportado.Location = new System.Drawing.Point(650, 117);
             this.listBoxImportado.Name = "listBoxImportado";
-            this.listBoxImportado.Size = new System.Drawing.Size(219, 277);
+            this.listBoxImportado.Size = new System.Drawing.Size(219, 276);
             this.listBoxImportado.TabIndex = 5;
             // 
             // btnPararVerificacao
@@ -358,13 +295,13 @@ namespace XmlFinder
             this.btnPararVerificacao.IconVisible = true;
             this.btnPararVerificacao.IconZoom = 90D;
             this.btnPararVerificacao.IsTab = false;
-            this.btnPararVerificacao.Location = new System.Drawing.Point(615, 480);
+            this.btnPararVerificacao.Location = new System.Drawing.Point(203, 525);
             this.btnPararVerificacao.Name = "btnPararVerificacao";
             this.btnPararVerificacao.Normalcolor = System.Drawing.Color.Crimson;
             this.btnPararVerificacao.OnHovercolor = System.Drawing.Color.Crimson;
             this.btnPararVerificacao.OnHoverTextColor = System.Drawing.Color.White;
             this.btnPararVerificacao.selected = false;
-            this.btnPararVerificacao.Size = new System.Drawing.Size(252, 23);
+            this.btnPararVerificacao.Size = new System.Drawing.Size(53, 26);
             this.btnPararVerificacao.TabIndex = 6;
             this.btnPararVerificacao.Text = "Parar";
             this.btnPararVerificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -372,37 +309,17 @@ namespace XmlFinder
             this.btnPararVerificacao.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPararVerificacao.Click += new System.EventHandler(this.btnPararVerificacao_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(543, 444);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 65);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(612, 451);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(9, 525);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 26);
+            this.label2.Size = new System.Drawing.Size(194, 26);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Parar Verificação Automática";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 0);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(148, 28);
-            this.bunifuCustomLabel2.TabIndex = 9;
-            this.bunifuCustomLabel2.Text = "Encontrar XML";
-            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
+            this.label2.Text = "Parar Monitoramento";
             // 
             // bunifuCustomLabel3
             // 
@@ -434,7 +351,7 @@ namespace XmlFinder
             this.txtPdfPadrao.AutoSize = true;
             this.txtPdfPadrao.BackColor = System.Drawing.Color.Transparent;
             this.txtPdfPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.txtPdfPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPdfPadrao.ForeColor = System.Drawing.Color.White;
             this.txtPdfPadrao.Location = new System.Drawing.Point(9, 86);
             this.txtPdfPadrao.Name = "txtPdfPadrao";
             this.txtPdfPadrao.Size = new System.Drawing.Size(207, 28);
@@ -447,7 +364,7 @@ namespace XmlFinder
             this.txtXmlPadrao.AutoSize = true;
             this.txtXmlPadrao.BackColor = System.Drawing.Color.Transparent;
             this.txtXmlPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.txtXmlPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtXmlPadrao.ForeColor = System.Drawing.Color.White;
             this.txtXmlPadrao.Location = new System.Drawing.Point(327, 86);
             this.txtXmlPadrao.Name = "txtXmlPadrao";
             this.txtXmlPadrao.Size = new System.Drawing.Size(211, 28);
@@ -472,7 +389,7 @@ namespace XmlFinder
             this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
             this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuCheckBox1.CustomCheckmarkImage = null;
-            this.bunifuCheckBox1.Location = new System.Drawing.Point(11, 455);
+            this.bunifuCheckBox1.Location = new System.Drawing.Point(11, 412);
             this.bunifuCheckBox1.MinimumSize = new System.Drawing.Size(17, 17);
             this.bunifuCheckBox1.Name = "bunifuCheckBox1";
             this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
@@ -512,11 +429,11 @@ namespace XmlFinder
             // 
             this.bunifuCustomLabel5.AutoSize = true;
             this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(41, 451);
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(41, 408);
             this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(164, 28);
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(151, 25);
             this.bunifuCustomLabel5.TabIndex = 15;
             this.bunifuCustomLabel5.Text = "Diretório Padrão";
             this.bunifuCustomLabel5.Click += new System.EventHandler(this.bunifuCustomLabel5_Click);
@@ -526,46 +443,21 @@ namespace XmlFinder
             this.txtAtivado.AutoSize = true;
             this.txtAtivado.BackColor = System.Drawing.Color.Transparent;
             this.txtAtivado.Enabled = false;
-            this.txtAtivado.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.txtAtivado.ForeColor = System.Drawing.Color.DimGray;
-            this.txtAtivado.Location = new System.Drawing.Point(72, 480);
+            this.txtAtivado.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtAtivado.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtAtivado.Location = new System.Drawing.Point(188, 408);
             this.txtAtivado.Name = "txtAtivado";
-            this.txtAtivado.Size = new System.Drawing.Size(101, 28);
+            this.txtAtivado.Size = new System.Drawing.Size(88, 25);
             this.txtAtivado.TabIndex = 16;
             this.txtAtivado.Text = "ATIVADO";
-            // 
-            // btnSelecionarSaida
-            // 
-            this.btnSelecionarSaida.ActiveBorderThickness = 1;
-            this.btnSelecionarSaida.ActiveCornerRadius = 1;
-            this.btnSelecionarSaida.ActiveFillColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSelecionarSaida.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSelecionarSaida.ActiveLineColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSelecionarSaida.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSelecionarSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelecionarSaida.BackgroundImage")));
-            this.btnSelecionarSaida.ButtonText = "Selecionar Pasta Saída";
-            this.btnSelecionarSaida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSelecionarSaida.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionarSaida.ForeColor = System.Drawing.Color.White;
-            this.btnSelecionarSaida.IdleBorderThickness = 1;
-            this.btnSelecionarSaida.IdleCornerRadius = 1;
-            this.btnSelecionarSaida.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelecionarSaida.IdleForecolor = System.Drawing.Color.White;
-            this.btnSelecionarSaida.IdleLineColor = System.Drawing.Color.DodgerBlue;
-            this.btnSelecionarSaida.Location = new System.Drawing.Point(650, 68);
-            this.btnSelecionarSaida.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSelecionarSaida.Name = "btnSelecionarSaida";
-            this.btnSelecionarSaida.Size = new System.Drawing.Size(217, 41);
-            this.btnSelecionarSaida.TabIndex = 17;
-            this.btnSelecionarSaida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSelecionarSaida.Click += new System.EventHandler(this.btnSelecionarSaida_Click);
+            this.txtAtivado.Click += new System.EventHandler(this.txtAtivado_Click);
             // 
             // txtSaidaPadrao
             // 
             this.txtSaidaPadrao.AutoSize = true;
             this.txtSaidaPadrao.BackColor = System.Drawing.Color.Transparent;
             this.txtSaidaPadrao.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F);
-            this.txtSaidaPadrao.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSaidaPadrao.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSaidaPadrao.Location = new System.Drawing.Point(645, 86);
             this.txtSaidaPadrao.Name = "txtSaidaPadrao";
             this.txtSaidaPadrao.Size = new System.Drawing.Size(220, 28);
@@ -573,35 +465,183 @@ namespace XmlFinder
             this.txtSaidaPadrao.Text = "Diretório Saida padrão";
             this.txtSaidaPadrao.Visible = false;
             // 
+            // bunifuGradientPanel1
+            // 
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
+            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.btnImportar);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPastaPDF);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPastaXML);
+            this.bunifuGradientPanel1.Controls.Add(this.btnSelecionarSaida);
+            this.bunifuGradientPanel1.Controls.Add(this.txtSaidaPadrao);
+            this.bunifuGradientPanel1.Controls.Add(this.txtAtivado);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuCustomLabel5);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuCheckBox1);
+            this.bunifuGradientPanel1.Controls.Add(this.txtXmlPadrao);
+            this.bunifuGradientPanel1.Controls.Add(this.txtPdfPadrao);
+            this.bunifuGradientPanel1.Controls.Add(this.label2);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPararVerificacao);
+            this.bunifuGradientPanel1.Controls.Add(this.listBoxImportado);
+            this.bunifuGradientPanel1.Controls.Add(this.listBoxXML);
+            this.bunifuGradientPanel1.Controls.Add(this.listBoxPDF);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuCustomLabel3);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuCustomLabel4);
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.MediumBlue;
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.DeepSkyBlue;
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.Black;
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.Black;
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
+            this.bunifuGradientPanel1.Quality = 10;
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
+            this.bunifuGradientPanel1.TabIndex = 19;
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.BackColor = System.Drawing.Color.Transparent;
+            this.btnImportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImportar.BackgroundImage")));
+            this.btnImportar.ButtonText = "INICIAR";
+            this.btnImportar.ButtonTextMarginLeft = 0;
+            this.btnImportar.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnImportar.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnImportar.DisabledForecolor = System.Drawing.Color.White;
+            this.btnImportar.ForeColor = System.Drawing.Color.White;
+            this.btnImportar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnImportar.IconPadding = 10;
+            this.btnImportar.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnImportar.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnImportar.IdleBorderRadius = 1;
+            this.btnImportar.IdleBorderThickness = 0;
+            this.btnImportar.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnImportar.IdleIconLeftImage = null;
+            this.btnImportar.IdleIconRightImage = null;
+            this.btnImportar.Location = new System.Drawing.Point(750, 516);
+            this.btnImportar.Name = "btnImportar";
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.BorderRadius = 1;
+            stateProperties7.BorderThickness = 1;
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.IconLeftImage = null;
+            stateProperties7.IconRightImage = null;
+            this.btnImportar.onHoverState = stateProperties7;
+            this.btnImportar.Size = new System.Drawing.Size(119, 35);
+            this.btnImportar.TabIndex = 22;
+            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnImportar.Click += new System.EventHandler(this.bunifuButton1_Click);
+            // 
+            // btnPastaPDF
+            // 
+            this.btnPastaPDF.BackColor = System.Drawing.Color.Transparent;
+            this.btnPastaPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaPDF.BackgroundImage")));
+            this.btnPastaPDF.ButtonText = "Pasta PDF";
+            this.btnPastaPDF.ButtonTextMarginLeft = 0;
+            this.btnPastaPDF.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnPastaPDF.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnPastaPDF.DisabledForecolor = System.Drawing.Color.White;
+            this.btnPastaPDF.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
+            this.btnPastaPDF.ForeColor = System.Drawing.Color.White;
+            this.btnPastaPDF.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPastaPDF.IconPadding = 10;
+            this.btnPastaPDF.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPastaPDF.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnPastaPDF.IdleBorderRadius = 1;
+            this.btnPastaPDF.IdleBorderThickness = 0;
+            this.btnPastaPDF.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnPastaPDF.IdleIconLeftImage = null;
+            this.btnPastaPDF.IdleIconRightImage = null;
+            this.btnPastaPDF.Location = new System.Drawing.Point(12, 68);
+            this.btnPastaPDF.Name = "btnPastaPDF";
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties8.BorderRadius = 1;
+            stateProperties8.BorderThickness = 1;
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties8.IconLeftImage = null;
+            stateProperties8.IconRightImage = null;
+            this.btnPastaPDF.onHoverState = stateProperties8;
+            this.btnPastaPDF.Size = new System.Drawing.Size(218, 38);
+            this.btnPastaPDF.TabIndex = 21;
+            this.btnPastaPDF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPastaPDF.Click += new System.EventHandler(this.btnPastaPDF_Click_1);
+            // 
+            // btnPastaXML
+            // 
+            this.btnPastaXML.BackColor = System.Drawing.Color.Transparent;
+            this.btnPastaXML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPastaXML.BackgroundImage")));
+            this.btnPastaXML.ButtonText = "Pasta XML";
+            this.btnPastaXML.ButtonTextMarginLeft = 0;
+            this.btnPastaXML.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnPastaXML.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnPastaXML.DisabledForecolor = System.Drawing.Color.White;
+            this.btnPastaXML.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
+            this.btnPastaXML.ForeColor = System.Drawing.Color.White;
+            this.btnPastaXML.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPastaXML.IconPadding = 10;
+            this.btnPastaXML.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPastaXML.IdleBorderColor = System.Drawing.Color.DarkCyan;
+            this.btnPastaXML.IdleBorderRadius = 1;
+            this.btnPastaXML.IdleBorderThickness = 0;
+            this.btnPastaXML.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnPastaXML.IdleIconLeftImage = null;
+            this.btnPastaXML.IdleIconRightImage = null;
+            this.btnPastaXML.Location = new System.Drawing.Point(333, 68);
+            this.btnPastaXML.Name = "btnPastaXML";
+            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties9.BorderRadius = 1;
+            stateProperties9.BorderThickness = 1;
+            stateProperties9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties9.IconLeftImage = null;
+            stateProperties9.IconRightImage = null;
+            this.btnPastaXML.onHoverState = stateProperties9;
+            this.btnPastaXML.Size = new System.Drawing.Size(218, 38);
+            this.btnPastaXML.TabIndex = 20;
+            this.btnPastaXML.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPastaXML.Click += new System.EventHandler(this.btnPastaXML_Click_1);
+            // 
+            // btnSelecionarSaida
+            // 
+            this.btnSelecionarSaida.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelecionarSaida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelecionarSaida.BackgroundImage")));
+            this.btnSelecionarSaida.ButtonText = "Pasta Saída";
+            this.btnSelecionarSaida.ButtonTextMarginLeft = 0;
+            this.btnSelecionarSaida.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnSelecionarSaida.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnSelecionarSaida.DisabledForecolor = System.Drawing.Color.White;
+            this.btnSelecionarSaida.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarSaida.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionarSaida.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSelecionarSaida.IconPadding = 10;
+            this.btnSelecionarSaida.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSelecionarSaida.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSelecionarSaida.IdleBorderRadius = 1;
+            this.btnSelecionarSaida.IdleBorderThickness = 0;
+            this.btnSelecionarSaida.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSelecionarSaida.IdleIconLeftImage = null;
+            this.btnSelecionarSaida.IdleIconRightImage = null;
+            this.btnSelecionarSaida.Location = new System.Drawing.Point(650, 68);
+            this.btnSelecionarSaida.Name = "btnSelecionarSaida";
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties10.BorderRadius = 1;
+            stateProperties10.BorderThickness = 1;
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties10.IconLeftImage = null;
+            stateProperties10.IconRightImage = null;
+            this.btnSelecionarSaida.onHoverState = stateProperties10;
+            this.btnSelecionarSaida.Size = new System.Drawing.Size(218, 38);
+            this.btnSelecionarSaida.TabIndex = 19;
+            this.btnSelecionarSaida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSelecionarSaida.Click += new System.EventHandler(this.CarregaOnloadRenomear_Click);
+            // 
             // Page1
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.txtSaidaPadrao);
-            this.Controls.Add(this.btnSelecionarSaida);
-            this.Controls.Add(this.txtAtivado);
-            this.Controls.Add(this.bunifuCustomLabel5);
-            this.Controls.Add(this.bunifuCheckBox1);
-            this.Controls.Add(this.txtXmlPadrao);
-            this.Controls.Add(this.txtPdfPadrao);
-            this.Controls.Add(this.bunifuCustomLabel2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.btnPararVerificacao);
-            this.Controls.Add(this.listBoxImportado);
-            this.Controls.Add(this.listBoxXML);
-            this.Controls.Add(this.listBoxPDF);
-            this.Controls.Add(this.btnImportar);
-            this.Controls.Add(this.btnPastaXML);
-            this.Controls.Add(this.btnPastaPDF);
-            this.Controls.Add(this.bunifuCustomLabel3);
-            this.Controls.Add(this.bunifuCustomLabel4);
+            this.Controls.Add(this.bunifuGradientPanel1);
             this.Name = "Page1";
-            this.Size = new System.Drawing.Size(888, 535);
+            this.Size = new System.Drawing.Size(888, 563);
             this.Load += new System.EventHandler(this.Page1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.bunifuGradientPanel1.ResumeLayout(false);
+            this.bunifuGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -621,16 +661,11 @@ namespace XmlFinder
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton isPressedButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaPDF;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnPastaXML;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnImportar;
         private System.Windows.Forms.ListBox listBoxPDF;
         private System.Windows.Forms.ListBox listBoxXML;
         private System.Windows.Forms.ListBox listBoxImportado;
         private Bunifu.Framework.UI.BunifuFlatButton btnPararVerificacao;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuCustomLabel txtPdfPadrao;
@@ -638,7 +673,11 @@ namespace XmlFinder
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuCustomLabel txtAtivado;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnSelecionarSaida;
         private Bunifu.Framework.UI.BunifuCustomLabel txtSaidaPadrao;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSelecionarSaida;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPastaPDF;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPastaXML;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnImportar;
     }
 }

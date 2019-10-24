@@ -30,81 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VirtualScannerConfigIniForm));
-            Bunifu.ToggleSwitch.ToggleState toggleState46 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState47 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState48 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState49 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState50 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState51 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.ToggleSwitch.ToggleState toggleState52 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState53 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState54 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.ToggleSwitch.ToggleState toggleState55 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState56 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState57 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState58 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState59 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.ToggleSwitch.ToggleState toggleState60 = new Bunifu.ToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.ToggleSwitch.ToggleState toggleState1 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState2 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState3 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState4 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState5 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState6 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.ToggleSwitch.ToggleState toggleState7 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState8 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState9 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.ToggleSwitch.ToggleState toggleState10 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState11 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState12 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState13 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState14 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.ToggleSwitch.ToggleState toggleState15 = new Bunifu.ToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuGradientPanel2 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.isBarcodeReader = new Bunifu.ToggleSwitch.BunifuToggleSwitch();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.parametro10LabelA = new System.Windows.Forms.Label();
-            this.Parametro10BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro10BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro10Text = new System.Windows.Forms.Label();
-            this.parametro9LabelA = new System.Windows.Forms.Label();
-            this.Parametro9BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro9BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro9Text = new System.Windows.Forms.Label();
-            this.parametro8LabelA = new System.Windows.Forms.Label();
-            this.Parametro8BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro8BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro8Text = new System.Windows.Forms.Label();
-            this.parametro7LabelA = new System.Windows.Forms.Label();
-            this.Parametro7BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro7BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro7Text = new System.Windows.Forms.Label();
-            this.parametro6LabelA = new System.Windows.Forms.Label();
-            this.Parametro6BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro6BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro6Text = new System.Windows.Forms.Label();
-            this.parametro5LabelA = new System.Windows.Forms.Label();
-            this.Parametro5BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro5BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro5Text = new System.Windows.Forms.Label();
-            this.parametro4LabelA = new System.Windows.Forms.Label();
-            this.Parametro4BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro4BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro4Text = new System.Windows.Forms.Label();
-            this.parametro3LabelA = new System.Windows.Forms.Label();
-            this.Parametro3BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro3BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro3Text = new System.Windows.Forms.Label();
-            this.parametro2LabelA = new System.Windows.Forms.Label();
-            this.Parametro2BoxExtensao = new System.Windows.Forms.TextBox();
-            this.Parametro2BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro2Text = new System.Windows.Forms.Label();
-            this.labelExtensao = new System.Windows.Forms.Label();
-            this.parametro1LabelA = new System.Windows.Forms.Label();
-            this.Parametro1BoxExtensao = new System.Windows.Forms.TextBox();
-            this.labelInicio = new System.Windows.Forms.Label();
-            this.Parametro1BoxInicio = new System.Windows.Forms.TextBox();
-            this.parametro1Text = new System.Windows.Forms.Label();
             this.isParameter = new System.Windows.Forms.Label();
             this.isParameterReader = new Bunifu.ToggleSwitch.BunifuToggleSwitch();
-            this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -180,55 +134,10 @@
             this.bunifuGradientPanel2.Controls.Add(this.isBarcodeReader);
             this.bunifuGradientPanel2.Controls.Add(this.textBox9);
             this.bunifuGradientPanel2.Controls.Add(this.label15);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro10LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro10BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro10BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro10Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro9LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro9BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro9BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro9Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro8LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro8BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro8BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro8Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro7LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro7BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro7BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro7Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro6LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro6BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro6BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro6Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro5LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro5BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro5BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro5Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro4LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro4BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro4BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro4Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro3LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro3BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro3BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro3Text);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro2LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro2BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro2BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro2Text);
-            this.bunifuGradientPanel2.Controls.Add(this.labelExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro1LabelA);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro1BoxExtensao);
-            this.bunifuGradientPanel2.Controls.Add(this.labelInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.Parametro1BoxInicio);
-            this.bunifuGradientPanel2.Controls.Add(this.parametro1Text);
             this.bunifuGradientPanel2.Controls.Add(this.isParameter);
             this.bunifuGradientPanel2.Controls.Add(this.isParameterReader);
-            this.bunifuGradientPanel2.Controls.Add(this.bunifuButton1);
-            this.bunifuGradientPanel2.Controls.Add(this.textBox8);
             this.bunifuGradientPanel2.Controls.Add(this.textBox7);
             this.bunifuGradientPanel2.Controls.Add(this.textBox6);
-            this.bunifuGradientPanel2.Controls.Add(this.label16);
             this.bunifuGradientPanel2.Controls.Add(this.label14);
             this.bunifuGradientPanel2.Controls.Add(this.label2);
             this.bunifuGradientPanel2.Controls.Add(this.label8);
@@ -265,33 +174,33 @@
             this.isBarcodeReader.Name = "isBarcodeReader";
             this.isBarcodeReader.Size = new System.Drawing.Size(35, 20);
             this.isBarcodeReader.TabIndex = 27;
-            toggleState46.BackColor = System.Drawing.Color.Empty;
-            toggleState46.BackColorInner = System.Drawing.Color.Empty;
-            toggleState46.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
-            toggleState46.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState46.BorderRadius = 1;
-            toggleState46.BorderRadiusInner = 1;
-            toggleState46.BorderThickness = 1;
-            toggleState46.BorderThicknessInner = 1;
-            this.isBarcodeReader.ToggleStateDisabled = toggleState46;
-            toggleState47.BackColor = System.Drawing.Color.Gray;
-            toggleState47.BackColorInner = System.Drawing.Color.White;
-            toggleState47.BorderColor = System.Drawing.Color.Gray;
-            toggleState47.BorderColorInner = System.Drawing.Color.White;
-            toggleState47.BorderRadius = 17;
-            toggleState47.BorderRadiusInner = 15;
-            toggleState47.BorderThickness = 1;
-            toggleState47.BorderThicknessInner = 1;
-            this.isBarcodeReader.ToggleStateOff = toggleState47;
-            toggleState48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState48.BackColorInner = System.Drawing.Color.White;
-            toggleState48.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState48.BorderColorInner = System.Drawing.Color.White;
-            toggleState48.BorderRadius = 17;
-            toggleState48.BorderRadiusInner = 15;
-            toggleState48.BorderThickness = 1;
-            toggleState48.BorderThicknessInner = 1;
-            this.isBarcodeReader.ToggleStateOn = toggleState48;
+            toggleState1.BackColor = System.Drawing.Color.Empty;
+            toggleState1.BackColorInner = System.Drawing.Color.Empty;
+            toggleState1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState1.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState1.BorderRadius = 1;
+            toggleState1.BorderRadiusInner = 1;
+            toggleState1.BorderThickness = 1;
+            toggleState1.BorderThicknessInner = 1;
+            this.isBarcodeReader.ToggleStateDisabled = toggleState1;
+            toggleState2.BackColor = System.Drawing.Color.Gray;
+            toggleState2.BackColorInner = System.Drawing.Color.White;
+            toggleState2.BorderColor = System.Drawing.Color.Gray;
+            toggleState2.BorderColorInner = System.Drawing.Color.White;
+            toggleState2.BorderRadius = 17;
+            toggleState2.BorderRadiusInner = 15;
+            toggleState2.BorderThickness = 1;
+            toggleState2.BorderThicknessInner = 1;
+            this.isBarcodeReader.ToggleStateOff = toggleState2;
+            toggleState3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState3.BackColorInner = System.Drawing.Color.White;
+            toggleState3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState3.BorderColorInner = System.Drawing.Color.White;
+            toggleState3.BorderRadius = 17;
+            toggleState3.BorderRadiusInner = 15;
+            toggleState3.BorderThickness = 1;
+            toggleState3.BorderThicknessInner = 1;
+            this.isBarcodeReader.ToggleStateOn = toggleState3;
             this.isBarcodeReader.Value = false;
             this.isBarcodeReader.OnValuechange += new System.EventHandler(this.isBarcodeReader_OnValuechange);
             // 
@@ -313,410 +222,6 @@
             this.label15.Size = new System.Drawing.Size(120, 19);
             this.label15.TabIndex = 66;
             this.label15.Text = "Página do Código";
-            // 
-            // parametro10LabelA
-            // 
-            this.parametro10LabelA.AutoSize = true;
-            this.parametro10LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro10LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro10LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro10LabelA.Location = new System.Drawing.Point(173, 527);
-            this.parametro10LabelA.Name = "parametro10LabelA";
-            this.parametro10LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro10LabelA.TabIndex = 65;
-            this.parametro10LabelA.Text = "à";
-            // 
-            // Parametro10BoxExtensao
-            // 
-            this.Parametro10BoxExtensao.Location = new System.Drawing.Point(196, 526);
-            this.Parametro10BoxExtensao.Name = "Parametro10BoxExtensao";
-            this.Parametro10BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro10BoxExtensao.TabIndex = 64;
-            // 
-            // Parametro10BoxInicio
-            // 
-            this.Parametro10BoxInicio.Location = new System.Drawing.Point(121, 526);
-            this.Parametro10BoxInicio.Name = "Parametro10BoxInicio";
-            this.Parametro10BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro10BoxInicio.TabIndex = 63;
-            // 
-            // parametro10Text
-            // 
-            this.parametro10Text.AutoSize = true;
-            this.parametro10Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro10Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro10Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro10Text.Location = new System.Drawing.Point(32, 526);
-            this.parametro10Text.Name = "parametro10Text";
-            this.parametro10Text.Size = new System.Drawing.Size(91, 19);
-            this.parametro10Text.TabIndex = 62;
-            this.parametro10Text.Text = "Parametro 10";
-            // 
-            // parametro9LabelA
-            // 
-            this.parametro9LabelA.AutoSize = true;
-            this.parametro9LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro9LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro9LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro9LabelA.Location = new System.Drawing.Point(173, 495);
-            this.parametro9LabelA.Name = "parametro9LabelA";
-            this.parametro9LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro9LabelA.TabIndex = 61;
-            this.parametro9LabelA.Text = "à";
-            // 
-            // Parametro9BoxExtensao
-            // 
-            this.Parametro9BoxExtensao.Location = new System.Drawing.Point(196, 494);
-            this.Parametro9BoxExtensao.Name = "Parametro9BoxExtensao";
-            this.Parametro9BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro9BoxExtensao.TabIndex = 60;
-            // 
-            // Parametro9BoxInicio
-            // 
-            this.Parametro9BoxInicio.Location = new System.Drawing.Point(121, 494);
-            this.Parametro9BoxInicio.Name = "Parametro9BoxInicio";
-            this.Parametro9BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro9BoxInicio.TabIndex = 59;
-            // 
-            // parametro9Text
-            // 
-            this.parametro9Text.AutoSize = true;
-            this.parametro9Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro9Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro9Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro9Text.Location = new System.Drawing.Point(32, 494);
-            this.parametro9Text.Name = "parametro9Text";
-            this.parametro9Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro9Text.TabIndex = 58;
-            this.parametro9Text.Text = "Parametro 9";
-            // 
-            // parametro8LabelA
-            // 
-            this.parametro8LabelA.AutoSize = true;
-            this.parametro8LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro8LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro8LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro8LabelA.Location = new System.Drawing.Point(173, 466);
-            this.parametro8LabelA.Name = "parametro8LabelA";
-            this.parametro8LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro8LabelA.TabIndex = 57;
-            this.parametro8LabelA.Text = "à";
-            // 
-            // Parametro8BoxExtensao
-            // 
-            this.Parametro8BoxExtensao.Location = new System.Drawing.Point(196, 465);
-            this.Parametro8BoxExtensao.Name = "Parametro8BoxExtensao";
-            this.Parametro8BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro8BoxExtensao.TabIndex = 56;
-            // 
-            // Parametro8BoxInicio
-            // 
-            this.Parametro8BoxInicio.Location = new System.Drawing.Point(121, 465);
-            this.Parametro8BoxInicio.Name = "Parametro8BoxInicio";
-            this.Parametro8BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro8BoxInicio.TabIndex = 55;
-            // 
-            // parametro8Text
-            // 
-            this.parametro8Text.AutoSize = true;
-            this.parametro8Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro8Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro8Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro8Text.Location = new System.Drawing.Point(32, 465);
-            this.parametro8Text.Name = "parametro8Text";
-            this.parametro8Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro8Text.TabIndex = 54;
-            this.parametro8Text.Text = "Parametro 8";
-            // 
-            // parametro7LabelA
-            // 
-            this.parametro7LabelA.AutoSize = true;
-            this.parametro7LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro7LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro7LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro7LabelA.Location = new System.Drawing.Point(173, 434);
-            this.parametro7LabelA.Name = "parametro7LabelA";
-            this.parametro7LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro7LabelA.TabIndex = 53;
-            this.parametro7LabelA.Text = "à";
-            // 
-            // Parametro7BoxExtensao
-            // 
-            this.Parametro7BoxExtensao.Location = new System.Drawing.Point(196, 433);
-            this.Parametro7BoxExtensao.Name = "Parametro7BoxExtensao";
-            this.Parametro7BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro7BoxExtensao.TabIndex = 52;
-            // 
-            // Parametro7BoxInicio
-            // 
-            this.Parametro7BoxInicio.Location = new System.Drawing.Point(121, 433);
-            this.Parametro7BoxInicio.Name = "Parametro7BoxInicio";
-            this.Parametro7BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro7BoxInicio.TabIndex = 51;
-            // 
-            // parametro7Text
-            // 
-            this.parametro7Text.AutoSize = true;
-            this.parametro7Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro7Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro7Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro7Text.Location = new System.Drawing.Point(32, 433);
-            this.parametro7Text.Name = "parametro7Text";
-            this.parametro7Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro7Text.TabIndex = 50;
-            this.parametro7Text.Text = "Parametro 7";
-            // 
-            // parametro6LabelA
-            // 
-            this.parametro6LabelA.AutoSize = true;
-            this.parametro6LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro6LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro6LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro6LabelA.Location = new System.Drawing.Point(173, 405);
-            this.parametro6LabelA.Name = "parametro6LabelA";
-            this.parametro6LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro6LabelA.TabIndex = 49;
-            this.parametro6LabelA.Text = "à";
-            // 
-            // Parametro6BoxExtensao
-            // 
-            this.Parametro6BoxExtensao.Location = new System.Drawing.Point(196, 404);
-            this.Parametro6BoxExtensao.Name = "Parametro6BoxExtensao";
-            this.Parametro6BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro6BoxExtensao.TabIndex = 48;
-            // 
-            // Parametro6BoxInicio
-            // 
-            this.Parametro6BoxInicio.Location = new System.Drawing.Point(121, 404);
-            this.Parametro6BoxInicio.Name = "Parametro6BoxInicio";
-            this.Parametro6BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro6BoxInicio.TabIndex = 47;
-            // 
-            // parametro6Text
-            // 
-            this.parametro6Text.AutoSize = true;
-            this.parametro6Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro6Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro6Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro6Text.Location = new System.Drawing.Point(32, 404);
-            this.parametro6Text.Name = "parametro6Text";
-            this.parametro6Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro6Text.TabIndex = 46;
-            this.parametro6Text.Text = "Parametro 6";
-            // 
-            // parametro5LabelA
-            // 
-            this.parametro5LabelA.AutoSize = true;
-            this.parametro5LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro5LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro5LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro5LabelA.Location = new System.Drawing.Point(173, 376);
-            this.parametro5LabelA.Name = "parametro5LabelA";
-            this.parametro5LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro5LabelA.TabIndex = 45;
-            this.parametro5LabelA.Text = "à";
-            // 
-            // Parametro5BoxExtensao
-            // 
-            this.Parametro5BoxExtensao.Location = new System.Drawing.Point(196, 375);
-            this.Parametro5BoxExtensao.Name = "Parametro5BoxExtensao";
-            this.Parametro5BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro5BoxExtensao.TabIndex = 44;
-            // 
-            // Parametro5BoxInicio
-            // 
-            this.Parametro5BoxInicio.Location = new System.Drawing.Point(121, 375);
-            this.Parametro5BoxInicio.Name = "Parametro5BoxInicio";
-            this.Parametro5BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro5BoxInicio.TabIndex = 43;
-            // 
-            // parametro5Text
-            // 
-            this.parametro5Text.AutoSize = true;
-            this.parametro5Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro5Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro5Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro5Text.Location = new System.Drawing.Point(32, 375);
-            this.parametro5Text.Name = "parametro5Text";
-            this.parametro5Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro5Text.TabIndex = 42;
-            this.parametro5Text.Text = "Parametro 5";
-            // 
-            // parametro4LabelA
-            // 
-            this.parametro4LabelA.AutoSize = true;
-            this.parametro4LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro4LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro4LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro4LabelA.Location = new System.Drawing.Point(173, 347);
-            this.parametro4LabelA.Name = "parametro4LabelA";
-            this.parametro4LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro4LabelA.TabIndex = 41;
-            this.parametro4LabelA.Text = "à";
-            // 
-            // Parametro4BoxExtensao
-            // 
-            this.Parametro4BoxExtensao.Location = new System.Drawing.Point(196, 346);
-            this.Parametro4BoxExtensao.Name = "Parametro4BoxExtensao";
-            this.Parametro4BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro4BoxExtensao.TabIndex = 40;
-            // 
-            // Parametro4BoxInicio
-            // 
-            this.Parametro4BoxInicio.Location = new System.Drawing.Point(121, 346);
-            this.Parametro4BoxInicio.Name = "Parametro4BoxInicio";
-            this.Parametro4BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro4BoxInicio.TabIndex = 39;
-            // 
-            // parametro4Text
-            // 
-            this.parametro4Text.AutoSize = true;
-            this.parametro4Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro4Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro4Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro4Text.Location = new System.Drawing.Point(32, 346);
-            this.parametro4Text.Name = "parametro4Text";
-            this.parametro4Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro4Text.TabIndex = 38;
-            this.parametro4Text.Text = "Parametro 4";
-            // 
-            // parametro3LabelA
-            // 
-            this.parametro3LabelA.AutoSize = true;
-            this.parametro3LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro3LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro3LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro3LabelA.Location = new System.Drawing.Point(173, 317);
-            this.parametro3LabelA.Name = "parametro3LabelA";
-            this.parametro3LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro3LabelA.TabIndex = 37;
-            this.parametro3LabelA.Text = "à";
-            // 
-            // Parametro3BoxExtensao
-            // 
-            this.Parametro3BoxExtensao.Location = new System.Drawing.Point(196, 316);
-            this.Parametro3BoxExtensao.Name = "Parametro3BoxExtensao";
-            this.Parametro3BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro3BoxExtensao.TabIndex = 36;
-            // 
-            // Parametro3BoxInicio
-            // 
-            this.Parametro3BoxInicio.Location = new System.Drawing.Point(121, 316);
-            this.Parametro3BoxInicio.Name = "Parametro3BoxInicio";
-            this.Parametro3BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro3BoxInicio.TabIndex = 35;
-            // 
-            // parametro3Text
-            // 
-            this.parametro3Text.AutoSize = true;
-            this.parametro3Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro3Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro3Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro3Text.Location = new System.Drawing.Point(32, 316);
-            this.parametro3Text.Name = "parametro3Text";
-            this.parametro3Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro3Text.TabIndex = 34;
-            this.parametro3Text.Text = "Parametro 3";
-            // 
-            // parametro2LabelA
-            // 
-            this.parametro2LabelA.AutoSize = true;
-            this.parametro2LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro2LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro2LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro2LabelA.Location = new System.Drawing.Point(173, 287);
-            this.parametro2LabelA.Name = "parametro2LabelA";
-            this.parametro2LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro2LabelA.TabIndex = 33;
-            this.parametro2LabelA.Text = "à";
-            // 
-            // Parametro2BoxExtensao
-            // 
-            this.Parametro2BoxExtensao.Location = new System.Drawing.Point(196, 286);
-            this.Parametro2BoxExtensao.Name = "Parametro2BoxExtensao";
-            this.Parametro2BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro2BoxExtensao.TabIndex = 32;
-            // 
-            // Parametro2BoxInicio
-            // 
-            this.Parametro2BoxInicio.Location = new System.Drawing.Point(121, 286);
-            this.Parametro2BoxInicio.Name = "Parametro2BoxInicio";
-            this.Parametro2BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro2BoxInicio.TabIndex = 31;
-            // 
-            // parametro2Text
-            // 
-            this.parametro2Text.AutoSize = true;
-            this.parametro2Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro2Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro2Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro2Text.Location = new System.Drawing.Point(32, 286);
-            this.parametro2Text.Name = "parametro2Text";
-            this.parametro2Text.Size = new System.Drawing.Size(85, 19);
-            this.parametro2Text.TabIndex = 30;
-            this.parametro2Text.Text = "Parametro 2";
-            // 
-            // labelExtensao
-            // 
-            this.labelExtensao.AutoSize = true;
-            this.labelExtensao.BackColor = System.Drawing.Color.Transparent;
-            this.labelExtensao.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.labelExtensao.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelExtensao.Location = new System.Drawing.Point(192, 235);
-            this.labelExtensao.Name = "labelExtensao";
-            this.labelExtensao.Size = new System.Drawing.Size(64, 19);
-            this.labelExtensao.TabIndex = 29;
-            this.labelExtensao.Text = "Extensão";
-            // 
-            // parametro1LabelA
-            // 
-            this.parametro1LabelA.AutoSize = true;
-            this.parametro1LabelA.BackColor = System.Drawing.Color.Transparent;
-            this.parametro1LabelA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro1LabelA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro1LabelA.Location = new System.Drawing.Point(173, 258);
-            this.parametro1LabelA.Name = "parametro1LabelA";
-            this.parametro1LabelA.Size = new System.Drawing.Size(16, 19);
-            this.parametro1LabelA.TabIndex = 28;
-            this.parametro1LabelA.Text = "à";
-            // 
-            // Parametro1BoxExtensao
-            // 
-            this.Parametro1BoxExtensao.Location = new System.Drawing.Point(196, 257);
-            this.Parametro1BoxExtensao.Name = "Parametro1BoxExtensao";
-            this.Parametro1BoxExtensao.Size = new System.Drawing.Size(46, 20);
-            this.Parametro1BoxExtensao.TabIndex = 27;
-            // 
-            // labelInicio
-            // 
-            this.labelInicio.AutoSize = true;
-            this.labelInicio.BackColor = System.Drawing.Color.Transparent;
-            this.labelInicio.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.labelInicio.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelInicio.Location = new System.Drawing.Point(123, 235);
-            this.labelInicio.Name = "labelInicio";
-            this.labelInicio.Size = new System.Drawing.Size(44, 19);
-            this.labelInicio.TabIndex = 26;
-            this.labelInicio.Text = "Início";
-            // 
-            // Parametro1BoxInicio
-            // 
-            this.Parametro1BoxInicio.Location = new System.Drawing.Point(121, 257);
-            this.Parametro1BoxInicio.Name = "Parametro1BoxInicio";
-            this.Parametro1BoxInicio.Size = new System.Drawing.Size(46, 20);
-            this.Parametro1BoxInicio.TabIndex = 23;
-            // 
-            // parametro1Text
-            // 
-            this.parametro1Text.AutoSize = true;
-            this.parametro1Text.BackColor = System.Drawing.Color.Transparent;
-            this.parametro1Text.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.parametro1Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.parametro1Text.Location = new System.Drawing.Point(32, 257);
-            this.parametro1Text.Name = "parametro1Text";
-            this.parametro1Text.Size = new System.Drawing.Size(83, 19);
-            this.parametro1Text.TabIndex = 22;
-            this.parametro1Text.Text = "Parametro 1";
             // 
             // isParameter
             // 
@@ -740,73 +245,35 @@
             this.isParameterReader.Name = "isParameterReader";
             this.isParameterReader.Size = new System.Drawing.Size(35, 20);
             this.isParameterReader.TabIndex = 20;
-            toggleState49.BackColor = System.Drawing.Color.Empty;
-            toggleState49.BackColorInner = System.Drawing.Color.Empty;
-            toggleState49.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
-            toggleState49.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState49.BorderRadius = 1;
-            toggleState49.BorderRadiusInner = 1;
-            toggleState49.BorderThickness = 1;
-            toggleState49.BorderThicknessInner = 1;
-            this.isParameterReader.ToggleStateDisabled = toggleState49;
-            toggleState50.BackColor = System.Drawing.Color.Gray;
-            toggleState50.BackColorInner = System.Drawing.Color.White;
-            toggleState50.BorderColor = System.Drawing.Color.Gray;
-            toggleState50.BorderColorInner = System.Drawing.Color.White;
-            toggleState50.BorderRadius = 17;
-            toggleState50.BorderRadiusInner = 15;
-            toggleState50.BorderThickness = 1;
-            toggleState50.BorderThicknessInner = 1;
-            this.isParameterReader.ToggleStateOff = toggleState50;
-            toggleState51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState51.BackColorInner = System.Drawing.Color.White;
-            toggleState51.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState51.BorderColorInner = System.Drawing.Color.White;
-            toggleState51.BorderRadius = 17;
-            toggleState51.BorderRadiusInner = 15;
-            toggleState51.BorderThickness = 1;
-            toggleState51.BorderThicknessInner = 1;
-            this.isParameterReader.ToggleStateOn = toggleState51;
+            toggleState4.BackColor = System.Drawing.Color.Empty;
+            toggleState4.BackColorInner = System.Drawing.Color.Empty;
+            toggleState4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState4.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState4.BorderRadius = 1;
+            toggleState4.BorderRadiusInner = 1;
+            toggleState4.BorderThickness = 1;
+            toggleState4.BorderThicknessInner = 1;
+            this.isParameterReader.ToggleStateDisabled = toggleState4;
+            toggleState5.BackColor = System.Drawing.Color.Gray;
+            toggleState5.BackColorInner = System.Drawing.Color.White;
+            toggleState5.BorderColor = System.Drawing.Color.Gray;
+            toggleState5.BorderColorInner = System.Drawing.Color.White;
+            toggleState5.BorderRadius = 17;
+            toggleState5.BorderRadiusInner = 15;
+            toggleState5.BorderThickness = 1;
+            toggleState5.BorderThicknessInner = 1;
+            this.isParameterReader.ToggleStateOff = toggleState5;
+            toggleState6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState6.BackColorInner = System.Drawing.Color.White;
+            toggleState6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState6.BorderColorInner = System.Drawing.Color.White;
+            toggleState6.BorderRadius = 17;
+            toggleState6.BorderRadiusInner = 15;
+            toggleState6.BorderThickness = 1;
+            toggleState6.BorderThicknessInner = 1;
+            this.isParameterReader.ToggleStateOn = toggleState6;
             this.isParameterReader.Value = false;
-            // 
-            // bunifuButton1
-            // 
-            this.bunifuButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.BackgroundImage")));
-            this.bunifuButton1.ButtonText = "OK";
-            this.bunifuButton1.ButtonTextMarginLeft = 0;
-            this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuButton1.DisabledFillColor = System.Drawing.Color.Gray;
-            this.bunifuButton1.DisabledForecolor = System.Drawing.Color.White;
-            this.bunifuButton1.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton1.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton1.IconPadding = 10;
-            this.bunifuButton1.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton1.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.bunifuButton1.IdleBorderRadius = 1;
-            this.bunifuButton1.IdleBorderThickness = 0;
-            this.bunifuButton1.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.bunifuButton1.IdleIconLeftImage = null;
-            this.bunifuButton1.IdleIconRightImage = null;
-            this.bunifuButton1.Location = new System.Drawing.Point(237, 212);
-            this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties19.BorderRadius = 1;
-            stateProperties19.BorderThickness = 1;
-            stateProperties19.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties19.IconLeftImage = null;
-            stateProperties19.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties19;
-            this.bunifuButton1.Size = new System.Drawing.Size(37, 19);
-            this.bunifuButton1.TabIndex = 17;
-            this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(169, 212);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(53, 20);
-            this.textBox8.TabIndex = 16;
+            this.isParameterReader.OnValuechange += new System.EventHandler(this.isParameterReader_OnValuechange);
             // 
             // textBox7
             // 
@@ -821,18 +288,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(53, 20);
             this.textBox6.TabIndex = 14;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(12, 212);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(112, 19);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Posições (1 à 10)";
             // 
             // label14
             // 
@@ -857,6 +312,7 @@
             this.label2.Size = new System.Drawing.Size(227, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Configuração de Barcode";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label8
             // 
@@ -997,13 +453,13 @@
             this.certiciadoButton.IdleIconRightImage = null;
             this.certiciadoButton.Location = new System.Drawing.Point(128, 328);
             this.certiciadoButton.Name = "certiciadoButton";
-            stateProperties20.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties20.BorderRadius = 1;
-            stateProperties20.BorderThickness = 1;
-            stateProperties20.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties20.IconLeftImage = null;
-            stateProperties20.IconRightImage = null;
-            this.certiciadoButton.onHoverState = stateProperties20;
+            stateProperties1.BorderColor = System.Drawing.Color.DarkViolet;
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.DarkViolet;
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = null;
+            this.certiciadoButton.onHoverState = stateProperties1;
             this.certiciadoButton.Size = new System.Drawing.Size(128, 23);
             this.certiciadoButton.TabIndex = 78;
             this.certiciadoButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1233,33 +689,33 @@
             this.IsSignatureSwitch.Name = "IsSignatureSwitch";
             this.IsSignatureSwitch.Size = new System.Drawing.Size(35, 20);
             this.IsSignatureSwitch.TabIndex = 14;
-            toggleState52.BackColor = System.Drawing.Color.Empty;
-            toggleState52.BackColorInner = System.Drawing.Color.Empty;
-            toggleState52.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
-            toggleState52.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState52.BorderRadius = 1;
-            toggleState52.BorderRadiusInner = 1;
-            toggleState52.BorderThickness = 1;
-            toggleState52.BorderThicknessInner = 1;
-            this.IsSignatureSwitch.ToggleStateDisabled = toggleState52;
-            toggleState53.BackColor = System.Drawing.Color.Gray;
-            toggleState53.BackColorInner = System.Drawing.Color.White;
-            toggleState53.BorderColor = System.Drawing.Color.Gray;
-            toggleState53.BorderColorInner = System.Drawing.Color.White;
-            toggleState53.BorderRadius = 17;
-            toggleState53.BorderRadiusInner = 15;
-            toggleState53.BorderThickness = 1;
-            toggleState53.BorderThicknessInner = 1;
-            this.IsSignatureSwitch.ToggleStateOff = toggleState53;
-            toggleState54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState54.BackColorInner = System.Drawing.Color.White;
-            toggleState54.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState54.BorderColorInner = System.Drawing.Color.White;
-            toggleState54.BorderRadius = 17;
-            toggleState54.BorderRadiusInner = 15;
-            toggleState54.BorderThickness = 1;
-            toggleState54.BorderThicknessInner = 1;
-            this.IsSignatureSwitch.ToggleStateOn = toggleState54;
+            toggleState7.BackColor = System.Drawing.Color.Empty;
+            toggleState7.BackColorInner = System.Drawing.Color.Empty;
+            toggleState7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState7.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState7.BorderRadius = 1;
+            toggleState7.BorderRadiusInner = 1;
+            toggleState7.BorderThickness = 1;
+            toggleState7.BorderThicknessInner = 1;
+            this.IsSignatureSwitch.ToggleStateDisabled = toggleState7;
+            toggleState8.BackColor = System.Drawing.Color.Gray;
+            toggleState8.BackColorInner = System.Drawing.Color.White;
+            toggleState8.BorderColor = System.Drawing.Color.Gray;
+            toggleState8.BorderColorInner = System.Drawing.Color.White;
+            toggleState8.BorderRadius = 17;
+            toggleState8.BorderRadiusInner = 15;
+            toggleState8.BorderThickness = 1;
+            toggleState8.BorderThicknessInner = 1;
+            this.IsSignatureSwitch.ToggleStateOff = toggleState8;
+            toggleState9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState9.BackColorInner = System.Drawing.Color.White;
+            toggleState9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState9.BorderColorInner = System.Drawing.Color.White;
+            toggleState9.BorderRadius = 17;
+            toggleState9.BorderRadiusInner = 15;
+            toggleState9.BorderThickness = 1;
+            toggleState9.BorderThicknessInner = 1;
+            this.IsSignatureSwitch.ToggleStateOn = toggleState9;
             this.IsSignatureSwitch.Value = false;
             this.IsSignatureSwitch.OnValuechange += new System.EventHandler(this.IsSignatureSwitch_OnValuechange);
             // 
@@ -1296,13 +752,13 @@
             this.bunifuButton5.IdleIconRightImage = null;
             this.bunifuButton5.Location = new System.Drawing.Point(164, 516);
             this.bunifuButton5.Name = "bunifuButton5";
-            stateProperties21.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties21.BorderRadius = 1;
-            stateProperties21.BorderThickness = 1;
-            stateProperties21.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties21.IconLeftImage = null;
-            stateProperties21.IconRightImage = null;
-            this.bunifuButton5.onHoverState = stateProperties21;
+            stateProperties2.BorderColor = System.Drawing.Color.DarkViolet;
+            stateProperties2.BorderRadius = 1;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.DarkViolet;
+            stateProperties2.IconLeftImage = null;
+            stateProperties2.IconRightImage = null;
+            this.bunifuButton5.onHoverState = stateProperties2;
             this.bunifuButton5.Size = new System.Drawing.Size(108, 32);
             this.bunifuButton5.TabIndex = 19;
             this.bunifuButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1328,13 +784,13 @@
             this.bunifuButton4.IdleIconRightImage = null;
             this.bunifuButton4.Location = new System.Drawing.Point(25, 476);
             this.bunifuButton4.Name = "bunifuButton4";
-            stateProperties22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties22.BorderRadius = 1;
-            stateProperties22.BorderThickness = 1;
-            stateProperties22.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties22.IconLeftImage = null;
-            stateProperties22.IconRightImage = null;
-            this.bunifuButton4.onHoverState = stateProperties22;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.BorderRadius = 1;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconRightImage = null;
+            this.bunifuButton4.onHoverState = stateProperties3;
             this.bunifuButton4.Size = new System.Drawing.Size(247, 32);
             this.bunifuButton4.TabIndex = 18;
             this.bunifuButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1362,33 +818,33 @@
             this.isWaterMark.Name = "isWaterMark";
             this.isWaterMark.Size = new System.Drawing.Size(35, 20);
             this.isWaterMark.TabIndex = 16;
-            toggleState55.BackColor = System.Drawing.Color.Empty;
-            toggleState55.BackColorInner = System.Drawing.Color.Empty;
-            toggleState55.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
-            toggleState55.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState55.BorderRadius = 1;
-            toggleState55.BorderRadiusInner = 1;
-            toggleState55.BorderThickness = 1;
-            toggleState55.BorderThicknessInner = 1;
-            this.isWaterMark.ToggleStateDisabled = toggleState55;
-            toggleState56.BackColor = System.Drawing.Color.Gray;
-            toggleState56.BackColorInner = System.Drawing.Color.White;
-            toggleState56.BorderColor = System.Drawing.Color.Gray;
-            toggleState56.BorderColorInner = System.Drawing.Color.White;
-            toggleState56.BorderRadius = 17;
-            toggleState56.BorderRadiusInner = 15;
-            toggleState56.BorderThickness = 1;
-            toggleState56.BorderThicknessInner = 1;
-            this.isWaterMark.ToggleStateOff = toggleState56;
-            toggleState57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState57.BackColorInner = System.Drawing.Color.White;
-            toggleState57.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState57.BorderColorInner = System.Drawing.Color.White;
-            toggleState57.BorderRadius = 17;
-            toggleState57.BorderRadiusInner = 15;
-            toggleState57.BorderThickness = 1;
-            toggleState57.BorderThicknessInner = 1;
-            this.isWaterMark.ToggleStateOn = toggleState57;
+            toggleState10.BackColor = System.Drawing.Color.Empty;
+            toggleState10.BackColorInner = System.Drawing.Color.Empty;
+            toggleState10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState10.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState10.BorderRadius = 1;
+            toggleState10.BorderRadiusInner = 1;
+            toggleState10.BorderThickness = 1;
+            toggleState10.BorderThicknessInner = 1;
+            this.isWaterMark.ToggleStateDisabled = toggleState10;
+            toggleState11.BackColor = System.Drawing.Color.Gray;
+            toggleState11.BackColorInner = System.Drawing.Color.White;
+            toggleState11.BorderColor = System.Drawing.Color.Gray;
+            toggleState11.BorderColorInner = System.Drawing.Color.White;
+            toggleState11.BorderRadius = 17;
+            toggleState11.BorderRadiusInner = 15;
+            toggleState11.BorderThickness = 1;
+            toggleState11.BorderThicknessInner = 1;
+            this.isWaterMark.ToggleStateOff = toggleState11;
+            toggleState12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState12.BackColorInner = System.Drawing.Color.White;
+            toggleState12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState12.BorderColorInner = System.Drawing.Color.White;
+            toggleState12.BorderRadius = 17;
+            toggleState12.BorderRadiusInner = 15;
+            toggleState12.BorderThickness = 1;
+            toggleState12.BorderThicknessInner = 1;
+            this.isWaterMark.ToggleStateOn = toggleState12;
             this.isWaterMark.Value = false;
             this.isWaterMark.OnValuechange += new System.EventHandler(this.isWaterMark_OnValuechange);
             // 
@@ -1398,7 +854,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(53, 10);
+            this.label1.Location = new System.Drawing.Point(33, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 25);
             this.label1.TabIndex = 0;
@@ -1426,33 +882,33 @@
             this.isCutter.Name = "isCutter";
             this.isCutter.Size = new System.Drawing.Size(35, 20);
             this.isCutter.TabIndex = 7;
-            toggleState58.BackColor = System.Drawing.Color.Empty;
-            toggleState58.BackColorInner = System.Drawing.Color.Empty;
-            toggleState58.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
-            toggleState58.BorderColorInner = System.Drawing.Color.Empty;
-            toggleState58.BorderRadius = 1;
-            toggleState58.BorderRadiusInner = 1;
-            toggleState58.BorderThickness = 1;
-            toggleState58.BorderThicknessInner = 1;
-            this.isCutter.ToggleStateDisabled = toggleState58;
-            toggleState59.BackColor = System.Drawing.Color.Gray;
-            toggleState59.BackColorInner = System.Drawing.Color.White;
-            toggleState59.BorderColor = System.Drawing.Color.Gray;
-            toggleState59.BorderColorInner = System.Drawing.Color.White;
-            toggleState59.BorderRadius = 17;
-            toggleState59.BorderRadiusInner = 15;
-            toggleState59.BorderThickness = 1;
-            toggleState59.BorderThicknessInner = 1;
-            this.isCutter.ToggleStateOff = toggleState59;
-            toggleState60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState60.BackColorInner = System.Drawing.Color.White;
-            toggleState60.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
-            toggleState60.BorderColorInner = System.Drawing.Color.White;
-            toggleState60.BorderRadius = 17;
-            toggleState60.BorderRadiusInner = 15;
-            toggleState60.BorderThickness = 1;
-            toggleState60.BorderThicknessInner = 1;
-            this.isCutter.ToggleStateOn = toggleState60;
+            toggleState13.BackColor = System.Drawing.Color.Empty;
+            toggleState13.BackColorInner = System.Drawing.Color.Empty;
+            toggleState13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            toggleState13.BorderColorInner = System.Drawing.Color.Empty;
+            toggleState13.BorderRadius = 1;
+            toggleState13.BorderRadiusInner = 1;
+            toggleState13.BorderThickness = 1;
+            toggleState13.BorderThicknessInner = 1;
+            this.isCutter.ToggleStateDisabled = toggleState13;
+            toggleState14.BackColor = System.Drawing.Color.Gray;
+            toggleState14.BackColorInner = System.Drawing.Color.White;
+            toggleState14.BorderColor = System.Drawing.Color.Gray;
+            toggleState14.BorderColorInner = System.Drawing.Color.White;
+            toggleState14.BorderRadius = 17;
+            toggleState14.BorderRadiusInner = 15;
+            toggleState14.BorderThickness = 1;
+            toggleState14.BorderThicknessInner = 1;
+            this.isCutter.ToggleStateOff = toggleState14;
+            toggleState15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState15.BackColorInner = System.Drawing.Color.White;
+            toggleState15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            toggleState15.BorderColorInner = System.Drawing.Color.White;
+            toggleState15.BorderRadius = 17;
+            toggleState15.BorderRadiusInner = 15;
+            toggleState15.BorderThickness = 1;
+            toggleState15.BorderThicknessInner = 1;
+            this.isCutter.ToggleStateOn = toggleState15;
             this.isCutter.Value = false;
             this.isCutter.OnValuechange += new System.EventHandler(this.bunifuToggleSwitch1_OnValuechange);
             // 
@@ -1512,6 +968,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // label7
             // 
@@ -1642,13 +1099,13 @@
             this.pathSaidaButton.IdleIconRightImage = null;
             this.pathSaidaButton.Location = new System.Drawing.Point(132, 157);
             this.pathSaidaButton.Name = "pathSaidaButton";
-            stateProperties23.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties23.BorderRadius = 1;
-            stateProperties23.BorderThickness = 1;
-            stateProperties23.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties23.IconLeftImage = null;
-            stateProperties23.IconRightImage = null;
-            this.pathSaidaButton.onHoverState = stateProperties23;
+            stateProperties4.BorderColor = System.Drawing.Color.DarkViolet;
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.DarkViolet;
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = null;
+            this.pathSaidaButton.onHoverState = stateProperties4;
             this.pathSaidaButton.Size = new System.Drawing.Size(140, 23);
             this.pathSaidaButton.TabIndex = 83;
             this.pathSaidaButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1675,13 +1132,13 @@
             this.pathEntradaButton.IdleIconRightImage = null;
             this.pathEntradaButton.Location = new System.Drawing.Point(132, 75);
             this.pathEntradaButton.Name = "pathEntradaButton";
-            stateProperties24.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties24.BorderRadius = 1;
-            stateProperties24.BorderThickness = 1;
-            stateProperties24.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties24.IconLeftImage = null;
-            stateProperties24.IconRightImage = null;
-            this.pathEntradaButton.onHoverState = stateProperties24;
+            stateProperties5.BorderColor = System.Drawing.Color.DarkViolet;
+            stateProperties5.BorderRadius = 1;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.DarkViolet;
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.pathEntradaButton.onHoverState = stateProperties5;
             this.pathEntradaButton.Size = new System.Drawing.Size(140, 23);
             this.pathEntradaButton.TabIndex = 81;
             this.pathEntradaButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1823,55 +1280,10 @@
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label parametro10LabelA;
-        private System.Windows.Forms.TextBox Parametro10BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro10BoxInicio;
-        private System.Windows.Forms.Label parametro10Text;
-        private System.Windows.Forms.Label parametro9LabelA;
-        private System.Windows.Forms.TextBox Parametro9BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro9BoxInicio;
-        private System.Windows.Forms.Label parametro9Text;
-        private System.Windows.Forms.Label parametro8LabelA;
-        private System.Windows.Forms.TextBox Parametro8BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro8BoxInicio;
-        private System.Windows.Forms.Label parametro8Text;
-        private System.Windows.Forms.Label parametro7LabelA;
-        private System.Windows.Forms.TextBox Parametro7BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro7BoxInicio;
-        private System.Windows.Forms.Label parametro7Text;
-        private System.Windows.Forms.Label parametro6LabelA;
-        private System.Windows.Forms.TextBox Parametro6BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro6BoxInicio;
-        private System.Windows.Forms.Label parametro6Text;
-        private System.Windows.Forms.Label parametro5LabelA;
-        private System.Windows.Forms.TextBox Parametro5BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro5BoxInicio;
-        private System.Windows.Forms.Label parametro5Text;
-        private System.Windows.Forms.Label parametro4LabelA;
-        private System.Windows.Forms.TextBox Parametro4BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro4BoxInicio;
-        private System.Windows.Forms.Label parametro4Text;
-        private System.Windows.Forms.Label parametro3LabelA;
-        private System.Windows.Forms.TextBox Parametro3BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro3BoxInicio;
-        private System.Windows.Forms.Label parametro3Text;
-        private System.Windows.Forms.Label parametro2LabelA;
-        private System.Windows.Forms.TextBox Parametro2BoxExtensao;
-        private System.Windows.Forms.TextBox Parametro2BoxInicio;
-        private System.Windows.Forms.Label parametro2Text;
-        private System.Windows.Forms.Label labelExtensao;
-        private System.Windows.Forms.Label parametro1LabelA;
-        private System.Windows.Forms.TextBox Parametro1BoxExtensao;
-        private System.Windows.Forms.Label labelInicio;
-        private System.Windows.Forms.TextBox Parametro1BoxInicio;
-        private System.Windows.Forms.Label parametro1Text;
         private System.Windows.Forms.Label isParameter;
         private Bunifu.ToggleSwitch.BunifuToggleSwitch isParameterReader;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;

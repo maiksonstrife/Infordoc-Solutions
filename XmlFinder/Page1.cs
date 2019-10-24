@@ -11,12 +11,15 @@ using System.Data.SqlClient;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using XmlFinder.Properties;
+using ScanPDF;
 
 namespace XmlFinder
 {
     public partial class Page1 : UserControl
     {
         //variaveis globais (acessadas por mais de um metodo)
+        UserSetting m_setting;
+
         String[] pdfPathFiles;
         String[] xmlPathFiles;
         String pdfPath;
@@ -29,112 +32,24 @@ namespace XmlFinder
 
         public Page1()
         {
+            Load_AppSettings();
             InitializeComponent();
             txtAtivado.Text = "DESATIVADO";
         }
 
         private void btnPastaPDF_Click(object sender, EventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\Users";
-            dialog.IsFolderPicker = true;
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                listBoxPDF.Items.Clear();
-                pdfPath = dialog.FileName;
-                pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
-                foreach (string arq in pdfPathFiles)
-                {
-                    listBoxPDF.Items.Add(arq);
-                }
-            }
-
-            listBoxImportado.Items.Clear();
+           
         }
 
         private void btnPastaXML_Click(object sender, EventArgs e)
         {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\Users";
-            dialog.IsFolderPicker = true;
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                listBoxXML.Items.Clear();
-                xmlPath = dialog.FileName;
-                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray(); 
-                foreach (string arq in xmlPathFiles)
-                {
-                    listBoxXML.Items.Add(arq);
-                }
-            }
-            listBoxImportado.Items.Clear();
+            
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            #region //verifica se caminho foi selecionado
-            //Verifica PDF
-            if (pdfPathFiles == null)
-            {
-                new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
-                return;
-            }
-            //Verifica XML
-            if (xmlPathFiles == null)
-            {
-                new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
-                return;
-            }
-            //Verifica Saída
-            if (outputPath == null)
-            {
-                new alerta("Esqueceu de selecionar PASTA Saída", alerta.AlertType.atencao).Show();
-                return;
-            }
-            #endregion  
-
-            //Popup Timer
-            using (Alerta1 _verificacao = new Alerta1())
-            {
-                _verificacao.ShowDialog();
-                verificacao = _verificacao.resposta;
-            }
-
-            //verifica resposta
-            if (verificacao == "sim")
-            {
-                btnPararVerificacao.Enabled = true;
-                btnPararVerificacao.Update();
-
-                #region //desativa botões
-                btnPastaPDF.Enabled = false;
-                btnPastaPDF.Visible = false;
-                btnPastaXML.Enabled = false;
-                btnPastaXML.Visible = false;
-                btnSelecionarSaida.Enabled = false;
-                btnSelecionarSaida.Visible = false;
-                btnImportar.Enabled = false;
-                btnImportar.Visible = false;
-                listBoxPDF.Visible = false;
-                listBoxXML.Visible = false;
-                bunifuCheckBox1.Visible = false;
-                #endregion
-
-                timer1.Start();
-            }
-
-            if (verificacao == "nao")
-            {
-                ComparaArquivos();
-                new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
-                counter = 0;
-                pdfPath = null;
-                xmlPath = null;
-                pdfPathFiles = null;
-                xmlPathFiles = null;
-                listBoxPDF.Items.Clear();
-                listBoxXML.Items.Clear();
-            }
+            
         }
 
 
@@ -286,11 +201,12 @@ namespace XmlFinder
 
         private void bunifuCheckBox1_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
+            Load_AppSettings();
             if (bunifuCheckBox1.Checked)
             {
                 
                 //Se algum for igual a VAZIO faça
-                if (Settings.Default.standardPdfPath == "" || Settings.Default.standardXmlPath == "" || Settings.Default.standardOutputPath == "")
+                if (String.IsNullOrEmpty(m_setting.pdfPath) || String.IsNullOrEmpty(m_setting.xmlPath) || String.IsNullOrEmpty(m_setting.saidaxmlPath))
                 {
                     new alerta("Caminho padrão VAZIO", alerta.AlertType.info).Show();
                     bunifuCheckBox1.Checked = false;
@@ -305,7 +221,7 @@ namespace XmlFinder
 
                 //Função do botão PDF usando padrão
                 btnPastaPDF.Visible = false;
-                pdfPath = Settings.Default["standardPdfPath"].ToString();
+                pdfPath = m_setting.pdfPath;
                 pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
                 foreach (string arq in pdfPathFiles)
                 {
@@ -314,7 +230,7 @@ namespace XmlFinder
 
                 //Função do botão XML usando padrão
                 btnPastaXML.Visible = false;
-                xmlPath = Settings.Default["standardXmlPath"].ToString();
+                xmlPath = m_setting.xmlPath;
                 xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
                 foreach (string arq in xmlPathFiles)
                 {
@@ -323,7 +239,7 @@ namespace XmlFinder
 
                 //Função do botão SAIDA usando padrão
                 btnSelecionarSaida.Visible = false;
-                outputPath = Settings.Default["standardOutputPath"].ToString();
+                outputPath = m_setting.saidaxmlPath;
 
                 //Ativa aviso que a função do botão está em padrão
                 txtPdfPadrao.Visible = true;
@@ -354,6 +270,16 @@ namespace XmlFinder
 
         private void btnSelecionarSaida_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CarregaOnloadRenomear_Click(object sender, EventArgs e)
+        {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\Users";
             dialog.IsFolderPicker = true;
@@ -365,9 +291,127 @@ namespace XmlFinder
             listBoxImportado.Items.Clear();
         }
 
-        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
+        private void btnPastaXML_Click_1(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                listBoxXML.Items.Clear();
+                xmlPath = dialog.FileName;
+                xmlPathFiles = Directory.GetFiles(xmlPath, "*.XML").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+                foreach (string arq in xmlPathFiles)
+                {
+                    listBoxXML.Items.Add(arq);
+                }
+            }
+            listBoxImportado.Items.Clear();
+        }
+
+        private void btnPastaPDF_Click_1(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                listBoxPDF.Items.Clear();
+                pdfPath = dialog.FileName;
+                pdfPathFiles = Directory.GetFiles(pdfPath, "*.pdf").Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
+                foreach (string arq in pdfPathFiles)
+                {
+                    listBoxPDF.Items.Add(arq);
+                }
+            }
+
+            listBoxImportado.Items.Clear();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            #region //verifica se caminho foi selecionado
+            //Verifica PDF
+            if (pdfPathFiles == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA PDF", alerta.AlertType.atencao).Show();
+                return;
+            }
+            //Verifica XML
+            if (xmlPathFiles == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA XML", alerta.AlertType.atencao).Show();
+                return;
+            }
+            //Verifica Saída
+            if (outputPath == null)
+            {
+                new alerta("Esqueceu de selecionar PASTA Saída", alerta.AlertType.atencao).Show();
+                return;
+            }
+            #endregion  
+
+            //Popup Timer
+            using (Alerta1 _verificacao = new Alerta1())
+            {
+                _verificacao.ShowDialog();
+                verificacao = _verificacao.resposta;
+            }
+
+            //verifica resposta
+            if (verificacao == "sim")
+            {
+                btnPararVerificacao.Enabled = true;
+                btnPararVerificacao.Update();
+
+                #region //desativa botões
+                btnPastaPDF.Enabled = false;
+                btnPastaPDF.Visible = false;
+                btnPastaXML.Enabled = false;
+                btnPastaXML.Visible = false;
+                btnSelecionarSaida.Enabled = false;
+                btnSelecionarSaida.Visible = false;
+                btnImportar.Enabled = false;
+                btnImportar.Visible = false;
+                listBoxPDF.Visible = false;
+                listBoxXML.Visible = false;
+                bunifuCheckBox1.Visible = false;
+                #endregion
+
+                timer1.Start();
+            }
+
+            if (verificacao == "nao")
+            {
+                ComparaArquivos();
+                new alerta(counter + " XML importados", alerta.AlertType.sucesso).Show();
+                counter = 0;
+                pdfPath = null;
+                xmlPath = null;
+                pdfPathFiles = null;
+                xmlPathFiles = null;
+                listBoxPDF.Items.Clear();
+                listBoxXML.Items.Clear();
+            }
+        }
+
+        private void txtAtivado_Click(object sender, EventArgs e)
         {
 
+        }
+        //Load ini
+        public void Load_AppSettings()
+        {
+            try
+            {
+                m_setting = UserSetting.Load();
+                if (m_setting == null)
+                    m_setting = new UserSetting();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -21,7 +21,6 @@ namespace XmlFinder
 
         private void ButtonConfigIniInforScanner_Click(object sender, EventArgs e)
         {
-            //tudo errado mais facil abrir um popup!!!
             using (VirtualScannerConfigIniForm virtualScannerConfigIni = new VirtualScannerConfigIniForm())
             {
                 virtualScannerConfigIni.ShowDialog();
@@ -31,6 +30,27 @@ namespace XmlFinder
         private void PageConfigSelect_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonConfigXMLFinder_Click(object sender, EventArgs e)
+        {
+            using (XML_FinderConfigIniForm xML_FinderConfigIniForm = new XML_FinderConfigIniForm())
+            {
+                xML_FinderConfigIniForm.ShowDialog();
+            }
+        }
+
+        private void ButtonConfigIniInforFTP_Click(object sender, EventArgs e)
+        {
+            using (INFORFTPConfigIniForm iNFORFTP = new INFORFTPConfigIniForm())
+            {
+                iNFORFTP.ShowDialog();
+            }
+        }
+
+        private void appRestart_Click(object sender, EventArgs e)
+        {
+                Application.Restart();
         }
     }
 }

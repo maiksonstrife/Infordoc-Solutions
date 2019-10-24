@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using XmlFinder.Properties;
+using ScanPDF;
 
 namespace XmlFinder
 {
     public partial class Page4 : UserControl
     {
-
+        UserSetting m_setting;
         string url, usuario, senha;
         string pastaWEB;
         string pastaLocal;
@@ -30,9 +31,11 @@ namespace XmlFinder
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            url = Settings.Default["EnderecoServidorFTP"].ToString();
-            usuario = Settings.Default["Usuario"].ToString();
-            senha = Settings.Default["Senha"].ToString();
+            Load_AppSettings();
+
+            url = m_setting.enderecoFTP;
+            usuario = m_setting.usuarioFTP;
+            senha = m_setting.senhaFTP;
 
             if (String.IsNullOrEmpty(url))
             {
@@ -263,10 +266,9 @@ namespace XmlFinder
 
         private void checkboxLocalPadrao_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
-            string testevazio = Settings.Default["standardOutputPath"].ToString();
-
+            Load_AppSettings();
             if (checkboxLocalPadrao.Checked == true){
-                if (testevazio == "")
+                if (string.IsNullOrEmpty(m_setting.pastalocalFTP))
                 {
                     new alerta("Caminho SAIDA PADRAO Vazio", alerta.AlertType.atencao).Show();
                     checkboxLocalPadrao.Checked = false;
@@ -274,8 +276,7 @@ namespace XmlFinder
                 }
                 else
                 {
-                    pastaLocal = Settings.Default["standardOutputPath"].ToString();
-                    txtCaminhoLocal.Text = pastaLocal;
+                    txtCaminhoLocal.Text = m_setting.pastalocalFTP;
                 }
             }
             
@@ -283,6 +284,16 @@ namespace XmlFinder
         }
 
         private void bunifuProgressBar1_onValueChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
         {
 
         }
@@ -308,5 +319,21 @@ namespace XmlFinder
             label6.Visible = botao;
             checkboxLocalPadrao.Visible = botao;
         }
+
+        //Load ini
+        public void Load_AppSettings()
+        {
+            try
+            {
+                m_setting = UserSetting.Load();
+                if (m_setting == null)
+                    m_setting = new UserSetting();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
