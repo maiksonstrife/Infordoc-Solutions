@@ -70,7 +70,7 @@ namespace XmlFinder
             m_setting.Endereco = enderecoTextBox.Text;
             m_setting.passwordCertificate = certificadoSenhaTextBox.Text;
             m_setting.pathCertificate = certificadoPath;
-
+            m_setting.WatermarkImagePath = imagemPath;
 
             m_setting.Save();
             new alerta("Configurações Salvas", alerta.AlertType.atencao).Show();
@@ -109,6 +109,9 @@ namespace XmlFinder
             isCutter.Value = m_setting.isCutter;
             bunifuRadioButton2.Checked = m_setting.isVertical;
             bunifuRadioButton1.Checked = m_setting.isHorizontal;
+            assinaturaVisivelChkBox.Checked = m_setting.signVisivel;
+            imagemPath = m_setting.WatermarkImagePath;
+
             //BOTAO SIGNATURE
             if (m_setting.isSignature == true)
             {
@@ -292,6 +295,35 @@ namespace XmlFinder
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void formConfigurarIndiceIni_Click(object sender, EventArgs e)
+        {
+            using (IndexerConfigIniForm indexerConfigIniForm = new IndexerConfigIniForm())
+            {
+                indexerConfigIniForm.ShowDialog();
+            }
+        }
+
+        private void formTesteLeitura_Click(object sender, EventArgs e)
+        {
+            using (TesteLeituraForm testeLeitura = new TesteLeituraForm())
+            {
+                testeLeitura.ShowDialog();
+            }
+        }
+
+        string imagemPath;
+        private void btnImagerDagua_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFile;
+            openFile = new System.Windows.Forms.OpenFileDialog();
+            openFile.Filter = "Imagens JPG e PNG *.jpg|*.png";
+            openFile.Title = "Seleciona imagem";
+            if (openFile.ShowDialog() != DialogResult.OK)
+                return;
+
+            imagemPath = openFile.FileName;
         }
     }
 }

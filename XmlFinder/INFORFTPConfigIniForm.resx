@@ -603,6 +603,32 @@
         swKzArMCswKzArMCswKzArMCswKzArOC36z12EfwYD32L0lVX8Wi7DDPAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnSalvarRede.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAKgAAAAiCAYAAADLYJIKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dIhEYBAAADBzwSFqAFlaPHEg8HjObFi1dkb
+        y3Ft63HdUPO+Ob4CVBiUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOS
+        ZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJW2s+zy/Avxun+cDikhCCC0O+tgAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAPcAAAAgCAYAAADOt+7EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVHhe7dMxEYAwAMDAagJD2AAzuCjy4NgxQO6HnzJn
+        LMe1rcd1Ax3v1+MrAP9nbogyN0SZG6LMDVHmhihzQ5S5IcrcEGVuiDI3RJkboswNUeaGKHNDlLkhytwQ
+        ZW6IMjdEmRuizA1R5oYoc0OUuSHK3BBlbogyN0SZG6LMDVHmhqix7vP8CsCP7fN8ANtSsuQc0k+zAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGwAAAAgCAYAAAD3/J3aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB8SURBVGhD7dExEcMwAMBA46lJhY5DIthiIm0BBEB098NP
+        GjXOz32cc38J+L8aj4HXMizGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyL
+        MSzGsBjDYgyLMSzGsBjDYgyLMSxmrLmvp8D7rLmvH2Zj6Pt0W27pAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="closeButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAYAAADHl1ErAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1078,32 +1104,6 @@
         3S2O0Q9Z2pyMMaZNFHhDAM5KQfmq0MQVDeKzpvBdU1PKGpNkczLGmC6jQJ0J2qkSM5MI8tejzr8LLOxj
         1ozyhiTZlMxsc9ddd1nWXItAfxh6c4nOQR9vQNpObPvSYbF9t6z50V0/8/8Bgo32YaxpGUMAAAAASUVO
         RK5CYII=
-</value>
-  </data>
-  <data name="btnSalvarRede.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKgAAAAiCAYAAADLYJIKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dIhEYBAAADBzwSFqAFlaPHEg8HjObFi1dkb
-        y3Ft63HdUPO+Ob4CVBiUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOS
-        ZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJW2s+zy/Avxun+cDikhCCC0O+tgAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
-  <data name="bunifuButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAPcAAAAgCAYAAADOt+7EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACOSURBVHhe7dMxEYAwAMDAagJD2AAzuCjy4NgxQO6HnzJn
-        LMe1rcd1Ax3v1+MrAP9nbogyN0SZG6LMDVHmhihzQ5S5IcrcEGVuiDI3RJkboswNUeaGKHNDlLkhytwQ
-        ZW6IMjdEmRuizA1R5oYoc0OUuSHK3BBlbogyN0SZG6LMDVHmhqix7vP8CsCP7fN8ANtSsuQc0k+zAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
-  <data name="bunifuButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGwAAAAgCAYAAAD3/J3aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB8SURBVGhD7dExEcMwAMBA46lJhY5DIthiIm0BBEB098NP
-        GjXOz32cc38J+L8aj4HXMizGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyLMSzGsBjDYgyL
-        MSzGsBjDYgyLMSzGsBjDYgyLMSxmrLmvp8D7rLmvH2Zj6Pt0W27pAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="bunifuDragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

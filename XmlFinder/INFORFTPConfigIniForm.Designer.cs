@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INFORFTPConfigIniForm));
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuGradientPanel4 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPastaLocal = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnTesteFtp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.topBar = new System.Windows.Forms.Panel();
@@ -53,9 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPastaLocal = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuGradientPanel4.SuspendLayout();
             this.topBar.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,6 @@
             this.bunifuGradientPanel4.Controls.Add(this.txtPastaLocal);
             this.bunifuGradientPanel4.Controls.Add(this.bunifuImageButton1);
             this.bunifuGradientPanel4.Controls.Add(this.btnTesteFtp);
-            this.bunifuGradientPanel4.Controls.Add(this.topBar);
             this.bunifuGradientPanel4.Controls.Add(this.btnSalvarRede);
             this.bunifuGradientPanel4.Controls.Add(this.txtSaida);
             this.bunifuGradientPanel4.Controls.Add(this.label3);
@@ -90,6 +89,74 @@
             this.bunifuGradientPanel4.Quality = 5;
             this.bunifuGradientPanel4.Size = new System.Drawing.Size(800, 450);
             this.bunifuGradientPanel4.TabIndex = 82;
+            // 
+            // bunifuButton3
+            // 
+            this.bunifuButton3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton3.BackgroundImage")));
+            this.bunifuButton3.ButtonText = "Selecionar Pasta";
+            this.bunifuButton3.ButtonTextMarginLeft = 0;
+            this.bunifuButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.bunifuButton3.DisabledFillColor = System.Drawing.Color.Gray;
+            this.bunifuButton3.DisabledForecolor = System.Drawing.Color.White;
+            this.bunifuButton3.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton3.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton3.IconPadding = 10;
+            this.bunifuButton3.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton3.IdleBorderColor = System.Drawing.Color.SlateBlue;
+            this.bunifuButton3.IdleBorderRadius = 1;
+            this.bunifuButton3.IdleBorderThickness = 0;
+            this.bunifuButton3.IdleFillColor = System.Drawing.Color.SlateBlue;
+            this.bunifuButton3.IdleIconLeftImage = null;
+            this.bunifuButton3.IdleIconRightImage = null;
+            this.bunifuButton3.Location = new System.Drawing.Point(18, 388);
+            this.bunifuButton3.Name = "bunifuButton3";
+            stateProperties1.BorderColor = System.Drawing.Color.DarkViolet;
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.DarkViolet;
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = null;
+            this.bunifuButton3.onHoverState = stateProperties1;
+            this.bunifuButton3.Size = new System.Drawing.Size(146, 23);
+            this.bunifuButton3.TabIndex = 93;
+            this.bunifuButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuButton3.Click += new System.EventHandler(this.bunifuButton3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(19, 323);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 21);
+            this.label4.TabIndex = 88;
+            this.label4.Text = "Pasta Local Padrão";
+            // 
+            // txtPastaLocal
+            // 
+            this.txtPastaLocal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPastaLocal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPastaLocal.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPastaLocal.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPastaLocal.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtPastaLocal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPastaLocal.HintForeColor = System.Drawing.Color.Empty;
+            this.txtPastaLocal.HintText = "";
+            this.txtPastaLocal.isPassword = false;
+            this.txtPastaLocal.LineFocusedColor = System.Drawing.Color.Blue;
+            this.txtPastaLocal.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtPastaLocal.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.txtPastaLocal.LineThickness = 3;
+            this.txtPastaLocal.Location = new System.Drawing.Point(18, 348);
+            this.txtPastaLocal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPastaLocal.MaxLength = 32767;
+            this.txtPastaLocal.Name = "txtPastaLocal";
+            this.txtPastaLocal.Size = new System.Drawing.Size(397, 33);
+            this.txtPastaLocal.TabIndex = 87;
+            this.txtPastaLocal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuImageButton1
             // 
@@ -446,79 +513,12 @@
             this.bunifuDragControl1.TargetControl = this.topBar;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(19, 323);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 21);
-            this.label4.TabIndex = 88;
-            this.label4.Text = "Pasta Local Padrão";
-            // 
-            // txtPastaLocal
-            // 
-            this.txtPastaLocal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtPastaLocal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtPastaLocal.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtPastaLocal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPastaLocal.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtPastaLocal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPastaLocal.HintForeColor = System.Drawing.Color.Empty;
-            this.txtPastaLocal.HintText = "";
-            this.txtPastaLocal.isPassword = false;
-            this.txtPastaLocal.LineFocusedColor = System.Drawing.Color.Blue;
-            this.txtPastaLocal.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtPastaLocal.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.txtPastaLocal.LineThickness = 3;
-            this.txtPastaLocal.Location = new System.Drawing.Point(18, 348);
-            this.txtPastaLocal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPastaLocal.MaxLength = 32767;
-            this.txtPastaLocal.Name = "txtPastaLocal";
-            this.txtPastaLocal.Size = new System.Drawing.Size(397, 33);
-            this.txtPastaLocal.TabIndex = 87;
-            this.txtPastaLocal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bunifuButton3
-            // 
-            this.bunifuButton3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton3.BackgroundImage")));
-            this.bunifuButton3.ButtonText = "Selecionar Pasta";
-            this.bunifuButton3.ButtonTextMarginLeft = 0;
-            this.bunifuButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.bunifuButton3.DisabledFillColor = System.Drawing.Color.Gray;
-            this.bunifuButton3.DisabledForecolor = System.Drawing.Color.White;
-            this.bunifuButton3.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton3.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton3.IconPadding = 10;
-            this.bunifuButton3.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton3.IdleBorderColor = System.Drawing.Color.SlateBlue;
-            this.bunifuButton3.IdleBorderRadius = 1;
-            this.bunifuButton3.IdleBorderThickness = 0;
-            this.bunifuButton3.IdleFillColor = System.Drawing.Color.SlateBlue;
-            this.bunifuButton3.IdleIconLeftImage = null;
-            this.bunifuButton3.IdleIconRightImage = null;
-            this.bunifuButton3.Location = new System.Drawing.Point(18, 388);
-            this.bunifuButton3.Name = "bunifuButton3";
-            stateProperties1.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties1.BorderRadius = 1;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.bunifuButton3.onHoverState = stateProperties1;
-            this.bunifuButton3.Size = new System.Drawing.Size(146, 23);
-            this.bunifuButton3.TabIndex = 93;
-            this.bunifuButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuButton3.Click += new System.EventHandler(this.bunifuButton3_Click);
-            // 
             // INFORFTPConfigIniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.topBar);
             this.Controls.Add(this.bunifuGradientPanel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "INFORFTPConfigIniForm";

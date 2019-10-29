@@ -29,6 +29,7 @@ namespace XmlFinder
         private BackgroundWorker bwprocessamento;
         private BackgroundWorker bwposprocessamentoWatermark;
         private BackgroundWorker bwposprocessamentoSignature;
+        private BackgroundWorker exitPoint;
 
         private VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
 
@@ -85,6 +86,14 @@ namespace XmlFinder
             this.bwposprocessamentoSignature.WorkerSupportsCancellation = true;
             //bwpreprocessamento.CancelAsync();
 
+            //configurando bwposprocessamento -> Inicio
+            this.exitPoint = new BackgroundWorker();
+            this.exitPoint.DoWork += new DoWorkEventHandler(exitPoint_DoWork);
+            this.exitPoint.RunWorkerCompleted += new RunWorkerCompletedEventHandler(exitPoint_RunWorkerCompleted);
+            this.exitPoint.WorkerSupportsCancellation = true;
+            //bwpreprocessamento.CancelAsync();
+
+
             //bora iniciar
             PdfUtility pdfUtility = new PdfUtility();
             // TESTES pdfUtility.processoRenomear();
@@ -110,6 +119,7 @@ namespace XmlFinder
 
             scannerCircleProgress.Maximum = max;
             enterPoint.RunWorkerAsync();
+
         }
 
         //Decide por onde começar
@@ -130,7 +140,8 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathCutter + "\\" + Filename); //mandar pra cutter path *FAZER CAMINHOS INTERNOS NO S_SETTINGS PRA ACESSO GLOBAL
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathCutter + "\\" + Filename, true);
+                    //File.Move(file, virtualScannerDiretorios.pathCutter + "\\" + Filename); //mandar pra cutter path *FAZER CAMINHOS INTERNOS NO S_SETTINGS PRA ACESSO GLOBAL
                     File.Delete(file);
                 }
 
@@ -282,8 +293,7 @@ namespace XmlFinder
                     }
 
                 //iniciar bwindexacao
-
-
+                exitPoint.RunWorkerAsync();
             }
             #endregion
         }
@@ -291,7 +301,7 @@ namespace XmlFinder
         private void bwprocessamento_DoWork(object sender, DoWorkEventArgs e)
         {
             PdfUtility pdfUtility = new PdfUtility();
-            pdfUtility.processoRenomear();
+            pdfUtility.processoBarcode();
         }
 
         private void bwprocessamento_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -359,7 +369,7 @@ namespace XmlFinder
 
 
                 //iniciar bwindexacao
-
+                exitPoint.RunWorkerAsync();
             }
 
         }
@@ -411,7 +421,7 @@ namespace XmlFinder
                 }
 
                 //iniciar bwindexacao
-
+                exitPoint.RunWorkerAsync();
             }
         }
 
@@ -448,13 +458,20 @@ namespace XmlFinder
                 }
 
                 //iniciar bw indexacao
-                //bwposprocessamentoSignature.RunWorkerAsync();
+                exitPoint.RunWorkerAsync();
             }
         }
 
+        private void exitPoint_DoWork(object sender, DoWorkEventArgs e)
+        {
+            PdfUtility pdfUtility = new PdfUtility();
+            pdfUtility.processoNomear();
+        }
 
-
-
+        private void exitPoint_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("terminou OLHAR A PASTA SAIDA");
+        }
 
 
         private void PageBarcodeReader_Load(object sender, EventArgs e)
@@ -503,7 +520,7 @@ namespace XmlFinder
             }
             else
             {
-                txtAssinaturaVisivel.Text = "Sim";
+                txtAssinaturaVisivel.Text = "Não";
             }
 
         }

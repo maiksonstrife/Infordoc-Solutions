@@ -60,6 +60,7 @@ namespace ScanPDF
         //Entrada e saída User
         public string entradaPath;
         public string saidaPath;
+        
 
         //Verificadores de funções a serem utilizadas
         public bool isCutter = false;
@@ -69,7 +70,7 @@ namespace ScanPDF
         public bool isPreProcessing = false;
         public bool isProcessing = false;
         public bool isProProcessing = false;
-
+        public string WatermarkImagePath = "";
 
         //Cutter Settings  (v -> vertical, x1-3-7 -> n. de cortes, doc2-3-8 -> resultado)
         public bool isVertical = false;
@@ -94,47 +95,13 @@ namespace ScanPDF
         public char delimiter = ';';
         public string positions = "1;2;3";
 
-        //Parametros Barcode
-        //para retornar text que poderá ser atribuido a algum indice
-        public int QuantidadeParametros = 0;
-
-        public int parametro1i = 1;
-        public int parametro1e = 2;
-
-        public int parametro2i;
-        public int parametro2e;
-
-        public int parametro3i;
-        public int parametro3e;
-
-        public int parametro4i;
-        public int parametro4e;
-
-        public int parametro5i;
-        public int parametro5e;
-
-        public int parametro6i;
-        public int parametro6e;
-
-        public int parametro7i;
-        public int parametro7e;
-
-        public int parametro8i;
-        public int parametro8e;
-
-        public int parametro9i;
-        public int parametro9e;
-
-        public int parametro10i;
-        public int parametro10e;
-
         //Indice Settings
-        public int QuantidadeIndices;
         public string indice1 = "";
-        public string indice2 = "";
-        public string indice3 = "";
-        public string indice4 = "";
-        public string indice5 = "";
+        public bool indice1isSubstring = false;
+        public int indice1SubI = 0;
+        public int indice1SubE = 1;
+        public bool indice1isDelimiter = false;
+        public string indice1Delimiter = "";
 
         //Signature Settings
         public string autor = "";

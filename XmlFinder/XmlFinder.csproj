@@ -103,6 +103,12 @@
     </Compile>
     <Compile Include="ImgRecorte.cs" />
     <Compile Include="ImgUtility.cs" />
+    <Compile Include="IndexerConfigIniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndexerConfigIniForm.Designer.cs">
+      <DependentUpon>IndexerConfigIniForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="INFORFTPConfigIniForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringFormater.cs" />
+    <Compile Include="TesteLeituraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteLeituraForm.Designer.cs">
+      <DependentUpon>TesteLeituraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Toast.cs" />
     <Compile Include="VirtualScannerConfigIniForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="homePage.resx">
       <DependentUpon>homePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IndexerConfigIniForm.resx">
+      <DependentUpon>IndexerConfigIniForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="INFORFTPConfigIniForm.resx">
       <DependentUpon>INFORFTPConfigIniForm.cs</DependentUpon>
@@ -217,6 +232,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TesteLeituraForm.resx">
+      <DependentUpon>TesteLeituraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VirtualScannerConfigIniForm.resx">
       <DependentUpon>VirtualScannerConfigIniForm.cs</DependentUpon>
     </EmbeddedResource>
