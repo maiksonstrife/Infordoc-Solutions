@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageBarcodeReader));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.CarregaOnloadRenomear = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,9 +46,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCentText = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.txtCent = new System.Windows.Forms.Label();
+            this.txtNRecorte = new System.Windows.Forms.Label();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtNBarcode = new System.Windows.Forms.Label();
+            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtNMarca = new System.Windows.Forms.Label();
+            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.txtNAssinar = new System.Windows.Forms.Label();
             this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,13 +79,13 @@
             this.CarregaOnloadRenomear.IdleIconRightImage = null;
             this.CarregaOnloadRenomear.Location = new System.Drawing.Point(645, 492);
             this.CarregaOnloadRenomear.Name = "CarregaOnloadRenomear";
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.BorderRadius = 1;
-            stateProperties3.BorderThickness = 1;
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties3.IconLeftImage = null;
-            stateProperties3.IconRightImage = null;
-            this.CarregaOnloadRenomear.onHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = null;
+            this.CarregaOnloadRenomear.onHoverState = stateProperties4;
             this.CarregaOnloadRenomear.Size = new System.Drawing.Size(218, 38);
             this.CarregaOnloadRenomear.TabIndex = 0;
             this.CarregaOnloadRenomear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,9 +95,14 @@
             // 
             this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuGradientPanel1.Controls.Add(this.txtCentText);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuSeparator3);
+            this.bunifuGradientPanel1.Controls.Add(this.txtNAssinar);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuSeparator2);
+            this.bunifuGradientPanel1.Controls.Add(this.txtNMarca);
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuSeparator1);
+            this.bunifuGradientPanel1.Controls.Add(this.txtNBarcode);
             this.bunifuGradientPanel1.Controls.Add(this.bunifuSeparator5);
-            this.bunifuGradientPanel1.Controls.Add(this.txtCent);
+            this.bunifuGradientPanel1.Controls.Add(this.txtNRecorte);
             this.bunifuGradientPanel1.Controls.Add(this.label6);
             this.bunifuGradientPanel1.Controls.Add(this.scannerCircleProgress);
             this.bunifuGradientPanel1.Controls.Add(this.label11);
@@ -114,6 +126,7 @@
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
             this.bunifuGradientPanel1.TabIndex = 1;
+            this.bunifuGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuGradientPanel1_Paint);
             // 
             // label6
             // 
@@ -131,30 +144,33 @@
             // 
             this.scannerCircleProgress.Animated = true;
             this.scannerCircleProgress.AnimationInterval = 1;
-            this.scannerCircleProgress.AnimationSpeed = 1;
+            this.scannerCircleProgress.AnimationSpeed = 10;
             this.scannerCircleProgress.BackColor = System.Drawing.Color.Transparent;
             this.scannerCircleProgress.CircleMargin = 10;
-            this.scannerCircleProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Bold);
+            this.scannerCircleProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold);
             this.scannerCircleProgress.ForeColor = System.Drawing.Color.White;
             this.scannerCircleProgress.IsPercentage = true;
             this.scannerCircleProgress.LineProgressThickness = 8;
             this.scannerCircleProgress.LineThickness = 5;
-            this.scannerCircleProgress.Location = new System.Drawing.Point(348, 165);
-            this.scannerCircleProgress.Maximum = 4;
+            this.scannerCircleProgress.Location = new System.Drawing.Point(645, 165);
+            this.scannerCircleProgress.MarqueeAnimationSpeed = 1000;
+            this.scannerCircleProgress.Maximum = 2;
             this.scannerCircleProgress.Name = "scannerCircleProgress";
             this.scannerCircleProgress.ProgressBackColor = System.Drawing.Color.Gainsboro;
             this.scannerCircleProgress.ProgressColor = System.Drawing.Color.SlateBlue;
-            this.scannerCircleProgress.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.scannerCircleProgress.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.scannerCircleProgress.Size = new System.Drawing.Size(184, 184);
             this.scannerCircleProgress.Step = 1;
+            this.scannerCircleProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.scannerCircleProgress.SubScriptColor = System.Drawing.Color.WhiteSmoke;
-            this.scannerCircleProgress.SubScriptMargin = new System.Windows.Forms.Padding(5, -35, 0, 0);
+            this.scannerCircleProgress.SubScriptMargin = new System.Windows.Forms.Padding(4, -35, 0, 0);
             this.scannerCircleProgress.SubScriptText = "";
             this.scannerCircleProgress.SuperScriptColor = System.Drawing.Color.White;
-            this.scannerCircleProgress.SuperScriptMargin = new System.Windows.Forms.Padding(5, 50, 0, 0);
-            this.scannerCircleProgress.SuperScriptText = "%";
+            this.scannerCircleProgress.SuperScriptMargin = new System.Windows.Forms.Padding(4, 50, 0, 0);
+            this.scannerCircleProgress.SuperScriptText = "lendo";
             this.scannerCircleProgress.TabIndex = 16;
-            this.scannerCircleProgress.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.scannerCircleProgress.Text = "scan";
+            this.scannerCircleProgress.TextMargin = new System.Windows.Forms.Padding(2, 8, 0, 0);
             // 
             // label11
             // 
@@ -288,25 +304,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Recortar Pagina :";
             // 
-            // txtCentText
+            // timer1
             // 
-            this.txtCentText.AutoSize = true;
-            this.txtCentText.BackColor = System.Drawing.Color.Transparent;
-            this.txtCentText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCentText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtCentText.Location = new System.Drawing.Point(625, 324);
-            this.txtCentText.Name = "txtCentText";
-            this.txtCentText.Size = new System.Drawing.Size(188, 25);
-            this.txtCentText.TabIndex = 32;
-            this.txtCentText.Text = "Assinaturas Inseridas";
-            this.txtCentText.Visible = false;
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bunifuSeparator5
             // 
             this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
             this.bunifuSeparator5.LineThickness = 1;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(519, 324);
+            this.bunifuSeparator5.Location = new System.Drawing.Point(283, 156);
             this.bunifuSeparator5.Name = "bunifuSeparator5";
             this.bunifuSeparator5.Size = new System.Drawing.Size(36, 35);
             this.bunifuSeparator5.TabIndex = 31;
@@ -314,18 +322,96 @@
             this.bunifuSeparator5.Vertical = false;
             this.bunifuSeparator5.Visible = false;
             // 
-            // txtCent
+            // txtNRecorte
             // 
-            this.txtCent.AutoSize = true;
-            this.txtCent.BackColor = System.Drawing.Color.Transparent;
-            this.txtCent.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtCent.Location = new System.Drawing.Point(561, 324);
-            this.txtCent.Name = "txtCent";
-            this.txtCent.Size = new System.Drawing.Size(38, 25);
-            this.txtCent.TabIndex = 30;
-            this.txtCent.Text = "0%";
-            this.txtCent.Visible = false;
+            this.txtNRecorte.AutoSize = true;
+            this.txtNRecorte.BackColor = System.Drawing.Color.Transparent;
+            this.txtNRecorte.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNRecorte.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNRecorte.Location = new System.Drawing.Point(325, 156);
+            this.txtNRecorte.Name = "txtNRecorte";
+            this.txtNRecorte.Size = new System.Drawing.Size(38, 25);
+            this.txtNRecorte.TabIndex = 30;
+            this.txtNRecorte.Text = "0%";
+            this.txtNRecorte.Visible = false;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(283, 206);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(36, 35);
+            this.bunifuSeparator1.TabIndex = 34;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            this.bunifuSeparator1.Visible = false;
+            // 
+            // txtNBarcode
+            // 
+            this.txtNBarcode.AutoSize = true;
+            this.txtNBarcode.BackColor = System.Drawing.Color.Transparent;
+            this.txtNBarcode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNBarcode.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNBarcode.Location = new System.Drawing.Point(325, 206);
+            this.txtNBarcode.Name = "txtNBarcode";
+            this.txtNBarcode.Size = new System.Drawing.Size(38, 25);
+            this.txtNBarcode.TabIndex = 33;
+            this.txtNBarcode.Text = "0%";
+            this.txtNBarcode.Visible = false;
+            // 
+            // bunifuSeparator2
+            // 
+            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
+            this.bunifuSeparator2.LineThickness = 1;
+            this.bunifuSeparator2.Location = new System.Drawing.Point(283, 262);
+            this.bunifuSeparator2.Name = "bunifuSeparator2";
+            this.bunifuSeparator2.Size = new System.Drawing.Size(36, 35);
+            this.bunifuSeparator2.TabIndex = 37;
+            this.bunifuSeparator2.Transparency = 255;
+            this.bunifuSeparator2.Vertical = false;
+            this.bunifuSeparator2.Visible = false;
+            // 
+            // txtNMarca
+            // 
+            this.txtNMarca.AutoSize = true;
+            this.txtNMarca.BackColor = System.Drawing.Color.Transparent;
+            this.txtNMarca.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNMarca.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNMarca.Location = new System.Drawing.Point(325, 262);
+            this.txtNMarca.Name = "txtNMarca";
+            this.txtNMarca.Size = new System.Drawing.Size(38, 25);
+            this.txtNMarca.TabIndex = 36;
+            this.txtNMarca.Text = "0%";
+            this.txtNMarca.Visible = false;
+            // 
+            // bunifuSeparator3
+            // 
+            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
+            this.bunifuSeparator3.LineThickness = 1;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(283, 324);
+            this.bunifuSeparator3.Name = "bunifuSeparator3";
+            this.bunifuSeparator3.Size = new System.Drawing.Size(36, 35);
+            this.bunifuSeparator3.TabIndex = 40;
+            this.bunifuSeparator3.Transparency = 255;
+            this.bunifuSeparator3.Vertical = false;
+            this.bunifuSeparator3.Visible = false;
+            // 
+            // txtNAssinar
+            // 
+            this.txtNAssinar.AutoSize = true;
+            this.txtNAssinar.BackColor = System.Drawing.Color.Transparent;
+            this.txtNAssinar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNAssinar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNAssinar.Location = new System.Drawing.Point(325, 324);
+            this.txtNAssinar.Name = "txtNAssinar";
+            this.txtNAssinar.Size = new System.Drawing.Size(38, 25);
+            this.txtNAssinar.TabIndex = 39;
+            this.txtNAssinar.Text = "0%";
+            this.txtNAssinar.Visible = false;
             // 
             // PageBarcodeReader
             // 
@@ -358,8 +444,14 @@
         private System.Windows.Forms.Label label5;
         private Bunifu.UI.WinForms.BunifuCircleProgress scannerCircleProgress;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label txtCentText;
+        private System.Windows.Forms.Timer timer1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator5;
-        private System.Windows.Forms.Label txtCent;
+        private System.Windows.Forms.Label txtNRecorte;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
+        private System.Windows.Forms.Label txtNAssinar;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private System.Windows.Forms.Label txtNMarca;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        private System.Windows.Forms.Label txtNBarcode;
     }
 }

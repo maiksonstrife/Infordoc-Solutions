@@ -33,8 +33,6 @@ namespace XmlFinder
 
         private VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
 
-        string barcode;
-        bool monitorar = false;
 
         UserSetting m_setting;
 
@@ -96,30 +94,13 @@ namespace XmlFinder
 
             //bora iniciar
             PdfUtility pdfUtility = new PdfUtility();
-            // TESTES pdfUtility.processoRenomear();
+            PdfUtility.processoInserirMarcadagua();
 
-            //Calculando porcentagem
-            int max = 0;
-            if (m_setting.isBarcodeReader == true)
-            {
-                max += 1;
-            }
-            if (m_setting.isCutter == true)
-            {
-                max += 1;
-            }
-            if (m_setting.isWaterMark == true)
-            {
-                max += 1;
-            }
-            if (m_setting.isSignature == true)
-            {
-                max += 1;
-            }
-
-            scannerCircleProgress.Maximum = max;
-            enterPoint.RunWorkerAsync();
-
+            scannerCircleProgress.Value = 1;
+            scannerCircleProgress.Text = "scan";
+            scannerCircleProgress.SuperScriptMargin = new Padding(4, 45, 0, 0);
+            scannerCircleProgress.SubScriptText = "lendo";
+            timer1.Enabled = true;
         }
 
         //Decide por onde começar
@@ -141,13 +122,8 @@ namespace XmlFinder
                 {
                     string Filename = Path.GetFileName(file);
                     System.IO.File.Copy(file, virtualScannerDiretorios.pathCutter + "\\" + Filename, true);
-                    //File.Move(file, virtualScannerDiretorios.pathCutter + "\\" + Filename); //mandar pra cutter path *FAZER CAMINHOS INTERNOS NO S_SETTINGS PRA ACESSO GLOBAL
                     File.Delete(file);
                 }
-
-                //iniciar bw pre processamento
-                bwpreprocessamento.RunWorkerAsync();
-
             }
             else  if (m_setting.isProcessing == true) //Se não for -> jogar na processamento
             {
@@ -159,12 +135,8 @@ namespace XmlFinder
                 {
                     string Filename = Path.GetFileName(file);
                     System.IO.File.Copy(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename, true);
-                    //File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw processamento
-                bwprocessamento.RunWorkerAsync();
 
             }
             else if (m_setting.isWaterMark == true)
@@ -175,12 +147,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename, true);
                     File.Delete(file);
                 }
-
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
 
             }
 
@@ -192,12 +161,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathSignature + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             //rodar indexador aqui no final sem condições, porque será OBRIGATORIO
@@ -208,7 +174,13 @@ namespace XmlFinder
 
         private void bwpreprocessamento_DoWork(object sender, DoWorkEventArgs e)
         {
+            BeginInvoke((MethodInvoker)delegate
+            {
+                txtNRecorte.Text = "Lendo...";
+                txtNRecorte.Visible = true;
+            });
             PdfUtility.processoRecortar();
+
         }
 
         private void bwpreprocessamento_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -216,12 +188,8 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate // Esse método permite que a thread em background (backgroundworker) acesse a UI
             {
-                scannerCircleProgress.Value += 1;
-                scannerCircleProgress.Update();
-                txtCent.Text = scannerCircleProgress.Text + "%";
-                txtCentText.Text = "Documentos Recortados";
-                txtCent.Visible = true;
-                txtCentText.Visible = true;
+                txtNRecorte.Text = "Lendo...";
+                txtNRecorte.Visible = true;
             });
 
             //Pegar arquivos da pasta de entrada
@@ -242,12 +210,10 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
 
-                //iniciar bw processamento
-                bwprocessamento.RunWorkerAsync();
             }
             else if (m_setting.isWaterMark == true)
             {
@@ -257,12 +223,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
             }
 
             else if (m_setting.isSignature == true)
@@ -273,12 +236,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathSignature + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isProcessing == false && m_setting.isWaterMark == false && m_setting.isSignature == false){
@@ -288,12 +248,9 @@ namespace XmlFinder
                     foreach (string file in arquivosEntrada)
                     {
                         string Filename = Path.GetFileName(file);
-                        File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
+                        System.IO.File.Copy(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename, true); //mandar pra indexar path
                         File.Delete(file);
                     }
-
-                //iniciar bwindexacao
-                exitPoint.RunWorkerAsync();
             }
             #endregion
         }
@@ -302,6 +259,13 @@ namespace XmlFinder
         {
             PdfUtility pdfUtility = new PdfUtility();
             pdfUtility.processoBarcode();
+            BeginInvoke((MethodInvoker)delegate // Esse método permite que a thread em background (backgroundworker) acesse a UI
+            {
+                txtNBarcode.Text = "Lendo...";
+                txtNBarcode.Visible = true;
+            });
+
+           
         }
 
         private void bwprocessamento_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -309,9 +273,8 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate
             {
-                scannerCircleProgress.Value += 1;
-                txtCent.Text = scannerCircleProgress.Text + "%";
-                txtCentText.Text = "Barcodes Lidos";
+                txtNRecorte.Text = scannerCircleProgress.Text + "%";
+                txtNBarcode.Text = "Lendo...";
             });
 
             //Pegar arquivos da pasta de entrada
@@ -331,12 +294,10 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathWaterMark + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
 
-                //iniciar bw watermark
-                bwposprocessamentoWatermark.RunWorkerAsync();
             }
 
             else if (m_setting.isSignature == true)
@@ -347,12 +308,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathSignature + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isWaterMark == false && m_setting.isSignature == false)
@@ -363,13 +321,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename, true); //mandar pra indexar path
                     File.Delete(file);
                 }
-
-
-                //iniciar bwindexacao
-                exitPoint.RunWorkerAsync();
             }
 
         }
@@ -377,6 +331,12 @@ namespace XmlFinder
         private void bwposprocessamentoWatermark_DoWork(object sender, DoWorkEventArgs e)
         {
             PdfUtility.processoInserirMarcadagua();
+            BeginInvoke((MethodInvoker)delegate
+            {
+                txtNMarca.Text = "Lendo...";
+                txtNMarca.Visible = true;
+            });
+
         }
 
         private void bwposprocessamentoWatermark_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -384,9 +344,7 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate
             {
-                scannerCircleProgress.Value += 1;
-                txtCent.Text = scannerCircleProgress.Text + "%";
-                txtCentText.Text = "Marcas D'agua Inseridas";
+                txtNMarca.Text = "Lendo...";
             });
 
             //Pegar arquivos da pasta de entrada
@@ -400,12 +358,10 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathSignature + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathSignature + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
 
-                //iniciar bw signature
-                bwposprocessamentoSignature.RunWorkerAsync();
             }
 
             if (m_setting.isSignature == false)
@@ -416,12 +372,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra indexar path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename, true); //mandar pra indexar path
                     File.Delete(file);
                 }
-
-                //iniciar bwindexacao
-                exitPoint.RunWorkerAsync();
             }
         }
 
@@ -430,6 +383,12 @@ namespace XmlFinder
         private void bwposprocessamentoSignature_DoWork(object sender, DoWorkEventArgs e)
         {
             PdfUtility.processoAssinar();
+            BeginInvoke((MethodInvoker)delegate // Esse método permite que a thread em background (backgroundworker) acesse a UI
+            {
+                txtNAssinar.Text = "Lendo...";
+                txtNAssinar.Visible = true;
+            });
+
         }
 
         private void bwposprocessamentoSignature_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -437,9 +396,7 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate
             {
-                scannerCircleProgress.Value += 1;
-                txtCent.Text = scannerCircleProgress.Text + "%";
-                txtCentText.Text = "Assinaturas Inseridas";
+                txtNAssinar.Text = "Lendo...";
             });
 
             //Pegar arquivos da pasta de entrada
@@ -453,12 +410,9 @@ namespace XmlFinder
                 foreach (string file in arquivosEntrada)
                 {
                     string Filename = Path.GetFileName(file);
-                    File.Move(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename); //mandar pra processamento path
+                    System.IO.File.Copy(file, virtualScannerDiretorios.pathIndexar + "\\" + Filename, true); //mandar pra processamento path
                     File.Delete(file);
                 }
-
-                //iniciar bw indexacao
-                exitPoint.RunWorkerAsync();
             }
         }
 
@@ -470,15 +424,17 @@ namespace XmlFinder
 
         private void exitPoint_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("terminou OLHAR A PASTA SAIDA");
+            //MessageBox.Show("terminou OLHAR A PASTA SAIDA");
         }
 
 
         private void PageBarcodeReader_Load(object sender, EventArgs e)
         {
             Load_AppSettings();
-           //Carregar informações de configurações na UI
-           if (m_setting.isCutter == true)
+            scannerCircleProgress.Value = 0;
+            scannerCircleProgress.Text = "scan";
+            //Carregar informações de configurações na UI
+            if (m_setting.isCutter == true)
             {
                 txtRecortar.Text = "Sim";
             }
@@ -536,7 +492,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
+
             }
         }
 
@@ -545,25 +502,61 @@ namespace XmlFinder
 
         }
 
-        /*private void backgroundRenomear_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-                barcode = (string)e.Result;
+            enterPoint.RunWorkerAsync();
 
-                if (String.IsNullOrEmpty(barcode))
+            if (m_setting.isPreProcessing == true)
+            {
+                while (bwpreprocessamento.IsBusy)
                 {
-                    MessageBox.Show("Não foi encontrado barcode;");
-                    return;
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(100);
                 }
 
-                //teste
-                int[,] array = new int[1, 2];
-                array[0, 0] = 1;
-                array[0, 1] = 5;
-                //Na pratica a pessoa ativara a quantidade de parametros e os valores do parametro atraves da UI configuracao Barcode
-                //if tamanho igual = 1(){  int[,] array = new int[1,2] com valor [0,0] = a,b e [0,1} = c,d;
+                bwpreprocessamento.RunWorkerAsync();
+            }
 
-                barcode = StringFormater.DelimitarString(barcode, ";", array); //funciona supimpa!!!
-        }*/
+            if (m_setting.isProcessing == true)
+            {
+                    while (bwprocessamento.IsBusy)
+                    {
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(100);
+                    }
+
+                bwprocessamento.RunWorkerAsync();
+            }
+
+            if (m_setting.isWaterMark == true)
+            {
+                while (bwposprocessamentoWatermark.IsBusy)
+                {
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(100);
+                }
+                bwposprocessamentoWatermark.RunWorkerAsync();
+            }
+
+            if (m_setting.isSignature == true)
+            {
+                while (bwposprocessamentoSignature.IsBusy)
+                {
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(100);
+                }
+                bwposprocessamentoSignature.RunWorkerAsync();
+            }
+
+            exitPoint.RunWorkerAsync();
+        }
+
+        private void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
 
     }
 }

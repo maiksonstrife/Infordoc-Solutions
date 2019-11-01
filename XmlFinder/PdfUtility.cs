@@ -61,7 +61,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
             }
             #endregion
 
@@ -97,7 +97,7 @@ namespace XmlFinder
 
                 if (String.IsNullOrEmpty(indice1))
                 {
-                    MessageBox.Show("Configurar Indice 1 nas configurações de saída");
+                    new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
                     return;
                 }
                 else
@@ -105,9 +105,11 @@ namespace XmlFinder
                     fileName = indice1;
                 }
 
+                PdfUtility pdfUtility = new PdfUtility();
+                
                 //SALVA NA PASTA SAIDA
                 System.IO.File.Copy(file, userSettingN.saidaPath + "\\" + fileName + ".PDF", true);
-                System.IO.File.Copy(file, userSettingN.saidaPath + "\\" + fileName + ".PDF", true);
+                File.Delete(file);
             }
         }
 
@@ -127,7 +129,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.atencao).Show();
             }
 
             VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
@@ -144,7 +146,8 @@ namespace XmlFinder
                 }
                 catch
                 {
-                    MessageBox.Show("Certeza que a senha do certificado está correta?");
+                    new alerta("Senha Incorreta Certificado", alerta.AlertType.erro).Show();
+
                     return;
                 }
 
@@ -181,7 +184,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar Configuração", alerta.AlertType.erro).Show();
+
             }
 
             String[] pdfRecortarhFiles;
@@ -290,7 +294,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
+
             }
 
             String[] pdfMarcarFiles;
@@ -342,7 +347,7 @@ namespace XmlFinder
                 //SALVANDO COMO PDF
                 page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
                 PdfUtility pdfUtility = new PdfUtility();
-                pdfUtility.Wait_for(40);
+                //dfUtility.Wait_for(1000);
 
                 out_pdf = new PdfSharp.Pdf.PdfDocument()
                 {
@@ -383,7 +388,7 @@ namespace XmlFinder
 
             if (m_input_files.Count == 0)
             {
-                MessageBox.Show("Sem Pdf na Pasta anexado ao processoRenomear()", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Sem Pdf na Pasta anexado ao processoRenomear()", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -436,7 +441,7 @@ namespace XmlFinder
                     
                     if (doc_height <= float.Epsilon) //Se certifica de que cada pagina está em conformidade com tamanho minimo
                     {
-                            MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
                     }
                         
@@ -576,15 +581,15 @@ namespace XmlFinder
                             }
                             catch
                             {
-                                MessageBox.Show("Erro 22", "Leitura barcode inválida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                new alerta("Barcode Erro", alerta.AlertType.erro).Show();
                             }
                         }
+
                 pdf.Close();
                 string lixo = virtualScannerDiretorios.pathProcessing + "\\" + fname;
                 File.Delete(lixo);
                 m_input_files.RemoveAt(0);
             }
-            MessageBox.Show("Processamento Finalizado com Sucesso.", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
 
@@ -670,8 +675,9 @@ namespace XmlFinder
                 }
                 else
                 {
-                    MessageBox.Show("Erro 22", "Leitura barcode inválida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    string error = "barcode não detectado";
+                new alerta("Barcode Erro", alerta.AlertType.erro).Show();
+
+                string error = "barcode não detectado";
                     return error;
                 }
             
@@ -818,7 +824,7 @@ namespace XmlFinder
         }
         */
 
-        void Wait_for(int milisec)
+        public void Wait_for(int milisec)
         {
             DateTime tm = DateTime.Now;
             while (DateTime.Now.Subtract(tm).Milliseconds < milisec)
@@ -939,7 +945,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("A aualização da pasta falhou. Caminho incorreto. Erro : " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Att pasta falou", alerta.AlertType.erro).Show();
+
 
             }
         }
@@ -1033,7 +1040,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro 08: " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Erro 008", alerta.AlertType.erro).Show();
+
                 return false;
             }
 
@@ -1052,7 +1060,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
+
             }
         }
 
