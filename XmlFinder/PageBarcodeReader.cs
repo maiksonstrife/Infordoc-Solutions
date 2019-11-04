@@ -98,9 +98,11 @@ namespace XmlFinder
 
             scannerCircleProgress.Value = 1;
             scannerCircleProgress.Text = "scan";
-            scannerCircleProgress.SuperScriptMargin = new Padding(4, 45, 0, 0);
-            scannerCircleProgress.SubScriptText = "lendo";
+            //scannerCircleProgress.SuperScriptMargin = new Padding(4, 45, 0, 0);
+            scannerCircleProgress.SuperScriptText = "lendo";
             timer1.Enabled = true;
+            CarregaOnloadRenomear.Enabled = false;
+            btnPararVerificacao.Enabled = true;
         }
 
         //Decide por onde começar
@@ -189,6 +191,7 @@ namespace XmlFinder
             BeginInvoke((MethodInvoker)delegate // Esse método permite que a thread em background (backgroundworker) acesse a UI
             {
                 txtNRecorte.Text = "Lendo...";
+                bunifuSeparator5.Visible = true;
                 txtNRecorte.Visible = true;
             });
 
@@ -274,6 +277,8 @@ namespace XmlFinder
             BeginInvoke((MethodInvoker)delegate
             {
                 txtNRecorte.Text = scannerCircleProgress.Text + "%";
+                bunifuSeparator1.Visible = true;
+
                 txtNBarcode.Text = "Lendo...";
             });
 
@@ -334,6 +339,8 @@ namespace XmlFinder
             BeginInvoke((MethodInvoker)delegate
             {
                 txtNMarca.Text = "Lendo...";
+                bunifuSeparator2.Visible = true;
+
                 txtNMarca.Visible = true;
             });
 
@@ -344,6 +351,8 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate
             {
+                bunifuSeparator2.Visible = true;
+
                 txtNMarca.Text = "Lendo...";
             });
 
@@ -396,6 +405,8 @@ namespace XmlFinder
             Load_AppSettings();
             BeginInvoke((MethodInvoker)delegate
             {
+                bunifuSeparator3.Visible = true;
+
                 txtNAssinar.Text = "Lendo...";
             });
 
@@ -556,7 +567,24 @@ namespace XmlFinder
 
         }
 
+        private void btnPararVerificacao_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            CarregaOnloadRenomear.Enabled = true;
+            btnPararVerificacao.Enabled = false;
+            scannerCircleProgress.Value = 0;
+            scannerCircleProgress.Text = "scan";
+            scannerCircleProgress.SuperScriptText = "";
 
+            txtNAssinar.Visible = false;
+            txtNBarcode.Visible = false;
+            txtNMarca.Visible = false;
+            txtNRecorte.Visible = false;
+            bunifuSeparator1.Visible = false;
+            bunifuSeparator2.Visible = false;
+            bunifuSeparator3.Visible = false;
+            bunifuSeparator5.Visible = false;
 
+        }
     }
 }

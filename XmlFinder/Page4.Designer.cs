@@ -30,10 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page4));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.listarPastasBox = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEnviarFtp = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -51,6 +55,24 @@
             this.checkboxLocalPadrao = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblsubdir = new System.Windows.Forms.Label();
+            this.chkSubDiretorio = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.btnPerfil3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnPerfil2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnPerfil1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtNomePerfil = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.btnSalvarPerfil = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.dropPerfis = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chkSalvarPerfil = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.txtPastaWeb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuGradientPanel1.SuspendLayout();
@@ -121,13 +143,13 @@
             this.btnEnviarFtp.IdleIconRightImage = null;
             this.btnEnviarFtp.Location = new System.Drawing.Point(26, 416);
             this.btnEnviarFtp.Name = "btnEnviarFtp";
-            stateProperties13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties13.BorderRadius = 1;
-            stateProperties13.BorderThickness = 1;
-            stateProperties13.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties13.IconLeftImage = null;
-            stateProperties13.IconRightImage = null;
-            this.btnEnviarFtp.onHoverState = stateProperties13;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = null;
+            this.btnEnviarFtp.onHoverState = stateProperties1;
             this.btnEnviarFtp.Size = new System.Drawing.Size(217, 34);
             this.btnEnviarFtp.TabIndex = 22;
             this.btnEnviarFtp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,13 +176,13 @@
             this.btnMonitorar.IdleIconRightImage = null;
             this.btnMonitorar.Location = new System.Drawing.Point(26, 472);
             this.btnMonitorar.Name = "btnMonitorar";
-            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties14.BorderRadius = 1;
-            stateProperties14.BorderThickness = 1;
-            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties14.IconLeftImage = null;
-            stateProperties14.IconRightImage = null;
-            this.btnMonitorar.onHoverState = stateProperties14;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.BorderRadius = 1;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties2.IconLeftImage = null;
+            stateProperties2.IconRightImage = null;
+            this.btnMonitorar.onHoverState = stateProperties2;
             this.btnMonitorar.Size = new System.Drawing.Size(217, 34);
             this.btnMonitorar.TabIndex = 23;
             this.btnMonitorar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -248,13 +270,13 @@
             this.btnSelecionarPasta.IdleIconRightImage = null;
             this.btnSelecionarPasta.Location = new System.Drawing.Point(26, 302);
             this.btnSelecionarPasta.Name = "btnSelecionarPasta";
-            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties15.BorderRadius = 1;
-            stateProperties15.BorderThickness = 1;
-            stateProperties15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties15.IconLeftImage = null;
-            stateProperties15.IconRightImage = null;
-            this.btnSelecionarPasta.onHoverState = stateProperties15;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.BorderRadius = 1;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconRightImage = null;
+            this.btnSelecionarPasta.onHoverState = stateProperties3;
             this.btnSelecionarPasta.Size = new System.Drawing.Size(125, 27);
             this.btnSelecionarPasta.TabIndex = 32;
             this.btnSelecionarPasta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -325,15 +347,15 @@
             this.bunifuButton1.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
-            this.bunifuButton1.Location = new System.Drawing.Point(26, 75);
+            this.bunifuButton1.Location = new System.Drawing.Point(26, 47);
             this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties16.BorderRadius = 1;
-            stateProperties16.BorderThickness = 1;
-            stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties16.IconLeftImage = null;
-            stateProperties16.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties16;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = null;
+            this.bunifuButton1.onHoverState = stateProperties4;
             this.bunifuButton1.Size = new System.Drawing.Size(189, 34);
             this.bunifuButton1.TabIndex = 17;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -451,6 +473,24 @@
             // 
             this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel1.Controls.Add(this.label14);
+            this.bunifuGradientPanel1.Controls.Add(this.label13);
+            this.bunifuGradientPanel1.Controls.Add(this.label12);
+            this.bunifuGradientPanel1.Controls.Add(this.label11);
+            this.bunifuGradientPanel1.Controls.Add(this.lblsubdir);
+            this.bunifuGradientPanel1.Controls.Add(this.chkSubDiretorio);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPerfil3);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPerfil2);
+            this.bunifuGradientPanel1.Controls.Add(this.btnPerfil1);
+            this.bunifuGradientPanel1.Controls.Add(this.label10);
+            this.bunifuGradientPanel1.Controls.Add(this.label9);
+            this.bunifuGradientPanel1.Controls.Add(this.txtNomePerfil);
+            this.bunifuGradientPanel1.Controls.Add(this.btnSalvarPerfil);
+            this.bunifuGradientPanel1.Controls.Add(this.dropPerfis);
+            this.bunifuGradientPanel1.Controls.Add(this.label8);
+            this.bunifuGradientPanel1.Controls.Add(this.label7);
+            this.bunifuGradientPanel1.Controls.Add(this.chkSalvarPerfil);
+            this.bunifuGradientPanel1.Controls.Add(this.txtPastaWeb);
             this.bunifuGradientPanel1.Controls.Add(this.label3);
             this.bunifuGradientPanel1.Controls.Add(this.label2);
             this.bunifuGradientPanel1.Controls.Add(this.label1);
@@ -477,6 +517,486 @@
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
             this.bunifuGradientPanel1.TabIndex = 40;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(114, 129);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 21);
+            this.label14.TabIndex = 60;
+            this.label14.Text = "pasta local";
+            this.label14.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(114, 97);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 21);
+            this.label13.TabIndex = 59;
+            this.label13.Text = "pasta local";
+            this.label13.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(22, 129);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 21);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "pasta Web:";
+            this.label12.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(22, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 21);
+            this.label11.TabIndex = 57;
+            this.label11.Text = "pasta local:";
+            this.label11.Visible = false;
+            // 
+            // lblsubdir
+            // 
+            this.lblsubdir.AutoSize = true;
+            this.lblsubdir.BackColor = System.Drawing.Color.Transparent;
+            this.lblsubdir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubdir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblsubdir.Location = new System.Drawing.Point(342, 161);
+            this.lblsubdir.Name = "lblsubdir";
+            this.lblsubdir.Size = new System.Drawing.Size(97, 21);
+            this.lblsubdir.TabIndex = 56;
+            this.lblsubdir.Text = "Subdiretório";
+            // 
+            // chkSubDiretorio
+            // 
+            this.chkSubDiretorio.AllowBindingControlAnimation = true;
+            this.chkSubDiretorio.AllowBindingControlColorChanges = false;
+            this.chkSubDiretorio.AllowBindingControlLocation = true;
+            this.chkSubDiretorio.AllowCheckBoxAnimation = false;
+            this.chkSubDiretorio.AllowCheckmarkAnimation = true;
+            this.chkSubDiretorio.AllowOnHoverStates = true;
+            this.chkSubDiretorio.BackColor = System.Drawing.Color.Transparent;
+            this.chkSubDiretorio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkSubDiretorio.BackgroundImage")));
+            this.chkSubDiretorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chkSubDiretorio.BindingControl = null;
+            this.chkSubDiretorio.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.chkSubDiretorio.Checked = false;
+            this.chkSubDiretorio.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
+            this.chkSubDiretorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkSubDiretorio.CustomCheckmarkImage = null;
+            this.chkSubDiretorio.Location = new System.Drawing.Point(314, 158);
+            this.chkSubDiretorio.MinimumSize = new System.Drawing.Size(17, 17);
+            this.chkSubDiretorio.Name = "chkSubDiretorio";
+            this.chkSubDiretorio.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSubDiretorio.OnCheck.BorderRadius = 2;
+            this.chkSubDiretorio.OnCheck.BorderThickness = 2;
+            this.chkSubDiretorio.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSubDiretorio.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.chkSubDiretorio.OnCheck.CheckmarkThickness = 2;
+            this.chkSubDiretorio.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.chkSubDiretorio.OnDisable.BorderRadius = 2;
+            this.chkSubDiretorio.OnDisable.BorderThickness = 2;
+            this.chkSubDiretorio.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSubDiretorio.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.chkSubDiretorio.OnDisable.CheckmarkThickness = 2;
+            this.chkSubDiretorio.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSubDiretorio.OnHoverChecked.BorderRadius = 2;
+            this.chkSubDiretorio.OnHoverChecked.BorderThickness = 2;
+            this.chkSubDiretorio.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSubDiretorio.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.chkSubDiretorio.OnHoverChecked.CheckmarkThickness = 2;
+            this.chkSubDiretorio.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSubDiretorio.OnHoverUnchecked.BorderRadius = 2;
+            this.chkSubDiretorio.OnHoverUnchecked.BorderThickness = 2;
+            this.chkSubDiretorio.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSubDiretorio.OnUncheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSubDiretorio.OnUncheck.BorderRadius = 2;
+            this.chkSubDiretorio.OnUncheck.BorderThickness = 2;
+            this.chkSubDiretorio.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSubDiretorio.Size = new System.Drawing.Size(24, 24);
+            this.chkSubDiretorio.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.chkSubDiretorio.TabIndex = 55;
+            this.chkSubDiretorio.ThreeState = false;
+            this.chkSubDiretorio.ToolTipText = null;
+            this.chkSubDiretorio.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkSubDiretorio_CheckedChanged_1);
+            // 
+            // btnPerfil3
+            // 
+            this.btnPerfil3.BackColor = System.Drawing.Color.Transparent;
+            this.btnPerfil3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil3.BackgroundImage")));
+            this.btnPerfil3.ButtonText = "Perfil 3";
+            this.btnPerfil3.ButtonTextMarginLeft = 0;
+            this.btnPerfil3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnPerfil3.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnPerfil3.DisabledForecolor = System.Drawing.Color.White;
+            this.btnPerfil3.ForeColor = System.Drawing.Color.White;
+            this.btnPerfil3.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil3.IconPadding = 10;
+            this.btnPerfil3.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil3.IdleBorderColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil3.IdleBorderRadius = 1;
+            this.btnPerfil3.IdleBorderThickness = 0;
+            this.btnPerfil3.IdleFillColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil3.IdleIconLeftImage = null;
+            this.btnPerfil3.IdleIconRightImage = null;
+            this.btnPerfil3.Location = new System.Drawing.Point(709, 54);
+            this.btnPerfil3.Name = "btnPerfil3";
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties5.BorderRadius = 1;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.btnPerfil3.onHoverState = stateProperties5;
+            this.btnPerfil3.Size = new System.Drawing.Size(163, 27);
+            this.btnPerfil3.TabIndex = 54;
+            this.btnPerfil3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPerfil3.Click += new System.EventHandler(this.btnPerfil3_Click);
+            // 
+            // btnPerfil2
+            // 
+            this.btnPerfil2.BackColor = System.Drawing.Color.Transparent;
+            this.btnPerfil2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil2.BackgroundImage")));
+            this.btnPerfil2.ButtonText = "Perfil 2";
+            this.btnPerfil2.ButtonTextMarginLeft = 0;
+            this.btnPerfil2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnPerfil2.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnPerfil2.DisabledForecolor = System.Drawing.Color.White;
+            this.btnPerfil2.ForeColor = System.Drawing.Color.White;
+            this.btnPerfil2.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil2.IconPadding = 10;
+            this.btnPerfil2.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil2.IdleBorderColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil2.IdleBorderRadius = 1;
+            this.btnPerfil2.IdleBorderThickness = 0;
+            this.btnPerfil2.IdleFillColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil2.IdleIconLeftImage = null;
+            this.btnPerfil2.IdleIconRightImage = null;
+            this.btnPerfil2.Location = new System.Drawing.Point(522, 54);
+            this.btnPerfil2.Name = "btnPerfil2";
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.BorderRadius = 1;
+            stateProperties6.BorderThickness = 1;
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.IconLeftImage = null;
+            stateProperties6.IconRightImage = null;
+            this.btnPerfil2.onHoverState = stateProperties6;
+            this.btnPerfil2.Size = new System.Drawing.Size(163, 27);
+            this.btnPerfil2.TabIndex = 53;
+            this.btnPerfil2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPerfil2.Click += new System.EventHandler(this.btnPerfil2_Click);
+            // 
+            // btnPerfil1
+            // 
+            this.btnPerfil1.BackColor = System.Drawing.Color.Transparent;
+            this.btnPerfil1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPerfil1.BackgroundImage")));
+            this.btnPerfil1.ButtonText = "Perfil 1";
+            this.btnPerfil1.ButtonTextMarginLeft = 0;
+            this.btnPerfil1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnPerfil1.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnPerfil1.DisabledForecolor = System.Drawing.Color.White;
+            this.btnPerfil1.ForeColor = System.Drawing.Color.White;
+            this.btnPerfil1.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil1.IconPadding = 10;
+            this.btnPerfil1.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnPerfil1.IdleBorderColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil1.IdleBorderRadius = 1;
+            this.btnPerfil1.IdleBorderThickness = 0;
+            this.btnPerfil1.IdleFillColor = System.Drawing.Color.SlateBlue;
+            this.btnPerfil1.IdleIconLeftImage = null;
+            this.btnPerfil1.IdleIconRightImage = null;
+            this.btnPerfil1.Location = new System.Drawing.Point(335, 54);
+            this.btnPerfil1.Name = "btnPerfil1";
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.BorderRadius = 1;
+            stateProperties7.BorderThickness = 1;
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties7.IconLeftImage = null;
+            stateProperties7.IconRightImage = null;
+            this.btnPerfil1.onHoverState = stateProperties7;
+            this.btnPerfil1.Size = new System.Drawing.Size(163, 27);
+            this.btnPerfil1.TabIndex = 52;
+            this.btnPerfil1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPerfil1.Click += new System.EventHandler(this.btnPerfil1_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(331, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 21);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Utilizar Perfis";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(637, 341);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 21);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "Nome do Perfil";
+            this.label9.Visible = false;
+            // 
+            // txtNomePerfil
+            // 
+            this.txtNomePerfil.AcceptsReturn = false;
+            this.txtNomePerfil.AcceptsTab = false;
+            this.txtNomePerfil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNomePerfil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtNomePerfil.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNomePerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtNomePerfil.BackgroundImage")));
+            this.txtNomePerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtNomePerfil.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.txtNomePerfil.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txtNomePerfil.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.txtNomePerfil.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.txtNomePerfil.BorderRadius = 1;
+            this.txtNomePerfil.BorderThickness = 2;
+            this.txtNomePerfil.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtNomePerfil.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtNomePerfil.DefaultFont = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtNomePerfil.DefaultText = "";
+            this.txtNomePerfil.FillColor = System.Drawing.SystemColors.Control;
+            this.txtNomePerfil.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNomePerfil.HideSelection = true;
+            this.txtNomePerfil.IconLeft = null;
+            this.txtNomePerfil.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.txtNomePerfil.IconPadding = 10;
+            this.txtNomePerfil.IconRight = null;
+            this.txtNomePerfil.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.txtNomePerfil.Location = new System.Drawing.Point(641, 365);
+            this.txtNomePerfil.MaxLength = 32767;
+            this.txtNomePerfil.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txtNomePerfil.Modified = false;
+            this.txtNomePerfil.Name = "txtNomePerfil";
+            this.txtNomePerfil.PasswordChar = '\0';
+            this.txtNomePerfil.ReadOnly = false;
+            this.txtNomePerfil.SelectedText = "";
+            this.txtNomePerfil.SelectionLength = 0;
+            this.txtNomePerfil.SelectionStart = 0;
+            this.txtNomePerfil.ShortcutsEnabled = true;
+            this.txtNomePerfil.Size = new System.Drawing.Size(227, 35);
+            this.txtNomePerfil.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.txtNomePerfil.TabIndex = 49;
+            this.txtNomePerfil.TabStop = false;
+            this.txtNomePerfil.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtNomePerfil.TextMarginLeft = 5;
+            this.txtNomePerfil.TextPlaceholder = "";
+            this.txtNomePerfil.UseSystemPasswordChar = false;
+            this.txtNomePerfil.Visible = false;
+            // 
+            // btnSalvarPerfil
+            // 
+            this.btnSalvarPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalvarPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalvarPerfil.BackgroundImage")));
+            this.btnSalvarPerfil.ButtonText = "Salvar";
+            this.btnSalvarPerfil.ButtonTextMarginLeft = 0;
+            this.btnSalvarPerfil.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.btnSalvarPerfil.DisabledFillColor = System.Drawing.Color.Gray;
+            this.btnSalvarPerfil.DisabledForecolor = System.Drawing.Color.White;
+            this.btnSalvarPerfil.ForeColor = System.Drawing.Color.White;
+            this.btnSalvarPerfil.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSalvarPerfil.IconPadding = 10;
+            this.btnSalvarPerfil.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSalvarPerfil.IdleBorderColor = System.Drawing.Color.SlateBlue;
+            this.btnSalvarPerfil.IdleBorderRadius = 1;
+            this.btnSalvarPerfil.IdleBorderThickness = 0;
+            this.btnSalvarPerfil.IdleFillColor = System.Drawing.Color.SlateBlue;
+            this.btnSalvarPerfil.IdleIconLeftImage = null;
+            this.btnSalvarPerfil.IdleIconRightImage = null;
+            this.btnSalvarPerfil.Location = new System.Drawing.Point(772, 416);
+            this.btnSalvarPerfil.Name = "btnSalvarPerfil";
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties8.BorderRadius = 1;
+            stateProperties8.BorderThickness = 1;
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties8.IconLeftImage = null;
+            stateProperties8.IconRightImage = null;
+            this.btnSalvarPerfil.onHoverState = stateProperties8;
+            this.btnSalvarPerfil.Size = new System.Drawing.Size(96, 27);
+            this.btnSalvarPerfil.TabIndex = 48;
+            this.btnSalvarPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSalvarPerfil.Visible = false;
+            this.btnSalvarPerfil.Click += new System.EventHandler(this.btnSalvarPerfil_Click);
+            // 
+            // dropPerfis
+            // 
+            this.dropPerfis.BackColor = System.Drawing.SystemColors.Control;
+            this.dropPerfis.BorderRadius = 1;
+            this.dropPerfis.Color = System.Drawing.Color.Blue;
+            this.dropPerfis.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.dropPerfis.DisabledColor = System.Drawing.Color.Gray;
+            this.dropPerfis.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dropPerfis.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
+            this.dropPerfis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropPerfis.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.dropPerfis.FillDropDown = false;
+            this.dropPerfis.FillIndicator = false;
+            this.dropPerfis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dropPerfis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dropPerfis.ForeColor = System.Drawing.Color.Black;
+            this.dropPerfis.Icon = null;
+            this.dropPerfis.IndicatorColor = System.Drawing.Color.RoyalBlue;
+            this.dropPerfis.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.dropPerfis.ItemBackColor = System.Drawing.Color.MidnightBlue;
+            this.dropPerfis.ItemBorderColor = System.Drawing.Color.RoyalBlue;
+            this.dropPerfis.ItemForeColor = System.Drawing.Color.AliceBlue;
+            this.dropPerfis.ItemHeight = 26;
+            this.dropPerfis.ItemHighLightColor = System.Drawing.Color.MediumBlue;
+            this.dropPerfis.Location = new System.Drawing.Point(641, 302);
+            this.dropPerfis.Name = "dropPerfis";
+            this.dropPerfis.Size = new System.Drawing.Size(227, 32);
+            this.dropPerfis.TabIndex = 47;
+            this.dropPerfis.Text = null;
+            this.dropPerfis.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(814, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "/exemplo";
+            this.label8.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(777, 267);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 21);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Salvar Perfil";
+            // 
+            // chkSalvarPerfil
+            // 
+            this.chkSalvarPerfil.AllowBindingControlAnimation = true;
+            this.chkSalvarPerfil.AllowBindingControlColorChanges = false;
+            this.chkSalvarPerfil.AllowBindingControlLocation = true;
+            this.chkSalvarPerfil.AllowCheckBoxAnimation = false;
+            this.chkSalvarPerfil.AllowCheckmarkAnimation = true;
+            this.chkSalvarPerfil.AllowOnHoverStates = true;
+            this.chkSalvarPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.chkSalvarPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkSalvarPerfil.BackgroundImage")));
+            this.chkSalvarPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chkSalvarPerfil.BindingControl = null;
+            this.chkSalvarPerfil.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.chkSalvarPerfil.Checked = false;
+            this.chkSalvarPerfil.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
+            this.chkSalvarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkSalvarPerfil.CustomCheckmarkImage = null;
+            this.chkSalvarPerfil.Location = new System.Drawing.Point(749, 264);
+            this.chkSalvarPerfil.MinimumSize = new System.Drawing.Size(17, 17);
+            this.chkSalvarPerfil.Name = "chkSalvarPerfil";
+            this.chkSalvarPerfil.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSalvarPerfil.OnCheck.BorderRadius = 2;
+            this.chkSalvarPerfil.OnCheck.BorderThickness = 2;
+            this.chkSalvarPerfil.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSalvarPerfil.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.chkSalvarPerfil.OnCheck.CheckmarkThickness = 2;
+            this.chkSalvarPerfil.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.chkSalvarPerfil.OnDisable.BorderRadius = 2;
+            this.chkSalvarPerfil.OnDisable.BorderThickness = 2;
+            this.chkSalvarPerfil.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSalvarPerfil.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.chkSalvarPerfil.OnDisable.CheckmarkThickness = 2;
+            this.chkSalvarPerfil.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSalvarPerfil.OnHoverChecked.BorderRadius = 2;
+            this.chkSalvarPerfil.OnHoverChecked.BorderThickness = 2;
+            this.chkSalvarPerfil.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSalvarPerfil.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.chkSalvarPerfil.OnHoverChecked.CheckmarkThickness = 2;
+            this.chkSalvarPerfil.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkSalvarPerfil.OnHoverUnchecked.BorderRadius = 2;
+            this.chkSalvarPerfil.OnHoverUnchecked.BorderThickness = 2;
+            this.chkSalvarPerfil.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSalvarPerfil.OnUncheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkSalvarPerfil.OnUncheck.BorderRadius = 2;
+            this.chkSalvarPerfil.OnUncheck.BorderThickness = 2;
+            this.chkSalvarPerfil.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkSalvarPerfil.Size = new System.Drawing.Size(24, 24);
+            this.chkSalvarPerfil.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.chkSalvarPerfil.TabIndex = 43;
+            this.chkSalvarPerfil.ThreeState = false;
+            this.chkSalvarPerfil.ToolTipText = null;
+            this.chkSalvarPerfil.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkSubDiretorio_CheckedChanged);
+            // 
+            // txtPastaWeb
+            // 
+            this.txtPastaWeb.AcceptsReturn = false;
+            this.txtPastaWeb.AcceptsTab = false;
+            this.txtPastaWeb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPastaWeb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPastaWeb.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPastaWeb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtPastaWeb.BackgroundImage")));
+            this.txtPastaWeb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtPastaWeb.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(45)))), ((int)(((byte)(145)))));
+            this.txtPastaWeb.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txtPastaWeb.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(38)))), ((int)(((byte)(157)))));
+            this.txtPastaWeb.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.txtPastaWeb.BorderRadius = 1;
+            this.txtPastaWeb.BorderThickness = 2;
+            this.txtPastaWeb.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPastaWeb.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtPastaWeb.DefaultFont = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtPastaWeb.DefaultText = "";
+            this.txtPastaWeb.FillColor = System.Drawing.SystemColors.Control;
+            this.txtPastaWeb.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtPastaWeb.HideSelection = true;
+            this.txtPastaWeb.IconLeft = null;
+            this.txtPastaWeb.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.txtPastaWeb.IconPadding = 10;
+            this.txtPastaWeb.IconRight = null;
+            this.txtPastaWeb.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.txtPastaWeb.Location = new System.Drawing.Point(459, 185);
+            this.txtPastaWeb.MaxLength = 32767;
+            this.txtPastaWeb.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txtPastaWeb.Modified = false;
+            this.txtPastaWeb.Name = "txtPastaWeb";
+            this.txtPastaWeb.PasswordChar = '\0';
+            this.txtPastaWeb.ReadOnly = false;
+            this.txtPastaWeb.SelectedText = "";
+            this.txtPastaWeb.SelectionLength = 0;
+            this.txtPastaWeb.SelectionStart = 0;
+            this.txtPastaWeb.ShortcutsEnabled = true;
+            this.txtPastaWeb.Size = new System.Drawing.Size(409, 35);
+            this.txtPastaWeb.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.txtPastaWeb.TabIndex = 42;
+            this.txtPastaWeb.TabStop = false;
+            this.txtPastaWeb.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtPastaWeb.TextMarginLeft = 5;
+            this.txtPastaWeb.TextPlaceholder = "";
+            this.txtPastaWeb.UseSystemPasswordChar = false;
+            this.txtPastaWeb.Visible = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -495,7 +1015,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(22, 51);
+            this.label2.Location = new System.Drawing.Point(22, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 21);
             this.label2.TabIndex = 40;
@@ -509,6 +1029,7 @@
             this.Controls.Add(this.bunifuGradientPanel1);
             this.Name = "Page4";
             this.Size = new System.Drawing.Size(888, 563);
+            this.Load += new System.EventHandler(this.Page4_Load);
             this.bunifuGradientPanel1.ResumeLayout(false);
             this.bunifuGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -535,5 +1056,23 @@
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private Bunifu.UI.WinForms.BunifuCheckBox chkSalvarPerfil;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtPastaWeb;
+        private System.Windows.Forms.Label label8;
+        private Bunifu.UI.WinForms.BunifuDropdown dropPerfis;
+        private System.Windows.Forms.Label label9;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtNomePerfil;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSalvarPerfil;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPerfil3;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPerfil2;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPerfil1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblsubdir;
+        private Bunifu.UI.WinForms.BunifuCheckBox chkSubDiretorio;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -945,7 +945,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Att pasta falou", alerta.AlertType.erro).Show();
+                //new alerta("Att pasta falou", alerta.AlertType.erro).Show();
 
 
             }

@@ -81,10 +81,25 @@ namespace XmlFinder
             pastaWEB = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
         }
 
+
+
+
         private void btnEnviarFtp_Click(object sender, EventArgs e)
         {
+            Load_AppSettings();
+
+            url = m_setting.enderecoFTP;
+            usuario = m_setting.usuarioFTP;
+            senha = m_setting.senhaFTP;
+
             bool isError = false;
             isError = tratamentoErros();
+
+            if (String.IsNullOrEmpty(txtPastaWeb.Text) == false)
+            {
+                pastaWEB += txtPastaWeb.Text;
+            }
+
             if (isError == true)
             {
                 enviarFtp();
@@ -170,6 +185,11 @@ namespace XmlFinder
             btnPararVerificacao.Update();
             backgroundWorker1.CancelAsync();
             botoesControle(true);
+            txtCaminhoLocal.Visible = true;
+            chkSalvarPerfil.Visible = true;
+            label7.Visible = true;
+            chkSubDiretorio.Visible = true;
+            lblsubdir.Visible = true;
             timer1.Enabled = false;
         }
 
@@ -197,6 +217,7 @@ namespace XmlFinder
                         
                         ftpConnection.UploadFile(pastaLocal, pastaWEB, file, url, usuario, senha);
                         i++;
+                        File.Delete(file.FullName.ToString());
                         backgroundWorker1.ReportProgress(i);
                     }
                     testeFtp = false;
@@ -204,9 +225,14 @@ namespace XmlFinder
                 }
                 else
                 {
-                    new alerta("Erro de REDE", alerta.AlertType.info).Show();
-                    listarPastasBox.DataSource = null;
-                    listarPastasBox.Items.Clear();
+
+                    BeginInvoke((MethodInvoker)delegate
+                    {
+                        new alerta("Erro de REDE", alerta.AlertType.info).Show();
+                        listarPastasBox.DataSource = null;
+                        listarPastasBox.Items.Clear();
+                    });
+                    
                 }
             }
             else
@@ -234,6 +260,25 @@ namespace XmlFinder
             if (timer1.Enabled == false)
             {
                 botoesControle(true);
+                label4.Visible = true;
+                chkSubDiretorio.Visible = true;
+                lblsubdir.Visible = true;
+                listarPastasBox.Visible = true;
+                txtPastaWeb.Visible = true;
+                label8.Visible = true;
+                label6.Visible = true;
+                txtCaminhoLocal.Visible = true;
+                btnSelecionarPasta.Visible = true;
+                checkboxLocalPadrao.Visible = true;
+                label1.Visible = true;
+                chkSalvarPerfil.Visible = true;
+                label7.Visible = true;
+               
+
+                label11.Visible = false;
+                label12.Visible = false;
+                label13.Visible = false;
+                label14.Visible = false;
             }
         }
 
@@ -305,6 +350,242 @@ namespace XmlFinder
             bunifuProgressBar1.MaximumValue = range;
             botoesControle(false);
             backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void chkSubDiretorio_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkSalvarPerfil.Checked == true)
+            {
+                dropPerfis.Visible = true;
+                label9.Visible = true;
+                txtNomePerfil.Visible = true;
+                btnSalvarPerfil.Visible = true;
+
+
+
+                dropPerfis.Items.Add(m_setting.perfil1);
+                dropPerfis.Items.Add(m_setting.perfil2);
+                dropPerfis.Items.Add(m_setting.perfil3);
+            }
+
+            if (chkSalvarPerfil.Checked == false)
+            {
+                dropPerfis.Visible = false;
+                label9.Visible = false;
+                txtNomePerfil.Visible = false;
+                btnSalvarPerfil.Visible = false;
+                txtNomePerfil.Text = "";
+            }
+        }
+
+        private void Page4_Load(object sender, EventArgs e)
+        {
+            Load_AppSettings();
+
+            if (m_setting.perfil1 == "<Perfil1>")
+            {
+                btnPerfil1.Enabled = false;
+            }
+            else
+            {
+                btnPerfil1.ButtonText = m_setting.perfil1;
+                btnPerfil1.Enabled = true; 
+            }
+
+            if (m_setting.perfil2 == "<Perfil2>")
+            {
+                btnPerfil2.Enabled = false;
+            }
+            else
+            {
+                btnPerfil2.ButtonText = m_setting.perfil2;
+                btnPerfil2.Enabled = true;
+            }
+
+            if (m_setting.perfil3 == "<Perfil3>")
+            {
+                btnPerfil3.Enabled = false;
+            }
+            else
+            {
+                btnPerfil3.ButtonText = m_setting.perfil3;
+                btnPerfil3.Enabled = true;
+            }
+        }
+
+        private void chkSubDiretorio_CheckedChanged_1(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkSubDiretorio.Checked == true)
+            {
+                txtPastaWeb.Visible = true;
+                label8.Visible = true;
+            }
+
+            if (chkSubDiretorio.Checked == false)
+            {
+                txtPastaWeb.Visible = false;
+                label8.Visible = false;
+                txtPastaWeb.Text = "";
+            }
+            
+
+        }
+
+        private void btnSalvarPerfil_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtNomePerfil.Text))
+            {
+                new alerta("Insira um nome", alerta.AlertType.atencao).Show();
+                return;
+            }
+            Load_AppSettings();
+
+            int index = dropPerfis.SelectedIndex;
+
+            if (index == 0)
+            {
+                m_setting.perfil1 = txtNomePerfil.Text;
+                m_setting.pastaLOCALperfil1 = txtCaminhoLocal.Text;
+                m_setting.pastaWEBperfil1 = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
+
+                if (String.IsNullOrEmpty(txtPastaWeb.Text) == false)
+                {
+                    m_setting.pastaWEBperfil1 += txtPastaWeb.Text;
+                }
+
+                m_setting.Save();
+            }
+
+            if (index == 1)
+            {
+                m_setting.perfil2 = txtNomePerfil.Text;
+                m_setting.pastaLOCALperfil2 = txtCaminhoLocal.Text;
+                m_setting.pastaWEBperfil2 = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
+
+                if (String.IsNullOrEmpty(txtPastaWeb.Text) == false)
+                {
+                    m_setting.pastaWEBperfil2 += txtPastaWeb.Text;
+                }
+
+                m_setting.Save();
+            }
+
+            if (index == 2)
+            {
+                m_setting.perfil3 = txtNomePerfil.Text;
+                m_setting.pastaLOCALperfil3 = txtCaminhoLocal.Text;
+                m_setting.pastaWEBperfil3 = this.listarPastasBox.GetItemText(this.listarPastasBox.SelectedItem);
+
+                if (String.IsNullOrEmpty(txtPastaWeb.Text) == false)
+                {
+                    m_setting.pastaWEBperfil3 += txtPastaWeb.Text;
+                }
+
+                m_setting.Save();
+            }
+
+        }
+
+        private void btnPerfil1_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+            chkSubDiretorio.Visible = false;
+            lblsubdir.Visible = false;
+            listarPastasBox.Visible = false;
+            txtPastaWeb.Visible = false;
+            label8.Visible = false;
+            label6.Visible = false;
+            txtCaminhoLocal.Visible = false;
+            btnSelecionarPasta.Visible = false;
+            checkboxLocalPadrao.Visible = false;
+            label1.Visible = false;
+            chkSalvarPerfil.Visible = false;
+            label7.Visible = false;
+            dropPerfis.Visible = false;
+            label9.Visible = false;
+            txtNomePerfil.Visible = false;
+            btnSalvarPerfil.Visible = false;
+
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+
+            label13.Text = m_setting.pastaLOCALperfil1;
+            label14.Text = m_setting.pastaWEBperfil1;
+
+            pastaLocal = m_setting.pastaLOCALperfil1;
+            pastaWEB = m_setting.pastaWEBperfil1;
+            usuario = m_setting.usuarioFTP;
+            senha = m_setting.senhaFTP;
+        }
+
+        private void btnPerfil2_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+            chkSubDiretorio.Visible = false;
+            lblsubdir.Visible = false;
+            listarPastasBox.Visible = false;
+            txtPastaWeb.Visible = false;
+            label8.Visible = false;
+            label6.Visible = false;
+            txtCaminhoLocal.Visible = false;
+            btnSelecionarPasta.Visible = false;
+            checkboxLocalPadrao.Visible = false;
+            label1.Visible = false;
+            chkSalvarPerfil.Visible = false;
+            label7.Visible = false;
+            dropPerfis.Visible = false;
+            label9.Visible = false;
+            txtNomePerfil.Visible = false;
+            btnSalvarPerfil.Visible = false;
+
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+
+            label13.Text = m_setting.pastaLOCALperfil2;
+            label14.Text = m_setting.pastaWEBperfil2;
+
+            pastaLocal = m_setting.pastaLOCALperfil2;
+            pastaWEB = m_setting.pastaWEBperfil2;
+            usuario = m_setting.usuarioFTP;
+            senha = m_setting.senhaFTP;
+        }
+
+        private void btnPerfil3_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+            chkSubDiretorio.Visible = false;
+            lblsubdir.Visible = false;
+            listarPastasBox.Visible = false;
+            txtPastaWeb.Visible = false;
+            label8.Visible = false;
+            label6.Visible = false;
+            txtCaminhoLocal.Visible = false;
+            btnSelecionarPasta.Visible = false;
+            checkboxLocalPadrao.Visible = false;
+            label1.Visible = false;
+            chkSalvarPerfil.Visible = false;
+            label7.Visible = false;
+            dropPerfis.Visible = false;
+            label9.Visible = false;
+            txtNomePerfil.Visible = false;
+            btnSalvarPerfil.Visible = false;
+
+            label11.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
+            label14.Visible = true;
+
+            label13.Text = m_setting.pastaLOCALperfil3;
+            label14.Text = m_setting.pastaWEBperfil3;
+
+            pastaLocal = m_setting.pastaLOCALperfil3;
+            pastaWEB = m_setting.pastaWEBperfil3;
+            usuario = m_setting.usuarioFTP;
+            senha = m_setting.senhaFTP;
         }
 
         public void botoesControle(bool botao)

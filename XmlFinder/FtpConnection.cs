@@ -75,6 +75,7 @@ namespace XmlFinder
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FtpAddress);
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
                 request.Credentials = new NetworkCredential(username, password);
+                request.UsePassive = true;
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 response.Close();
                 return true;

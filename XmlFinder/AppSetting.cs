@@ -132,6 +132,18 @@ namespace ScanPDF
         public string senhaFTP;
         public string pastalocalFTP;
 
+        public string perfil1 = "<Perfil1>";
+        public string pastaWEBperfil1;
+        public string pastaLOCALperfil1;
+
+        public string perfil2 = "<Perfil2>";
+        public string pastaWEBperfil2;
+        public string pastaLOCALperfil2;
+
+        public string perfil3 = "<Perfil3>";
+        public string pastaWEBperfil3;
+        public string pastaLOCALperfil3;
+
         //Plan Settings
 
 
