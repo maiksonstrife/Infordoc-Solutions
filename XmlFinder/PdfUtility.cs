@@ -47,6 +47,7 @@ namespace XmlFinder
 
         string fileName;
         string indice1;
+        string indice2;
 
         public void processoNomear()
         {
@@ -61,7 +62,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
+                ErrorLogging.ErrorLog(ex);
+                return;
             }
             #endregion
 
@@ -84,6 +86,16 @@ namespace XmlFinder
                     DateTime aDate = DateTime.Now;
                     indice1 = aDate.ToString("ddMMyyyy");
                 }
+                else if (userSettingN.indice1 == "<COUNTER>")
+                {
+                    indice1 = userSettingN.Counter.ToString();
+                }
+                else if (userSettingN.indice1 == "<RANDOMN>")
+                {
+                    Random rnd = new Random();
+                    int randomn = rnd.Next(1, 5000);
+                    indice1 = randomn.ToString();
+                }
                 else //Se não foi nenhum botão então só pode ser custom
                 {
                     indice1 = userSettingN.indice1;
@@ -95,9 +107,14 @@ namespace XmlFinder
                     indice1 = indice1.Substring(userSettingN.indice1SubI, userSettingN.indice1SubE);
                 }
 
+                //FAZ DELIMITER
+                if (userSettingN.indice1isDelimiter == true)
+                {
+                    indice1 += userSettingN.indice1Delimiter;
+                }
+
                 if (String.IsNullOrEmpty(indice1))
                 {
-                    new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
                     return;
                 }
                 else
@@ -105,11 +122,65 @@ namespace XmlFinder
                     fileName = indice1;
                 }
 
+                //Checa indice 2
+                if (userSettingN.isIndice2 == true)
+                {
+                    //PREENCHE INDICE 1 COM OS BOTOES
+                    if (userSettingN.indice2 == "<BARCODE>")
+                    {
+                        //pegar só nome do arquivo sem extenção quando voltar do almoço
+                        indice2 = Path.GetFileNameWithoutExtension(file);
+                    }
+                    else if (userSettingN.indice2 == "<DATA>")
+                    {
+                        DateTime aDate = DateTime.Now;
+                        indice2 = aDate.ToString("ddMMyyyy");
+                    }
+                    else if (userSettingN.indice2 == "<COUNTER>")
+                    {
+                        indice2 = userSettingN.Counter.ToString();
+                    }
+                    else if (userSettingN.indice2 == "<RANDOMN>")
+                    {
+                        Random rnd = new Random();
+                        int randomn = rnd.Next(1, 5000);
+                        indice2 = randomn.ToString();
+                    }
+                    else //Se não foi nenhum botão então só pode ser custom
+                    {
+                        indice2 = userSettingN.indice2;
+                    }
+
+                    //FAZ O SUBSTRING
+                    if (userSettingN.indice1isSubstring == true)
+                    {
+                        indice2 = indice2.Substring(userSettingN.indice2SubI, userSettingN.indice2SubE);
+                    }
+
+                    //FAZ DELIMITER
+                    if (userSettingN.indice1isDelimiter == true)
+                    {
+                        indice2 += userSettingN.indice2Delimiter;
+                    }
+
+                    if (String.IsNullOrEmpty(indice2))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        fileName = indice1 += indice2;
+                    }
+
+
+                }
+
                 PdfUtility pdfUtility = new PdfUtility();
                 
                 //SALVA NA PASTA SAIDA
                 System.IO.File.Copy(file, userSettingN.saidaPath + "\\" + fileName + ".PDF", true);
                 File.Delete(file);
+                userSettingN.Counter += userSettingN.Counter +  1;
             }
         }
 
@@ -129,7 +200,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.atencao).Show();
+                ErrorLogging.ErrorLog(ex);
+                return;
             }
 
             VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
@@ -144,12 +216,12 @@ namespace XmlFinder
                 {
                     myCert = new Cert(userSetting.pathCertificate, userSetting.passwordCertificate);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    new alerta("Senha Incorreta Certificado", alerta.AlertType.erro).Show();
-
+                    ErrorLogging.ErrorLog(ex);
                     return;
                 }
+
 
                 MetaData MyMD = new MetaData();
                 MyMD.Author = userSetting.autor;
@@ -165,7 +237,7 @@ namespace XmlFinder
                 PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
                 pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
 
-                //MessageBox.Show("Assinado :DDD");
+                
                 File.Delete(file);
             }
             
@@ -184,7 +256,9 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Impossivel Carregar Configuração", alerta.AlertType.erro).Show();
+                ErrorLogging.ErrorLog(ex);
+                return;
+                
 
             }
 
@@ -294,8 +368,9 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
-
+                ErrorLogging.ErrorLog(ex);
+                return;
+                
             }
 
             String[] pdfMarcarFiles;
@@ -326,17 +401,51 @@ namespace XmlFinder
                 using (MagickImage image = new MagickImage(page_img))
                 {
                     //APLICANDO MARCA DAGUA
-                    // Lê a marca dágua que será inserida na imagem
-                    using (MagickImage watermark = new MagickImage(watermark_img))
+                    using (MagickImage watermark = new MagickImage(watermark_img)) // Lê a marca dágua que será inserida na imagem           
+
                     {
-                        // Desenhando a marca no canto inferior direito (no futuro colocar pro usuario escolher)
-                        image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                        if (userSettingM.isPremadeMark == true)
+                        {
+                            if (userSettingM.ismarkSoutheast == true)
+                            {
+                                image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkSouthwest == true)
+                            {
+                                image.Composite(watermark, Gravity.Southwest, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkSouth == true)
+                            {
+                                image.Composite(watermark, Gravity.South, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkNorth == true)
+                            {
+                                image.Composite(watermark, Gravity.North, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkNortheast == true)
+                            {
+                                image.Composite(watermark, Gravity.Northeast, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkNorthwest == true)
+                            {
+                                image.Composite(watermark, Gravity.Northwest, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkEast == true)
+                            {
+                                image.Composite(watermark, Gravity.East, CompositeOperator.Over);
+                            }
+                            else if (userSettingM.ismarkWest == true)
+                            {
+                                image.Composite(watermark, Gravity.West, CompositeOperator.Over);
+                            }
+                        }
 
-                        // OU desenhe em um lugar com x/y
-                        //image.Composite(watermark, 200, 50, CompositeOperator.Over);
+                        else  //OU desenhe em um lugar com x/y
+                        {
+                            image.Composite(watermark, userSettingM.markX, userSettingM.markY, CompositeOperator.Over);
+                        }
 
-                        // Transparencia
-                        watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+                        watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, userSettingM.markTransparency);
                     }
 
                     // Salvando o resultado na pasta temporaria
@@ -388,7 +497,6 @@ namespace XmlFinder
 
             if (m_input_files.Count == 0)
             {
-                //MessageBox.Show("Sem Pdf na Pasta anexado ao processoRenomear()", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -439,11 +547,10 @@ namespace XmlFinder
                 Thread.Sleep(200);
                     Wait_for(40);
                     
-                    if (doc_height <= float.Epsilon) //Se certifica de que cada pagina está em conformidade com tamanho minimo
+                    /*if (doc_height <= float.Epsilon) //Se certifica de que cada pagina está em conformidade com tamanho minimo
                     {
-                            //MessageBox.Show("Essa Altura não é valida", "INFOR CUTTER 2.0", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
-                    }
+                    }*/
                         
                         
                         m_found = false;
@@ -579,9 +686,10 @@ namespace XmlFinder
                                 m_found = false;
 
                             }
-                            catch
+                            catch (Exception ex)
                             {
-                                new alerta("Barcode Erro", alerta.AlertType.erro).Show();
+                            ErrorLogging.ErrorLog(ex);
+                            return;
                             }
                         }
 
@@ -675,7 +783,6 @@ namespace XmlFinder
                 }
                 else
                 {
-                new alerta("Barcode Erro", alerta.AlertType.erro).Show();
 
                 string error = "barcode não detectado";
                     return error;
@@ -693,136 +800,13 @@ namespace XmlFinder
             }
         }
 
-        //Helpers : Métodos de auxílio para as classes de processos
-        //diretorio nivel usuario
-        string pathRaiz;
-        string pathVirtualScanner;
-        string pathCutter;
-        string out_folder;
-        string done_folder;
-        string marked_folder;
-        string in_folder;
+        
 
         //diretorio nivel interno programa
         string pathRaizInterno = @"C:\\INFORVirtualScanner";
-        string pathPreProcessing;
-        string pathProcessing;
-        string pathPostProcessing;
-        string pathWaterMark;
-        string pathSignature;
-        string pathIndexar;
+        
 
-        /*void criarDiretorios()
-        {
-            //nivel usuario -> vai mudar apenas para entrada e saida apenas em cada solução
-             pathRaiz = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + @"\InfordocSolutions";
-             pathVirtualScanner = pathRaiz + @"\Virtual Scanner";
-             //pathCutter = pathVirtualScanner + @"\Recortar";
-             out_folder = pathVirtualScanner + @"\Saida";
-             done_folder = pathVirtualScanner + @"\detectado";
-             marked_folder = pathVirtualScanner + @"\Recorte_Invalido";
-             in_folder = pathVirtualScanner + @"\Entrada";
-
-            //nivel programa -> Para funcionalidades internas das aplicações
-             pathRaizInterno = @"C:\\INFORVirtualScanner";
-             pathPreProcessing = pathRaizInterno + @"\PreProcessamento";
-             pathCutter = pathPreProcessing + @"\Cutter";
-             pathProcessing = pathRaizInterno + @"\Processamento";
-             pathPostProcessing = pathRaizInterno + @"\pos-processamento";
-             pathWaterMark = pathPostProcessing + @"\WaterMark";
-             pathSignature = pathPostProcessing + @"\Signature";
-             pathIndexar = pathRaizInterno + @"\Indexacao";
-
-            try
-            {
-                //Criando Diretorios Internos
-                if (Directory.Exists(pathRaizInterno) == false)
-                {
-                    Directory.CreateDirectory(pathRaizInterno);
-                }
-
-                if (Directory.Exists(pathPreProcessing) == false)
-                {
-                    Directory.CreateDirectory(pathPreProcessing);
-
-                }
-
-                if (Directory.Exists(pathCutter) == false)
-                {
-                    Directory.CreateDirectory(pathCutter);
-                }
-
-                if (Directory.Exists(pathProcessing) == false)
-                {
-                    Directory.CreateDirectory(pathProcessing);
-                }
-
-                if (Directory.Exists(pathPostProcessing) == false)
-                {
-                    Directory.CreateDirectory(pathPostProcessing); 
-                }
-
-                if (Directory.Exists(pathWaterMark) == false)
-                {
-                    Directory.CreateDirectory(pathWaterMark);
-                }
-
-                if (Directory.Exists(pathSignature) == false)
-                {
-                    Directory.CreateDirectory(pathSignature);
-                }
-
-                if (Directory.Exists(pathIndexar) == false)
-                {
-                    Directory.CreateDirectory(pathIndexar);
-                }
-
-                //Criando Diretorios Usuario
-                if (Directory.Exists(pathRaiz) == false)
-                {
-                    Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "InfordocSolutions"));
-                }
-
-                if (Directory.Exists(pathVirtualScanner) == false)
-                {
-                    Directory.CreateDirectory(pathVirtualScanner);
-                }
-
-                if (Directory.Exists(pathCutter) == false)
-                {
-                    Directory.CreateDirectory(pathCutter);
-                }
-
-                if (Directory.Exists(out_folder) == false)
-                {
-                    Directory.CreateDirectory(out_folder);
-                }
-
-                if (Directory.Exists(done_folder) == false)
-                {
-                    Directory.CreateDirectory(done_folder);
-                }
-
-                if (Directory.Exists(marked_folder) == false)
-                {
-                    Directory.CreateDirectory(marked_folder);
-                }
-
-                if (Directory.Exists(in_folder) == false)
-                {
-                    Directory.CreateDirectory(in_folder);
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "erro ao criar diretorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            
-        }
-        */
+       
 
         public void Wait_for(int milisec)
         {
@@ -1040,8 +1024,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Erro 008", alerta.AlertType.erro).Show();
-
+                ErrorLogging.ErrorLog(ex);
                 return false;
             }
 
@@ -1060,8 +1043,8 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                new alerta("Impossivel Carregar AppSettings", alerta.AlertType.erro).Show();
-
+                ErrorLogging.ErrorLog(ex);
+                return;
             }
         }
 

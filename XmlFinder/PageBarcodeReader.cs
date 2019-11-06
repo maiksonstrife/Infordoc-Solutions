@@ -92,17 +92,20 @@ namespace XmlFinder
             //bwpreprocessamento.CancelAsync();
 
 
-            //bora iniciar
-            PdfUtility pdfUtility = new PdfUtility();
-            PdfUtility.processoInserirMarcadagua();
+            //bora testar
+            //PdfUtility pdfUtility = new PdfUtility();
+            //pdfUtility.processoNomear();
+            PdfUtility.processoAssinar();
 
             scannerCircleProgress.Value = 1;
             scannerCircleProgress.Text = "scan";
-            //scannerCircleProgress.SuperScriptMargin = new Padding(4, 45, 0, 0);
             scannerCircleProgress.SuperScriptText = "lendo";
             timer1.Enabled = true;
             CarregaOnloadRenomear.Enabled = false;
             btnPararVerificacao.Enabled = true;
+
+            //bora iniciar
+            //enterPoint.RunWorkerAsync();
         }
 
         //Decide por onde começar

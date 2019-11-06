@@ -59,18 +59,77 @@ namespace XmlFinder
 
         private void bunifuButton4_Click(object sender, EventArgs e)
         {
-            m_setting.autor = autorTextBox.Text;
-            m_setting.titulo = tituloTextBox.Text;
-            m_setting.assunto = assuntoTextBox.Text;
-            m_setting.palavrasChave = keywordTextBox.Text;
-            m_setting.criador = criadorTextBox.Text;
-            m_setting.produtor = produtorTextBox.Text;
-            m_setting.razao = razaoTextBox.Text;
-            m_setting.contato = contatoTextBox.Text;
-            m_setting.Endereco = enderecoTextBox.Text;
-            m_setting.passwordCertificate = certificadoSenhaTextBox.Text;
-            m_setting.pathCertificate = certificadoPath;
-            m_setting.WatermarkImagePath = imagemPath;
+            if (String.IsNullOrEmpty(autorTextBox.Text) == false)
+            {
+                m_setting.autor = autorTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(tituloTextBox.Text) == false)
+            {
+                m_setting.titulo = tituloTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(assuntoTextBox.Text) == false)
+            {
+                m_setting.assunto = assuntoTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(keywordTextBox.Text) == false)
+            {
+                m_setting.palavrasChave = keywordTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(criadorTextBox.Text) == false)
+            {
+                m_setting.criador = criadorTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(produtorTextBox.Text) == false)
+            {
+                m_setting.produtor = produtorTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(razaoTextBox.Text) == false)
+            {
+                m_setting.razao = razaoTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(contatoTextBox.Text) == false)
+            {
+                m_setting.contato = contatoTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(enderecoTextBox.Text) == false)
+            {
+                m_setting.Endereco = enderecoTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(certificadoSenhaTextBox.Text) == false)
+            {
+                m_setting.passwordCertificate = certificadoSenhaTextBox.Text;
+            }
+
+            if (String.IsNullOrEmpty(certificadoPath) == false)
+            {
+                m_setting.pathCertificate = certificadoPath;
+            }
+
+            if (String.IsNullOrEmpty(imagemPath) == false)
+            {
+                m_setting.WatermarkImagePath = imagemPath;
+            }
+
+            if (String.IsNullOrEmpty(txtMarkX.Text) == false)
+            {
+                m_setting.markX = Convert.ToInt32(txtMarkX.Text);
+            }
+
+            if (String.IsNullOrEmpty(txtMarkY.Text) == false)
+            {
+                m_setting.markY = Convert.ToInt32(txtMarkY.Text);
+
+            }
+
 
             m_setting.Save();
             new alerta("Configurações Salvas", alerta.AlertType.atencao).Show();
@@ -88,6 +147,7 @@ namespace XmlFinder
                 return;
 
             certificadoPath = openFile.FileName;
+            txtCaminhoPrx.Text = certificadoPath;
         }
 
         private void VirtualScannerConfigIniForm_Load(object sender, EventArgs e)
@@ -111,6 +171,21 @@ namespace XmlFinder
             bunifuRadioButton1.Checked = m_setting.isHorizontal;
             assinaturaVisivelChkBox.Checked = m_setting.signVisivel;
             imagemPath = m_setting.WatermarkImagePath;
+            label32.Text = m_setting.lastPosition;
+            txtMarkX.Text = m_setting.markX.ToString();
+            txtMarkY.Text = m_setting.markY.ToString();
+            txtCaminhoPrx.Text = m_setting.pathCertificate;
+            txtCaminhoMark.Text = m_setting.WatermarkImagePath;
+
+            if (m_setting.isSpecificMark == true)
+            {
+                bunifuToggleSwitch1.Value = true;
+            }
+            else
+            {
+                bunifuToggleSwitch1.Value = false;
+            }
+
 
             //BOTAO SIGNATURE
             if (m_setting.isSignature == true)
@@ -324,6 +399,188 @@ namespace XmlFinder
                 return;
 
             imagemPath = openFile.FileName;
+            txtCaminhoMark.Text = imagemPath;
+        }
+
+        private void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //Toggle Marca dagua predefinida
+        private void bunifuToggleSwitch1_OnValuechange_1(object sender, EventArgs e)
+        {
+            if (bunifuToggleSwitch1.Value == true)
+            {
+                m_setting.isPremadeMark = true;
+            }
+
+            if (bunifuToggleSwitch1.Value == false)
+            {
+                m_setting.isPremadeMark = false;
+            }
+        }
+
+        //Noroeste
+        private void bunifuButton10_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Noroeste";
+            m_setting.lastPosition = "Noroeste";
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = true;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Norte";
+            m_setting.lastPosition = "Norte";
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = true;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+        }
+
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Nordeste";
+            m_setting.lastPosition = "Nordeste";
+
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = true;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+        }
+
+        
+        private void bunifuButton9_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Oeste";
+            m_setting.lastPosition = "Oeste";
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = true;
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Centro";
+            m_setting.lastPosition = "Centro";
+
+
+            //deixando true o settings
+            m_setting.ismarkCenter = true;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+        }
+
+        private void bunifuButton8_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Leste";
+            m_setting.lastPosition = "Leste";
+
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = true;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+        }
+
+        private void bunifuButton11_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Sudoeste";
+            m_setting.lastPosition = "Sudoeste";
+
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = true;
+            m_setting.ismarkWest = false;
+        }
+
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Sul";
+            m_setting.lastPosition = "Sul";
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = true;
+            m_setting.ismarkSoutheast = false;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            label32.Text = "Sudeste";
+            m_setting.lastPosition = "Sudeste";
+
+
+            //deixando true o settings
+            m_setting.ismarkCenter = false;
+            m_setting.ismarkEast = false;
+            m_setting.ismarkNorth = false;
+            m_setting.ismarkNortheast = false;
+            m_setting.ismarkNorthwest = false;
+            m_setting.ismarkSouth = false;
+            m_setting.ismarkSoutheast = true;
+            m_setting.ismarkSouthwest = false;
+            m_setting.ismarkWest = false;
         }
     }
 }

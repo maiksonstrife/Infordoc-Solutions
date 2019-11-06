@@ -62,7 +62,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ErrorLogging.ErrorLog(ex);
                 throw;
             }
         }
@@ -82,7 +82,7 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ErrorLogging.ErrorLog(ex);
                 return false;
             }
         }

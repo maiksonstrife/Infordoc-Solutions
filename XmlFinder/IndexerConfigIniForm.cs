@@ -47,6 +47,9 @@ namespace XmlFinder
 
         private void btnSalvarIndices_Click(object sender, EventArgs e)
         {
+            Load_AppSettings();
+
+            //Salvando Indice 1
             m_setting.indice1 = txtIndice1.Text;
 
             if (chkboxIndice1.Checked == true)
@@ -70,8 +73,41 @@ namespace XmlFinder
                 m_setting.indice1isDelimiter = false; 
             }
 
-            m_setting.Save();
-            new alerta("Configurações Salvas", alerta.AlertType.atencao).Show();
+            //Salvando Indice 2
+            m_setting.indice2 = txtIndice2.Text;
+
+            if (chkboxIndice2.Checked == true)
+            {
+                m_setting.indice2isSubstring = true;
+                m_setting.indice2SubI = Convert.ToInt32(txtinicio2.Text);
+                m_setting.indice2SubE = Convert.ToInt32(txtExtensao2.Text);
+            }
+            else
+            {
+                m_setting.indice2isSubstring = false;
+            }
+
+            if (chkboxdelimitar2.Checked == true)
+            {
+                m_setting.indice2isDelimiter = true;
+                m_setting.indice2Delimiter = txtDelimitar2.Text;
+            }
+            else
+            {
+                m_setting.indice2isDelimiter = false;
+            }
+
+            try
+            {
+                m_setting.Save();
+                new alerta("Configurações Salvas", alerta.AlertType.atencao).Show();
+            }
+            catch
+            {
+                new alerta("Impossivel Salvar", alerta.AlertType.atencao).Show();
+            }
+            
+            
         }
 
 
@@ -142,6 +178,118 @@ namespace XmlFinder
             {
                 txtDelimitar1.Visible = true;
             }
+        }
+
+        private void btnDigitalizações1_Click(object sender, EventArgs e)
+        {
+            txtIndice1.Text = "<COUNTER>";
+        }
+
+        private void chkboxAdd2_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkboxAdd2.Checked == true)
+            {
+                m_setting.isIndice2 = true;
+
+                lblIndice2.Visible = true;
+                txtIndice2.Visible = true;
+                chkboxIndice2.Visible = true;
+                lblExtrair2.Visible = true;
+                //lblinicio2.Visible = true;
+                //lblExtensao2.Visible = true;
+                //txtinicio2.Visible = true;
+                //txtExtensao2.Visible = true;
+                chkboxdelimitar2.Visible = true;
+                lblDelimitar2.Visible = true;
+                //txtDelimitar2.Visible = true;
+                btnBarcode2.Visible = true;
+                btnData2.Visible = true;
+                btnDigitalizações2.Visible = true;
+                btnRandomn2.Visible = true;
+            }
+
+            else
+            {
+                m_setting.isIndice2 = false;
+
+                lblIndice2.Visible = false;
+                txtIndice2.Visible = false;
+                txtIndice2.Text = "";
+                chkboxIndice2.Visible = false;
+                chkboxIndice2.Checked = false;
+                lblExtrair2.Visible = false;
+                lblinicio2.Visible = false;
+                lblExtensao2.Visible = false;
+                txtinicio2.Visible = false;
+                txtinicio2.Text = "";
+                txtExtensao2.Visible = false;
+                txtExtensao2.Text = "";
+                chkboxdelimitar2.Visible = false;
+                chkboxdelimitar2.Checked = false;
+                lblDelimitar2.Visible = false;
+                txtDelimitar2.Visible = false;
+                txtDelimitar2.Text = "";
+                btnBarcode2.Visible = false;
+                btnData2.Visible = false;
+                btnDigitalizações2.Visible = false;
+                btnRandomn2.Visible = false;
+            }
+           
+
+            m_setting.Save();
+        }
+
+        private void chkboxIndice2_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkboxIndice2.Checked == false)
+            {
+                txtinicio2.Text = "";
+                txtExtensao2.Text = "";
+                txtinicio2.Visible = false;
+                txtExtensao2.Visible = false;
+                lblinicio2.Visible = false;
+                lblExtensao2.Visible = false;
+            }
+            else
+            {
+                txtinicio2.Visible = true;
+                txtExtensao2.Visible = true;
+                lblinicio2.Visible = true;
+                lblExtensao2.Visible = true;
+            }
+        }
+
+        private void chkboxdelimitar2_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkboxdelimitar2.Checked == false)
+            {
+                txtDelimitar2.Text = "";
+                txtDelimitar2.Visible = false;
+            }
+            else
+            {
+                txtDelimitar2.Visible = true;
+            }
+        }
+
+        private void btnBarcode2_Click(object sender, EventArgs e)
+        {
+            txtIndice2.Text = "<BARCODE>";
+        }
+
+        private void btnData2_Click(object sender, EventArgs e)
+        {
+            txtIndice2.Text = "<DATA>";
+        }
+
+        private void btnDigitalizações2_Click(object sender, EventArgs e)
+        {
+            txtIndice2.Text = "<COUNTER>";
+        }
+
+        private void btnRandomn1_Click(object sender, EventArgs e)
+        {
+            txtIndice1.Text = "<RANDOMN>";
         }
     }
 }

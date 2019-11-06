@@ -144,6 +144,7 @@
             this.ButtonConfigIniInforPlan.Size = new System.Drawing.Size(343, 71);
             this.ButtonConfigIniInforPlan.TabIndex = 2;
             this.ButtonConfigIniInforPlan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ButtonConfigIniInforPlan.Visible = false;
             // 
             // ButtonConfigIniInforScanner
             // 
@@ -199,6 +200,7 @@
             this.label2.Size = new System.Drawing.Size(115, 30);
             this.label2.TabIndex = 8;
             this.label2.Text = "INFORPlan";
+            this.label2.Visible = false;
             // 
             // label3
             // 

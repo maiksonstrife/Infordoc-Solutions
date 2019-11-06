@@ -96,12 +96,23 @@ namespace ScanPDF
         public string positions = "1;2;3";
 
         //Indice Settings
+        public int Counter = 0;
+
         public string indice1 = "";
         public bool indice1isSubstring = false;
         public int indice1SubI = 0;
         public int indice1SubE = 1;
         public bool indice1isDelimiter = false;
         public string indice1Delimiter = "";
+
+        public bool isIndice2 = false;
+        public string indice2 = "";
+        public bool indice2isSubstring = false;
+        public int indice2SubI = 0;
+        public int indice2SubE = 1;
+        public bool indice2isDelimiter = false;
+        public string indice2Delimiter = "";
+
 
         //Signature Settings
         public string autor = "";
@@ -118,6 +129,26 @@ namespace ScanPDF
         public string contato = "";
         public string Endereco = "";
         public bool signVisivel = false;
+
+        //Watermark Settings
+        public bool isPremadeMark = true;
+        public bool ismarkSoutheast = true; // direita
+        public bool ismarkSouthwest = false; //esquerda
+        public bool ismarkSouth = false; //baixo
+        public bool ismarkNortheast = false;
+        public bool ismarkNorthwest = false;
+        public bool ismarkNorth = false;
+        public bool ismarkCenter = false;
+        public bool ismarkEast = false;
+        public bool ismarkWest = false;
+
+        public bool isSpecificMark = false;
+        public int markX = 200;
+        public int markY = 50;
+        public string lastPosition = "Sudeste";
+
+
+        public double markTransparency = 4;
 
         #endregion
 

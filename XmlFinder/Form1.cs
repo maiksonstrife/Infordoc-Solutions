@@ -127,23 +127,23 @@ namespace XmlFinder
         //TESTE RETANGULO sobre imagem
         //Futuramente pegar a area do OCR e salvar o retangulo
 
-        Rectangle rect = new Rectangle(125, 125, 50, 50);
-        bool isMouseDown = false;
+        //Rectangle rect = new Rectangle(125, 125, 50, 50);
+        //bool isMouseDown = false;
 
         //att
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
-            isMouseDown = true;
+            //isMouseDown = true;
         }
 
         private void pictureBox1_Paint_1(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(new SolidBrush(Color.RoyalBlue), rect);
+            //e.Graphics.FillRectangle(new SolidBrush(Color.RoyalBlue), rect);
         }
 
         private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
         {
-            if (isMouseDown == true)
+            /*if (isMouseDown == true)
             {
                 rect.Location = e.Location;
 
@@ -165,11 +165,13 @@ namespace XmlFinder
                 }
                 Refresh();
             }
+            */
         }
 
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
         {
-            isMouseDown = false;
+            //isMouseDown = false;
         }
+        
     }
 }

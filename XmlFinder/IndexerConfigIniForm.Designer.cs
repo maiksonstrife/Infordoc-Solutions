@@ -54,12 +54,13 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.topBar = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.closeButton = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuGradientPanel4 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.chkboxAdd2 = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnRandomn5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnDigitalizações5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnData5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -139,7 +140,6 @@
             this.txtEntrada = new System.Windows.Forms.Label();
             this.txtinicio1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lblinicio1 = new System.Windows.Forms.Label();
-            this.buttonHabilitarIndice2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.lblIndice1 = new System.Windows.Forms.Label();
             this.txtIndice1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.topBar.SuspendLayout();
@@ -214,6 +214,8 @@
             // 
             this.bunifuGradientPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel4.BackgroundImage")));
             this.bunifuGradientPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel4.Controls.Add(this.chkboxAdd2);
+            this.bunifuGradientPanel4.Controls.Add(this.label1);
             this.bunifuGradientPanel4.Controls.Add(this.btnRandomn5);
             this.bunifuGradientPanel4.Controls.Add(this.btnDigitalizações5);
             this.bunifuGradientPanel4.Controls.Add(this.btnData5);
@@ -293,7 +295,6 @@
             this.bunifuGradientPanel4.Controls.Add(this.txtEntrada);
             this.bunifuGradientPanel4.Controls.Add(this.txtinicio1);
             this.bunifuGradientPanel4.Controls.Add(this.lblinicio1);
-            this.bunifuGradientPanel4.Controls.Add(this.buttonHabilitarIndice2);
             this.bunifuGradientPanel4.Controls.Add(this.lblIndice1);
             this.bunifuGradientPanel4.Controls.Add(this.txtIndice1);
             this.bunifuGradientPanel4.GradientBottomLeft = System.Drawing.Color.DarkBlue;
@@ -305,6 +306,71 @@
             this.bunifuGradientPanel4.Quality = 5;
             this.bunifuGradientPanel4.Size = new System.Drawing.Size(1076, 640);
             this.bunifuGradientPanel4.TabIndex = 87;
+            // 
+            // chkboxAdd2
+            // 
+            this.chkboxAdd2.AllowBindingControlAnimation = true;
+            this.chkboxAdd2.AllowBindingControlColorChanges = false;
+            this.chkboxAdd2.AllowBindingControlLocation = true;
+            this.chkboxAdd2.AllowCheckBoxAnimation = false;
+            this.chkboxAdd2.AllowCheckmarkAnimation = true;
+            this.chkboxAdd2.AllowOnHoverStates = true;
+            this.chkboxAdd2.BackColor = System.Drawing.Color.Transparent;
+            this.chkboxAdd2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkboxAdd2.BackgroundImage")));
+            this.chkboxAdd2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chkboxAdd2.BindingControl = null;
+            this.chkboxAdd2.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.chkboxAdd2.Checked = false;
+            this.chkboxAdd2.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
+            this.chkboxAdd2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkboxAdd2.CustomCheckmarkImage = null;
+            this.chkboxAdd2.Location = new System.Drawing.Point(13, 96);
+            this.chkboxAdd2.MinimumSize = new System.Drawing.Size(17, 17);
+            this.chkboxAdd2.Name = "chkboxAdd2";
+            this.chkboxAdd2.OnCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkboxAdd2.OnCheck.BorderRadius = 2;
+            this.chkboxAdd2.OnCheck.BorderThickness = 2;
+            this.chkboxAdd2.OnCheck.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkboxAdd2.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.chkboxAdd2.OnCheck.CheckmarkThickness = 2;
+            this.chkboxAdd2.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.chkboxAdd2.OnDisable.BorderRadius = 2;
+            this.chkboxAdd2.OnDisable.BorderThickness = 2;
+            this.chkboxAdd2.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkboxAdd2.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.chkboxAdd2.OnDisable.CheckmarkThickness = 2;
+            this.chkboxAdd2.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkboxAdd2.OnHoverChecked.BorderRadius = 2;
+            this.chkboxAdd2.OnHoverChecked.BorderThickness = 2;
+            this.chkboxAdd2.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkboxAdd2.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.chkboxAdd2.OnHoverChecked.CheckmarkThickness = 2;
+            this.chkboxAdd2.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(131)))), ((int)(((byte)(188)))));
+            this.chkboxAdd2.OnHoverUnchecked.BorderRadius = 2;
+            this.chkboxAdd2.OnHoverUnchecked.BorderThickness = 2;
+            this.chkboxAdd2.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkboxAdd2.OnUncheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(69)))), ((int)(((byte)(155)))));
+            this.chkboxAdd2.OnUncheck.BorderRadius = 2;
+            this.chkboxAdd2.OnUncheck.BorderThickness = 2;
+            this.chkboxAdd2.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkboxAdd2.Size = new System.Drawing.Size(21, 21);
+            this.chkboxAdd2.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.chkboxAdd2.TabIndex = 167;
+            this.chkboxAdd2.ThreeState = false;
+            this.chkboxAdd2.ToolTipText = null;
+            this.chkboxAdd2.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkboxAdd2_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(43, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 21);
+            this.label1.TabIndex = 166;
+            this.label1.Text = "Adicionar Indice 2";
             // 
             // btnRandomn5
             // 
@@ -767,6 +833,7 @@
             this.btnDigitalizações2.TabIndex = 151;
             this.btnDigitalizações2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnDigitalizações2.Visible = false;
+            this.btnDigitalizações2.Click += new System.EventHandler(this.btnDigitalizações2_Click);
             // 
             // btnData2
             // 
@@ -800,6 +867,7 @@
             this.btnData2.TabIndex = 150;
             this.btnData2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnData2.Visible = false;
+            this.btnData2.Click += new System.EventHandler(this.btnData2_Click);
             // 
             // btnBarcode2
             // 
@@ -833,6 +901,7 @@
             this.btnBarcode2.TabIndex = 149;
             this.btnBarcode2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBarcode2.Visible = false;
+            this.btnBarcode2.Click += new System.EventHandler(this.btnBarcode2_Click);
             // 
             // btnRandomn1
             // 
@@ -865,6 +934,7 @@
             this.btnRandomn1.Size = new System.Drawing.Size(146, 23);
             this.btnRandomn1.TabIndex = 148;
             this.btnRandomn1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRandomn1.Click += new System.EventHandler(this.btnRandomn1_Click);
             // 
             // btnDigitalizações1
             // 
@@ -897,6 +967,7 @@
             this.btnDigitalizações1.Size = new System.Drawing.Size(146, 23);
             this.btnDigitalizações1.TabIndex = 147;
             this.btnDigitalizações1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDigitalizações1.Click += new System.EventHandler(this.btnDigitalizações1_Click);
             // 
             // btnData1
             // 
@@ -1899,6 +1970,7 @@
             this.chkboxdelimitar2.ThreeState = false;
             this.chkboxdelimitar2.ToolTipText = null;
             this.chkboxdelimitar2.Visible = false;
+            this.chkboxdelimitar2.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkboxdelimitar2_CheckedChanged);
             // 
             // lblExtrair2
             // 
@@ -1965,6 +2037,7 @@
             this.chkboxIndice2.ThreeState = false;
             this.chkboxIndice2.ToolTipText = null;
             this.chkboxIndice2.Visible = false;
+            this.chkboxIndice2.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkboxIndice2_CheckedChanged);
             // 
             // txtExtensao2
             // 
@@ -2418,38 +2491,6 @@
             this.lblinicio1.Text = "Inicio";
             this.lblinicio1.Click += new System.EventHandler(this.label2_Click);
             // 
-            // buttonHabilitarIndice2
-            // 
-            this.buttonHabilitarIndice2.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHabilitarIndice2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonHabilitarIndice2.BackgroundImage")));
-            this.buttonHabilitarIndice2.ButtonText = "Adicionar Índice 2";
-            this.buttonHabilitarIndice2.ButtonTextMarginLeft = 0;
-            this.buttonHabilitarIndice2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.buttonHabilitarIndice2.DisabledFillColor = System.Drawing.Color.Gray;
-            this.buttonHabilitarIndice2.DisabledForecolor = System.Drawing.Color.White;
-            this.buttonHabilitarIndice2.ForeColor = System.Drawing.Color.White;
-            this.buttonHabilitarIndice2.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.buttonHabilitarIndice2.IconPadding = 10;
-            this.buttonHabilitarIndice2.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.buttonHabilitarIndice2.IdleBorderColor = System.Drawing.Color.BlueViolet;
-            this.buttonHabilitarIndice2.IdleBorderRadius = 1;
-            this.buttonHabilitarIndice2.IdleBorderThickness = 0;
-            this.buttonHabilitarIndice2.IdleFillColor = System.Drawing.Color.BlueViolet;
-            this.buttonHabilitarIndice2.IdleIconLeftImage = null;
-            this.buttonHabilitarIndice2.IdleIconRightImage = null;
-            this.buttonHabilitarIndice2.Location = new System.Drawing.Point(15, 92);
-            this.buttonHabilitarIndice2.Name = "buttonHabilitarIndice2";
-            stateProperties25.BorderColor = System.Drawing.Color.DarkViolet;
-            stateProperties25.BorderRadius = 1;
-            stateProperties25.BorderThickness = 1;
-            stateProperties25.FillColor = System.Drawing.Color.DarkViolet;
-            stateProperties25.IconLeftImage = null;
-            stateProperties25.IconRightImage = null;
-            this.buttonHabilitarIndice2.onHoverState = stateProperties25;
-            this.buttonHabilitarIndice2.Size = new System.Drawing.Size(128, 32);
-            this.buttonHabilitarIndice2.TabIndex = 19;
-            this.buttonHabilitarIndice2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblIndice1
             // 
             this.lblIndice1.AutoSize = true;
@@ -2520,7 +2561,6 @@
         private System.Windows.Forms.Label txtEntrada;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtinicio1;
         private System.Windows.Forms.Label lblinicio1;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton buttonHabilitarIndice2;
         private System.Windows.Forms.Label lblIndice1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtIndice1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtExtensao1;
@@ -2594,5 +2634,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnBarcode2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnRandomn1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnDigitalizações1;
+        private Bunifu.UI.WinForms.BunifuCheckBox chkboxAdd2;
+        private System.Windows.Forms.Label label1;
     }
 }
