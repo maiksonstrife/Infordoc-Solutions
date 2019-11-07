@@ -54,58 +54,58 @@ namespace XmlFinder
             this.enterPoint.DoWork += new DoWorkEventHandler(enterPoint_DoWork);
             //this.enterPoint.RunWorkerCompleted += new RunWorkerCompletedEventHandler(enterPoint_RunWorkerCompleted);
             this.enterPoint.WorkerSupportsCancellation = true;
-            //enterPoint.CancelAsync();
 
             //configurando bw preprocessamento -> Inicio
             this.bwpreprocessamento = new BackgroundWorker();
             this.bwpreprocessamento.DoWork += new DoWorkEventHandler(bwpreprocessamento_DoWork);
             this.bwpreprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwpreprocessamento_RunWorkerCompleted);
             this.bwpreprocessamento.WorkerSupportsCancellation = true;
-            //bwpreprocessamento.CancelAsync();
 
             //configurando bw processamento -> Inicio
             this.bwprocessamento = new BackgroundWorker();
             this.bwprocessamento.DoWork += new DoWorkEventHandler(bwprocessamento_DoWork);
             this.bwprocessamento.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwprocessamento_RunWorkerCompleted);
             this.bwprocessamento.WorkerSupportsCancellation = true;
-            //bwpreprocessamento.CancelAsync();
 
             //configurando bwposprocessamento -> Inicio
             this.bwposprocessamentoWatermark = new BackgroundWorker();
             this.bwposprocessamentoWatermark.DoWork += new DoWorkEventHandler(bwposprocessamentoWatermark_DoWork);
             this.bwposprocessamentoWatermark.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoWatermark_RunWorkerCompleted);
             this.bwposprocessamentoWatermark.WorkerSupportsCancellation = true;
-            //bwpreprocessamento.CancelAsync();
 
             //configurando bwposprocessamento -> Inicio
             this.bwposprocessamentoSignature = new BackgroundWorker();
             this.bwposprocessamentoSignature.DoWork += new DoWorkEventHandler(bwposprocessamentoSignature_DoWork);
             this.bwposprocessamentoSignature.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwposprocessamentoSignature_RunWorkerCompleted);
             this.bwposprocessamentoSignature.WorkerSupportsCancellation = true;
-            //bwpreprocessamento.CancelAsync();
 
             //configurando bwposprocessamento -> Inicio
             this.exitPoint = new BackgroundWorker();
             this.exitPoint.DoWork += new DoWorkEventHandler(exitPoint_DoWork);
             this.exitPoint.RunWorkerCompleted += new RunWorkerCompletedEventHandler(exitPoint_RunWorkerCompleted);
             this.exitPoint.WorkerSupportsCancellation = true;
-            //bwpreprocessamento.CancelAsync();
 
 
             //bora testar
             //PdfUtility pdfUtility = new PdfUtility();
             //pdfUtility.processoNomear();
-            PdfUtility.processoAssinar();
+            //PdfUtility.processoAssinar();
 
             scannerCircleProgress.Value = 1;
             scannerCircleProgress.Text = "scan";
             scannerCircleProgress.SuperScriptText = "lendo";
-            timer1.Enabled = true;
+            
             CarregaOnloadRenomear.Enabled = false;
             btnPararVerificacao.Enabled = true;
 
             //bora iniciar
             //enterPoint.RunWorkerAsync();
+
+
+            //tentar usar só o timer
+            timer1.Enabled = true;
+
+            
         }
 
         //Decide por onde começar
@@ -518,6 +518,8 @@ namespace XmlFinder
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+
             enterPoint.RunWorkerAsync();
 
             if (m_setting.isPreProcessing == true)
@@ -588,6 +590,13 @@ namespace XmlFinder
             bunifuSeparator3.Visible = false;
             bunifuSeparator5.Visible = false;
 
+            //fechando as threads no background
+            enterPoint.CancelAsync();
+            bwpreprocessamento.CancelAsync();
+            bwprocessamento.CancelAsync();
+            bwposprocessamentoWatermark.CancelAsync();
+            bwposprocessamentoSignature.CancelAsync();
+            exitPoint.CancelAsync();
         }
     }
 }

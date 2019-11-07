@@ -19,6 +19,7 @@ using System.Threading;
 using Timer = System.Windows.Forms.Timer;
 
 using iTextSharpSign;
+using System.Drawing.Imaging;
 
 namespace XmlFinder
 {
@@ -822,49 +823,57 @@ namespace XmlFinder
             if (m_found)
                 return true;
 
+            List<BarcodeFormat> codeformats = new List<BarcodeFormat>();
+            codeformats.Add(BarcodeFormat.QR_CODE);
+            codeformats.Add(BarcodeFormat.CODE_128);
+
             // Primeira Tentativa : ZXing
             BarcodeReader reader = new BarcodeReader
             {
                 AutoRotate = true,
                 TryInverted = true,
-                Options = new DecodingOptions { TryHarder = true }
+
+                Options =
+                {
+                PossibleFormats = codeformats,
+                TryHarder = true,
+                ReturnCodabarStartEnd = true,
+                PureBarcode = false,
+               //UseCode39RelaxedExtendedMode = true,
+
+                //AssumeGS1 = false,
+
+                }
             };
+
             Result res = reader.Decode(img);
 
-            if (Properties.Settings.Default.SisRecortar == true)
-            {
-                
-                {
-                    m_found = true;
-                    m_code = res.Text;
-                    m_found_format = res.BarcodeFormat;
-                    return true;
-                }
 
-            }
-            else if (Properties.Settings.Default.SisRenomear == true)
-            {
-                if (res != null /*&& (res.BarcodeFormat == BarcodeFormat.QR_CODE)*/)
-                
+                if (res != null )
                 {
                     m_found = true;
                     m_code = res.Text;
                     m_found_format = res.BarcodeFormat;
                     return true;
                 }
-            }
-            else if (Properties.Settings.Default.SisSitema == true)
+            
+            //outra tentativa
+            using (img)
             {
-                if (res != null || (res.BarcodeFormat == BarcodeFormat.QR_CODE))
-                
+                LuminanceSource source;
+                source = new BitmapLuminanceSource(img);
+                BinaryBitmap bitmap = new BinaryBitmap(new GlobalHistogramBinarizer(source));
+                Result result = new MultiFormatReader().decode(bitmap);
+                if (result != null)
                 {
-                    m_found = true;
-                    m_code = res.Text;
-                    m_found_format = res.BarcodeFormat;
-                    return true;
+                    MessageBox.Show("leu");
                 }
+                else
+                {
+                    MessageBox.Show("Não Leu");
+                }
+                return true;
             }
-
 
 
             // Proxima Tentativa: BarcodeImaging
@@ -895,9 +904,17 @@ namespace XmlFinder
                 TryReadCode(CropImage(img, img.Width / 2, 0, img.Width / 2, img.Height / 2), depth + 1);
                 return m_found;
             }
+
+            
+
+
+
             else
                 return false;
         }
+
+       
+
 
         private string Check_filename_valid(string input)
         {
