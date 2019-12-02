@@ -133,8 +133,6 @@ namespace XmlFinder
             else  if (m_setting.isProcessing == true) //Se não for -> jogar na processamento
             {
                 
-               
-                
                 //jogar os arquivos na pasta processamento
                 foreach (string file in arquivosEntrada)
                 {

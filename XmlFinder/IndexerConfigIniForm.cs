@@ -164,6 +164,25 @@ namespace XmlFinder
 
             chkboxIndice1.Checked = m_setting.indice1isSubstring;
             chkboxdelimitar1.Checked = m_setting.indice1isDelimiter;
+
+            if (String.IsNullOrEmpty(m_setting.indice2) == false)
+            {
+                chkboxAdd2.Checked = true;
+                txtIndice2.Text = m_setting.indice2;
+
+                if (m_setting.indice2isSubstring == true)
+                {
+                    chkboxIndice2.Checked = true;
+                    txtinicio2.Text = m_setting.indice2SubI.ToString();
+                    txtExtensao2.Text = m_setting.indice2SubE.ToString();
+                }
+
+                if (m_setting.indice2isDelimiter == true)
+                {
+                    chkboxdelimitar2.Checked = true;
+                    txtDelimitar2.Text = m_setting.indice2Delimiter;
+                }
+            }
             
         }
 
@@ -234,9 +253,7 @@ namespace XmlFinder
                 btnDigitalizações2.Visible = false;
                 btnRandomn2.Visible = false;
             }
-           
 
-            m_setting.Save();
         }
 
         private void chkboxIndice2_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)

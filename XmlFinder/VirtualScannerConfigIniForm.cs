@@ -131,6 +131,7 @@ namespace XmlFinder
             }
 
 
+
             m_setting.Save();
             new alerta("Configurações Salvas", alerta.AlertType.atencao).Show();
             this.Close();
@@ -172,10 +173,14 @@ namespace XmlFinder
             assinaturaVisivelChkBox.Checked = m_setting.signVisivel;
             imagemPath = m_setting.WatermarkImagePath;
             label32.Text = m_setting.lastPosition;
+            lblSignTextDirection.Text = m_setting.lastSignPosition;
             txtMarkX.Text = m_setting.markX.ToString();
             txtMarkY.Text = m_setting.markY.ToString();
             txtCaminhoPrx.Text = m_setting.pathCertificate;
             txtCaminhoMark.Text = m_setting.WatermarkImagePath;
+
+
+
 
             if (m_setting.isSpecificMark == true)
             {
@@ -421,6 +426,7 @@ namespace XmlFinder
             }
         }
 
+        #region //Marca D'agua direção
         //Noroeste
         private void bunifuButton10_Click(object sender, EventArgs e)
         {
@@ -581,6 +587,90 @@ namespace XmlFinder
             m_setting.ismarkSoutheast = true;
             m_setting.ismarkSouthwest = false;
             m_setting.ismarkWest = false;
+        }
+
+        #endregion
+
+
+        private void textSignX_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSignTopLeft_Click(object sender, EventArgs e)
+        {
+            lblSignTextDirection.Text = "Superior Esquerda";
+            m_setting.lastPosition = "Superior Esquerda";
+
+            m_setting.IsSignTopLeft = true;
+            m_setting.isSignMiddleTop = false;
+            m_setting.isSignTopRight = false;
+            m_setting.isSignLeft = false;
+            m_setting.isSignRight = false;
+            m_setting.isSignBottomLeft = false;
+            m_setting.isSignBottom = false;
+            m_setting.isSignBottomRight = false;
+
+        }
+
+        private void btnSignMiddleTop_Click(object sender, EventArgs e)
+        {
+            lblSignTextDirection.Text = "Superior Meio";
+            m_setting.lastPosition = "Superior Meio";
+
+            m_setting.IsSignTopLeft = false;
+            m_setting.isSignMiddleTop = true;
+            m_setting.isSignTopRight = false;
+            m_setting.isSignLeft = false;
+            m_setting.isSignRight = false;
+            m_setting.isSignBottomLeft = false;
+            m_setting.isSignBottom = false;
+            m_setting.isSignBottomRight = false;
+        }
+
+        private void btnSignTopRight_Click(object sender, EventArgs e)
+        {
+            lblSignTextDirection.Text = "Superior Direita";
+            m_setting.lastPosition = "Superior Direita";
+
+            m_setting.IsSignTopLeft = false;
+            m_setting.isSignMiddleTop = false;
+            m_setting.isSignTopRight = true;
+            m_setting.isSignLeft = false;
+            m_setting.isSignRight = false;
+            m_setting.isSignBottomLeft = false;
+            m_setting.isSignBottom = false;
+            m_setting.isSignBottomRight = false;
+        }
+
+        private void btnSignBottomLeft_Click(object sender, EventArgs e)
+        {
+            lblSignTextDirection.Text = "Inferior Esquerda";
+            m_setting.lastPosition = "Inferior Esquerda";
+
+            m_setting.IsSignTopLeft = false;
+            m_setting.isSignMiddleTop = false;
+            m_setting.isSignTopRight = false;
+            m_setting.isSignLeft = false;
+            m_setting.isSignRight = false;
+            m_setting.isSignBottomLeft = true;
+            m_setting.isSignBottom = false;
+            m_setting.isSignBottomRight = false;
+        }
+
+        private void btnSignBottomRight_Click(object sender, EventArgs e)
+        {
+            lblSignTextDirection.Text = "Inferior Direita";
+            m_setting.lastPosition = "Inferior Direita";
+
+            m_setting.IsSignTopLeft = false;
+            m_setting.isSignMiddleTop = false;
+            m_setting.isSignTopRight = false;
+            m_setting.isSignLeft = false;
+            m_setting.isSignRight = false;
+            m_setting.isSignBottomLeft = false;
+            m_setting.isSignBottom = false;
+            m_setting.isSignBottomRight = true;
         }
     }
 }

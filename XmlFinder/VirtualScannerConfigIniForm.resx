@@ -163,6 +163,72 @@
         ZtBl8PuPiv3+AwCWdSjn+V6GdAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnSignBottomRight.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTY8iKOpOQFXX2P358JgGo8Ox/SckCvBikZlQh
+        TjyCFWZGnp0PYuDDmZFn5wMAav0vfBdCF2EAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSignRight.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAA5CAYAAAAP3Lq+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVEhL7co7EQAgDARRbCANqrRQ4QhDiSY+AlgBzBVv
+        ZotNvbr1Gou5nTFWzgPdR+OTRqQRaUQakUakEf03thLzBmkl5gaQvRgRYKSKEQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSignLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAA5CAYAAAAP3Lq+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVEhL7co7EQAgDARRbCANqrRQ4QhDiSY+AlgBzBVv
+        ZotNvbr1Gou5nTFWzgPdR+OTRqQRaUQakUakEf03thLzBmkl5gaQvRgRYKSKEQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSignMiddle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADMAAAA5CAYAAACbOhNMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB6SURBVGhD7c+xDcAgEMDArMFoUNFClY1YiJ+JBKYwkouT
+        3PrpZdZeYt1v1n8mVkrv9faHM0TOUDlD5QyVM1TOUDlD5QyVM1TOUDlD5QyVM1TOUDlD5QyVM1TOUDlD
+        5QyVM1TOUDlD5QyVM1TOUDlDdWZajrHjdi3H+ADp+kRBoRt8AgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSignMiddleBottom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADMAAAAQCAYAAAC7mUeyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVEhL7c+xEQAgCARB26A0iUwlsiMakppUunicD3bm
+        0mume5jGqW+PNxNHZJWXH5xBxBlUnEHFGVScQcUZVP/NzB6eUd3s4RdaxajWVqzQhwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="btnSignBottomLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTY8iKOpOQFXX2P358JgGo8Ox/SckCvBikZlQh
+        TjyCFWZGnp0PYuDDmZFn5wMAav0vfBdCF2EAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSignTopRight.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTY8iKOpOQFXX2P358JgGo8Ox/SckCvBikZlQh
+        TjyCFWZGnp0PYuDDmZFn5wMAav0vfBdCF2EAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSignMiddleTop.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADMAAAAQCAYAAAC7mUeyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVEhL7c+xEQAgCARB26A0iUwlsiMakppUunicD3bm
+        0mume5jGqW+PNxNHZJWXH5xBxBlUnEHFGVScQcUZVP/NzB6eUd3s4RdaxajWVqzQhwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="btnSignTopLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTY8iKOpOQFXX2P358JgGo8Ox/SckCvBikZlQh
+        TjyCFWZGnp0PYuDDmZFn5wMAav0vfBdCF2EAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="assinaturaVisivelChkBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

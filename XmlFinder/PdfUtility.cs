@@ -20,6 +20,10 @@ using Timer = System.Windows.Forms.Timer;
 
 using iTextSharpSign;
 using System.Drawing.Imaging;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using Image = SixLabors.ImageSharp.Image;
 
 namespace XmlFinder
 {
@@ -76,112 +80,132 @@ namespace XmlFinder
             foreach (string file in filesToIndex)
             {
 
-                //PREENCHE INDICE 1 COM OS BOTOES
-                if (userSettingN.indice1 == "<BARCODE>")
-                {
-                    //pegar só nome do arquivo sem extenção quando voltar do almoço
-                    indice1 = Path.GetFileNameWithoutExtension(file);
-                }
-                else if (userSettingN.indice1 == "<DATA>")
-                {
-                    DateTime aDate = DateTime.Now;
-                    indice1 = aDate.ToString("ddMMyyyy");
-                }
-                else if (userSettingN.indice1 == "<COUNTER>")
-                {
-                    indice1 = userSettingN.Counter.ToString();
-                }
-                else if (userSettingN.indice1 == "<RANDOMN>")
-                {
-                    Random rnd = new Random();
-                    int randomn = rnd.Next(1, 5000);
-                    indice1 = randomn.ToString();
-                }
-                else //Se não foi nenhum botão então só pode ser custom
-                {
-                    indice1 = userSettingN.indice1;
-                }
-
-                //FAZ O SUBSTRING
-                if (userSettingN.indice1isSubstring == true)
-                {
-                    indice1 = indice1.Substring(userSettingN.indice1SubI, userSettingN.indice1SubE);
-                }
-
-                //FAZ DELIMITER
-                if (userSettingN.indice1isDelimiter == true)
-                {
-                    indice1 += userSettingN.indice1Delimiter;
-                }
-
-                if (String.IsNullOrEmpty(indice1))
-                {
-                    return;
-                }
-                else
-                {
-                    fileName = indice1;
-                }
-
-                //Checa indice 2
-                if (userSettingN.isIndice2 == true)
+                //FAZ OS INDICES
+                try
                 {
                     //PREENCHE INDICE 1 COM OS BOTOES
-                    if (userSettingN.indice2 == "<BARCODE>")
+                    if (userSettingN.indice1 == "<BARCODE>")
                     {
                         //pegar só nome do arquivo sem extenção quando voltar do almoço
-                        indice2 = Path.GetFileNameWithoutExtension(file);
+                        indice1 = Path.GetFileNameWithoutExtension(file);
                     }
-                    else if (userSettingN.indice2 == "<DATA>")
+                    else if (userSettingN.indice1 == "<DATA>")
                     {
                         DateTime aDate = DateTime.Now;
-                        indice2 = aDate.ToString("ddMMyyyy");
+                        indice1 = aDate.ToString("ddMMyyyy");
                     }
-                    else if (userSettingN.indice2 == "<COUNTER>")
+                    else if (userSettingN.indice1 == "<COUNTER>")
                     {
-                        indice2 = userSettingN.Counter.ToString();
+                        indice1 = userSettingN.Counter.ToString();
                     }
-                    else if (userSettingN.indice2 == "<RANDOMN>")
+                    else if (userSettingN.indice1 == "<RANDOMN>")
                     {
                         Random rnd = new Random();
                         int randomn = rnd.Next(1, 5000);
-                        indice2 = randomn.ToString();
+                        indice1 = randomn.ToString();
                     }
                     else //Se não foi nenhum botão então só pode ser custom
                     {
-                        indice2 = userSettingN.indice2;
+                        indice1 = userSettingN.indice1;
                     }
 
                     //FAZ O SUBSTRING
                     if (userSettingN.indice1isSubstring == true)
                     {
-                        indice2 = indice2.Substring(userSettingN.indice2SubI, userSettingN.indice2SubE);
+                        indice1 = indice1.Substring(userSettingN.indice1SubI, userSettingN.indice1SubE);
                     }
 
                     //FAZ DELIMITER
                     if (userSettingN.indice1isDelimiter == true)
                     {
-                        indice2 += userSettingN.indice2Delimiter;
+                        indice1 += userSettingN.indice1Delimiter;
                     }
 
-                    if (String.IsNullOrEmpty(indice2))
+                    if (String.IsNullOrEmpty(indice1))
                     {
                         return;
                     }
                     else
                     {
-                        fileName = indice1 += indice2;
+                        fileName = indice1;
                     }
 
+                    //Checa indice 2
+                    if (userSettingN.isIndice2 == true)
+                    {
+                        //PREENCHE INDICE 1 COM OS BOTOES
+                        if (userSettingN.indice2 == "<BARCODE>")
+                        {
+                            //pegar só nome do arquivo sem extenção quando voltar do almoço
+                            indice2 = Path.GetFileNameWithoutExtension(file);
+                        }
+                        else if (userSettingN.indice2 == "<DATA>")
+                        {
+                            DateTime aDate = DateTime.Now;
+                            indice2 = aDate.ToString("ddMMyyyy");
+                        }
+                        else if (userSettingN.indice2 == "<COUNTER>")
+                        {
+                            indice2 = userSettingN.Counter.ToString();
+                        }
+                        else if (userSettingN.indice2 == "<RANDOMN>")
+                        {
+                            Random rnd = new Random();
+                            int randomn = rnd.Next(1, 5000);
+                            indice2 = randomn.ToString();
+                        }
+                        else //Se não foi nenhum botão então só pode ser custom
+                        {
+                            indice2 = userSettingN.indice2;
+                        }
 
+                        //FAZ O SUBSTRING
+                        if (userSettingN.indice1isSubstring == true)
+                        {
+                            indice2 = indice2.Substring(userSettingN.indice2SubI, userSettingN.indice2SubE);
+                        }
+
+                        //FAZ DELIMITER
+                        if (userSettingN.indice1isDelimiter == true)
+                        {
+                            indice2 += userSettingN.indice2Delimiter;
+                        }
+
+                        if (String.IsNullOrEmpty(indice2))
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            fileName = indice1 += indice2;
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogging.ErrorLog(ex);
+                    return;
+                }
+                
+
+                //SALVA NA PASTA SAIDA
+                try
+                {
+                    System.IO.File.Copy(file, userSettingN.saidaPath + "\\" + fileName + ".PDF", true);
+                    File.Delete(file);
+                    userSettingN.Counter += userSettingN.Counter + 1;
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogging.ErrorLog(ex);
+                    return;
                 }
 
-                PdfUtility pdfUtility = new PdfUtility();
-                
-                //SALVA NA PASTA SAIDA
-                System.IO.File.Copy(file, userSettingN.saidaPath + "\\" + fileName + ".PDF", true);
-                File.Delete(file);
-                userSettingN.Counter += userSettingN.Counter +  1;
+                //fazer a Thread pausar após finalizar cada arquivo
+                Wait_for(40);
+                Thread.Sleep(1000);
+
             }
         }
 
@@ -233,13 +257,22 @@ namespace XmlFinder
                 MyMD.Producer = userSetting.produtor;
 
                 //pegar o novo nome
-                string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file);
+                try
+                {
+                    string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file);
+                    PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
+                    pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
+                    Thread.Sleep(1000);
+                    File.Delete(file);
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogging.ErrorLog(ex);
+                    return;
+                }
 
-                PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
-                pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
-
-                
-                File.Delete(file);
+                //fazer a Thread pausar após finalizar cada arquivo
+                Thread.Sleep(1000);
             }
             
         }
@@ -259,8 +292,6 @@ namespace XmlFinder
             {
                 ErrorLogging.ErrorLog(ex);
                 return;
-                
-
             }
 
             String[] pdfRecortarhFiles;
@@ -269,12 +300,14 @@ namespace XmlFinder
 
             foreach (string pdffile in pdfRecortarhFiles)
             {
-                //abre pdf na pasta
-                PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
+                try
+                {
+                    //abre pdf na pasta
+                    PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
 
-                //economizar tempo-processamento, separei em duas rotinas, com ou sem loop baseado na quantidade de paginas, se for igual a 1 -> sem loop
-                //if( pdf.PageCount == 1)
-                //{
+                    //economizar tempo-processamento, separei em duas rotinas, com ou sem loop baseado na quantidade de paginas, se for igual a 1 -> sem loop
+                    //if( pdf.PageCount == 1)
+                    //{
                     //Configura magick reader
                     MagickReadSettings settings = new MagickReadSettings()
                     {
@@ -287,72 +320,86 @@ namespace XmlFinder
                     images.Write("temp.jpg");
 
                     //Usar uma copia da imagem temp para evitar erros
-                    
 
 
-                //A partir desse momento temos duas situações
-                //1 - Se for pagina unica o arquivo tempo salvou como temp.jpg como esperado
-                //2 - Se for multiplas paginas serão gerado dois arquivos temp-0.jpg e temp-1.jpg... assim sucetivamente
 
-                
-                if (images.Count > 1) //ponteiro começa em 1 //PRA SEGUNDA -> OS ARQUIVOS A PARTIR DO SEGUNDO LOOP SÃO SUBSTITUIDOS
-                    //fazer a formula do contador do PDF -> a * b + 1 = onde parou, sendo a -> nº de cortes, b -> nº da página, +1 -> constante (não discuta só aceita)
-                {
-                    for (int counter = 1; counter <= images.Count; counter++)
+                    //A partir desse momento temos duas situações
+                    //1 - Se for pagina unica o arquivo tempo salvou como temp.jpg como esperado
+                    //2 - Se for multiplas paginas serão gerado dois arquivos temp-0.jpg e temp-1.jpg... assim sucetivamente
+
+
+                    if (images.Count > 1) //ponteiro começa em 1 //PRA SEGUNDA -> OS ARQUIVOS A PARTIR DO SEGUNDO LOOP SÃO SUBSTITUIDOS
+                                          //fazer a formula do contador do PDF -> a * b + 1 = onde parou, sendo a -> nº de cortes, b -> nº da página, +1 -> constante (não discuta só aceita)
                     {
-                        int temp = counter - 1;
-                        Bitmap image = new Bitmap(FromFile("temp-" + temp + ".jpg")); //Essa amostra será usada para separar recortes e deverá persistir até o final do processo de recorte
+                        for (int counter = 1; counter <= images.Count; counter++)
+                        {
+                            int temp = counter - 1;
+                            Bitmap image = new Bitmap(FromFile("temp-" + temp + ".jpg")); //Essa amostra será usada para separar recortes e deverá persistir até o final do processo de recorte
 
+                            if (userSettingR.isHorizontal == true)
+                            {
+                                ImgRecorte.PDFRecorteHorizontal(image, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
+
+                                image.Dispose();
+                                File.Delete("temp-" + temp + ".jpg");
+                                Thread.Sleep(1000);
+                            }
+
+                            if (userSettingR.isHorizontal == false)
+                            {
+                                ImgRecorte.PDFRecorteVertical(image, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
+                                image.Dispose();
+                                File.Delete("temp-" + temp + ".jpg");
+                                Thread.Sleep(1000);
+                            }
+
+                        }
+                        File.Delete(pdffile);
+                        images.Dispose(); //libero o MagickReader da memória
+                        Thread.Sleep(1000);
+                    }
+
+                    if (images.Count == 1)
+                    {
+                        Bitmap originalImage = new Bitmap(FromFile("temp.jpg")); //Essa amostra será usada para separar recortes e deverá persistir até o final do processo de recorte
+                        #region //DIPOSE
+                        /*
+                         * Dispose é uma classe do tipo Interface (IDispose) que recebe diversos objetos e possui uma rotina indeferente para estes objetos para que os
+                         * objetos sejam gerenciados de forma otimizada para que liberem memória, normalmente, este método está incluso em classes que usam Handlers, isso é, 
+                         * tranca arquivo ou um código para lidar com futuras necessidades, quando não é mais necessário esta classe, usar Dipose();
+                        */
+                        #endregion
+                        int counter = 1;
                         if (userSettingR.isHorizontal == true)
                         {
-                            ImgRecorte.PDFRecorteHorizontal(image, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
-                            
-                            image.Dispose();
-                            File.Delete("temp-" + temp + ".jpg");
+                            ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
+                            File.Delete(pdffile);
+                            originalImage.Dispose();
+                            Thread.Sleep(1000);
+                            File.Delete("temp.jpg");
                         }
 
                         if (userSettingR.isHorizontal == false)
                         {
-                            ImgRecorte.PDFRecorteVertical(image, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
-                            image.Dispose();
-                            File.Delete("temp-" + temp + ".jpg");
+                            ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
+                            File.Delete(pdffile);
+                            originalImage.Dispose();
+                            Thread.Sleep(1000);
+                            File.Delete("temp.jpg");
                         }
-                        
+                        images.Dispose(); //libero o MagickReader da memória
+                        Thread.Sleep(1000);
                     }
-                    File.Delete(pdffile);
-                    images.Dispose(); //libero o MagickReader da memória
                 }
-
-                if (images.Count == 1)
+                catch (Exception ex)
                 {
-                    Bitmap originalImage = new Bitmap(FromFile("temp.jpg")); //Essa amostra será usada para separar recortes e deverá persistir até o final do processo de recorte
-                    #region //DIPOSE
-                    /*
-                     * Dispose é uma classe do tipo Interface (IDispose) que recebe diversos objetos e possui uma rotina indeferente para estes objetos para que os
-                     * objetos sejam gerenciados de forma otimizada para que liberem memória, normalmente, este método está incluso em classes que usam Handlers, isso é, 
-                     * tranca arquivo ou um código para lidar com futuras necessidades, quando não é mais necessário esta classe, usar Dipose();
-                    */
-                    #endregion
-                    int counter = 1;
-                    if (userSettingR.isHorizontal == true)
-                    {
-                        ImgRecorte.PDFRecorteHorizontal(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
-                        File.Delete(pdffile);
-                        originalImage.Dispose();
-                        File.Delete("temp.jpg");
-                    }
-
-                    if (userSettingR.isHorizontal == false)
-                    {
-                        ImgRecorte.PDFRecorteVertical(originalImage, pdffile, virtualScannerDiretorios.pathCutterCompleted, userSettingR.numeroCortes, images.Count, counter);
-                        File.Delete(pdffile);
-                        originalImage.Dispose();
-                        File.Delete("temp.jpg");
-                    }
-                    images.Dispose(); //libero o MagickReader da memória
+                    ErrorLogging.ErrorLog(ex);
+                    return;
                 }
+                
 
-
+                //fazer a Thread pausar após finalizar cada arquivo
+                Thread.Sleep(1000);
             }
         }
 
@@ -374,112 +421,123 @@ namespace XmlFinder
                 
             }
 
-            String[] pdfMarcarFiles;
-            VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
-            pdfMarcarFiles = Directory.GetFiles(virtualScannerDiretorios.pathWaterMark);
-
-            foreach (string pdffile in pdfMarcarFiles)
+            try
             {
-                PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
-                int page_count = pdf.PageCount;
-                PdfSharp.Pdf.PdfPage first = pdf.Pages[0];
-                PdfSharp.Pdf.PdfDocument out_pdf = null;
+                String[] pdfMarcarFiles;
+                VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
+                pdfMarcarFiles = Directory.GetFiles(virtualScannerDiretorios.pathWaterMark);
 
-                MagickImageCollection images = new MagickImageCollection();
-                MagickReadSettings settings = new MagickReadSettings()
+                foreach (string pdffile in pdfMarcarFiles)
                 {
-                    Density = new Density(300, 300)
-                };
-                images.Read(pdffile, settings);
+                    PdfSharp.Pdf.PdfDocument pdf = PdfSharp.Pdf.IO.PdfReader.Open(pdffile, PdfDocumentOpenMode.Import);
+                    int page_count = pdf.PageCount;
+                    PdfSharp.Pdf.PdfPage first = pdf.Pages[0];
+                    PdfSharp.Pdf.PdfDocument out_pdf = null;
 
-
-                //INSERINDO MARCA DAGUA
-                images[0].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
-                Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo // MEMORIA INSUFICIENTE
-                Bitmap watermark_img = new Bitmap(FromFile(userSettingM.WatermarkImagePath));
-
-                //MagickImage Le a imagem que vai receber marca d'agua
-                using (MagickImage image = new MagickImage(page_img))
-                {
-                    //APLICANDO MARCA DAGUA
-                    using (MagickImage watermark = new MagickImage(watermark_img)) // Lê a marca dágua que será inserida na imagem           
-
+                    MagickImageCollection images = new MagickImageCollection();
+                    MagickReadSettings settings = new MagickReadSettings()
                     {
-                        if (userSettingM.isPremadeMark == true)
+                        Density = new Density(300, 300)
+                    };
+                    images.Read(pdffile, settings);
+                    Thread.Sleep(1000);
+
+                    //INSERINDO MARCA DAGUA
+                    images[0].Write("temp.jpg");//salva primeira imagem do pdf no pasta repo
+                    Bitmap page_img = new Bitmap(FromFile("temp.jpg")); //pega imagem repo // MEMORIA INSUFICIENTE
+                    Bitmap watermark_img = new Bitmap(FromFile(userSettingM.WatermarkImagePath));
+
+                    //MagickImage Le a imagem que vai receber marca d'agua
+                    using (MagickImage image = new MagickImage(page_img))
+                    {
+                        //APLICANDO MARCA DAGUA
+                        using (MagickImage watermark = new MagickImage(watermark_img)) // Lê a marca dágua que será inserida na imagem           
+
                         {
-                            if (userSettingM.ismarkSoutheast == true)
+                            if (userSettingM.isPremadeMark == true)
                             {
-                                image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                                if (userSettingM.ismarkSoutheast == true)
+                                {
+                                    image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkSouthwest == true)
+                                {
+                                    image.Composite(watermark, Gravity.Southwest, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkSouth == true)
+                                {
+                                    image.Composite(watermark, Gravity.South, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkNorth == true)
+                                {
+                                    image.Composite(watermark, Gravity.North, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkNortheast == true)
+                                {
+                                    image.Composite(watermark, Gravity.Northeast, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkNorthwest == true)
+                                {
+                                    image.Composite(watermark, Gravity.Northwest, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkEast == true)
+                                {
+                                    image.Composite(watermark, Gravity.East, CompositeOperator.Over);
+                                }
+                                else if (userSettingM.ismarkWest == true)
+                                {
+                                    image.Composite(watermark, Gravity.West, CompositeOperator.Over);
+                                }
+                                Thread.Sleep(1000);
                             }
-                            else if (userSettingM.ismarkSouthwest == true)
+
+                            else  //OU desenhe em um lugar com x/y
                             {
-                                image.Composite(watermark, Gravity.Southwest, CompositeOperator.Over);
+                                image.Composite(watermark, userSettingM.markX, userSettingM.markY, CompositeOperator.Over);
+                                Thread.Sleep(1000);
                             }
-                            else if (userSettingM.ismarkSouth == true)
-                            {
-                                image.Composite(watermark, Gravity.South, CompositeOperator.Over);
-                            }
-                            else if (userSettingM.ismarkNorth == true)
-                            {
-                                image.Composite(watermark, Gravity.North, CompositeOperator.Over);
-                            }
-                            else if (userSettingM.ismarkNortheast == true)
-                            {
-                                image.Composite(watermark, Gravity.Northeast, CompositeOperator.Over);
-                            }
-                            else if (userSettingM.ismarkNorthwest == true)
-                            {
-                                image.Composite(watermark, Gravity.Northwest, CompositeOperator.Over);
-                            }
-                            else if (userSettingM.ismarkEast == true)
-                            {
-                                image.Composite(watermark, Gravity.East, CompositeOperator.Over);
-                            }
-                            else if (userSettingM.ismarkWest == true)
-                            {
-                                image.Composite(watermark, Gravity.West, CompositeOperator.Over);
-                            }
+
+                            watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, userSettingM.markTransparency);
+                            Thread.Sleep(1000);
                         }
 
-                        else  //OU desenhe em um lugar com x/y
-                        {
-                            image.Composite(watermark, userSettingM.markX, userSettingM.markY, CompositeOperator.Over);
-                        }
-
-                        watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, userSettingM.markTransparency);
+                        // Salvando o resultado na pasta temporaria
+                        image.Write("temp.jpg");
                     }
 
-                    // Salvando o resultado na pasta temporaria
-                    image.Write("temp.jpg");
+
+                    //SALVANDO COMO PDF
+                    page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
+                    PdfUtility pdfUtility = new PdfUtility();
+                    //dfUtility.Wait_for(1000);
+
+                    out_pdf = new PdfSharp.Pdf.PdfDocument()
+                    {
+                        Version = pdf.Version
+                    };
+
+                    out_pdf.Info.Title = String.Format("Page {0} of {1}", 0, pdf.Info.Title);
+                    out_pdf.Info.Creator = pdf.Info.Creator;
+
+
+                    string saida = virtualScannerDiretorios.pathWaterMarkCompleted + "\\" + Path.GetFileName(pdffile);
+
+                    //se signature for verdade, jogar em signature, se não, jogar em indexação
+                    pdfUtility.Add_new_page(page_img, out_pdf);
+                    out_pdf.Save(saida);
+                    //esperar ao copiar cada arquivo
+                    Thread.Sleep(1000);
+                    out_pdf.Close();
+                    page_img.Dispose();
+                    File.Delete(pdffile);
+                    Thread.Sleep(1000);
                 }
-
-
-                //SALVANDO COMO PDF
-                page_img = new Bitmap(FromFile("temp.jpg")); //Pegando o arquivo na pagina temporaria
-                PdfUtility pdfUtility = new PdfUtility();
-                //dfUtility.Wait_for(1000);
-
-                out_pdf = new PdfSharp.Pdf.PdfDocument()
-                {
-                    Version = pdf.Version
-                };
-
-                out_pdf.Info.Title = String.Format("Page {0} of {1}", 0, pdf.Info.Title);
-                out_pdf.Info.Creator = pdf.Info.Creator;
-
-
-                string saida = virtualScannerDiretorios.pathWaterMarkCompleted + "\\" + Path.GetFileName(pdffile);
-
-                //se signature for verdade, jogar em signature, se não, jogar em indexação
-                pdfUtility.Add_new_page(page_img, out_pdf);
-                out_pdf.Save(saida);
-                out_pdf.Close();
-                page_img.Dispose();
-                File.Delete(pdffile);
             }
-
-
-            
+            catch (Exception ex)
+            {
+                ErrorLogging.ErrorLog(ex);
+                return;
+            }
 
         }
 
@@ -557,114 +615,37 @@ namespace XmlFinder
                         m_found = false;
                         if (TryReadCode(page_img, 0) == true) //Se retornou true é que m_found (barcode) foi copulado
                         {
-                    /*      ARTEMIS
-                            Boolean pulaNumero = true;
 
-                            //MAIK NOTA: Separando posições por "," (QR MAXIPASS as posições são separadas por ",")
-                            string[] words = m_code.Split(',');
-
-                            Dictionary<string, string> dict = new Dictionary<string, string>();
-
-                            //MAIK NOTA: Pra cada posição separada por "," limpar caracteres especiais
-                            for (int i = 0; i < words.Length; i++)
+                            try
                             {
-                                string[] dados = words[i].Split(':');
-
-                                if (dados[0].Contains("17")) //exigencia MAXIPASS (LUCCA&LUCCA) *Numero aparece duas vezes, pular a primeira.
-                                {
-
-                                    pulaNumero = false;
-
-                                }
-                                else
-                                {
-                                    string numero = dados[0].Replace("{", "").Replace("/", "").Replace("\"", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"');
-
-                                    if (Char.IsDigit(numero, 0)) 
-
-                                    {
-                                        if (Convert.ToInt32(numero) < 17 && pulaNumero == true || Convert.ToInt32(numero) > 18 && Convert.ToInt32(numero) < 100)  //Original
-                                                                                                                                                                  //  if (Convert.ToInt32(dados[0]) < 17 )
-                                        {
-                                            dict.Add(dados[0].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"'), dados[1].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"'));
-                                        }
-                                        else
-                                        {
-
-                                            if (Convert.ToInt32(numero) == 18)
-                                            {
-                                                dict.Add(dados[0].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"'), dados[1].Replace("{", "").Replace("\"", "").Replace("}", "").Replace("/", "").Replace("-", "").Replace(".", "").TrimStart('"').TrimEnd('"'));
-                                                pulaNumero = true;
-
-                                            }
-                                        }
-
-                                    }
+                                //MAIK NOTE: LIMPA O RESULTADO DE CARACTERES ESPECIAIS
+                                string sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
+                                sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
+                                sendtodecode = sendtodecode.Replace("{", "");
+                                sendtodecode = sendtodecode.Replace("}", "");
+                                sendtodecode = sendtodecode.Replace(":", "");
 
 
+                                //MAIK NOTE: M_CODE passa por um processo "iso"(?) e volta como txtDecode(?)
+                                string textEncode = System.Web.HttpUtility.UrlEncode(sendtodecode, Encoding.GetEncoding("iso-8859-7"));
+                                string textDecode = System.Web.HttpUtility.UrlDecode(textEncode);
 
 
-                                }
-                                dados = null;
+                                //MAIK NOTE: Renomeia e move arquivo
+                                string fileName = fname;//NOME ORIGINAL, txt_scan_result.Text + ".pdf";
+                                string novoNome = textDecode + ".pdf";
+                                string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
+
+                                string sourceFile = System.IO.Path.Combine(virtualScannerDiretorios.pathProcessing, fileName);
+                                novoNome = StringFormater.RemoverCaracteresEspeciais(novoNome);
+                                string destFile = System.IO.Path.Combine(targetPath, novoNome);
+                                System.IO.File.Copy(sourceFile, destFile, true);
                             }
-
-
-
-                            //MAIK NOTA: USA OS CAMPOS SEPARADOS POR "," E GRAVA SUA POSIÇÃO NO CAMPO CHAVE INSERIDO PELO USUARIO
-                            string[] posicao = m_setting.positions.Split(m_setting.delimiter);
-
-                            int tamanho = posicao.Length;
-
-
-                            if (tamanho == 1)
+                            catch (Exception ex)
                             {
-
-                                m_code = dict[(posicao[0])];
-
+                                ErrorLogging.ErrorLog(ex);
+                                return;
                             }
-                            else if (tamanho == 2)
-                            {
-
-                                m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])];
-                            }
-                            else if (tamanho == 3)
-                            {
-
-                                m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])];
-                            }
-                            else if (tamanho == 4)
-                            {
-                                m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])] + "_" + dict[(posicao[3])];
-                            }
-                            else if (tamanho == 5)
-                            {
-                                m_code = dict[(posicao[0])] + "_" + dict[(posicao[1])] + "_" + dict[(posicao[2])] + "_" + dict[(posicao[3])] + "_" + dict[(posicao[4])];
-                            }
-                            */
-
-                            //MAIK NOTE: LIMPA O RESULTADO DE CARACTERES ESPECIAIS
-                            string sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
-                            sendtodecode = m_code.Replace("/", "").ToUpperInvariant();
-                            sendtodecode = sendtodecode.Replace("{", "");
-                            sendtodecode = sendtodecode.Replace("}", "");
-                            sendtodecode = sendtodecode.Replace(":", "");
-
-
-                            //MAIK NOTE: M_CODE passa por um processo "iso"(?) e volta como txtDecode(?)
-                            string textEncode = System.Web.HttpUtility.UrlEncode(sendtodecode, Encoding.GetEncoding("iso-8859-7"));
-                            string textDecode = System.Web.HttpUtility.UrlDecode(textEncode);
-
-
-                            //MAIK NOTE: Renomeia e move arquivo
-                            string fileName = fname;//NOME ORIGINAL, txt_scan_result.Text + ".pdf";
-                            string novoNome = textDecode + ".pdf";
-                            string targetPath = virtualScannerDiretorios.pathProcessingCompleted;
-
-                            string sourceFile = System.IO.Path.Combine(virtualScannerDiretorios.pathProcessing, fileName);
-                            novoNome = StringFormater.RemoverCaracteresEspeciais(novoNome);
-                            string destFile = System.IO.Path.Combine(targetPath, novoNome);
-                            System.IO.File.Copy(sourceFile, destFile, true);
-
 
                             Wait_for(40);
                             Thread.Sleep(1000);
@@ -685,7 +666,8 @@ namespace XmlFinder
                                 System.IO.File.Copy(sourceFile, destFile, true);
 
                                 m_found = false;
-
+                                 Wait_for(40);
+                                Thread.Sleep(1000);
                             }
                             catch (Exception ex)
                             {
@@ -693,11 +675,19 @@ namespace XmlFinder
                             return;
                             }
                         }
-
-                pdf.Close();
-                string lixo = virtualScannerDiretorios.pathProcessing + "\\" + fname;
-                File.Delete(lixo);
-                m_input_files.RemoveAt(0);
+                try
+                {
+                    pdf.Close();
+                    string lixo = virtualScannerDiretorios.pathProcessing + "\\" + fname;
+                    File.Delete(lixo);
+                    m_input_files.RemoveAt(0);
+                }
+                catch (Exception ex)
+                {
+                    ErrorLogging.ErrorLog(ex);
+                    return;
+                }
+                
             }
         }
 
@@ -746,9 +736,8 @@ namespace XmlFinder
 
                 images[barcodePage].Write("temp.jpg");      //salva pagina como temp.jpg e jogar para analize
 
-
+                
                 Bitmap page_img = new Bitmap(FromFile("temp.jpg"));
-
 
 
                 Thread.Sleep(200);
@@ -833,16 +822,12 @@ namespace XmlFinder
                 AutoRotate = true,
                 TryInverted = true,
 
-                Options =
-                {
+
+                Options = {
                 PossibleFormats = codeformats,
                 TryHarder = true,
                 ReturnCodabarStartEnd = true,
                 PureBarcode = false,
-               //UseCode39RelaxedExtendedMode = true,
-
-                //AssumeGS1 = false,
-
                 }
             };
 
@@ -856,61 +841,54 @@ namespace XmlFinder
                     m_found_format = res.BarcodeFormat;
                     return true;
                 }
-            
-            //outra tentativa
-            using (img)
+
+            //segunda tentativa
+            //Tentar em preto e branco
+            //Se BW estiver ativado fazer
+            /*
+            //funcionou pra um barcode
+            string file2 = Path.GetDirectoryName(@"temp.jpg");
+            using (var image = Image.Load<Rgba32>(@"temp.jpg"))
             {
-                LuminanceSource source;
-                source = new BitmapLuminanceSource(img);
-                BinaryBitmap bitmap = new BinaryBitmap(new GlobalHistogramBinarizer(source));
-                Result result = new MultiFormatReader().decode(bitmap);
-                if (result != null)
+                
+                image.Mutate(img2 => img2.Resize(image.Width / 2, image.Height / 2)
+                        .GaussianSharpen(sigma: 3.0f)
+                        .BlackWhite());
+                image.Save("image.jpg");
+                Bitmap page_img2 = new Bitmap(FromFile("image.jpg"));
+                Result res2 = reader.Decode(page_img2);
+
+                if (res2 != null)
                 {
-                    MessageBox.Show("leu");
+                    m_found = true;
+                    m_code = res.Text;
+                    m_found_format = res2.BarcodeFormat;
+                    return true;
                 }
-                else
-                {
-                    MessageBox.Show("Não Leu");
-                }
-                return true;
-            }
+            } */
 
-
-            // Proxima Tentativa: BarcodeImaging
-            var barcodes = new System.Collections.ArrayList();
-            var iScans = 100;
-            BarcodeImaging.FullScanPage(ref barcodes, img, iScans);
-            int i;
-            for (i = 0; i < barcodes.Count; i++)
-                if (barcodes[i].ToString().Length > 6)
-                   
-                    break;
-            if (i < barcodes.Count)
-                if (i < barcodes.Count)
-                    if (i < barcodes.Count)
-                    {
-                        m_found = true;
-                        m_code = barcodes[i].ToString();
-                        m_found_format = BarcodeFormat.CODE_128;
-                        return true;
-                    }
-
-            if (depth < m_setting.search_depth)
+            //tentando criar um perfil funcional
+            /*
+            using (var image = Image.Load<Rgba32>(@"temp.jpg"))
             {
-                // Tente dividir e reanalizar
-                TryReadCode(CropImage(img, 0, 0, img.Width / 2, img.Height / 2), depth + 1);
-                TryReadCode(CropImage(img, 0, img.Height / 2, img.Width / 2, img.Height / 2), depth + 1);
-                TryReadCode(CropImage(img, img.Width / 2, img.Height / 2, img.Width / 2, img.Height / 2), depth + 1);
-                TryReadCode(CropImage(img, img.Width / 2, 0, img.Width / 2, img.Height / 2), depth + 1);
-                return m_found;
+
+                image.Mutate(img2 => img2.Resize(image.Width , image.Height )
+                        .GaussianSharpen(sigma: 3.0f)
+                        .Grayscale());
+                image.Save("image.jpg");
+                Bitmap page_img2 = new Bitmap(FromFile("image.jpg"));
+                Result res2 = reader.Decode(page_img2);
+
+                if (res2 != null)
+                {
+                    m_found = true;
+                    m_code = res.Text;
+                    m_found_format = res2.BarcodeFormat;
+                    return true;
+                }
             }
-
-            
-
-
-
-            else
-                return false;
+            */
+            return false;
         }
 
        
@@ -946,17 +924,16 @@ namespace XmlFinder
             }
             catch (Exception ex)
             {
-                //new alerta("Att pasta falou", alerta.AlertType.erro).Show();
 
 
             }
         }
 
-        public static Image FromFile(string path)
+        public static System.Drawing.Image FromFile(string path)
         {
             var bytes = File.ReadAllBytes(path);
             var ms = new MemoryStream(bytes);
-            var img = Image.FromStream(ms);
+            var img = System.Drawing.Image.FromStream(ms);
             return img;
         }
 
@@ -994,7 +971,7 @@ namespace XmlFinder
                     bool found = false;
                     while (x >= w * 7 / 10)
                     {
-                        Color col = pixels.GetPixel(x, y);
+                        System.Drawing.Color col = pixels.GetPixel(x, y);
                         if (col.GetBrightness() < thresh)
                         {
                             found = true;
@@ -1020,7 +997,7 @@ namespace XmlFinder
                 {
                     for (int dy = 0; dy < r; dy++)
                     {
-                        Color pix = pixels.GetPixel(x - dx, y + dy);
+                        System.Drawing.Color pix = pixels.GetPixel(x - dx, y + dy);
                         _r += pix.R;
                         _g += pix.G;
                         _b += pix.B;

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScanPDF;
 
 namespace XmlFinder
 {
     public partial class PageConfigSelect : UserControl
     {
+        UserSetting m_setting;
 
         public PageConfigSelect()
         {
@@ -52,5 +54,27 @@ namespace XmlFinder
         {
                 Application.Restart();
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            Load_AppSettings();
+            m_setting.Exportar();
+        }
+
+        //Settings.ini -> Carrega arquivo Settings.ini
+        public void Load_AppSettings()
+        {
+            try
+            {
+                m_setting = UserSetting.Load();
+                if (m_setting == null)
+                    m_setting = new UserSetting();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

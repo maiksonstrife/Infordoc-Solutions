@@ -10,7 +10,9 @@ using org.bouncycastle.pkcs;
 using iTextSharp.text.pdf;
 using System.IO;
 using iTextSharp.text.xml.xmp;
-
+using ScanPDF;
+using System.Windows.Forms;
+using iTextSharp.text;
 
 ///
 /// <summary>
@@ -22,6 +24,8 @@ using iTextSharp.text.xml.xmp;
 
 namespace iTextSharpSign
 {
+
+    
     /// <summary>
     /// This class hold the certificate and extract private key needed for e-signature 
     /// </summary>
@@ -170,6 +174,7 @@ namespace iTextSharpSign
     /// </summary>
     class PDFSigner
     {
+        UserSetting m_setting;
         private string inputPDF = "";
         private string outputPDF = "";
         private Cert myCert;
@@ -205,9 +210,28 @@ namespace iTextSharpSign
         {
         }
 
+        //Settings.ini -> Carrega arquivo Settings.ini
+        public void Load_AppSettings()
+        {
+            try
+            {
+                m_setting = UserSetting.Load();
+                if (m_setting == null)
+                    m_setting = new UserSetting();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Impossivel Carregar AppSettings " + ex.Message, "INFOR CUTTER", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         public void Sign(string SigReason, string SigContact, string SigLocation, bool visible)
         {
+            Load_AppSettings();
+
+            
+
             PdfReader reader = new PdfReader(this.inputPDF);
             //Activate MultiSignatures
             PdfStamper st = PdfStamper.CreateSignature(reader, new FileStream(this.outputPDF, FileMode.Create, FileAccess.Write), '\0', null, true);
@@ -218,15 +242,54 @@ namespace iTextSharpSign
             st.XmpMetadata = this.metadata.getStreamedMetaData();
             PdfSignatureAppearance sap = st.SignatureAppearance;
 
-            sap.SetCrypto(this.myCert.Akp, this.myCert.Chain, null, PdfSignatureAppearance.WINCER_SIGNED);
+            sap.SetCrypto(this.myCert.Akp, this.myCert.Chain, null, PdfSignatureAppearance.SELF_SIGNED);
+
             sap.Reason = SigReason;
             sap.Contact = SigContact;
             sap.Location = SigLocation;
+
+            Rectangle cropBox = reader.GetCropBox(1);
+            Rectangle rectangle;
+
+            float width = 100;
+            float height = 50;
+
+
+            if (m_setting.IsSignTopLeft == true)
+            {
+                 rectangle = new Rectangle(cropBox.Left, cropBox.GetTop(height), cropBox.GetLeft(width), cropBox.Top);
+            }
+                else if (m_setting.isSignMiddleTop)
+                {
+                     rectangle = new Rectangle(cropBox.Right / 2.5f, cropBox.GetTop(height), cropBox.GetRight(width), cropBox.Top);
+                }
+                else if (m_setting.isSignTopRight)
+                {
+                     rectangle = new Rectangle(cropBox.GetRight(width), cropBox.GetTop(height), cropBox.Right, cropBox.Top);
+                } 
+                else if (m_setting.isSignBottomLeft)
+                {
+                     rectangle = new Rectangle(cropBox.Left, cropBox.Bottom, cropBox.GetLeft(width), cropBox.GetBottom(height));
+                }
+                else if (m_setting.isSignBottomRight) {
+                     rectangle = new Rectangle(cropBox.GetRight(width), cropBox.Bottom, cropBox.Right, cropBox.GetBottom(height));
+                }
+            else //default is middle top
+            {
+                 rectangle = new Rectangle(cropBox.Left, cropBox.GetTop(height), cropBox.GetLeft(width), cropBox.Top);
+            }
+
+
             if (visible)
-                sap.SetVisibleSignature(new iTextSharp.text.Rectangle(100, 100, 250, 150), 1, null);
+            {
+                sap.SetVisibleSignature(new iTextSharp.text.Rectangle(rectangle), 1, null);
+            }
 
             st.Close();
         }
+
+
+
 
     }
 }

@@ -47,6 +47,30 @@ namespace ScanPDF
                 return default(T);
             }
         }
+
+        public static void Exportar(T pSettings)
+        {
+
+            string export = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            File.WriteAllText(export, (new JavaScriptSerializer()).Serialize(pSettings));
+        }
+
+        public void Exportar()
+        {
+
+            string export = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            export += "\\settings.ini";
+            try
+            {
+                File.WriteAllText(export, (new JavaScriptSerializer()).Serialize(this));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("## App Setting Saving Failed : " + e.Message);
+            }
+        }
+        
+
     }
 
     //Essa classe é instancia a partir de ouras classes
@@ -129,6 +153,16 @@ namespace ScanPDF
         public string contato = "";
         public string Endereco = "";
         public bool signVisivel = false;
+
+        public bool IsSignTopLeft = false; 
+        public bool isSignMiddleTop = true; //default
+        public bool isSignTopRight = false;
+        public bool isSignLeft = false;
+        public bool isSignRight = false;
+        public bool isSignBottomLeft = false;
+        public bool isSignBottom = false;
+        public bool isSignBottomRight = false;
+        public string lastSignPosition = "";
 
         //Watermark Settings
         public bool isPremadeMark = true;
