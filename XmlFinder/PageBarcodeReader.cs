@@ -99,7 +99,7 @@ namespace XmlFinder
             btnPararVerificacao.Enabled = true;
 
             //bora iniciar
-            //enterPoint.RunWorkerAsync();
+            enterPoint.RunWorkerAsync();
 
 
             //tentar usar só o timer
@@ -119,9 +119,6 @@ namespace XmlFinder
             //
             if (m_setting.isPreProcessing == true)
             {
-
-                
-
                 //jogar arquivos na pasta preprocessamento
                 foreach (string file in arquivosEntrada)
                 {
@@ -132,7 +129,6 @@ namespace XmlFinder
             }
             else  if (m_setting.isProcessing == true) //Se não for -> jogar na processamento
             {
-                
                 //jogar os arquivos na pasta processamento
                 foreach (string file in arquivosEntrada)
                 {
@@ -140,7 +136,6 @@ namespace XmlFinder
                     System.IO.File.Copy(file, virtualScannerDiretorios.pathProcessing + "\\" + Filename, true);
                     File.Delete(file);
                 }
-
             }
             else if (m_setting.isWaterMark == true)
             {
@@ -158,7 +153,7 @@ namespace XmlFinder
 
             else if (m_setting.isSignature == true)
             {
-                
+
 
                 //jogar os arquivos na pasta Signature
                 foreach (string file in arquivosEntrada)
@@ -525,7 +520,7 @@ namespace XmlFinder
                 while (bwpreprocessamento.IsBusy)
                 {
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(10000);
                 }
 
                 bwpreprocessamento.RunWorkerAsync();
@@ -536,7 +531,7 @@ namespace XmlFinder
                     while (bwprocessamento.IsBusy)
                     {
                         Application.DoEvents();
-                        System.Threading.Thread.Sleep(100);
+                        System.Threading.Thread.Sleep(10000);
                     }
 
                 bwprocessamento.RunWorkerAsync();
@@ -547,7 +542,7 @@ namespace XmlFinder
                 while (bwposprocessamentoWatermark.IsBusy)
                 {
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(10000);
                 }
                 bwposprocessamentoWatermark.RunWorkerAsync();
             }
@@ -557,7 +552,7 @@ namespace XmlFinder
                 while (bwposprocessamentoSignature.IsBusy)
                 {
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(10000);
                 }
                 bwposprocessamentoSignature.RunWorkerAsync();
             }

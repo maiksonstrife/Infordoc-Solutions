@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageBarcodeReader));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.CarregaOnloadRenomear = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.txtNAssinar = new System.Windows.Forms.Label();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -55,8 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnPararVerificacao = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,13 +81,13 @@
             this.CarregaOnloadRenomear.IdleIconRightImage = null;
             this.CarregaOnloadRenomear.Location = new System.Drawing.Point(645, 492);
             this.CarregaOnloadRenomear.Name = "CarregaOnloadRenomear";
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties6.BorderRadius = 1;
-            stateProperties6.BorderThickness = 1;
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties6.IconLeftImage = null;
-            stateProperties6.IconRightImage = null;
-            this.CarregaOnloadRenomear.onHoverState = stateProperties6;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.BorderRadius = 1;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconRightImage = null;
+            this.CarregaOnloadRenomear.onHoverState = stateProperties1;
             this.CarregaOnloadRenomear.Size = new System.Drawing.Size(218, 38);
             this.CarregaOnloadRenomear.TabIndex = 0;
             this.CarregaOnloadRenomear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,6 +131,55 @@
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(888, 563);
             this.bunifuGradientPanel1.TabIndex = 1;
             this.bunifuGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.bunifuGradientPanel1_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(3, 524);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(194, 26);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "Parar Monitoramento";
+            // 
+            // btnPararVerificacao
+            // 
+            this.btnPararVerificacao.Active = false;
+            this.btnPararVerificacao.Activecolor = System.Drawing.Color.Red;
+            this.btnPararVerificacao.BackColor = System.Drawing.Color.Crimson;
+            this.btnPararVerificacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPararVerificacao.BorderRadius = 0;
+            this.btnPararVerificacao.ButtonText = "Parar";
+            this.btnPararVerificacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPararVerificacao.DisabledColor = System.Drawing.Color.Gray;
+            this.btnPararVerificacao.Enabled = false;
+            this.btnPararVerificacao.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnPararVerificacao.Iconimage = null;
+            this.btnPararVerificacao.Iconimage_right = null;
+            this.btnPararVerificacao.Iconimage_right_Selected = null;
+            this.btnPararVerificacao.Iconimage_Selected = null;
+            this.btnPararVerificacao.IconMarginLeft = 0;
+            this.btnPararVerificacao.IconMarginRight = 0;
+            this.btnPararVerificacao.IconRightVisible = true;
+            this.btnPararVerificacao.IconRightZoom = 0D;
+            this.btnPararVerificacao.IconVisible = true;
+            this.btnPararVerificacao.IconZoom = 90D;
+            this.btnPararVerificacao.IsTab = false;
+            this.btnPararVerificacao.Location = new System.Drawing.Point(199, 524);
+            this.btnPararVerificacao.Name = "btnPararVerificacao";
+            this.btnPararVerificacao.Normalcolor = System.Drawing.Color.Crimson;
+            this.btnPararVerificacao.OnHovercolor = System.Drawing.Color.Crimson;
+            this.btnPararVerificacao.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnPararVerificacao.selected = false;
+            this.btnPararVerificacao.Size = new System.Drawing.Size(53, 26);
+            this.btnPararVerificacao.TabIndex = 41;
+            this.btnPararVerificacao.Text = "Parar";
+            this.btnPararVerificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPararVerificacao.Textcolor = System.Drawing.Color.White;
+            this.btnPararVerificacao.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPararVerificacao.Click += new System.EventHandler(this.btnPararVerificacao_Click);
             // 
             // bunifuSeparator3
             // 
@@ -414,57 +463,8 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(3, 524);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(194, 26);
-            this.label7.TabIndex = 42;
-            this.label7.Text = "Parar Monitoramento";
-            // 
-            // btnPararVerificacao
-            // 
-            this.btnPararVerificacao.Active = false;
-            this.btnPararVerificacao.Activecolor = System.Drawing.Color.Red;
-            this.btnPararVerificacao.BackColor = System.Drawing.Color.Crimson;
-            this.btnPararVerificacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPararVerificacao.BorderRadius = 0;
-            this.btnPararVerificacao.ButtonText = "Parar";
-            this.btnPararVerificacao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPararVerificacao.DisabledColor = System.Drawing.Color.Gray;
-            this.btnPararVerificacao.Enabled = false;
-            this.btnPararVerificacao.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnPararVerificacao.Iconimage = null;
-            this.btnPararVerificacao.Iconimage_right = null;
-            this.btnPararVerificacao.Iconimage_right_Selected = null;
-            this.btnPararVerificacao.Iconimage_Selected = null;
-            this.btnPararVerificacao.IconMarginLeft = 0;
-            this.btnPararVerificacao.IconMarginRight = 0;
-            this.btnPararVerificacao.IconRightVisible = true;
-            this.btnPararVerificacao.IconRightZoom = 0D;
-            this.btnPararVerificacao.IconVisible = true;
-            this.btnPararVerificacao.IconZoom = 90D;
-            this.btnPararVerificacao.IsTab = false;
-            this.btnPararVerificacao.Location = new System.Drawing.Point(199, 524);
-            this.btnPararVerificacao.Name = "btnPararVerificacao";
-            this.btnPararVerificacao.Normalcolor = System.Drawing.Color.Crimson;
-            this.btnPararVerificacao.OnHovercolor = System.Drawing.Color.Crimson;
-            this.btnPararVerificacao.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnPararVerificacao.selected = false;
-            this.btnPararVerificacao.Size = new System.Drawing.Size(53, 26);
-            this.btnPararVerificacao.TabIndex = 41;
-            this.btnPararVerificacao.Text = "Parar";
-            this.btnPararVerificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPararVerificacao.Textcolor = System.Drawing.Color.White;
-            this.btnPararVerificacao.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPararVerificacao.Click += new System.EventHandler(this.btnPararVerificacao_Click);
             // 
             // PageBarcodeReader
             // 

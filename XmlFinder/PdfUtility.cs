@@ -231,10 +231,58 @@ namespace XmlFinder
 
             VirtualScannerDiretorios virtualScannerDiretorios = new VirtualScannerDiretorios();
 
-            //LISTAR ARQUIVOS DA PASTA
-            string[] filesTosign = Directory.GetFiles(virtualScannerDiretorios.pathSignature, "*.pdf");
+            //LISTAR ARQUIVOS DA PASTA METODO DIRETORIO UNICO
+            //string[] filesTosign = Directory.GetFiles(virtualScannerDiretorios.pathSignature, "*.pdf");
 
-            foreach (string file in filesTosign)
+            //foreach (string file in filesTosign)
+            //{
+            //    Cert myCert = null;
+            //    try
+            //    {
+            //        myCert = new Cert(userSetting.pathCertificate, userSetting.passwordCertificate);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ErrorLogging.ErrorLog(ex);
+            //        return;
+            //    }
+
+
+            //    MetaData MyMD = new MetaData();
+            //    MyMD.Author = userSetting.autor;
+            //    MyMD.Title = userSetting.titulo;
+            //    MyMD.Subject = userSetting.assunto;
+            //    MyMD.Keywords = userSetting.palavrasChave;
+            //    MyMD.Creator = userSetting.criador;
+            //    MyMD.Producer = userSetting.produtor;
+
+            //    //pegar o novo nome
+            //    try
+            //    {
+            //        string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file);
+            //        PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
+            //        pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
+            //        Thread.Sleep(1000);
+            //        File.Delete(file);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ErrorLogging.ErrorLog(ex);
+            //        return;
+            //    }
+
+
+
+
+
+            //    //fazer a Thread pausar após finalizar cada arquivo
+            //    Thread.Sleep(1000);
+            //}
+
+            // ARTEMIS - LISTAR ARQUIVOS DAS PASTAS  MÉTODO RECURSIVO, Todos subdiretorios
+            string[] files = Directory.GetFiles(userSetting.entradaPath, "*.pdf", SearchOption.AllDirectories);
+
+            foreach (string file in files)
             {
                 Cert myCert = null;
                 try
@@ -259,7 +307,16 @@ namespace XmlFinder
                 //pegar o novo nome
                 try
                 {
-                    string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file);
+                    
+                    //Pego diretorio do arquivo
+                    string path = Path.GetDirectoryName(file);
+                    string pdfname = "\\" + Path.GetFileNameWithoutExtension(file) + " .pdf";
+                    string saida = path + pdfname;
+                    //faço da saida o mesmo que a entrada
+                    
+                    //passo pro pdfs sign
+
+                    //string saida = virtualScannerDiretorios.pathIndexar + "\\" + Path.GetFileName(file); //Joga pra pasta de saida do virtual scanner
                     PDFSigner pdfs = new PDFSigner(file, saida, myCert, MyMD);
                     pdfs.Sign(userSetting.razao, userSetting.contato, userSetting.Endereco, userSetting.signVisivel);
                     Thread.Sleep(1000);
@@ -271,12 +328,18 @@ namespace XmlFinder
                     return;
                 }
 
+
+
+
+
                 //fazer a Thread pausar após finalizar cada arquivo
                 Thread.Sleep(1000);
             }
-            
+
+
+
         }
-        
+
         //FUNIONA COM PAGINA UNICA E MULTIPLA PAGINA
         public static void processoRecortar()
         {
