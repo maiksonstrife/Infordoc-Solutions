@@ -15,12 +15,8 @@ namespace XmlFinder
         #region  //Readme
         //Formatação esperada
 
-        //pastaLocal    "C:\\PathToUpload"
-        //pastaNuvem    "001-Chamados"
-        //file          {eula.1028.txt}
-        //url           "ftp.box.com"
-        //username      "contato@infordoc.com.br"
-        //password      "55745922"
+
+          
 
         #endregion
 
