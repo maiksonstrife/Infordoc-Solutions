@@ -18,11 +18,11 @@ namespace XmlFinder
          */ 
 
         //Variaveis globais
-        public static string connString = @"Data Source=169.57.134.120;Initial Catalog=DBTeste;User Id=sa;Password=ZXbnlz4N;Trusted_Connection=false;";
-        public static SqlConnection conn = null; //Objeto que faz ponte entre c# e sql, possui comandos basicos como UPDATE, INSERT e DELETE
-        public static SqlCommand command = null; //objeto que segura comando sql
-        public static SqlDataAdapter adapter = new SqlDataAdapter(); //objeto que faz UPDATE (*trocado por using)
-        public static SqlDataReader dr = null; //objeto que faz leitura ao banco
+        public static string connString = @"Data Source=IP;Initial Catalog=DBTeste;User Id=sa;Password=ZXbnlz4N;Trusted_Connection=false;";
+        public static SqlConnection conn = null; 
+        public static SqlCommand command = null; 
+        public static SqlDataAdapter adapter = new SqlDataAdapter();
+        public static SqlDataReader dr = null; 
 
         //CRUD
         public static SqlConnection ExecuteQueries(string sqlcommand, params SqlParameter[] parameters)
