@@ -9,7 +9,7 @@ Software de Digitalização, manipulação de arquivos jpg,png,pdf.
 -Recorte de Documentos<br>
 -Assinatura Digital de Documentos .pfx (visivel ou não)<br>
 -Marca d'agua em documentos<br>
--Thread de envio a FTP<br>
+-Envio dos arquivos em FTP<br>
 -Threads que processam simultaneamente<br>
 -Todas funções podem ser agendadas<br><br>
 
